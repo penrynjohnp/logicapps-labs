@@ -30,8 +30,8 @@ export default function LandingpageFeatures({ images }: LandingpageFeaturesProps
                     <div className='col col--6'>
                         <div className="row">
                             <div className={styles.largetext}>
-                                Hands-on tutorials to <span className={styles.purpletext}>learn</span> <br />
-                                and <span className={styles.purpletext}>teach</span> <TypewriterComponent words={keywords} />
+                                Hands-on tutorials to <span className={styles.bluetext}>learn</span> <br />
+                                and <span className={styles.bluetexttext}>teach</span> <TypewriterComponent words={keywords} />
                             </div>
                         </div>
                         <div className="row">
