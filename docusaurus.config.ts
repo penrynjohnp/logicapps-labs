@@ -5,21 +5,21 @@ import type * as Preset from '@docusaurus/preset-classic';
 // This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
 
 const config: Config = {
-  title: 'AKS LABS',
-  tagline: 'Learn AKS by building with AKS',
+  title: 'Logic Apps LABS',
+  tagline: 'Learn Logic Apps by building with Logic Apps',
   favicon: 'img/favicon.ico',
 
   // Set the production url of your site here
   url: 'https://azure-samples.github.io',
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
-  baseUrl: '/aks-labs/',
+  baseUrl: '/logicapps-labs/',
   deploymentBranch: 'gh-pages',
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
   organizationName: 'azure-samples', // Usually your GitHub org/user name.
-  projectName: 'aks-labs', // Usually your repo name.
+  projectName: 'logicapps-labs', // Usually your repo name.
 
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
@@ -41,7 +41,7 @@ const config: Config = {
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           editUrl:
-            'https://github.com/Azure-Samples/aks-labs/tree/main/',
+            'https://github.com/Azure-Samples/logicapps-labs/tree/main/',
         },
         // 
         // IF WE WANT TO ENABLE THE BLOG PLUGIN, UNCOMMENT THIS SECTION
@@ -65,7 +65,7 @@ const config: Config = {
           customCss: './src/css/custom.css',
         },
         gtag: {
-          trackingID: 'G-6P20KCSF97',
+          trackingID: '',
           anonymizeIP: true,
         },
       } satisfies Preset.Options,
@@ -80,7 +80,7 @@ const config: Config = {
       title: 'AKS LABS',
       logo: {
         alt: 'AKS Labs Logo',
-        src: 'img/aks-logo-icon.svg',
+        src: 'img/aks-logo-icon.png',
       },
       items: [
         {
@@ -94,7 +94,7 @@ const config: Config = {
           label: 'Blog', 
           position: 'left'},
         {
-          href: 'https://github.com/Azure-Samples/aks-labs',
+          href: 'https://github.com/Azure-Samples/logicapps-labs',
           label: 'GitHub',
           position: 'right',
         },
