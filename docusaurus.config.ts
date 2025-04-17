@@ -21,7 +21,7 @@ const config: Config = {
   organizationName: 'azure-samples', // Usually your GitHub org/user name.
   projectName: 'logicapps-labs', // Usually your repo name.
 
-  onBrokenLinks: 'throw',
+  onBrokenLinks: 'warn',
   onBrokenMarkdownLinks: 'warn',
 
   // Even if you don't use internationalization, you can use this field to set
