@@ -5,7 +5,7 @@ import type * as Preset from '@docusaurus/preset-classic';
 // This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
 
 const config: Config = {
-  title: 'Logic Apps LABS',
+  title: 'Logic Apps Labs',
   tagline: 'Learn Logic Apps by building with Logic Apps',
   favicon: 'img/favicon.ico',
 
@@ -77,9 +77,9 @@ const config: Config = {
     // Replace with your project's social card
     image: 'img/aks-labs-social-card.png',
     navbar: {
-      title: 'AKS LABS',
+      title: 'Logic Apps Labs',
       logo: {
-        alt: 'AKS Labs Logo',
+        alt: 'Logic Apps Labs Logo',
         src: 'img/aks-logo-icon.png',
       },
       items: [
@@ -90,7 +90,7 @@ const config: Config = {
           label: 'Workshops',
         },
         {
-          href: 'https://azure.github.io/AKS/', 
+          href: 'https://techcommunity.microsoft.com/category/azure/blog/integrationsonazureblog', 
           label: 'Blog', 
           position: 'left'},
         {

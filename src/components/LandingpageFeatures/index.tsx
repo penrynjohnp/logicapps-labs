@@ -24,7 +24,7 @@ export default function LandingpageFeatures({ images }: LandingpageFeaturesProps
         //<section className={styles.largetext}>    
             <div className='container no-sidebar'>
                 <div className="row">
-                   <img className={styles.logo} src={require('../../../static/img/aks-logo-dark.png').default}  alt="AKS Labs logo"  />
+                   <img className={styles.logo} src={require('../../../static/img/aks-logo-dark.png').default}  alt="Logic Apps Labs logo"  />
                 </div>
                 <div className='row'>
                     <div className='col col--6'>

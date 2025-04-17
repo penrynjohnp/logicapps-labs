@@ -1,4 +1,4 @@
-# AKS-LABS
+# LogicApps-Labs
 
 Grab and go resources to learn about Kubernetes and Azure Kubernetes Service (AKS)
 
