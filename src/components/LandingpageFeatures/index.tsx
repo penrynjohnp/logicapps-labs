@@ -7,11 +7,12 @@ import styles from './styles.module.css';
 
 
 const keywords = [
-    'cloud computing',
-    'cloud native',
-    'containers',
-    'Kubernetes',
-    'Azure Kubernetes Service',
+    'Intelligent workflows',
+    'Workflow orchestration',
+    'Business Process Automation',
+    'Enterprise Integration',
+    'Azure Integration Services',
+    'Azure Logic Apps',
   ];
 
   interface LandingpageFeaturesProps {
@@ -36,7 +37,7 @@ export default function LandingpageFeatures({ images }: LandingpageFeaturesProps
                         </div>
                         <div className="row">
                             <div className={`${styles.subtitle}`}> 
-                                Grab-and-go resources to help you learn new skills but also <a href="./contributing">contribute</a> your own workshop to help others in their AKS learning journey.
+                                Grab-and-go resources to help you learn new skills but also <a href="./contributing">contribute</a> your own workshop to help others in their Azure Logic Apps learning journey.
                             </div>
                         </div>
                         <div className='row'>
