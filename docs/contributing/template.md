@@ -16,7 +16,9 @@ contacts:
  **Authors:**
 [Carl Andrews - Microsoft](www.linkedin.com), [John Smith - Contoso](www.linkedin.com)
 
+## High-level architecture
 
+![AKS store demo architecture](./assets/aks-store-architecture.png)
 
 ## Prerequisites
 
@@ -341,9 +343,6 @@ The application has the following services:
 | product-service | This service is used to perform CRUD operations on products (Rust) |
 | rabbitmq        | RabbitMQ for an order queue                                        |
 
-Here is a high-level architecture of the application:
-
-![AKS store demo architecture](./assets/aks-store-architecture.png)
 
 Run the following command to create a namespace for the application.
 
