@@ -1,19 +1,21 @@
 ---
-sidebar_position: 1
+sidebar_position: 2
 title: Template for creating a new Lab
 sidebar_label: "Template for creating a new Lab"
 description: Description of your Lab
 image: aka.ms/logicapps/labs/contributing/assets/acns-pets-app.png
 keywords: [keywords, describing, the main topics]
 authors:
- - "Russell de Pina"
- - "Paul Yu"
- - "Ken Kilty"
+ - "Carl Andrews"
+ - "John Smith"
 contacts:
- - "@russd2357"
- - "@paultdotyu"
- - "@KenKilty"
+ - "@carl2357"
+ - "@john5495"
 ---
+
+ **Authors:**
+[Carl Andrews - Microsoft](www.linkedin.com), [John Smith - Contoso](www.linkedin.com)
+
 
 
 ## Prerequisites
