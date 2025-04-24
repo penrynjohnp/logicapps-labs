@@ -26,7 +26,13 @@ The task of parsing, chunking, vectorizing data and storing it in an index is ha
 
 Azure Logic Apps has introduced new functionality that facilitates every step required to process documents from their connectors for unstructured data. Now data extraction, pulling files, parsing data, chunking, vectorizing and indexing your data into Azure AI Search is all streamlined into one integrated flow. Additionally, Azure Logic Apps now offers templates for high-demand connectors, with predefined indexing workflows for RAG-ready AI Search indexes, simplifying the creation of these workflows. Some of these templates include indexing pipelines for files located in SharePoint Online, Azure Files, SFTP, among others.
 
-
+:::info
+To learn more, you can ask your favorite AI companion these questions:
+- What is RAG in AI?
+- What is Azure AI Search?
+- What is vectorization in the context of search?
+- What is a search index?
+:::
 
 ## Prerequisites
 
