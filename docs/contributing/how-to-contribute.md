@@ -52,7 +52,7 @@ There are two templates added to the repo for the following requests:
 
 
 
-# Inner loop, testing your changes using Github Codespaces
+## Testing your changes using Github Codespaces
 
 This repo has a github codespace dev container defined, this container is based on ubuntu 24.10 and contains all the libraries and components to run github pages locally in Github Codespaces(Node 22, NPM 10.9). To test your changes locally do the following:
 
