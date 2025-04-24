@@ -45,6 +45,11 @@ This project uses GitHub Issues to track bugs and feature requests. Please searc
 issues before filing new issues to avoid duplicates.  For new issues, file your bug or 
 feature request as a new Issue.
 
+There are two templates added to the repo for the following requests:
+
+- [Bug report](https://github.com/Azure-Samples/logicapps-labs/issues/new?template=bug_report.md)
+- [New feature request](https://github.com/Azure-Samples/logicapps-labs/issues/new?template=feature_request.md) 
+
 
 
 # Inner loop, testing your changes using Github Codespaces
