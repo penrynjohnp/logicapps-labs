@@ -53,13 +53,13 @@ chances of your issue being dealt with quickly:
 - **Suggest a Fix** - if you can't fix the bug yourself, perhaps you can point to what might be
   causing the problem (line of code or commit)
 
-You can file new issues by providing the above information at the corresponding repository's issues link: [https://github.com/Azure-Samples/aks-labs/issues/new](https://github.com/Azure-Samples/aks-labs/issues/new).
+You can file new issues by providing the above information at the corresponding repository's issues link: [https://github.com/azure/logicapps-labs/issues/new](https://github.com/azure/logicapps-labs/issues/new).
 
 ### Submitting a Pull Request (PR) {#submit-pr}
 
 Before you submit your Pull Request (PR) consider the following guidelines:
 
-- Search the repository [https://github.com/Azure-Samples/aks-labs/pulls](https://github.com/Azure-Samples/aks-labs/pulls) for an open or closed PR
+- Search the repository [https://github.com/azure/logicapps-labs/pulls](https://github.com/azure/logicapps-labs/pulls) for an open or closed PR
   that relates to your submission. You don't want to duplicate effort.
 - Fork the repository and make your changes in your local fork.
 - Commit your changes using a descriptive commit message

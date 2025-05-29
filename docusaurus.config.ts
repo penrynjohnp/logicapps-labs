@@ -10,7 +10,7 @@ const config: Config = {
   favicon: 'img/favicon.ico',
 
   // Set the production url of your site here
-  url: 'https://azure-samples.github.io',
+  url: 'https://azure.github.io',
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
   baseUrl: '/logicapps-labs/',
@@ -18,7 +18,7 @@ const config: Config = {
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
-  organizationName: 'azure-samples', // Usually your GitHub org/user name.
+  organizationName: 'azure', // Usually your GitHub org/user name.
   projectName: 'logicapps-labs', // Usually your repo name.
 
   onBrokenLinks: 'warn',
@@ -41,7 +41,7 @@ const config: Config = {
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           editUrl:
-            'https://github.com/Azure-Samples/logicapps-labs/tree/main/',
+            'https://github.com/azure/logicapps-labs/tree/main/',
         },
         // 
         // IF WE WANT TO ENABLE THE BLOG PLUGIN, UNCOMMENT THIS SECTION
@@ -54,7 +54,7 @@ const config: Config = {
         //   // Please change this to your repo.
         //   // Remove this to remove the "edit this page" links.
         //   editUrl:
-        //     'https://github.com/Azure-Samples/aks-labs/tree/main/',
+        //     'https://github.com/azure/aks-labs/tree/main/',
         //   // Useful options to enforce blogging best practices
         //   onInlineTags: 'warn',
         //   onInlineAuthors: 'warn',
@@ -107,7 +107,7 @@ const config: Config = {
           label: 'Blog', 
           position: 'left'},
         {
-          href: 'https://github.com/Azure-Samples/logicapps-labs',
+          href: 'https://github.com/azure/logicapps-labs',
           label: 'GitHub',
           position: 'right',
         },
