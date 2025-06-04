@@ -1,7 +1,19 @@
 {
+  "approvalAgent-policyDocument-URI": {
+    "type": "String",
+    "value": "@appsetting('approvalAgent-policyDocument-URI')"
+  },
   "microsoftforms-1-ConnectionRuntimeUrl": {
     "type": "String",
     "value": "@appsetting('microsoftforms-1-ConnectionRuntimeUrl')"
+  },
+  "teams-GroupId": {
+    "type": "String",
+    "value": "@appsetting('teams-GroupId')"
+  },
+  "teams-ChannelId": {
+    "type": "String",
+    "value": "@appsetting('teams-ChannelId')"
   },
   "microsoftforms-1-Authentication": {
     "type": "Object",

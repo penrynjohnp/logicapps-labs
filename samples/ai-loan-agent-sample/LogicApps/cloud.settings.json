@@ -10,9 +10,7 @@
     "WORKFLOWS_LOCATION_NAME": "<Add your Azure region (e.g., westus3)>",
     "WORKFLOWS_RESOURCE_GROUP_NAME": "<Add your Azure resource group name>",
     "apiManagementOperation_11_SubscriptionKey": "<Add API Management subscription key for employment validation API>",
-    "agent_Subscription_ID": "<Add Azure OpenAI subscription ID>",
-    "agent_Resource_Group": "<Add Azure OpenAI resource group name>",
-    "agent_Account": "<Add Azure OpenAI account name>",
+    "agent_ResourceID": "<Add Azure OpenAI resource ID>",
     "agent_openAIEndpoint": "<Add Azure OpenAI endpoint URL>",
     "apiManagementOperation_13_SubscriptionKey": "<Add API Management subscription key for demographic verification API>",
     "agent_openAIKey": "<Add Azure OpenAI access key>",
@@ -26,6 +24,9 @@
     "microsoftforms-1-connectionKey": "<Add Microsoft Forms connection authentication key>",
     "teams-connectionKey": "<Add Microsoft Teams connection authentication key>",
     "outlook-connectionKey": "<Add Outlook connection authentication key>",
-    "outlook-1-connectionKey": "<Add secondary Outlook connection authentication key>"
+    "outlook-1-connectionKey": "<Add secondary Outlook connection authentication key>",
+    "approvalAgent-policyDocument-URI": "<Add Azure Blob Storage URI for policy document>",
+    "teams-GroupId": "<Add Microsoft Teams group ID>",
+    "teams-ChannelId": "<Add Microsoft Teams channel ID>"
   }
 }

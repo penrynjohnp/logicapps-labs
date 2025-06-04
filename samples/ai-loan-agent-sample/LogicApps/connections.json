@@ -7,7 +7,7 @@
         "key": "@appsetting('agent_openAIKey')"
       },
       "endpoint": "@appsetting('agent_openAIEndpoint')",
-      "resourceId": "/subscriptions/@{appsetting('agent_Subscription_ID')}/resourceGroups/@{appsetting('agent_Resource_Group')}/providers/Microsoft.CognitiveServices/accounts/@{appsettings('agent_Account')}",
+      "resourceId": "@appsetting('agent_ResourceID')",
       "type": "model"
     }
   },
