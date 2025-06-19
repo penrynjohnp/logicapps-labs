@@ -96,7 +96,7 @@ In this module we will create a stateful workflow to create a ServiceNow Inciden
             - Replace %2f with /
         - in the above example we would have resolved to https://logic-apis-canadacentral.consent.azure-apim.net/redirect 
 
-            - Update the Application Registration entry created in the <Service Now Environment Step>
+            - Update the Application Registration entry created in the [Module 4 - Prequistes - ServiceNow setup](04_servicenow_dev_sandbox.md).
         Add the Redirect URL
 
         ![ServiceNow Connection Error - Invalid Redirect URI](./images/08_10_servicenow_connection_error_invalid_redirect_uri.png "servicenow connection error invalid redirect uri")
