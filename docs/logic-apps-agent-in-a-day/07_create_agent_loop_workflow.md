@@ -81,7 +81,7 @@ In this module we will create and configure a conversational Agent Loop workflow
 
             ![Compose-Prompt Activity](./images/07_14_compose_after_configuraiton.png "compose prompt activity")
 
-1. In this step we will configure the **Default Agent** settings to connect to our Azure OpenAI instance created in [Module 4 - Enable OpenAI Model](04_enable_open_ai_model.md)
+1. In this step we will configure the **Default Agent** settings to connect to our Azure OpenAI instance created in [Module 4 - Enable OpenAI Model](03_enable_open_ai_model.md)
     - Click on the **Default Agent**
 
     ![Default Agent](./images/07_15_deafult_agent.png ("default agent"))
@@ -95,7 +95,7 @@ In this module we will create and configure a conversational Agent Loop workflow
     - Configure Connection to Azure OpenAI as follows
         - **Connection Name:** `conn-open-ai`
         - **Authentication Type:** `URL and key-based authentication`
-        - **Azure OpenAI Resource:** `select the instance created in [Module 4 - Enable OpenAI Model](04_enable_open_ai_model.md)
+        - **Azure OpenAI Resource:** `select the instance created in [Module 4 - Enable OpenAI Model](03_enable_open_ai_model.md)
         - Click `Create New`
 
         ![Azure OpenAI Connection Configuration](./images/07_17_deafult_agent_open_ai_connection.png (azure openai connection configuration"))
