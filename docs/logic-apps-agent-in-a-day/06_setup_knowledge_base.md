@@ -36,7 +36,9 @@ In the module we will provision an Azure Storage Account that will hold our oper
 
     ![Upload playbook](./images/06_06_upload_playbook.png "upload playbook")
 
-1. Navigate to the `resources` folder of this respository and select the `Agent in a Day - Operational Runbook.docx` and click `Upload`
+1. Download the knowledge base - [Agent in a Day - Operational Runbook.docx](./resources/Agent%20in%20a%20Day%20-%20Operational%20Runbook.docx "download playbook")
+   
+2. Navigate to the location on your machine where you downloaded the `Agent in a Day - Operational Runbook.docx` file, select it, then click `Upload`
 
     ![Upload Contoso Energy - Operational Runbook](./images/06_07_upload_operational_runbook.png "upload operational runbook")
 
