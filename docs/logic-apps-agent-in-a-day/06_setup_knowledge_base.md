@@ -1,4 +1,4 @@
-# Module 6: Setup the Knowledgebase
+# Module 6 - Setup the Knowledgebase
 In the module we will provision an Azure Storage Account that will hold our operations manual / knowledgebase that will be used by the Logic Apps Agent Loop to determine the actions our agent performs.
 
 

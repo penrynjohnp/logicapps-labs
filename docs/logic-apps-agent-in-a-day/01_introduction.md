@@ -1,4 +1,4 @@
-# Module 1: Introduction to Logic Apps Agent in a Day Workshop
+# Module 1 - Introduction to Logic Apps Agent in a Day Workshop
 
 ## Harnessing the Power of Agent Loop Capabilities in Modern Automation
 

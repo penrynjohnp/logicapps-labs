@@ -1,4 +1,4 @@
-# Module 5: Provision Logic Apps Standard
+# Module 5 - Provision Logic Apps Standard
 In the module we will provision a Logic Apps Standard instance enabling us to create and test our workflows.
 
 1. Search for and navigate to the `Logic Apps` service

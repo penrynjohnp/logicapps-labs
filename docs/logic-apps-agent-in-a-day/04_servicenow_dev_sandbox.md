@@ -1,4 +1,4 @@
-# Module 4: Prequistes - ServiceNow setup
+# Module 4 - Prequistes - ServiceNow setup
 A ServiceNow Environment will be requirement to enable our integration to create and interact with incident tickets.
 **Important:** Use your personal email address  when creating your ServiceNow Environment
 

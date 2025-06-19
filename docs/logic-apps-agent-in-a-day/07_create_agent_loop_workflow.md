@@ -1,4 +1,4 @@
-# Module 7 -  Create Agent Loop Workflow
+# Module 7 - Create Agent Loop Workflow
 In this module we will create and configure a conversational Agent Loop workflow that will allow the user an interactive chat experience when trying to resolve operational issues at Contoso.
 
 ## Create Agent Workflow

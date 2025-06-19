@@ -1,4 +1,4 @@
-# Module 3: Enable OpenAI Model
+# Module 3 - Enable OpenAI Model
 In this module we will provision the OpenAI service and deploy the GPT4.1 Model that will be used by the Logic Apps Agent Loop.
 
 ## Provision Azure OpenAI Service

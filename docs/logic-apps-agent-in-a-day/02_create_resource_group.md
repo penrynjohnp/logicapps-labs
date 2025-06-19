@@ -1,4 +1,4 @@
-# Module 2: Creating the Resource Group
+# Module 2 - Creating the Resource Group
 In this module we will create the resource group that will contains all the resources provisioned in this workshop
 
 1. In the search bar, enter `Resource Groups` and select `Resource Groups` from list of services returned.

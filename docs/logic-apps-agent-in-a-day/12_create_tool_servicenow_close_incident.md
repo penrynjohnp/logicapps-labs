@@ -1,4 +1,4 @@
-# Module 12: Create Tool - ServiceNow Close Incident
+# Module 12 - Create Tool - ServiceNow Close Incident
 In this module we will create a stateful workflow to close an existing ServiceNow Incident. Next, we will incorporate the workflow into our Agent Loop at as tool to enable the agent to close and provide some resolution comments for our ServiceNow Incident .
 
 ## Create the Stateful Workflow

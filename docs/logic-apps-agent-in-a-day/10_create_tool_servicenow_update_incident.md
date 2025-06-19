@@ -1,4 +1,4 @@
-# Module 10: Create Tool - ServiceNow Update Incident
+# Module 10 - Create Tool - ServiceNow Update Incident
 In this module we will create a stateful workflow to update an existing ServiceNow Incident. Next, we will incorporate the workflow into our Agent Loop at as tool to enable the agent to record work notes for our ServiceNow Incident.
 
 ## Create the Stateful Workflow

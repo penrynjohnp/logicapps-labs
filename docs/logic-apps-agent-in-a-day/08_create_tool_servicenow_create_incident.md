@@ -1,4 +1,4 @@
-# Module 8: Create Tool - ServiceNow Create Incident
+# Module 8 - Create Tool - ServiceNow Create Incident
 In this module we will create a stateful workflow to create a ServiceNow Incident. Our Agent Loop will leverage this workflow as a tool to create ServiceNow incidents when processing an event.
 
 
