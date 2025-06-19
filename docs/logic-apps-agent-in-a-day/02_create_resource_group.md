@@ -7,7 +7,7 @@ In this module we will create the resource group that will contains all the reso
 
 1. Click the `+ Create` to create a new resource group
 
-    ![Create New Resource Group](/images/03_02_create_resource_group.png "Create New Resource Group")
+    ![Create New Resource Group](./images/03_02_create_resource_group.png "Create New Resource Group")
 
 1. Configure the resource group as follows:
 

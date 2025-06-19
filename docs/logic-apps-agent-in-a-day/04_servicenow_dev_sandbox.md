@@ -9,11 +9,11 @@ A ServiceNow Environment will be requirement to enable our integration to create
 
 1. Fill out the registration form:
 
-    ![ServiceNow ID Signup](/images/02_01_signup_servicenow_id.png "Signup")
+    ![ServiceNow ID Signup](./images/02_01_signup_servicenow_id.png "Signup")
 
 1. You will receive an Email Verification Code:
 
-    ![Email Verfication Code](/images/02_02_email_verificaiton_code.png "Verify your account")
+    ![Email Verfication Code](./images/02_02_email_verificaiton_code.png "Verify your account")
 
 1. Navigate to the developer portal: 
 
@@ -23,11 +23,11 @@ A ServiceNow Environment will be requirement to enable our integration to create
 
 1. Request a Developer Instance
 
-    ![Request Developer Instance](/images/02_03_request_developer_instance.png)
+    ![Request Developer Instance](./images/02_03_request_developer_instance.png)
 
 1. Click the Start Building link:
 
-    ![Start building](/images/02_04_start_building.png)
+    ![Start building](./images/02_04_start_building.png)
 
 ## Configure OAuth Authentication 
 We will need to configure an OAuth API endpoint to enable our logic apps to authenticate to our ServiceNow instance

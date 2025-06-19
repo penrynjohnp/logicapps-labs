@@ -8,7 +8,7 @@ In this module we will take the ServiceNow Create Incident workflow and add it a
 
 1. Open the `demo-conversational-agent` workflow
 
-    ![Open Agent Workflow](/images/09_02_open_agent_workflow.png "open agent workflow")
+    ![Open Agent Workflow](./images/09_02_open_agent_workflow.png "open agent workflow")
 
 1. Add a new tool.
     - Click on the `+`

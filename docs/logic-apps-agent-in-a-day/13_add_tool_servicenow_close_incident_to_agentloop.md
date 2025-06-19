@@ -7,7 +7,7 @@ In this module we will take the ServiceNow Close Incident workflow and add it as
 
 1. Open the `demo-conversational-agent` workflow
 
-    ![Open Agent Workflow](/images/13_02_open_agent_workflow.png "open agent workflow")
+    ![Open Agent Workflow](./images/13_02_open_agent_workflow.png "open agent workflow")
 
 1. Add a new tool.
     - Click on the `+`
