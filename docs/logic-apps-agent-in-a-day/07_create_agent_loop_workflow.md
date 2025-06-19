@@ -208,7 +208,7 @@ Now that we've connect workflow to OpenAI and created our first tool, lets test 
 
 1. Locate the running instance and click on the identifier to open the execution and start the interactive chat session
 
-    ![Workflow Run History Executions](/images/07_33_workflow_run_history_exeuctions.png "run history executions")
+    ![Workflow Run History Executions](./images/07_33_workflow_run_history_exeuctions.png "run history executions")
 
 
 1. The initial chat will display the **System Instructions** as well as the **User Instructions** configured in the Agent Loop. The Agent will attempt to process the initial instructions and has responded with additional guidance.
