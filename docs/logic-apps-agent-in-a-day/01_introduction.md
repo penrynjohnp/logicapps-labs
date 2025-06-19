@@ -108,7 +108,7 @@ Within our agent, we will support a variety of user prompts that the agent will 
 > 
 > If you are an instructor and is running this as a class led workshop, you can find the following resources below:
 > 
-> 1. [Instructor Slide Deck](./resources/Logic%20Apps%20-%20Agent%20in%20a%20Day%20Instructor.zip "slide deck")
+> 1. [Instructor Slide Deck](./resources/Agent_In_a_Day_Instructor.zip "slide deck")
 > 2. [Original repository](https://github.com/Azure/logicapps-labs/tree/main/docs/logic-apps-agent-in-a-day "repository")
 
 
