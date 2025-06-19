@@ -99,7 +99,16 @@ Within our agent, we will support a variety of user prompts that the agent will 
 2. Update an IT incident in ServiceNow with work notes  
 3. Close an IT incident in ServiceNow  
 4. Send email notifications that provide updates to stakeholders  
-5. Leverage a knowledge source that helps drive the severity and criticality of different request types  
-
+5. Leverage a knowledge source that helps drive the severity and criticality of different request types 
 
 **Let’s get started on this exciting journey together!**
+
+
+> ### Note for instructors
+> 
+> If you are an instructor and is running this as a class led workshop, you can find the following resources below:
+> 
+> 1. [Instructor Slide Deck](./resources/Logic%20Apps%20-%20Agent%20in%20a%20Day%20Instructor.zip "slide deck")
+> 2. [Original repository](https://github.com/Azure/logicapps-labs/tree/main/docs/logic-apps-agent-in-a-day "repository")
+
+
