@@ -113,7 +113,7 @@ In this module we will create a stateful workflow to create a ServiceNow Inciden
 1. Configure the List Records Activity as follows
     - **Record Type:** `Group`
     - **Advanced Parameters** (click `Show all`)
-    - **Query:** name=@{triggerBody()?['AssignmentGroup']}
+    - **Query:** `name=@{triggerBody()?['AssignmentGroup']}`
 
     ![ServiceNow List Activity Configuration](./images/08_14_servicenow_list_records_configuraiton.png "servicenow list records configuration")
 
