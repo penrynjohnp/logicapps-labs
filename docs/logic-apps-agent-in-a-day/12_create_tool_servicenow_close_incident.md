@@ -19,7 +19,7 @@ In this module we will create a stateful workflow to close an existing ServiceNo
 
 1. Create a new stateful workflow with:
     
-    - **Workflow name:** `tool-ServiceNow-UpdateIncident`
+    - **Workflow name:** `tool-ServiceNow-CloseIncident`
     - Select the radio button for the `Stateful` worflow type
     - Click `Create`
 
@@ -88,7 +88,7 @@ In this module we will create a stateful workflow to close an existing ServiceNo
     - **Record Type:** `Incident`
     - **System ID:** *(using the expression (fx) editor)* `first(body('List_Records_-_Get_Ticket_Details')?['result'])['sys_id']`
     - **State:** *(Advanced Parameter)* `7`
-    - **Resolution Notes:**: *(Advanced Parameter)* `Solution Provided`
+    - **Resolution Code:**: *(Advanced Parameter)* `Solution Provided`
     - **Resolution Notes:**: *(Advanced Parameter)* `@{triggerBody()?['Notes']}`
 
         ![ServiceNow Update Activity Config](./images/12_12_update_activity_config.png "servicenow update activity config")
