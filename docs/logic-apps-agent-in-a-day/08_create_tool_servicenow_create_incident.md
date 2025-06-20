@@ -102,7 +102,10 @@ In this module we will create a stateful workflow to create a ServiceNow Inciden
         ![ServiceNow Connection Error - Invalid Redirect URI](./images/08_10_servicenow_connection_error_invalid_redirect_uri.png "servicenow connection error invalid redirect uri")
 
     - Close the browser popup window
+
     - Click the `Sign In` button  again 
+        
+        **note** please check for errors in the upper right hand corner of your browser. Some browers may block popups.
     
         ![ServiceNow Connection - Sign In](./images/08_11_servicenow_connection_sign_in_after_error.png "service now connection sign in")
     
@@ -121,16 +124,15 @@ In this module we will create a stateful workflow to create a ServiceNow Inciden
 
 1. Select the `ServiceNow - Create Record` action
 
-    ![ServiceNow - Create Record](./images/08_15_add_an_action_servicenow_create_item.png "servicenow create record")
-
 1. Configure the Create Record action as follows:
+    - Rename action to: `Create_Record-Incident`
     - **Record Type:** `Incident`
     - **Advanced Parameters:**
         - you can show selected advanced parameters by clicking on the dropdown and select each parameter individually
         - **Short Description:**
             ```
             The following error occurred and needs to be investigated:
-              Error Message: @{triggerBody()?['ErrorMessage']}            \
+              Error Message: @{triggerBody()?['ErrorMessage']} 
             ```
         - **Assignment Group:** 
             ```
