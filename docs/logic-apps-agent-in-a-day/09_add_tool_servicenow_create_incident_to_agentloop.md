@@ -41,13 +41,7 @@ In this module we will take the ServiceNow Create Incident workflow and add it a
 
           **Type:** `String`
 
-          **Description:** `The user provided description of the issue being logged`
-
-        - **Name:** `FailureDateTime`
-
-          **Type:** `String`
-
-          **Description:** `The date and time the error occurred`       
+          **Description:** `The user provided description of the issue being logged`    
 
         - **Name:** `ResolutionSteps`
 

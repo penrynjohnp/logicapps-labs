@@ -124,6 +124,8 @@ In this module we will create a stateful workflow to create a ServiceNow Inciden
 
 1. Select the `ServiceNow - Create Record` action
 
+    ![Service Now - Create Record Action](./images/08_15_add_an_action_servicenow_create_item.png "servicenow create record action")
+
 1. Configure the Create Record action as follows:
     - Rename action to: `Create_Record-Incident`
     - **Record Type:** `Incident`
