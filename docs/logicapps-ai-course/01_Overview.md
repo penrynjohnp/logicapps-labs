@@ -1,12 +1,11 @@
-# Introduction
+# Overview
 
+- Conceptual intro of whats possible & differentiation of what LA brings.
+- Durable execution, enterprise scale, monitoring, security features, connectivity, etc (e.g. why use LA for agents)
 
-This is a single page with this structure:
+## Outline
 
-introducing Agent Loop - including a video of what is possible with agents.
-ConceptsAgent Concepts
-Logic Apps Concepts
-This allows most of the conceptual to be in one place and can be skipped if desired.
+Describe enough so readers understand we talk about conversational first but some topics are relevant for autonomous too.
 
 ## What are Logic Apps Agent Loops
 
