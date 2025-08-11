@@ -1,4 +1,4 @@
-# Module 08 - Extending your tools with Code
+# Module 08 - Extend your tools with code
 
 - How to use the python action for LLM-generated code
 - How to use the python action for user-written code

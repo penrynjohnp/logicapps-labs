@@ -1,4 +1,4 @@
-# Module 04 - Parameterizing Tools
+# Module 04 - Add parameters to your tools
 
 
 Parameterizing tools (both LLM-generated & static)

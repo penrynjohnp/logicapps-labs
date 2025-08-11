@@ -1,4 +1,4 @@
-# Module 02 - Debugging your Agent
+# Module 02 - Debug your agent
 
 Monitoring your agent
 

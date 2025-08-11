@@ -1,4 +1,4 @@
-# Module 03 - Connecting Tools with External Services 
+# Module 03 - Connect your tools with external services 
 
 Introduce connectors as a way to enhance tool capabilities
 

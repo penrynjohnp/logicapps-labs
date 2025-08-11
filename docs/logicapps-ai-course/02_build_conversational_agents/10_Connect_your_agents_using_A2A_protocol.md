@@ -1,4 +1,5 @@
-# Module 10 - Agent communication with A2A
+# Module 10 - Connect your agents using A2A protocol
+
 
 - What is a2a
 - Agent card

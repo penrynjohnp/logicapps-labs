@@ -1,4 +1,4 @@
-# Module 06 - Extending Tool functionality with patterns
+# Module 06 - Extend your tool functionality with patterns
 
 
 Tool patterns - Mocking, Guardrails, Output transformation

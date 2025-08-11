@@ -1,4 +1,4 @@
-# Module 07- Adding knowledge to your agent
+# Module 07- Add knowledge to your agent
 
 - Describe different options ranging from compose action to the specific actions we categorized separately in designer
 - Specific highlight on AI Search scenario action for example
