@@ -237,6 +237,7 @@ a:hover { color: var(--ms-link-hover); }
 }
 .doc-card:hover, .docCard:hover, .theme-doc-category-index-page .card:hover {
   border-left-color: var(--ms-link);
+  background: var(--ms-surface); /* fallback for browsers that do not support color-mix() */
   background: color-mix(in srgb, var(--ms-surface) 92%, var(--ms-link) 8%);
 }
 .doc-card .card__header, .docCard .card__header, .theme-doc-category-index-page .card .card__header {
