@@ -103,12 +103,9 @@ const config: Config = {
           label: 'Workshops',
         },
         {
-          href: 'https://aka.ms/aistechcommunity',
-          label: 'Blog',
-          position: 'left',
-          target: '_blank',
-          rel: 'noopener noreferrer',
-        },
+          href: 'https://techcommunity.microsoft.com/category/azure/blog/integrationsonazureblog', 
+          label: 'Blog', 
+          position: 'left'},
         {
           href: 'https://github.com/azure/logicapps-labs',
           label: 'GitHub',
