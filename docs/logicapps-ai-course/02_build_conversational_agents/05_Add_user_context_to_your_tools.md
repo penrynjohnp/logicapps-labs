@@ -1,9 +1,9 @@
 ---
 title: Add user context to your tools (Module 05)
-description: Learn how to run connector actions with the signed-in user's identity (on-behalf-of) in conversational Logic Apps agents.
+description: Learn how to run connector actions with the signed-in user's identity (on-behalf-of) in conversational Azure Logic Apps agents.
 ms.service: logic-apps
 ms.topic: tutorial
-ms.date: 08/12/2025
+ms.date: 08/13/2025
 author: edwardyhe
 ms.author: edwardyhe
 ---
@@ -19,7 +19,7 @@ By the end, you will:
 - Apply best practices for consent, scopes, and error handling.
 
 > [!IMPORTANT]
-> User context in conversational agents is supported only with Microsoft first-party connectors using per-user (delegated) connections and requires App Service Authentication (EasyAuth) to be enabled on your Logic Apps Standard app. The integrated Logic Apps chat client handles token delegation for per-user connections.
+> User context in conversational agents is supported only with Microsoft first-party connectors using per-user (delegated) connections and requires App Service Authentication (EasyAuth) to be enabled on your logic app (Standard). The integrated Azure Logic Apps chat client handles token delegation for per-user connections.
 
 Helpful resources:
 - Microsoft identity platform: on-behalf-of flow: https://learn.microsoft.com/entra/identity-platform/v2-oauth2-on-behalf-of-flow
@@ -53,10 +53,10 @@ Use app-only identity when the tool performs shared operations not tied to a use
 
 ## Prerequisites
 
-- An Azure subscription and a Logic Apps Standard app with your conversational agent from previous modules.
+- An Azure subscription and a logic app (Standard) with your conversational agent from previous modules.
 - Microsoft first-party connector that supports per-user (delegated) connections (for example, Microsoft 365, Microsoft Graph, SharePoint) and tenant admin consent if required.
-- App Service Authentication (EasyAuth) enabled on the Logic Apps Standard app.
-- Integrated Logic Apps chat client (handles token delegation for per-user connections). If you use a custom client, it must pass the user's token to the agent.
+- App Service Authentication (EasyAuth) enabled on the logic app (Standard).
+- Integrated Azure Logic Apps chat client (handles token delegation for per-user connections). If you use a custom client, it must pass the user's token to the agent.
 - At least two test users with different permissions in your tenant (for example, one with access to a mailbox or site; one without).
 
 > [!NOTE]
@@ -64,9 +64,9 @@ Use app-only identity when the tool performs shared operations not tied to a use
 
 ### Configure EasyAuth (App Service Authentication)
 
-Enable EasyAuth on your Logic Apps Standard app so delegated user identity can flow to eligible first-party connectors:
+Enable EasyAuth on your logic app (Standard) so delegated user identity can flow to eligible first-party connectors:
 
-1. In the Azure portal, open your Logic App (Standard) resource.
+1. In the Azure portal, open your logic app (Standard) resource.
 2. Select Authentication in the left navigation.
 3. Select Add identity provider and choose Microsoft (Microsoft Entra ID).
 4. Follow the guided setup to create or select an app registration and configure sign-in. Require authentication for requests as appropriate for your environment.
@@ -82,7 +82,7 @@ Helpful links:
 
 For each tool action, decide how it should authenticate:
 
-- Use user context (OBO) for “my data” or user-personalized operations (for example, "Get my upcoming meetings").
+- Use user context (OBO) for "my data" or user-personalized operations (for example, "Get my upcoming meetings").
 - Use app-only for shared resources or automations (for example, "Post today's health status to the ops channel").
 
 Document the required scopes/permissions for each tool so you can consent them later.
@@ -98,11 +98,11 @@ Create a new connector connection used by your tool to support delegated user ac
 3. Complete the sign-in/consent flow. Any sign-in here is for validation/consent only; at runtime, each chat user will authenticate on first use and their identity will be used for subsequent calls.
 
 > [!IMPORTANT]
-> Per-user connections must be created using the "Create as per-user connection?" option and are supported only for Microsoft first-party connectors. You cannot convert an existing app-only connection to per-user; create a new per-user connection. Ensure EasyAuth is enabled on your Logic Apps Standard app so delegated identity can flow. At runtime in the integrated chat client, each user is prompted on first use and their identity is used thereafter.
+> Per-user connections must be created using the "Create as per-user connection?" option and are supported only for Microsoft first-party connectors. You cannot convert an existing app-only connection to per-user; create a new per-user connection. Ensure EasyAuth is enabled on your logic app (Standard) so delegated identity can flow. At runtime in the integrated Azure Logic Apps chat client, each user is prompted on first use and their identity is used thereafter.
 
 ### What to expect in chat (first use and reuse)
 
-When a tool first uses a per-user connector action in the integrated Logic Apps chat client, an authentication prompt appears for the user to sign in (for example, an "Authentication Required" panel with a Sign in button). After the user signs in once, subsequent calls using the same per-user connection do not require re-authentication.
+When a tool first uses a per-user connector action in the integrated Azure Logic Apps chat client, an authentication prompt appears for the user to sign in (for example, an "Authentication Required" panel with a Sign in button). After the user signs in once, subsequent calls using the same per-user connection do not require re-authentication.
 
 > [!NOTE]
 > The credentials used are those of the user in the chat session, not the creator of the per-user connection. This ensures the tool runs with the signed-in user's permissions.
@@ -122,7 +122,7 @@ When a tool first uses a per-user connector action in the integrated Logic Apps 
 
 ## Step 4 — Plan for client integration (token pass-through)
 
-If your production experience uses a custom chat client (web, mobile, or another service), plan to supply the user's access token to the agent and implement the on-behalf-of flow.
+If your production experience uses a custom chat client (web, mobile, or another service), plan to supply the user's access token to the agent and implement the OBO flow.
 
 - Capture the user's sign-in via your app and obtain an access token for the target resource (for example, Microsoft Graph) with the required scopes.
 - Pass the token to your agent invocation per your integration model (covered in Module 10).
