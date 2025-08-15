@@ -1,12 +1,11 @@
 # Module 02 - Debug your agent
 
-Monitoring your agent
+- How to monitor your agent.
+- Review chat history.
+- Examine workflow actions and which tools executed.
+- How to find LLM inputs and outputs.
+- Logging?
 
-See chat history
-See which tools were executed and LA actions
-How to find LLM inputs and outputs
-Logging?
-
-Maybe example of app insights query if useful
-MonView is differentiator for us - helps with debugging & distinguishing LLM quality issue from LA action failure, etc
-Need to cover MonView now so later modules can use it to explain other concepts
+If useful, maybe include example Application Insights query.
+Monitoring view is a differentiate for Azure Logic Apps. Helps with debugging and distinguishing LLM quality issue from a workflow action failure, and so on.
+Must cover MonView now so later modules can use to explain other concepts.
