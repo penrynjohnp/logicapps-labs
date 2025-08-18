@@ -1,10 +1,23 @@
 # Module 01 - Create your first Logic App agent
 
-Creating your first agent  Simple conversational agent without tools yet
 
-Prereqs, model, Azure, agent loop system prompt, how to run the agent from chat client in portal
-Adding first tool
+## Create your first agent
+(Simple autonomous agent without tools yet)
 
-Adding first tool to agent (Something that will always work, like HTTP action to public API, or compose action)
-Importance of tool name and tool description
-Run the agent from integrated chat client in scenario that proves tool worked (without monview, that's next module)
+### Prereqs
+- creating your agent workflow from scratch
+  - Note - Creating from existing workflows is possible (point to documentation/other module)
+- Bringing your modelFoundry connection to select model
+  - Note - Open AI connection to select model  (point to documentation/other module)
+- Triggering your agent from external systems
+  
+## How to trigger your agent from external systems
+- Adding a trigger
+- Including deterministic steps
+- Add your first tool
+
+## Add the first tool to agent
+- Something that will always work, like HTTP action to public API, or Compose action
+- Importance of tool name and tool description
+- Run the agent again in way that provides evidence the tool works
+- 
