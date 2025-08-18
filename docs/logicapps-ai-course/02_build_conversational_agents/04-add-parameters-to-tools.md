@@ -1,6 +1,5 @@
 # Module 04 - Add parameters to your tools
 
-
 Parameterizing tools (both LLM-generated & static)
 
 - Amend or create scenario where agent parameter is required
