@@ -29,3 +29,281 @@
   --ifm-color-primary-lightest: #95c8ed;
   --docusaurus-highlighted-code-line-bg: rgba(50, 33, 33, 0.3);
 }
+
+/* --- Microsoft Docs-like styling preview start --- */
+:root {
+  /* Typography */
+  --ms-font-family: "Segoe UI Variable", "Segoe UI", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
+  --ms-font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+
+  /* Light theme palette (inspired by Fluent) */
+  --ms-bg: #ffffff;
+  --ms-surface: #ffffff;
+  --ms-text: #242424;
+  --ms-text-muted: #5e5e5e;
+  --ms-border: #e1e1e1;
+
+  --ms-link: #0f6cbd;         /* Fluent link color */
+  --ms-link-hover: #115ea3;
+
+  /* Admonitions */
+  --ms-note-bg: #f3f9fd;      /* subtle info background */
+  --ms-note-border: #62aef7;
+
+  --ms-warning-bg: #fff4ce;   /* M365 warning background */
+  --ms-warning-border: #ffb900;
+
+  /* Code + table */
+  --ms-code-bg: #f5f5f5;
+  --ms-code-border: #e5e5e5;
+  --ms-table-header-bg: #f8f8f8;
+  --ms-table-row-alt: #fbfbfb;
+
+  /* Sizing */
+  --ms-max-content: 1200px;
+  --ms-article-width: 760px;
+
+  /* Headings */
+  --ms-h1: 40px;
+  --ms-h2: 28px;
+  --ms-h3: 22px;
+  --ms-lineheight-tight: 1.2;
+  --ms-lineheight-relaxed: 1.6;
+}
+
+:root[data-theme='dark'] {
+  /* Dark theme palette */
+  --ms-bg: #0b0b0b;
+  --ms-surface: #111111;
+  --ms-text: #f3f2f1;
+  --ms-text-muted: #c6c6c6;
+  --ms-border: #2a2a2a;
+
+  --ms-link: #6cb8ff;
+  --ms-link-hover: #9fd1ff;
+
+  --ms-note-bg: #0a253a;      /* deep info */
+  --ms-note-border: #3aa0ff;
+
+  --ms-warning-bg: #2a2200;   /* deep warning */
+  --ms-warning-border: #ffb900;
+
+  --ms-code-bg: #151515;
+  --ms-code-border: #2a2a2a;
+  --ms-table-header-bg: #161616;
+  --ms-table-row-alt: #141414;
+}
+
+/* Global base font size */
+html { font-size: revert; }
+
+/* Base */
+html, body {
+  font-family: var(--ms-font-family);
+  color: var(--ms-text);
+  background: var(--ms-bg);
+}
+
+a {
+  color: var(--ms-link);
+  text-underline-offset: 2px;
+  text-decoration-thickness: 1px;
+}
+a:hover { color: var(--ms-link-hover); }
+
+.main-wrapper .container, .container {
+  max-width: var(--ms-max-content);
+}
+
+/* Article column similar to Microsoft Docs - apply site-wide to docs/blog markdown */
+.theme-doc-markdown, .markdown {
+  max-width: var(--ms-article-width);
+  margin: 0 auto;
+  padding: 0 1rem 4rem;
+}
+
+/* Optional lead paragraph helper remains available */
+.ms-section-lead {
+  font-size: 18px;
+  line-height: var(--ms-lineheight-relaxed);
+  color: var(--ms-text-muted);
+  margin-top: 0.5rem;
+}
+
+/* Headings */
+.theme-doc-markdown h1, .markdown h1 {
+  font-size: var(--ms-h1);
+  line-height: var(--ms-lineheight-tight);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  margin: 0 0 0.5rem;
+}
+.theme-doc-markdown h2, .markdown h2 {
+  font-size: var(--ms-h2);
+  line-height: 1.3;
+  font-weight: 700;
+  margin-top: 2rem;
+  margin-bottom: 0.5rem;
+}
+.theme-doc-markdown h3, .markdown h3 {
+  font-size: var(--ms-h3);
+  font-weight: 700;
+  margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+/* Paragraphs and lists */
+.theme-doc-markdown p, .markdown p,
+.theme-doc-markdown li, .markdown li {
+  font-size: 1rem; /* was 16px; now relative to base */
+  line-height: var(--ms-lineheight-relaxed);
+}
+.theme-doc-markdown ul, .markdown ul,
+.theme-doc-markdown ol, .markdown ol {
+  padding-left: 1.2rem;
+}
+
+/* Blockquote (Tip style) */
+.theme-doc-markdown blockquote, .markdown blockquote {
+  margin: 1rem 0;
+  padding: 0.75rem 1rem;
+  border-left: 4px solid var(--ms-border);
+  background: var(--ms-surface);
+  color: var(--ms-text-muted);
+}
+
+/* Code */
+.theme-doc-markdown code, .markdown code {
+  font-family: var(--ms-font-mono);
+  font-size: 0.95em;
+}
+.theme-doc-markdown pre, .markdown pre,
+.theme-doc-markdown pre code, .markdown pre code {
+  background: var(--ms-code-bg) !important;
+}
+.theme-doc-markdown pre, .markdown pre {
+  border: 1px solid var(--ms-code-border);
+  border-radius: 6px;
+  padding: 0.75rem 1rem;
+  overflow: auto;
+}
+
+/* Tables */
+.theme-doc-markdown table, .markdown table {
+  width: 100%;
+  border-collapse: collapse;
+  border: 1px solid var(--ms-border);
+  margin: 1rem 0;
+  font-size: 15px;
+}
+.theme-doc-markdown thead th, .markdown thead th {
+  background: var(--ms-table-header-bg);
+  text-align: left;
+  border-bottom: 1px solid var(--ms-border);
+  padding: 0.6rem 0.75rem;
+}
+.theme-doc-markdown tbody td, .markdown tbody td {
+  border-top: 1px solid var(--ms-border);
+  padding: 0.6rem 0.75rem;
+}
+.theme-doc-markdown tbody tr:nth-child(even), .markdown tbody tr:nth-child(even) {
+  background: var(--ms-table-row-alt);
+}
+
+/* Breadcrumbs and misc polish (optional, minimal) */
+.breadcrumbs__link {
+  color: var(--ms-text-muted);
+}
+.breadcrumbs__link:hover {
+  color: var(--ms-link);
+}
+
+/* Ensure TOC and sidebar remain readable in dark */
+.theme-doc-toc-mobile, .theme-doc-toc-desktop {
+  border-color: var(--ms-border);
+}
+
+/* --- Docs polish: cards, code, breadcrumbs, TOC --- */
+
+/* Category index pages: make cards look like Microsoft Docs list items */
+.doc-card, .docCard, .theme-doc-category-index-page .card {
+  border: 1px solid var(--ms-border);
+  border-left: 4px solid var(--ms-border);
+  box-shadow: none;
+  border-radius: 6px;
+  background: var(--ms-surface);
+  transition: border-color 0.15s ease, background 0.15s ease;
+  margin-bottom: 0.75rem;
+}
+.doc-card:hover, .docCard:hover, .theme-doc-category-index-page .card:hover {
+  border-left-color: var(--ms-link);
+  background: color-mix(in srgb, var(--ms-surface) 92%, var(--ms-link) 8%);
+}
+.doc-card .card__header, .docCard .card__header, .theme-doc-category-index-page .card .card__header {
+  padding: 0.6rem 0.9rem 0;
+}
+.doc-card .card__body, .docCard .card__body, .theme-doc-category-index-page .card .card__body {
+  padding: 0.3rem 0.9rem 0.9rem;
+}
+.doc-card .card__footer, .docCard .card__footer, .theme-doc-category-index-page .card .card__footer { display: none; }
+.docCardTitle, .doc-card .card__title {
+  font-weight: 700;
+  margin: 0;
+}
+
+/* Sidebar menu active link */
+.menu__link--active { font-weight: 600; }
+
+/* Breadcrumbs + TOC */
+.breadcrumbs__link { color: var(--ms-text-muted); }
+.breadcrumbs__link--active { color: var(--ms-text); font-weight: 600; }
+.theme-doc-toc-desktop a, .theme-doc-toc-mobile a { color: var(--ms-text-muted); }
+.theme-doc-toc-desktop a:hover, .theme-doc-toc-mobile a:hover { color: var(--ms-link); }
+.table-of-contents__link--active { color: var(--ms-text); font-weight: 600; }
+
+/* Inline code (not in fenced blocks) */
+.theme-doc-markdown :not(pre) > code, .markdown :not(pre) > code {
+  background: var(--ms-code-bg);
+  border: 1px solid var(--ms-code-border);
+  border-radius: 4px;
+  padding: 0.05rem 0.3rem;
+}
+
+/* Code blocks + copy button */
+.theme-code-block, .prism-code { border-radius: 6px; }
+.theme-code-block {
+  border: 1px solid var(--ms-code-border);
+  background: var(--ms-code-bg);
+}
+.theme-code-block pre { border: 0; border-radius: 0; background: transparent !important; }
+.theme-code-block .clean-btn {
+  color: var(--ms-text-muted);
+  background: transparent;
+  border: 1px solid transparent;
+}
+.theme-code-block .clean-btn:hover {
+  color: var(--ms-text);
+  background: var(--ms-code-bg);
+  border-color: var(--ms-code-border);
+}
+
+/* Pagination nav (minor polish) */
+.pagination-nav__link {
+  border: 1px solid var(--ms-border);
+  box-shadow: none;
+}
+.pagination-nav__link:hover { border-color: var(--ms-link); }
+
+/* Sidebar typography alignment */
+/* Sidebar-only base font size and typography */
+.theme-doc-sidebar-menu { font-size: 13px; }
+.theme-doc-sidebar-menu .menu__link {
+  font-size: 1rem; /* equals 13px within the sidebar */
+  line-height: 1.45;
+  padding-top: 0.35rem;
+  padding-bottom: 0.35rem;
+}
+.theme-doc-sidebar-menu .menu__link--sublist { font-weight: 700; }
+.theme-doc-sidebar-menu .menu__link--active { font-weight: 600; }
+/* Slightly smaller nested submenu items */
+.theme-doc-sidebar-menu .menu__list .menu__list .menu__link { font-size: 0.95rem; }
