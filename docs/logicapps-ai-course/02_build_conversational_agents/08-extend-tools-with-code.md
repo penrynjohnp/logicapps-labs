@@ -22,7 +22,7 @@ Python excels at handling structured data and performing complex computations wi
 - **Custom Algorithms**: Implement proprietary calculations or machine learning models
 - **Error Handling**: Robust exception handling for data processing operations
 
-The Python code interpreter action in Logic Apps bridge the gap between simple workflow automation and sophisticated data processing, enabling you to build intelligent agents that can reason about complex data patterns and perform advanced computations on demand.
+This module explores the Python code interpreter action in Logic Apps which bridges the gap between simple workflow automation and sophisticated data processing, enabling you to build intelligent agents that can reason about complex data patterns and perform advanced computations on demand.
 
 ## Using the Python action for user-written code
 The Python code interpreter action can be add to standard workflows, enabling users to execute their own Python code. This integration is useful when the user has custom code they want to run.
