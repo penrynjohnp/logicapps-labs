@@ -58,7 +58,7 @@ This two-phase approach ensures that your conversational agents can access and r
 
 Azure Logic Apps provides a comprehensive suite of document processing and transformation actions that enable seamless data ingestion from diverse sources and document formats.
 
-![Image showing AI Operations and Data Operations action groups.](image-2.png)
+![Image showing AI Operations and Data Operations action groups.](../02_build_conversational_agents/media/07-add-knowledge-to-agent/action_list.png)
 
 ## Document Ingestion for Gen AI Applications
 
@@ -68,7 +68,7 @@ With over 1,400 enterprise connectors, Logic Apps provides unparalleled access t
 
 ## Advanced RAG using Azure AI Search
 
-![Azure AI Search workflow](ai_search.png)
+![Azure AI Search workflow](../02_build_conversational_agents/media/07-add-knowledge-to-agent/ai_search.png)
 
 Azure AI Search provides enterprise-grade search capabilities that enable sophisticated RAG implementations by indexing and retrieving relevant content from large document collections. It supports semantic search, vector search, and hybrid search approaches, allowing your conversational agents to find the most contextually relevant information from unstructured documents, PDFs, web pages, and structured data sources. With built-in AI enrichment capabilities, Azure AI Search can extract entities, key phrases, and semantic meaning from documents during indexing, creating a rich knowledge base that enhances the quality and precision of your agent's responses.
 
