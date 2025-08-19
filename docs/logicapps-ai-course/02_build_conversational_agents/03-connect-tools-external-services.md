@@ -1,5 +1,5 @@
 ---
-title: Connect your tools with external services (Module 03)
+title: Connect tools to external services (Module 03)
 description: Learn how to connect a conversational Azure Logic Apps agent to external services using connectors and expose connector actions as tools.
 ms.service: logic-apps
 ms.topic: tutorial
