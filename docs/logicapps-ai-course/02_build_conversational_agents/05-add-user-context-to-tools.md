@@ -157,4 +157,8 @@ See Module 10 — Connect your agents using A2A protocol for details and sample 
 
 - Module 06 — Extend your tool functionality with patterns (chaining, fallback, caching).
 - Module 10 — Connect your agents using A2A protocol (client integration and delegated tokens).
+=======
+# Module 05 - Add user context to your tools
 
+- Explain when OBO is needed and how to configure it (only if OBO works from portal chat client - otherwise defer until after deployment section)
+- Some client code if useful but link to later a2a section so readers have context
