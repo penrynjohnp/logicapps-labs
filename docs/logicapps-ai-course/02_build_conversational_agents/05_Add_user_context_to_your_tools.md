@@ -1,5 +1,5 @@
 ---
-title: Add user context to your tools (Module 05)
+title: Add user context to your tools (Module 5)
 description: Learn how to run connector actions with the signed-in user's identity (on-behalf-of) in conversational Azure Logic Apps agents.
 ms.service: logic-apps
 ms.topic: tutorial
@@ -8,7 +8,7 @@ author: edwardyhe
 ms.author: edwardyhe
 ---
 
-# Add user context to your tools (Module 05)
+# Add user context to your tools (Module 5)
 
 In this module, you will learn how to run connector actions with the signed-in user's identity so the agent acts on the user's behalf. This approach is commonly called on-behalf-of (OBO). You will decide when to use user context, configure connections appropriately, test with different users, and understand limitations.
 
@@ -84,7 +84,7 @@ Helpful links:
 
 For each tool action, decide how it should authenticate:
 
-- Use user context (OBO) for "my data" or user-personalized operations (for example, "Get my upcoming meetings").
+- Use user context (OBO) for user-personalized operations (for example, "Get my upcoming meetings").
 - Use app-only for shared resources or automations (for example, "Post today's health status to the ops channel").
 
 Document the required scopes/permissions for each tool so you can consent them later.
@@ -102,8 +102,6 @@ Create a new connector connection used by your tool to support delegated user ac
 > [!IMPORTANT]
 > Per-user connections must be created using the "Create as per-user connection?" option and are supported only for Microsoft first-party connectors. You cannot convert an existing app-only connection to per-user; create a new per-user connection. Ensure EasyAuth is enabled on your logic app (Standard) so delegated identity can flow. At runtime in the integrated Azure Logic Apps chat client, each user is prompted on first use and their identity is used thereafter.
 
-![Creating a new per-user (delegated) connection with the checkbox enabled](./media/05_Add_user_context_to_your_tools/CreateOboConnection.png)
-
 ---
 
 ## Example: List the signed-in user's unread Outlook emails
@@ -118,6 +116,8 @@ This example shows how to add a tool that lists the signed-in user's unread emai
 ### Step 2 — Configure the per-user connection
 - When prompted to select or create a connection, select **Create new** and enable the **Create as per-user connection?** option.
 - Complete the sign-in consent flow to authorize the app to use your credentials.
+
+![Creating a new per-user (delegated) connection with the checkbox enabled](./media/05_Add_user_context_to_your_tools/CreateOboConnection.png)
 
 ### Step 3 — Set up the action
 - In the action's parameters, set:
@@ -185,16 +185,6 @@ See [Module 10 — Connect your agents using A2A protocol](./10-connect-agents-a
 - Sensitive data: avoid echoing PII or secrets. Redact or summarize as needed.
 - Mixed identity patterns: use user context for reads and app-only for writes after explicit confirmation.
 - Auditing and logging: use run history and telemetry to track which tools ran and under which identity (user or app).
-
----
-
-## Troubleshooting
-
-- 401/403 Unauthorized: verify the connection uses delegated permissions and the user has access to the resource. Check conditional access policies.
-- Consent or scope mismatch: ensure requested scopes match the operation. Recreate the connection if scopes changed.
-- Token audience (aud) errors: confirm the access token is issued for the correct resource (for example, Microsoft Graph) when using a custom client.
-- Rate limits (429): apply backoff or ask the user to narrow the request.
-- Mixed identity confusion: double-check which connection a tool uses. Ensure app-only and user-delegated connections are clearly labeled.
 
 ---
 

@@ -1,5 +1,5 @@
 ---
-title: Connect tools to external services (Module 03)
+title: Connect tools to external services (Module 3)
 description: Learn how to connect a conversational Azure Logic Apps agent to external services using connectors and expose connector actions as tools.
 ms.service: logic-apps
 ms.topic: tutorial
@@ -8,7 +8,7 @@ author: edwardyhe
 ms.author: edwardyhe
 ---
 
-# Connect your tools with external services (Module 03)
+# Connect your tools with external services (Module 3)
 
 In this module, you will learn how to connect your conversational Azure Logic Apps agent to external systems using connectors, and how to expose connector operations to the agent as tools it can call during a conversation.
 
@@ -18,7 +18,7 @@ By the end, you will:
 - Optionally add an authenticated connector tool and handle inputs and errors.
 - Apply best practices for safe, reliable tool use in conversational scenarios.
 
-We will keep the primary flow simple (no agent parameters and no on-behalf-of (OBO) yet). In Module 04 you will parameterize inputs, and in Module 05 you will add user context.
+We will keep the primary flow simple (no agent parameters and no on-behalf-of (OBO) yet). In Module 4 you will parameterize inputs, and in Module 5 you will add user context.
 
 Helpful resources:
 - Azure Logic Apps connectors overview: https://learn.microsoft.com/en-us/connectors/overview
