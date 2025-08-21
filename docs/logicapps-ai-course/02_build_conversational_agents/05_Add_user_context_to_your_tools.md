@@ -76,6 +76,8 @@ Helpful links:
 - App Service authentication and authorization overview: https://learn.microsoft.com/azure/app-service/overview-authentication-authorization
 - Configure Microsoft Entra ID provider (App Service authentication): https://learn.microsoft.com/azure/app-service/configure-authentication-provider-aad
 
+![App Service Authentication (EasyAuth) configuration in the Azure portal](./media/05_Add_user_context_to_your_tools/EasyAuthSetup.png)
+
 ---
 
 ## Step 1 — Choose the identity model per tool action
@@ -99,6 +101,8 @@ Create a new connector connection used by your tool to support delegated user ac
 
 > [!IMPORTANT]
 > Per-user connections must be created using the "Create as per-user connection?" option and are supported only for Microsoft first-party connectors. You cannot convert an existing app-only connection to per-user; create a new per-user connection. Ensure EasyAuth is enabled on your logic app (Standard) so delegated identity can flow. At runtime in the integrated Azure Logic Apps chat client, each user is prompted on first use and their identity is used thereafter.
+
+![Creating a new per-user (delegated) connection with the checkbox enabled](./media/05_Add_user_context_to_your_tools/CreateOboConnection.png)
 
 ---
 
@@ -126,6 +130,8 @@ This example shows how to add a tool that lists the signed-in user's unread emai
 - Description: Lists the signed-in user's 10 most recent unread emails from their Inbox.
 - Save the workflow.
 
+!["ListUnreadEmails" tool configuration](./media/05_Add_user_context_to_your_tools/ListUnreadEmails.png)
+
 ### Step 5 — Test in chat
 - With EasyAuth configured, the portal chat client will no longer be available. You can access the integrated chat client of the website via "Configure Easy Auth and use the chat client for production purposes".
 - Ask: "What unread emails do I have?"
@@ -133,6 +139,12 @@ This example shows how to add a tool that lists the signed-in user's unread emai
 
 > [!TIP]
 > You can use a similar pattern for other Microsoft 365 connectors, such as OneDrive (list my recent files) or Teams (list my joined teams or recent messages). Use the per-user connection option for OBO scenarios.
+
+![Access integrated chat client iFrame after enabling EasyAuth](./media/05_Add_user_context_to_your_tools/GetIntegratedIFrame.png)
+
+![Authentication required prompt in the integrated chat client](./media/05_Add_user_context_to_your_tools/AuthRequired.png)
+
+![Authentication completed confirmation in the chat client](./media/05_Add_user_context_to_your_tools/AuthCompleted.png)
 
 ### What to expect in chat (first use and reuse)
 

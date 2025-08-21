@@ -96,6 +96,8 @@ We will start with a no-auth example to see the pattern end to end without param
 > [!TIP]
 > Review [Module 1](./01-create-first-conversational-agent.md) for a refresher on creating a conversational agent.
 
+![Designer start for an agent workflow showing the agent loop](./media/03_Connect_your_tools_with_external_services/Start.png)
+
 ### Step 2 — Add a tool from a connector action
 - Add a new Tool.
 - Choose to create from a Connector action and search for "MSN Weather".
@@ -108,19 +110,27 @@ We will start with a no-auth example to see the pattern end to end without param
 > [!TIP]
 > The LLM uses the tool description to decide when to call the tool. Keep it short, specific, and outcome-focused.
 
+![Adding the "MSN Weather" connector action as a tool](./media/03_Connect_your_tools_with_external_services/AddMsnWeather.png)
+
 ### Step 3 — Configure the connector action
 - Set the required parameters for the "Get current weather" action, for example:
   - Location: Seattle, US.
   - Units: Imperial.
 - Save.
 
+![MSN Weather "Get current weather action" configured for Seattle](./media/03_Connect_your_tools_with_external_services/GetCurrentWeather.png)
+
 ### Step 4 — Test in chat (see [Module 1](./01-create-first-conversational-agent.md))
 - Ask: "What is the current weather in Seattle?"
 - Verify output is expected.
 
+![Testing the weather tool in the integrated chat client](./media/03_Connect_your_tools_with_external_services/PortalChat.png)
+
 ### Step 5 — Verify in monitoring view (see [Module 2](./02-debug-agent.md))
 - Verify the tool is invoked and the agent summarizes the items with links.
 - Use Monitoring/Run history to confirm tool calls and action success.
+
+![Monitoring view showing successful tool invocation and run history](./media/03_Connect_your_tools_with_external_services/WeatherMonitoringView.png)
 
 > [!NOTE]
 > Inputs are hardcoded to avoid parameters in this module. You will parameterize them in Module 04. You can substitute any no-auth connector using the same pattern.
@@ -143,6 +153,8 @@ Add a tool that requires authentication. Keep inputs static for now; parameteriz
 - Tool name: GetGitHubRepositories
 - Description: "Gets my public and private GitHub repositories".
 - Save.
+
+![GitHub connector action to list repositories for the authenticated user](./media/03_Connect_your_tools_with_external_services/ListGitHubRepositories.png)
 
 ### Step 4 — Test in chat
 - Ask: "What repositories do I have?"
@@ -203,15 +215,3 @@ Pattern recap: add the action, create/select the connection, set safe defaults, 
 
 - Module 04 — Add parameters to your tools (dynamic inputs from the agent).
 - Module 05 — Add user context to your tools (OBO patterns).
-=======
-# Module 03 - Connect your tools to external services 
-
-Introduce connectors as a way to enhance tool capabilities.
-
-Brief description about connectors in Azure Logic Apps with links to existing docs.
-Prerequisites (define which service to use)
-Create an action
-Create a connection
-Configure connector actions
-No agent parameters and no OBO yet - that is later
-
