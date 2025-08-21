@@ -47,15 +47,15 @@ For conversational scenarios, connectors turn external system operations into ag
 ## What are connectors, and how do they relate to tools?
 
 - Connectors
-	- Reusable integrations that let Azure Logic Apps call external services (Microsoft 365, GitHub, Azure services, SaaS apps, and more).
-	- Expose operations as triggers (event-based starts) and actions (steps you can call).
-	- Use a connection that holds authentication and environment-specific settings.
-	- Managed connectors vs. built-in actions: managed connectors often require connections; built-in actions (HTTP, Compose, Variables) do not.
+  - Reusable integrations that let Azure Logic Apps call external services (Microsoft 365, GitHub, Azure services, SaaS apps, and more).
+  - Expose operations as triggers (event-based starts) and actions (steps you can call).
+  - Use a connection that holds authentication and environment-specific settings.
+  - Managed connectors vs. built-in actions: managed connectors often require connections; built-in actions (HTTP, Compose, Variables) do not.
 
 - Tools (in a conversational agent)
-	- A "tool" is a capability the agent can invoke to satisfy a user's request (for example, "get weather," "look up a ticket").
-	- In Azure Logic Apps agents, a tool can be backed by a connector action, a built-in action, or another workflow.
-	- You provide the tool’s name and description so the agent knows when to call it. Good descriptions drive better tool selection.
+  - A "tool" is a capability the agent can invoke to satisfy a user's request (for example, "get weather," "look up a ticket").
+  - In Azure Logic Apps agents, a tool can be backed by a connector action, a built-in action, or another workflow.
+  - You provide the tool’s name and description so the agent knows when to call it. Good descriptions drive better tool selection by the agent.
 
 > [!NOTE]
 > Connector triggers are not supported in conversational agents. Conversational agents start when a chat session is initiated (for example, from an integrated chat client in Azure Logic Apps). There is no separate workflow trigger inside the agent; tool actions are invoked by the agent during the conversation.
@@ -66,9 +66,8 @@ For conversational scenarios, connectors turn external system operations into ag
 - An Azure subscription with permissions to create logic apps and connections.
 - A conversational logic app agent set up in the previous module(s) with model/provider configured.
 - For the exercises:
-	- Primary example: RSS connector (no authentication required).
-	- Optional alternative: MSN Weather connector (no authentication required).
-	- Optional authenticated example: a GitHub account and either OAuth 2.0 or a personal access token (PAT) with minimal read scopes.
+  - Primary example: MSN Weather connector (no authentication required).
+  - Optional authenticated example: a GitHub account and either OAuth 2.0 or a personal access token (PAT) with minimal read scopes.
 
 > [!NOTE]
 > This module focuses on connector-backed tools. Agent parameters and OBO patterns come later.
@@ -85,60 +84,46 @@ For conversational scenarios, connectors turn external system operations into ag
 
 ---
 
-## Part 1 (primary): Expose a simple read-only connector as a tool (RSS)
+## Part 1 (primary): Expose a simple read-only connector as a tool (MSN Weather)
 
 We will start with a no-auth example to see the pattern end to end without parameters.
 
-### Step 1 — Open your agent
+### Step 1 — Create your agent
 - Open your logic app (Standard) and navigate to your conversational agent workflow (Agent Loop).
+- Configure your agent with a model and system instructions, for example:
+  - System Instructions: "You are a helpful agent".
+
+> [!TIP]
+> Review [Module 1](./01-create-first-conversational-agent.md) for a refresher on creating a conversational agent.
 
 ### Step 2 — Add a tool from a connector action
 - Add a new Tool.
-- Choose to create from a Connector action and search for "RSS".
-- Select "RSS — List items in feed". This adds the action to the tool.
+- Choose to create from a Connector action and search for "MSN Weather".
+- Select "Get current weather".
+- This adds the action to the tool.
 - Name and describe the tool clearly, for example:
-	- Tool name: GetLatestRss
-	- Description: "Retrieves the latest posts from a specific RSS feed and returns titles and links for summarization."
+  - Tool name: GetCurrentSeattleWeather
+  - Description: "Gets the current weather in Seattle."
 
 > [!TIP]
 > The LLM uses the tool description to decide when to call the tool. Keep it short, specific, and outcome-focused.
 
 ### Step 3 — Configure the connector action
-- Feed URL: set a fixed URL (no parameters yet), for example:
-	- https://techcommunity.microsoft.com/gxcuf89792/rss/board?board.id=AzureLogicApps
-- Number of items: 5–10 (keeps responses concise).
+- Set the required parameters for the "Get current weather" action, for example:
+  - Location: Seattle, US.
+  - Units: Imperial.
 - Save.
 
-### Step 4 — Map outputs for the agent
-- Keep outputs compact. The RSS action returns items with title, primaryLink, publishDate, etc.
-- If your designer supports selecting outputs, include only fields you need (title, link).
-- Save the workflow.
+### Step 4 — Test in chat (see [Module 1](./01-create-first-conversational-agent.md))
+- Ask: "What is the current weather in Seattle?"
+- Verify output is expected.
 
-### Step 5 — Test in chat
-- Ask: "What is new from the Azure Logic Apps blog?"
+### Step 5 — Verify in monitoring view (see [Module 2](./02-debug-agent.md))
 - Verify the tool is invoked and the agent summarizes the items with links.
 - Use Monitoring/Run history to confirm tool calls and action success.
 
 > [!NOTE]
 > Inputs are hardcoded to avoid parameters in this module. You will parameterize them in Module 04. You can substitute any no-auth connector using the same pattern.
-
----
-
-## Optional alternative: Read-only connector tool (MSN Weather)
-
-Prefer weather instead of RSS? Use the MSN Weather connector.
-
-### Steps
-- Add a Tool -> Connector action -> search "MSN Weather".
-- Choose "Get current weather".
-- Connection: no authentication required; create with defaults if prompted.
-- Configure with fixed inputs (no parameters yet), for example, Location = "Seattle, US", Units = "imperial".
-- Tool name: GetCurrentWeather
-- Description: "Gets current weather for a fixed location and returns temperature and conditions for summarization."
-- Test by asking: "What is the weather right now?"
-
-> [!TIP]
-> In Module 04, convert Location and Units into agent parameters so the agent can pass values dynamically.
 
 ---
 
@@ -148,21 +133,19 @@ Add a tool that requires authentication. Keep inputs static for now; parameteriz
 
 ### Step 1 — Add the GitHub connector action
 - Add a Tool -> From Connector -> search "GitHub".
-- Pick a read operation such as "Get issue" (owner, repo, issue number) or "Get repository".
+- Pick a read operation such as "Lists all repositories for the authenticated user".
 
 ### Step 2 — Create the GitHub connection
-- When prompted, create a new GitHub connection.
-- Authenticate with OAuth 2.0 using least-privilege scopes, or with a PAT with minimal read access.
-- Prefer secure secret storage (for example, Key Vault-backed references) where available.
+- Create a new GitHub connection.
+- Authenticate by following the consent flow using your existing GitHub account.
 
 ### Step 3 — Configure the tool (static inputs for this module)
-- Tool name: GetGitHubIssue
-- Description: "Looks up a GitHub issue by owner/repo and number; returns title, state, labels, and URL."
-- Map static example inputs directly on the action (no agent parameters yet), for example, owner="octocat", repo="Hello-World", number="1".
+- Tool name: GetGitHubRepositories
+- Description: "Gets my public and private GitHub repositories".
 - Save.
 
 ### Step 4 — Test in chat
-- Ask: "Show me the details of the demo GitHub issue."
+- Ask: "What repositories do I have?"
 - Verify the tool is called and the result summarized.
 
 > [!TIP]
@@ -187,15 +170,15 @@ Add a tool that requires authentication. Keep inputs static for now; parameteriz
 ## Troubleshooting
 
 - Connection shows "Not authorized"
-	- Re-authenticate with required scopes and verify target resource permissions.
+    - Re-authenticate with required scopes and verify target resource permissions.
 - The agent does not call the tool
-	- Strengthen the tool description and reduce overlap with other tools; verify input mappings.
+    - Strengthen the tool description and reduce overlap with other tools; verify input mappings.
 - Wrong or missing parameters
-	- Provide stronger hints and examples; make key inputs required in Module 04.
+    - Provide stronger hints and examples; make key inputs required in Module 04.
 - 429/Throttling
-	- Limit frequency, cache, or ask the user to narrow the query.
+    - Limit frequency, cache, or ask the user to narrow the query.
 - Not found (404)
-	- Verify owner/repo/number or location format; suggest alternatives.
+    - Verify owner/repo/number or location format; suggest alternatives.
 
 ---
 

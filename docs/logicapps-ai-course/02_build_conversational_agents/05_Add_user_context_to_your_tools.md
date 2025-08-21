@@ -100,6 +100,40 @@ Create a new connector connection used by your tool to support delegated user ac
 > [!IMPORTANT]
 > Per-user connections must be created using the "Create as per-user connection?" option and are supported only for Microsoft first-party connectors. You cannot convert an existing app-only connection to per-user; create a new per-user connection. Ensure EasyAuth is enabled on your logic app (Standard) so delegated identity can flow. At runtime in the integrated Azure Logic Apps chat client, each user is prompted on first use and their identity is used thereafter.
 
+---
+
+## Example: List the signed-in user's unread Outlook emails
+
+This example shows how to add a tool that lists the signed-in user's unread emails using the Outlook connector with user context (OBO).
+
+### Step 1 — Add the Outlook connector action
+- In your agent workflow, add a new tool.
+- Choose to create from a Connector action and search for "Office 365 Outlook".
+- Select the action "Get emails (V3)" or similar (action names may vary slightly).
+
+### Step 2 — Configure the per-user connection
+- When prompted to select or create a connection, select **Create new** and enable the **Create as per-user connection?** option.
+- Complete the sign-in consent flow to authorize the app to use your credentials.
+
+### Step 3 — Set up the action
+- In the action's parameters, set:
+	- **Folder**: Inbox
+	- **Fetch only unread messages**: Yes
+	- **Top**: 10
+
+### Step 4 — Name and describe the tool
+- Tool name: `ListUnreadEmails`
+- Description: Lists the signed-in user's 10 most recent unread emails from their Inbox.
+- Save the workflow.
+
+### Step 5 — Test in chat
+- With EasyAuth configured, the portal chat client will no longer be available. You can access the integrated chat client of the website via "Configure Easy Auth and use the chat client for production purposes".
+- Ask: "What unread emails do I have?"
+- The agent should prompt for sign-in if this is the first time the user uses the tool, then return a summary of unread emails (subject, sender, received time).
+
+> [!TIP]
+> You can use a similar pattern for other Microsoft 365 connectors, such as OneDrive (list my recent files) or Teams (list my joined teams or recent messages). Use the per-user connection option for OBO scenarios.
+
 ### What to expect in chat (first use and reuse)
 
 When a tool first uses a per-user connector action in the integrated Azure Logic Apps chat client, an authentication prompt appears for the user to sign in (for example, an "Authentication Required" panel with a Sign in button). After the user signs in once, subsequent calls using the same per-user connection do not require re-authentication.
@@ -112,7 +146,7 @@ When a tool first uses a per-user connector action in the integrated Azure Logic
 ## Step 3 — Test with users who have different access
 
 1. Open the chat client and start a session as User A.
-2. Ask the agent to perform an operation that requires user context (for example, "Show my upcoming events today").
+2. Ask the agent to perform an operation that requires user context (for example, "What are my latest unread emails?").
 3. Confirm the tool runs successfully and results reflect User A's data/permissions.
 4. Repeat as User B and verify the tool runs successfully and reflects User B's data/permissions (results may differ from User A based on access).
 
@@ -128,14 +162,13 @@ If your production experience uses a custom chat client (web, mobile, or another
 - Pass the token to your agent invocation per your integration model (covered in Module 10).
 - Configure your tool to use the delegated token or a connection that recognizes the user's context.
 
-See Module 10 — Connect your agents using A2A protocol for details and sample client code.
+See [Module 10 — Connect your agents using A2A protocol](./10-connect-agents-a2a-protocol.md) for details.
 
 ---
 
 ## Best practices
 
 - Least privilege: request the minimal delegated scopes needed for each tool and avoid broad permissions.
-- Admin consent: obtain tenant admin consent where required to reduce consent prompts during chat.
 - Clear feedback: instruct the agent to summarize permission errors briefly and suggest remediation (for example, "You might not have access to this mailbox").
 - Sensitive data: avoid echoing PII or secrets. Redact or summarize as needed.
 - Mixed identity patterns: use user context for reads and app-only for writes after explicit confirmation.
@@ -155,10 +188,5 @@ See Module 10 — Connect your agents using A2A protocol for details and sample 
 
 ## Next steps
 
-- Module 06 — Extend your tool functionality with patterns (chaining, fallback, caching).
+- Module 06 — Extend your tool functionality with best-pracitce patterns.
 - Module 10 — Connect your agents using A2A protocol (client integration and delegated tokens).
-=======
-# Module 05 - Add user context to your tools
-
-- Explain when OBO is needed and how to configure it (only if OBO works from portal chat client - otherwise defer until after deployment section)
-- Some client code if useful but link to later a2a section so readers have context
