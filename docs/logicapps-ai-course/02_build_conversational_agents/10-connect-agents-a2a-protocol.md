@@ -17,9 +17,9 @@ Azure Logic Apps conversational agents support the [A2A protocol](https://a2a-pr
 - Easily incorporate Logic Apps agents into multi-agent solutions.
 - Replace code-heavy agents with minimal changes.
 
-### Trigger parameters and authentication for conversational agents
+## Trigger parameters and authentication for conversational agents
 
-## Fields in the conversational agent trigger
+### Fields in the conversational agent trigger
 
 - **Agent URL**: All communication with a Logic Apps conversational agent happens through this **Agent URL**, which maps directly to the A2A specification's serviceEndpoint. This URL serves as the entry point for all A2A-compliant API calls, such as message/send, tasks/get, and message/stream. 
 - **Agent API key**: The API key (also referred to as the developer key) must be included in the X-API-Key header for any communication with the agent.
@@ -28,14 +28,14 @@ Azure Logic Apps conversational agents support the [A2A protocol](https://a2a-pr
 
 ![Conversational Agent Trigger parameters](./media/10_Connect_your_agents_using_a2a_protocol/A2ATrigger.png)
 
-## Authentication methods
+### Authentication methods
 
 Logic App conversational agents support two authentication methods:
 
 - **API key-based authentication**: This is the default method. The API key (also referred to as the developer key) must be included in the X-API-Key header for any communication with the agent.
 - **App Service authentication (EasyAuth)**: If EasyAuth is configured on the Logic App (Standard), it takes precedence over API key-based authentication. This method is typically used when OAuth flows or on-behalf-of (OBO) scenarios are required, such as interacting with connectors that require user context (explained in [Module 05 — Add user context to your tools](./05-add-user-context-to-tools.md)).
 
-### Agent discovery and agent card
+## Agent discovery and agent card
 
 Each Logic Apps conversational agent exposes an [**agent card**](https://a2a-protocol.org/latest/specification/#5-agent-discovery-the-agent-card) defined by the [A2A specification](https://a2a-protocol.org/latest/specification/), a JSON document that acts as a digital business card. This card is essential for discovery and initiating interaction.
 
