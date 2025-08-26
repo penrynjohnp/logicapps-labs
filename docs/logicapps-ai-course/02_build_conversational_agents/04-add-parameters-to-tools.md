@@ -1,6 +1,6 @@
 # Module 04 - Add parameters to your tools
 
-In previous modules, we discussed how to add tools to your agent. Sometimes a tool can vary its behavior based on some input argument - we call these parameters. For example, a GetWeather tool can be configured to always look up the weather in Seattle. But if the location should be dynamic, then we need to add a location parameter to the tool.
+In previous modules, we discussed how to add tools to your agent. Sometimes a tool should vary its behavior depending on the interaction and context - we accomplish this using parameters. For example, a GetWeather tool can be configured to always look up the weather in Seattle. But if the location should be dynamic and depends on conversation context, then we need to add a location parameter to the tool.
 
 In this module, we explore different ways you can parameterize your tool calls. We discuss how to:
 - add parameters & annotate them for the LLM
