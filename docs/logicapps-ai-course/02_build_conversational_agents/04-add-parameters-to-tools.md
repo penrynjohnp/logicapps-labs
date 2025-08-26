@@ -29,12 +29,14 @@ When you've created the agent parameter on the action, it gets uplifted to the t
 
 ...
 
+### Importance of tool metadata
+
 Recall that the tool header pane describes all the metadata actually being passed to the LLM. In this case:
 - Tool name: GetCurrentWeather
 - Tool description: Gets the current weather in provided Location
 - List of parameters
 
-These values, in addition to the system prompt, comprise the full information provided to the LLM. Descriptive prompts and values will improve agent quality. The name of the inner "Get current weather" action is internal to Logic Apps; only the enclosing tool name, description, and associated agent parameters are passed to the LLM provider.
+These values, in addition to the system prompt, comprise the full information provided to the LLM. Descriptive prompts and values will improve agent quality. Make sure the **tool** metadata is fully configured - the logic app action name inside a tool ("Get current weather" with spaces) is informational and not passed to the LLM; only the enclosing tool name ("GetCurrentWeather"), tool description, and associated agent parameters are passed to the LLM provider.
 
 Now when chatting with the agent, we can provide a string like "Paris" and the weather is fetched:
 
