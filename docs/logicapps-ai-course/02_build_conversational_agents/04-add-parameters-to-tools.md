@@ -21,7 +21,43 @@ chat interaction picture
 
 This agent can only determine weather in Seattle because the "Location" field in "Get current weather" action is static. Even if the user requests data about a different city, the platform will not allow this tool to be called differently.
 
-Static parameters have their place, but let's see how to allow the LLM to handle requests like "What is the weather in Paris?"
+Static parameters have their place, but let's see how to allow requests like "What is the weather in Paris?" To accomplish this, we need the "Location" field to be an agent parameter so that its value can be determined dynamically from the LLM completion and conversation context.
+
+When focusing on the Location field, there is a button to the right labelled "Select to generate the agent parameter". When selecting this, a "Create agent parameter" pane appears with preconfigured metadata like "Name", "Type", and "Description". Logic Apps prefills this metadata for you based on the action schema. For example, Location is a string and has a default description. You can click "Create" to accept the default values.
+
+When you've created the agent parameter on the action, it gets uplifted to the tool header:
+
+...
+
+Recall that the tool header pane describes all the metadata actually being passed to the LLM. In this case:
+- Tool name: GetCurrentWeather
+- Tool description: Gets the current weather in provided Location
+- List of parameters
+
+These values, in addition to the system prompt, comprise the full information provided to the LLM. Descriptive prompts and values will improve agent quality. The name of the inner "Get current weather" action is internal to Logic Apps; only the enclosing tool name, description, and associated agent parameters are passed to the LLM provider.
+
+Now when chatting with the agent, we can provide a string like "Paris" and the weather is fetched:
+
+## Monitoring agent parameters
+
+The prior screenshot shows a conversation where weather was fetched for Paris. But how can we verify the parameter was actually used? How do we know the agent did not hallucinate the response? The agent monitoring view provides clear visibility into exactly which tools were called and with which parameters.
+
+Navigate to the monitoring view for the latest run via "Run history" on the left pane. You should see the same Paris conversation in a read-only view on the right side of the screen:
+
+Notice the read-only chat pane has a tool call listed for GetCurrentWeather. Click on this tool call.
+
+The middle pane now shows the LLM chat completion containing this tool call directive:
+- The inputs show the latest user message with the content "Paris"
+- The outputs show the assistant message from the LLM with the tool call directive. Notice the `toolArguments` field contains `"Location": "Paris"`. This confirms that the chat completion request to the LLM resulted in a tool call directive with the dynamic argument "Paris".
+
+To fulfill the tool call directive, now we execute the configured Logic App actions in this tool. Click on the "Get current weather" logic app action inside the GetCurrentWeather tool:
+
+Because `Location` references the agent parameter, we see Location is set to `Paris` as provided by the LLM. The outputs of this action are listed as well.
+
+The above flow proves that the LLM truly generated `Paris` as a dynamic agent parameter, and that the platform plumbed this through to the relevant Logic App action inside the tool branch.
+
+## 
+
 
 Parameterizing tools (both LLM-generated & static)
 
