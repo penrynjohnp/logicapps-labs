@@ -19,7 +19,9 @@ tool picture
 action picture
 chat interaction picture
 
-This agent can only determine weather in Seattle because the "Location" field in "Get current weather" action is always set to Seattle. Even if the user requests data about a different city, the platform does not allow the agent to 
+This agent can only determine weather in Seattle because the "Location" field in "Get current weather" action is static. Even if the user requests data about a different city, the platform will not allow this tool to be called differently.
+
+Static parameters have their place, but let's see how to allow the LLM to handle requests like "What is the weather in Paris?"
 
 Parameterizing tools (both LLM-generated & static)
 
