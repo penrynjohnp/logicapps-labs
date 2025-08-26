@@ -52,7 +52,7 @@ The middle pane now shows the LLM chat completion containing this tool call dire
 - The inputs show the latest user message with the content "Paris"
 - The outputs show the assistant message from the LLM with the tool call directive. Notice the `toolArguments` field contains `"Location": "Paris"`. This confirms that the chat completion request to the LLM resulted in a tool call directive with the dynamic argument "Paris".
 
-To fulfill the tool call directive, now we execute the configured Logic App actions in this tool. Click on the "Get current weather" logic app action inside the GetCurrentWeather tool:
+To fulfill the tool call directive, the platform executed the configured Logic App action in this tool. Click on the "Get current weather" logic app action inside the GetCurrentWeather tool:
 
 Because `Location` references the agent parameter, we see Location is set to `Paris` as provided by the LLM. The outputs of this action are listed as well.
 
