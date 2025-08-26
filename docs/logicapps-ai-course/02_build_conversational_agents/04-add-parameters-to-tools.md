@@ -56,13 +56,22 @@ Because `Location` references the agent parameter, we see Location is set to `Pa
 
 The above flow proves that the LLM truly generated `Paris` as a dynamic agent parameter, and that the platform plumbed this through to the relevant Logic App action inside the tool branch.
 
-## 
+## Mixing dynamic and static values in parameter generation
 
+So far we have covered static parameters (constant value like "Seattle") and LLM-generated dynamic parameters (like "Paris"). You can also construct parameters that mix static and dynamic content. For example, imagine a SendEmail action whose body is mostly static, but a single sentence at the end should be LLM-generated. Rather than risk hallucinations for the static portion, you can ensure the LLM is only generating that single sentence.
 
-Parameterizing tools (both LLM-generated & static)
+To explore this further, imagine the following agent who is provided a simple "EchoTool" implemented with the logic apps "Compose" action. We configure this action to just return what was passed to it:
 
-- Amend or create scenario where agent parameter is required
-- How to add it in designer
-- Importance of agent parameter metadata (param name, param description)
-- LA offers granular control via different options:  action param fully from LLM, action param static, and action param mixed of both static & LLM-based content
-- How to identify agent parameters in MonView so user can see what LLM provided.
+screenshots
+
+This is no different than the GetWeather scenario before. Now, we will add a new "EchoTool2" tool. Here, we want the agent parameter to be a **portion** of the "Inputs" field, not a full replacement. Instead of clicking the earlier button on the action input, click "+ Create Parameter" at the tool level. Manually set up a generic string parameter called "Input".
+
+Then on the "Inputs" field, select the fx button on the left. Here you see several expressions available in Logic Apps - and in dynamic content, you will see the agent parameter we constructed. You can mix functions and dynamic content to construct an "Inputs" value that mixes static, expression-generated, and LLM-generated agent parameters. For example, we concatenate a dynamic guid() with the agent parameter. The concat() and guid() functions are part of the Logic Apps expression library and generated without LLM-involvement. Click "Add".
+
+We update the system prompt and start a new chat session:
+
+..
+
+Notice the result of the tool - we asked the agent to call EchoTool2 with the parameter "Hello World". Unlike the first echo tool, this time the tool result was `8a069182-4a95-4c19-903c-cabb3dac3612Hello World`. This is because the Compose action input expression was `concat(guid(), agentParameters('Input'))`. In this manner you have fine-grained control over the parameters passed to your logic app connectors and built-in actions. The values can be static, fully replaced by LLM-generated parameters, dynamically generated via functions like guid(), or a combination of all three.
+
+You can trace the same flow in monitoring view again. See how the LLM-provided tool parameter is "Hello world", but the interpolated input for the Compose action is `8a069182-4a95-4c19-903c-cabb3dac3612Hello World` which gets echoed back.
