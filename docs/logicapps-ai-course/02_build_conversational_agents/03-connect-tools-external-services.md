@@ -114,7 +114,7 @@ To more easily demonstrate the conversational agent pattern from end to end, thi
 
    The tool now looks like the following example:
 
-   ![Screenshot shows designer with MSN Weather action and tool.](media/03-connect-tools-external-services/get-current-weather-tool.png)
+   ![Screenshot shows MSN Weather action and tool.](media/03-connect-tools-external-services/get-current-weather-tool.png)
 
 ### Step 3 - Set up the connector action
 
@@ -127,7 +127,7 @@ To more easily demonstrate the conversational agent pattern from end to end, thi
 
    The action now looks like the following example:
 
-   ![Screenshot shows MSN Weather action set up for Seattle, US.](media/03-connect-tools-external-services/get-currrent-weather-action.png)
+   ![Screenshot shows MSN Weather action set up for Seattle, US.](media/03-connect-tools-external-services/get-current-weather-action.png)
 
 1. Save your workflow.
 
@@ -135,11 +135,11 @@ To more easily demonstrate the conversational agent pattern from end to end, thi
 
 1. On the designer toolbar, select **Chat**.
 
-1. In the chat user interface, ask the following question: **What is the current weather in Seattle?**
+1. In the chat client interface, ask the following question: **What is the current weather in Seattle?**
 
 1. Check that the response is what you expect, for example:
 
-   ![Screenshot shows integrated chat client.](media/03-connect-tools-external-services/portal-chat.png)
+   ![Screenshot shows chat client interface.](media/03-connect-tools-external-services/portal-chat.png)
 
 ### Step 5 - Check tool in monitoring view
 
@@ -167,7 +167,7 @@ Now, you'll learn to add a tool that requires authentication. This module uses s
 
 1. On the designer, select the **GitHub** action that you added to your tool.
 
-1. On the **Create connection** pane that opens, sign in to GitHub, which authenticates by asking you for consent to connect with your GitHub account.
+1. On the **Create connection** pane that opens, sign in to GitHub, and provide consent to authenticate the connection your GitHub account.
 
 > [!IMPORTANT]
 >
@@ -180,7 +180,7 @@ Now, you'll learn to add a tool that requires authentication. This module uses s
    - Name: **Get GitHub repositories**
    - Description: **Gets my public and private GitHub respositories.**
 
-   ![Screenshot shows monitoring view with successful tool and action call.](media/03-connect-tools-external-services/list-repositories.png)
+   ![Screenshot shows GitHub action and tool.](media/03-connect-tools-external-services/list-repositories.png)
 
 1. Save your workflow.
 
