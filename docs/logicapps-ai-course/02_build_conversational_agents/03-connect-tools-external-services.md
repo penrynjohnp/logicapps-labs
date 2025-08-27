@@ -236,7 +236,7 @@ Here's a recap for the pattern to use:
 ## Clean up resources
 
 - When you're done with this module, make sure to delete any resources you no longer need or want to keep. That way, you don't continue to get charged for their usage.
-- If you created any new connections, make sure to remove or rotate your credentials, based on your organization's policy.
+- If you created any new connections, make sure to remove connections or rotate your credentials, based on your organization's policy.
 
 ## Next steps
 
