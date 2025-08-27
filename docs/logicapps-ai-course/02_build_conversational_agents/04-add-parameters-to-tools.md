@@ -113,3 +113,11 @@ You can trace the same flow in monitoring view again. See how the LLM-provided t
 
 ![Monitoring view of action second agent interaction of 'echo' agent](media/04-add-parameters-to-tools/echo-monview-2.png)
 
+## Conclusion
+
+You have several options to configure the inputs for actions in agent tools:
+- You can use static parameters when the value should be consistent regardless of LLM behavior.
+- You can set a field wholly to an agent parameter when its value should be determined by an LLM.
+- You can mix and match static, dynamic (via expressions), and LLM-generated content into a single action field for granular control over its format.
+
+The monitoring view provides full traceability into how these parameters are generated and flow through to actions.
