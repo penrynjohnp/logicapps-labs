@@ -32,8 +32,6 @@ When focusing on the Location field, there is a button to the right labelled "Se
 
 ![Adding agent parameter first step](media/04-add-parameters-to-tools/seattle-agent-parameter-add.png)
 
-![Adding agent parameter second step](media/04-add-parameters-to-tools/seattle-agent-parameter-add-1.png)
-
 Logic Apps prefills this metadata for you based on the action schema. For example, Location is a string and has a default description. You can click "Create" to accept the default values.
 
 ![Adding agent parameter third step](media/04-add-parameters-to-tools/seattle-agent-parameter-add-2.png)
@@ -42,19 +40,20 @@ When you've created the agent parameter on the action, it gets uplifted to the t
 
 ![Agent parameter uplifted to tool metadata](media/04-add-parameters-to-tools/seattle-agent-parameter-uplift.png)
 
-
 ...
 
 ### Importance of tool metadata
 
 Recall that the tool header pane describes all the metadata actually being passed to the LLM. In this case:
-- Tool name: GetCurrentWeather
-- Tool description: Gets the current weather in provided Location
-- List of parameters
+- Tool name: `GetCurrentWeather`
+- Tool description: `Gets the current weather in provided Location`
+- List of agent parameters
 
 These values, in addition to the system prompt, comprise the full information provided to the LLM. Descriptive prompts and values will improve agent quality. Make sure the **tool** metadata is fully configured - the logic app action name inside a tool ("Get current weather" with spaces) is informational and not passed to the LLM; only the enclosing tool name ("GetCurrentWeather"), tool description, and associated agent parameters are passed to the LLM provider.
 
 Now when chatting with the agent, we can provide a string like "Paris" and the weather is fetched:
+
+![Agent parameter interaction](media/04-add-parameters-to-tools/seattle-agent-parameter-interaction.png)
 
 ## Monitoring agent parameters
 
