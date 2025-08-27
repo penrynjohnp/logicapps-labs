@@ -13,7 +13,7 @@ Together, these capabilities offer granular control & clear observability into h
 
 Let's begin with an agent without any parameters. Here is a simple agent that knows how to get the weather in Seattle. The screenshots below show its system prompt, tools, and sample interaction:
 
-![SystemPrompt](media/04-add-parameters-to-tools/seattle-system-prompt.png)
+![Agent that can get the weather in Seattle](media/04-add-parameters-to-tools/seattle-agent-structure.png)
 
 gif or below
 system prompt picture
