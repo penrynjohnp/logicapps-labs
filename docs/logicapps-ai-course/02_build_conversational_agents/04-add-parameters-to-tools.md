@@ -90,7 +90,7 @@ To explore this further, imagine the following agent which is provided a simple 
 
 This is not much different than the GetWeather scenario before. Now, we will add a new "EchoTool2" tool. Here, we want the agent parameter to be a **portion** of the "Inputs" field, not a full replacement. Instead of clicking the earlier button on the action input, click "+ Create Parameter" at the tool level. Manually set up a generic string parameter called "Input". Then on the "Inputs" field, select the fx button on the left. It should look like this:
 
-![Initial agent structure of 'echo' agent with parameter added](media/04-add-parameters-to-tools/echo-second-tool-structure.png)
+![Initial agent structure of 'echo' agent with parameter added](media/04-add-parameters-to-tools/echo-second-tool-structure-2.png)
 
 Here you see several expressions available in Logic Apps - and in dynamic content, you will see the agent parameter we constructed.
 
