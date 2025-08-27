@@ -21,7 +21,7 @@ Let's begin with an agent without any parameters. Here is the structure for a we
 | Action inside tool | "Get current weather" msn connector with fields "Seattle" and "Imperial"
 
 ![Agent that can get the weather in Seattle](media/04-add-parameters-to-tools/seattle-agent-structure.png)
-
+![Action information for seattle weather agent](media/04-add-parameters-to-tools/seattle-agent-action.png)
 ![Chat interaction with this sample agent](media/04-add-parameters-to-tools/seattle-agent-interaction.png)
 
 
