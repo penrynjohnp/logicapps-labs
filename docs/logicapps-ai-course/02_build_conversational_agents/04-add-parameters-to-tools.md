@@ -59,7 +59,7 @@ Navigate to the monitoring view for the latest run via "Run history" on the left
 
 ![Agent parameter monitoring view](media/04-add-parameters-to-tools/seattle-agent-parameter-paris-monview.png)
 
-The middle pane now shows the LLM chat completion containing this tool call directive:
+In the screenshot above, the middle pane now shows the LLM chat completion containing this tool call directive:
 - The inputs show the latest user message with the content "Paris"
 - The outputs show the assistant message from the LLM with the tool call directive. Notice the `toolArguments` field contains `"Location": "Paris"`. This confirms that the chat completion request to the LLM resulted in a tool call directive with the dynamic argument "Paris".
 
@@ -73,9 +73,16 @@ The above flow proves that the LLM truly generated `Paris` as a dynamic agent pa
 
 ## Mixing dynamic and static values in parameter generation
 
-So far we have covered static parameters (constant value like "Seattle") and LLM-generated dynamic parameters (like "Paris"). You can also construct parameters that mix static and dynamic content. For example, imagine a SendEmail action whose body is mostly static, but a single sentence at the end should be LLM-generated. Rather than risk hallucinations for the static portion, you can ensure the LLM is only generating that single sentence.
+So far we have covered static parameters (constant value like "Seattle") and LLM-generated dynamic parameters (like "Paris"). You can also construct parameters that mix static and dynamic content. For example, imagine a SendEmail action whose body is mostly static, but a single sentence at the end should be LLM-generated. Rather than risk hallucinations for the static portion, you can ensure the LLM content is limited to that single sentence.
 
 To explore this further, imagine the following agent who is provided a simple "EchoTool" implemented with the logic apps "Compose" action. We configure this action to just return what was passed to it:
+
+| Field | Value |
+|---------|-----|
+| System prompt | You are given one tool that echos back the parameter you provide. You help the user understand how agent parameters work by calling the tool with the given parameter when asked. |
+| Tool name | EchoTool |
+| Tool description | This tool echoes back the given parameter. |
+| Action inside tool | "Compose" action with its Inputs field fully replaced by an agent parameter
 
 screenshots
 
