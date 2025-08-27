@@ -11,7 +11,7 @@ Together, these capabilities offer granular control & clear observability into h
 
 ## Adding parameters to a tool
 
-Let's begin with an agent without any parameters. Here is the structure for a weather retrival agent scoped to Seattle:
+Let's begin with an agent without any parameters. Here is the structure for a weather agent scoped to Seattle:
 
 | Field | Value |
 |---------|-----|
