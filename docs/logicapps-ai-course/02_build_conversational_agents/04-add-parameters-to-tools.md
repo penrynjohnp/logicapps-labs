@@ -47,7 +47,7 @@ Recall that the tool header pane describes all the metadata actually being passe
 
 These values, in addition to the system prompt, comprise the full information provided to the LLM. Descriptive prompts and values will improve agent quality. Make sure the **tool** metadata is fully configured - the logic app action name inside a tool ("Get current weather" with spaces) is informational and not passed to the LLM; only the enclosing tool name ("GetCurrentWeather"), tool description, and associated agent parameters are passed to the LLM provider.
 
-Update the system prompt to remove a specific reference to "Seattle" and begin a new chat with the agent. We can provide a string like "Paris" and the weather is fetched:
+Remove "Seattle" from the system prompt and begin a new chat with the agent. We can provide a string like "Paris" and the weather is fetched:
 
 ![Agent parameter interaction](media/04-add-parameters-to-tools/seattle-agent-parameter-interaction.png)
 
