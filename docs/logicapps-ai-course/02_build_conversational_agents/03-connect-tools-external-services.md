@@ -93,7 +93,7 @@ To more easily demonstrate the conversational agent pattern from end to end, thi
 
 1. On the designer, select the agent action. For the system instructions, enter **You are an helpful agent that provides weather information.**
 
-   :::image type="content" source="media/03-connect-tools-external-services/start.png" alt-text="Screenshot shows designer with conversational agent." lightbox="media/03-connect-tools-external-services/start.png":::
+   ![Screenshot shows designer with conversational agent.](media/03-connect-tools-external-services/start.png)
 
 ### Step 2 - Add a tool for your agent
 
