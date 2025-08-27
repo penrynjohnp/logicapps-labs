@@ -1,217 +1,238 @@
 ---
-title: Connect tools to external services (Module 3)
-description: Learn how to connect a conversational Azure Logic Apps agent to external services using connectors and expose connector actions as tools.
-ms.service: logic-apps
-ms.topic: tutorial
-ms.date: 08/13/2025
+title: Connect tools to external services - Module 03
+description: Learn how to connect a conversational agent workflow in Azure Logic Apps to external services by using connectors and how to expose connector actions as tools for models, agents, and MCP clients to use.
+ms.service: azure-logic-apps
 author: edwardyhe
 ms.author: edwardyhe
+ms.topic: tutorial
+ms.date: 08/26/2025
+#Customer intent: As an integration solution developer, I want to know how to connect my conversational agent workflow to external services and expose connector actions as tools for agents and models to use.
 ---
 
-# Connect your tools with external services (Module 3)
+# Connect your tools to external services (Module 03)
 
-In this module, you will learn how to connect your conversational Azure Logic Apps agent to external systems using connectors, and how to expose connector operations to the agent as tools it can call during a conversation.
+In this module, you learn how to connect a conversational agent workflow in Azure Logic Apps to external systems by using connectors and how to expose connector actions as tools that the agent can call during a chat conversation.
 
-By the end, you will:
-- Understand key connector concepts (actions, connections, authentication, limits).
-- Add one read-only connector tool your agent can call automatically (no authentication required).
-- Optionally add an authenticated connector tool and handle inputs and errors.
+When you finish this module, you'll achieve the goals and complete the tasks in the following list:
+
+- Understand key connector concepts such as actions, connections, authentication, and limits.
+- Add one read-only connector action as a tool that your agent can autonomously and directly call without needing authentication.
+- ptionally add an authenticated connector action as a tool that handles inputs and errors.
 - Apply best practices for safe, reliable tool use in conversational scenarios.
 
-We will keep the primary flow simple (no agent parameters and no on-behalf-of (OBO) yet). In Module 4 you will parameterize inputs, and in Module 5 you will add user context.
+This module keeps the primary flow simple without using [agent parameters](https://learn.microsoft.com/azure/logic-apps/agent-workflows-concepts#key-concepts) or [on-behalf-of (OBO) authorization](https://learn.microsoft.com/entra/identity-platform/v2-oauth2-on-behalf-of-flow). In Module 4, you learn how to parameterize inputs. In Module 5, you learn how to add OBO authorization.
 
-Helpful resources:
-- Azure Logic Apps connectors overview: https://learn.microsoft.com/en-us/connectors/overview
+For more information, see [Connectors overview for Azure Logic Apps connectors](https://learn.microsoft.com/azure/connectors/introduction).
 
----
+## Connectors and their relationship to tools
 
-## Why connectors add value for conversational agents
+In Azure Logic Apps, *connectors* offer prebuilt operations that provide a fast, secure, and reliable way for an agent to take an action in the real world without needing you to write integration code. The following table describes other benefits that connectors offer when you build integration workflows:
 
-Azure Logic Apps connectors provide a fast, secure, and reliable way to let an agent take action in the real world without custom integration code.
+| Benefit | Description |
+|---------|-------------|
+| Breadth of integrations | Choose operations offered by more than 1,400 connectors across Microsoft 365, Azure services, SaaS apps, developer tools, and data platforms. |
+| Faster time to value | Use declarative actions so you don't have to build and maintain custom API clients. Reduce boilerplate, errors, and maintenance overhead. |
+| Secure connections | Standardize authentication with connections that can use Open Authorization (OAuth 2.0), API keys, or managed identity. Store secrets securely and reuse connections across tools. |
+| Reliability | Take advantage of built-in retries, pagination, and robust error surfaces exposed in run history and monitoring. |
+| Consistent patterns | Simplify how an agent calls operations and how you compose workflows around them by using a unified model. |
+| Observability | Trace tool calls, diagnose failures, and tune prompts by using workflow run history, monitoring, and telemetry. |
+| Enterprise readiness | Combine connectors with network isolation and other platform controls to meet organizational requirements. |
 
-- Breadth of integrations: Access a large catalog of prebuilt connectors across Microsoft 365, Azure services, SaaS apps, developer tools, and data platforms.
-- Faster time to value: Use declarative actions instead of building and maintaining custom API clients. Reduce boilerplate, errors, and maintenance overhead.
-- Secure connections: Standardize authentication with connections (Open Authorization (OAuth 2.0), API keys, managed identity). Store secrets securely and reuse connections across tools.
-- Reliability features: Take advantage of built-in retries, pagination, and robust error surfaces exposed in run history and monitoring.
-- Consistent patterns: A uniform action model simplifies how the agent invokes operations and how you compose flows around them.
-- Observability: Use run history, monitoring, and telemetry to trace tool calls, diagnose failures, and tune prompts.
-- Enterprise readiness: Combine connectors with network isolation and other platform controls to meet organizational requirements.
-
-For conversational scenarios, connectors turn external system operations into agent tools. Provide a clear tool name and description, and the agent can decide when to call the connector and how to summarize results back to the user.
-
-> [!TIP]
-> Prefer managed connectors over raw HTTP when available to benefit from built-in authentication, throttling guidance, schemas, and monitoring.
-
----
-
-## What are connectors, and how do they relate to tools?
-
-- Connectors
-  - Reusable integrations that let Azure Logic Apps call external services (Microsoft 365, GitHub, Azure services, SaaS apps, and more).
-  - Expose operations as triggers (event-based starts) and actions (steps you can call).
-  - Use a connection that holds authentication and environment-specific settings.
-  - Managed connectors vs. built-in actions: managed connectors often require connections; built-in actions (HTTP, Compose, Variables) do not.
-
-- Tools (in a conversational agent)
-  - A "tool" is a capability the agent can invoke to satisfy a user's request (for example, "get weather," "look up a ticket").
-  - In Azure Logic Apps agents, a tool can be backed by a connector action, a built-in action, or another workflow.
-  - You provide the tool’s name and description so the agent knows when to call it. Good descriptions drive better tool selection by the agent.
+In conversational agent scenarios, connectors turn operations that work with external services and systems into tools that agents can use. When you provide a clear tool name and description, the agent can better decide when to call connector operations as tools and how to summarize results back to the user. To benefit from built-in authentication, throttling guidance, schemas, and monitoring, use connectors when available, rather than raw HTTP.
 
 > [!NOTE]
-> Connector triggers are not supported in conversational agents. Conversational agents start when a chat session is initiated (for example, from an integrated chat client in Azure Logic Apps). There is no separate workflow trigger inside the agent; tool actions are invoked by the agent during the conversation.
----
+>
+> Conversational agent workflows always start with the default trigger named **When a new chat session starts**,
+> and not any other trigger. Conversational agents start running when a chat session starts from the integrated
+> chat client in Azure Logic Apps. No separate workflow trigger exists in the agent because the agent directly
+> calls tool actions during the conversation.
+
+The following table helps map the relationship between connector operations and the tools that conversational agents use:
+
+| Component | Description |
+|-----------|-------------|
+| Connectors | - Provide operations that you use to create reusable integrations where Azure Logic Apps can call external services, such as Microsoft 365, GitHub, Azure services, SaaS apps, and more. <br><br>- Expose connector operations as triggers, which are events that start the workflow, and actions, which are tasks that the agent can call. <br><br>- Create a connection that specifies authentication and environment-specific settings. <br><br>- Managed connectors versus built-in operations: Managed connector operations run in global, multitenant Azure and usually require connections. Built-in operations, such as Request, Recurrence, HTTP, Compose, Until, and so on, directly run with the Azure Logic Apps runtime. |
+| Tools | - Provides a single action or an action sequence that an agent can call to satisfy a user's request, such as "Get weather" or "Look up a ticket". <br><br>- For agents in Azure Logic Apps, a tool can use a connector action, a built-in action, or even another workflow. <br><br>- Provide a tool name and description so that the agent can better determine when to call the tool. Good descriptions drive better tool selection. |
 
 ## Prerequisites
 
-- An Azure subscription with permissions to create logic apps and connections.
-- A conversational logic app agent set up in the previous module(s) with model/provider configured.
-- For the exercises:
-  - Primary example: MSN Weather connector (no authentication required).
-  - Optional authenticated example: a GitHub account and either OAuth 2.0 or a personal access token (PAT) with minimal read scopes.
+- An Azure account and subscription. If you don't have a subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+
+- A Standard logic app resource and a conversational agent workflow with the model that you set up in previous modules.
+
+  If you don't have this workflow, see [Module 1 - Create your first conversational agent](01-create-first-conversational-agent.md).
+
+  For the examples, this workflow can use the following options:
+
+  - Primary example: MSN Weather connector, which doesn't need authentication.
+  - Optional example with authentication: A GitHub account with either OAuth 2.0 or a personal access token (PAT) with minimal read scopes.
 
 > [!NOTE]
-> This module focuses on connector-backed tools. Agent parameters and OBO patterns come later.
+>
+> This module focuses on connector-backed tools. Later modules cover agent parameters and on-behalf-of (OBO) authorization patterns.
 
----
+## Connector concepts for this module
 
-## Connector concepts you will use
+| Concept | Description |
+|---------|-------------|
+| Triggers versus actions | Conversational agent workflows must use the default trigger named **when a new session starts**. Autonomous agent workflows can use any available trigger. Agents in both workflows use actions as tools. |
+| Connections and authentication | OAuth 2.0, API key, managed identity, or none, based on the connector. |
+| Inputs and outputs | Actions define parameters and return JSON. The agent summarizes outputs for the end user. |
+| Limits and reliability | Expect throttling errors (HTTP 429), timeouts, retries, and pagination. Design your prompts and tools to gracefully handle errors and exceptions. |
+| Connection references | Your workflow binds to a specific connection at runtime. |
 
-- Actions vs. triggers: in conversational agents, connector triggers are not supported. Use actions as tools. Connector triggers are supported for autonomous agents.
-- Connections and authentication: OAuth 2.0, API key, managed identity, or none depending on the connector.
-- Inputs and outputs: actions define parameters and return JSON; your agent summarizes outputs for the user.
-- Limits and reliability: expect throttling (HTTP 429), timeouts, retries, and pagination; design prompts and tools to handle gracefully.
-- Connection references: your workflow binds to a specific connection at runtime.
+## Part 1 - Expose a basic read-only connector as a tool (MSN Weather)
 
----
+To more easily demonstrate the conversational agent pattern from end to end, this example doesn't use authentication or agent parameters.
 
-## Part 1 (primary): Expose a simple read-only connector as a tool (MSN Weather)
+### Step 1 - Set up your agent
 
-We will start with a no-auth example to see the pattern end to end without parameters.
+1. In the [Azure portal](https://portal.azure.com), open your Standard logic app resource.
 
-### Step 1 — Create your agent
-- Open your logic app (Standard) and navigate to your conversational agent workflow (Agent Loop).
-- Configure your agent with a model and system instructions, for example:
-  - System Instructions: "You are a helpful agent".
+1. Find and open your conversational agent workflow in the designer.
 
-> [!TIP]
-> Review [Module 1](./01-create-first-conversational-agent.md) for a refresher on creating a conversational agent.
+1. On the designer, select the agent action. For the system instructions, enter **You are an helpful agent that provides weather information.**
 
-![Designer start for an agent workflow showing the agent loop](./media/03_Connect_your_tools_with_external_services/Start.png)
+   :::image type="content" source="media/03-connect-tools-external-services/start.png" alt-text="Screenshot shows designer with conversational agent." lightbox="media/03-connect-tools-external-services/start.png":::
 
-### Step 2 — Add a tool from a connector action
-- Add a new Tool.
-- Choose to create from a Connector action and search for "MSN Weather".
-- Select "Get current weather".
-- This adds the action to the tool.
-- Name and describe the tool clearly, for example:
-  - Tool name: GetCurrentSeattleWeather
-  - Description: "Gets the current weather in Seattle."
+### Step 2 - Add a tool for your agent
 
-> [!TIP]
-> The LLM uses the tool description to decide when to call the tool. Keep it short, specific, and outcome-focused.
+1. On the designer, inside the agent and under **Add tool**, select the plus sign (+) to open the pane where you can browse available actions.
 
-![Adding the "MSN Weather" connector action as a tool](./media/03_Connect_your_tools_with_external_services/AddMsnWeather.png)
+1. On the **Add an action** pane, follow these [general steps](https://learn.microsoft.com/azure/logic-apps/create-workflow-with-trigger-or-action?tabs=standard#add-action) to add the **MSN Weather** action named **Get current weather** as a tool.
 
-### Step 3 — Configure the connector action
-- Set the required parameters for the "Get current weather" action, for example:
-  - Location: Seattle, US.
-  - Units: Imperial.
-- Save.
+1. Provide a clear and brief name and desription for the tool, for example:
 
-![MSN Weather "Get current weather action" configured for Seattle](./media/03_Connect_your_tools_with_external_services/GetCurrentWeather.png)
+   - Name: **Get current Seattle weather**
+   - Description: **Gets the current weather in Seattle.**
 
-### Step 4 — Test in chat (see [Module 1](./01-create-first-conversational-agent.md))
-- Ask: "What is the current weather in Seattle?"
-- Verify output is expected.
+     The large language model (LLM) for your agent uses the tool description to help the agent decide when to call the tool. Keep the description short, specific, and outcome-focused.
 
-![Testing the weather tool in the integrated chat client](./media/03_Connect_your_tools_with_external_services/PortalChat.png)
+   The following screenshot shows what the tool looks like at this point:
 
-### Step 5 — Verify in monitoring view (see [Module 2](./02-debug-agent.md))
-- Verify the tool is invoked and the agent summarizes the items with links.
-- Use Monitoring/Run history to confirm tool calls and action success.
+   :::image type="content" source="media/03-connect-tools-external-services/add-msn-weather.png" alt-text="Screenshot shows designer with conversational agent." lightbox="media/03-connect-tools-external-services/add-msn-weather.png":::
 
-![Monitoring view showing successful tool invocation and run history](./media/03_Connect_your_tools_with_external_services/WeatherMonitoringView.png)
+### Step 3 - Set up the connector action
 
-> [!NOTE]
-> Inputs are hardcoded to avoid parameters in this module. You will parameterize them in Module 04. You can substitute any no-auth connector using the same pattern.
+1. In the **Get current weather** action, provide the following information:
 
----
+   | Parameters | Value |
+   |------------|-------|
+   | **Location** | **Seattle, US** |
+   | **Units** | **Imperial** |
+
+   :::image type="content" source="media/03-connect-tools-external-services/get-currrent-weather.png" alt-text="Screenshot shows MSN Weather action set up for Seattle, US." lightbox="media/03-connect-tools-external-services/get-currrent-weather.png":::
+
+1. Save your workflow.
+
+### Step 4 - Test your weather tool in chat
+
+1. On the designer toolbar, select **Chat**.
+
+1. In the chat user interface, ask the following question: **What is the current weather in Seattle?**
+
+1. Check that the response is what you expect, for example:
+
+   :::image type="content" source="media/03-connect-tools-external-services/portal-chat.png" alt-text="Screenshot shows integrated chat client." lightbox="media/03-connect-tools-external-services/portal-chat.png":::
+
+### Step 5 - Check tool in monitoring view
+
+1. On the workflow sidebar, under **Tools**, select **Run history**.
+
+1. Select the most recent workflow run. 
+
+1. Confirm that the agent succesfully called the tool and ran the action.
+
+   :::image type="content" source="media/03-connect-tools-external-services/weather-monitoring-view.png" alt-text="Screenshot shows monitoring view with successful tool and action call." lightbox="media/03-connect-tools-external-services/weather-monitoring-view.png":::   
+
+For more information, see [Module 2 - Debug your agent](02-debug-agent.md).
 
 ## Part 2 (optional): Expose an authenticated connector as a tool (GitHub)
 
-Add a tool that requires authentication. Keep inputs static for now; parameterize in Module 04.
+Now, you'll learn to add a tool that requires authentication. This module uses static or hardcoded inputs, but a later module shows how to parameterize inputs.
 
-### Step 1 — Add the GitHub connector action
-- Add a Tool -> From Connector -> search "GitHub".
-- Pick a read operation such as "Lists all repositories for the authenticated user".
+### Step 1 - Add the GitHub connector action
 
-### Step 2 — Create the GitHub connection
-- Create a new GitHub connection.
-- Authenticate by following the consent flow using your existing GitHub account.
+1. On the designer, inside the agent and next to your existing tool, select the plus sign (+) for **Add an action** to open the pane where you can browse available actions.
+
+1. On the **Add an action** pane, follow these [general steps](https://learn.microsoft.com/azure/logic-apps/create-workflow-with-trigger-or-action?tabs=standard#add-action) to add a read-only **GitHub** action, for example, **List all repositories for the authenticated user** as a tool.
+
+### Step 2 - Connect to GitHub
+
+1. On the designer, select the **GitHub** action that you added to your tool.
+
+1. On the **Create connection** pane that opens, sign in to GitHub, which authenticates by asking you for consent to connect with your GitHub account.
+
+> [!IMPORTANT]
+>
+> For private repositories, make sure that the connection identity has access.
 
 ### Step 3 — Configure the tool (static inputs for this module)
-- Tool name: GetGitHubRepositories
-- Description: "Gets my public and private GitHub repositories".
-- Save.
 
-![GitHub connector action to list repositories for the authenticated user](./media/03_Connect_your_tools_with_external_services/ListGitHubRepositories.png)
+1. Provide a clear and brief name and desription for the tool, for example:
 
-### Step 4 — Test in chat
-- Ask: "What repositories do I have?"
-- Verify the tool is called and the result summarized.
+   - Name: **Get GitHub repositories**
+   - Description: **Gets my public and private GitHub respositories.**
 
-> [!TIP]
-> For private repositories, ensure the connection identity has access. In Module 04, replace static values with agent parameters so the user can specify owner/repo/number.
+   :::image type="content" source="media/03-connect-tools-external-services/list-repositories.png" alt-text="Screenshot shows monitoring view with successful tool and action call." lightbox="media/03-connect-tools-external-services/list-repositories.png":::   
 
----
+1. Save your workflow.
 
-## Best practices for tools and connectors in agents
+### Step 4 - Test your GitHub tool in chat
 
-- Favor read-first: start with read-only tools; add writes later with confirmations.
-- Clear descriptions: be specific about when to use (and not use) a tool.
-- Provide examples and hints: improve parameter extraction with formats (for example, owner/repo) and sample utterances.
-- Validate inputs: constrain enums and set defaults. Let the agent ask clarifying questions when required.
-- Handle errors gracefully: plan for 401/403, 404, 429, timeouts. Keep responses concise and helpful.
-- Respect limits: avoid fetching huge pages; summarize instead of retrieving everything.
-- Least privilege: use managed identity or scoped tokens; store secrets securely.
-- Require confirmation for writes: for create/update/delete, require explicit user confirmation.
-- Observability: use run history/telemetry to verify tool calls and tune prompts.
+1. On the designer toolbar, select **Chat**.
 
----
+1. In the chat user interface, ask the following question: **Show me the details of the demo GitHub issue.**
 
-## Troubleshooting
+1. Check that the response is what you expect.
 
-- Connection shows "Not authorized"
-    - Re-authenticate with required scopes and verify target resource permissions.
-- The agent does not call the tool
-    - Strengthen the tool description and reduce overlap with other tools; verify input mappings.
-- Wrong or missing parameters
-    - Provide stronger hints and examples; make key inputs required in Module 04.
-- 429/Throttling
-    - Limit frequency, cache, or ask the user to narrow the query.
-- Not found (404)
-    - Verify owner/repo/number or location format; suggest alternatives.
+1. Go to monitoring view. Confirm that the agent succesfully called the tool and ran the action.
 
----
+## Troubleshoot problems
 
-## Adapting this to other connectors
+| Error or problem | Action to try |
+|------------------|---------------|
+| Connection shows "Not authorized". | Reauthenticate with the required scopes and confirm target resource permissions. |
+| Agent doesn't call the tool. | Improve the tool description and reduce overlap with other tools. Verify input mappings. |
+| Wrong or missing parameters | Provide stronger hints and examples. Make key inputs required as shown in [Module 04 - Add parameters to tools](04-add-parameters-to-tools.md). |
+| 429 "Too many requests" error or throttling | Limit the frequency or cache. Ask the user to narrow the query. |
+| 404 "Not found" error | Confirm the GitHub owner, repo, number, or location format. Suggest alternatives. |
 
-- ServiceNow: list groups or create incidents (see Agent-in-a-Day samples in this repo for screenshots and patterns).
-- Microsoft 365: get profile or list recent mail (requires OAuth and tenant permissions).
-- Any REST (Representational State Transfer) API: use HTTP built-in, or managed connector if available.
+## Best practices for agent tools and connectors
 
-Pattern recap: add the action, create/select the connection, set safe defaults, map compact outputs, test in chat, and observe runs. In Module 04 you will parameterize inputs; in Module 05 you will add user context (OBO) so the agent can act as the signed-in user where supported.
+- Start with tools that are read-only. Then try tools that make write operations but require confirmations, for example, for create, update, or delete operations. Require explicit user confirmation.
+- Apply least privilege principles. Use managed identity authentication or scoped tokens. Store secrets securely, for example, using Azure Key Vault.
+- Provide clear and specific tool descriptions that specify when to use or not use a tool.
+- Provide examples and hints. Improve parameter extraction by using formats, for example, GitHub owner or repo, and sample responses.
+- Validate inputs. Set default values and constrain enum values. Let the agent ask clarifying questions when necessary or appropriate.
+- Respect limits. Avoid fetching huge pages. Summarize, rather than retrieve everything.
+- Plan for and gracefully handle errors such as 401, 403, 404, 429, and timeouts. Keep responses concise and helpful.
+- For observability, confirm tool calls and tune prompts by using the run history or telemetry.
 
----
+## Adapt this scenario to other connectors
 
-## Cleanup
+| Connector | Example tools |
+|-----------|---------------|
+| ServiceNow | List groups or create incidents. For screenshots and patterns, see [Agent-in-a-Day samples](../../logic-apps-agent-in-a-day/01_introduction.md). |
+| Microsoft 365 | Get profile or list recent mail. Requires OAuth and tenant permissions. |
+| Any REST API | Use **HTTP** built-in action or managed connector if available. |
 
-- Remove demo tools if not needed.
-- If you created new connections (for example, GitHub), remove or rotate credentials per your organization's policy.
+Here's a recap for the pattern to use:
 
----
+1. Add an action to the tool.
+
+1. Create or select an existing connection, if prompted.
+
+1. Set up the action with the necessary parameter inputs.
+
+1. Test your tool in chat. Check monitoring view to confirm successful tool calls.
+
+## Clean up resources
+
+- When you're done with this module, make sure to delete any resources you no longer need or want to keep. That way, you don't continue to get charged for their usage.
+- If you created any new connections, make sure to remove or rotate your credentials, based on your organization's policy.
 
 ## Next steps
 
-- Module 04 — Add parameters to your tools (dynamic inputs from the agent).
-- Module 05 — Add user context to your tools (OBO patterns).
+- [Module 04 - Add parameters to your tools (accept dynamic inputs from the agent)](04-add-parameters-to-tools.md)
+- [Module 05 - Add user context to your tools (on-behalf-of patterns)](05-add-user-context-to-tools.md)
