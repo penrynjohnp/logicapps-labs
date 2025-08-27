@@ -57,7 +57,7 @@ The prior screenshot shows a conversation where weather was fetched for Paris. B
 
 Navigate to the monitoring view for the latest run via "Run history" on the left pane. You should see the same Paris conversation in a read-only view on the right side of the screen. Notice the read-only chat pane has a tool call listed for GetCurrentWeather. Click on this tool call.
 
-![Agent parameter monitoring view](media/04-add-parameters-to-tools/seattle-agent-parameter-monview.png)
+![Agent parameter monitoring view](media/04-add-parameters-to-tools/seattle-agent-parameter-paris-monview.png)
 
 The middle pane now shows the LLM chat completion containing this tool call directive:
 - The inputs show the latest user message with the content "Paris"
@@ -65,7 +65,7 @@ The middle pane now shows the LLM chat completion containing this tool call dire
 
 To fulfill the tool call directive, the platform executed the configured Logic App action in this tool. Click on the "Get current weather" logic app action inside the GetCurrentWeather tool:
 
-![Agent parameter monitoring view showing action](media/04-add-parameters-to-tools/seattle-agent-parameter-monview-2.png)
+![Agent parameter monitoring view showing action](media/04-add-parameters-to-tools/seattle-agent-parameter-paris-monview-2.png)
 
 Because `Location` references the agent parameter, we see Location is set to `Paris` as provided by the LLM. The outputs of this action are listed as well.
 
