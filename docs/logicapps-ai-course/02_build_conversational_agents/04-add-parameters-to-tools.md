@@ -24,16 +24,9 @@ Let's begin with an agent without any parameters. Here is the structure for a we
 ![Action information for seattle weather agent](media/04-add-parameters-to-tools/seattle-agent-action.png)
 ![Chat interaction with this sample agent](media/04-add-parameters-to-tools/seattle-agent-interaction.png)
 
-
-gif or below
-system prompt picture
-tool picture
-action picture
-chat interaction picture
-
 This agent can only determine weather in Seattle because the "Location" field in "Get current weather" action is static. Even if the user requests data about a different city, the platform will not allow this tool to be called differently.
 
-Static parameters have their place, but let's see how to allow requests like "What is the weather in Paris?" To accomplish this, we need the "Location" field to be fully replaced with an "agent parameter" so that its value can be provided dynamically by the LLM.
+Static parameters have their place, but we want to allow requests like "What is the weather in Paris?". To accomplish this, we need the "Location" field to be fully replaced with an "agent parameter" so that its value can be provided dynamically by the LLM.
 
 When focusing on the Location field, there is a button to the right labelled "Select to generate the agent parameter". When selecting this, a "Create agent parameter" pane appears with preconfigured metadata like "Name", "Type", and "Description". Logic Apps prefills this metadata for you based on the action schema. For example, Location is a string and has a default description. You can click "Create" to accept the default values.
 
