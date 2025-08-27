@@ -11,7 +11,14 @@ Together, these capabilities offer granular control & clear observability into h
 
 ## Adding parameters to a tool
 
-Let's begin with an agent without any parameters. Here is a simple agent that knows how to get the weather in Seattle. The screenshots below show its system prompt, tools, and sample interaction:
+Let's begin with an agent without any parameters. Here is the structure for a weather retrival agent scoped to Seattle:
+
+| Field | Value |
+|---------|-----|
+| System prompt | You help answer questions about the weather in Seattle. |
+| Tool name | GetCurrentWeather |
+| Tool description | Gets the current weather in Seattle |
+| Action inside tool | "Get current weather" msn connector with fields "Seattle" and "Imperial"
 
 ![Agent that can get the weather in Seattle](media/04-add-parameters-to-tools/seattle-agent-structure.png)
 
