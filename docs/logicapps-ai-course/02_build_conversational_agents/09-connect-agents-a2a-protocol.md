@@ -1,4 +1,4 @@
-# Module 10 - Connect your agents using A2A protocol
+# Module 09 - Connect your agents using A2A protocol
 
 This module explains how to integrate Azure Logic Apps conversational agents with external services using the A2A protocol and the official Python SDK.
 
