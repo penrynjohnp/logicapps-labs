@@ -40,10 +40,6 @@ When you've created the agent parameter on the action, it gets uplifted to the t
 
 ![Agent parameter uplifted to tool metadata](media/04-add-parameters-to-tools/seattle-agent-parameter-uplift.png)
 
-...
-
-### Importance of tool metadata
-
 Recall that the tool header pane describes all the metadata actually being passed to the LLM. In this case:
 - Tool name: `GetCurrentWeather`
 - Tool description: `Gets the current weather in provided Location`
