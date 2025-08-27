@@ -55,15 +55,17 @@ Remove "Seattle" from the system prompt and begin a new chat with the agent. We 
 
 The prior screenshot shows a conversation where weather was fetched for Paris. But how can we verify the parameter was actually used? How do we know the agent did not hallucinate the response? The agent monitoring view provides clear visibility into exactly which tools were called and with which parameters.
 
-Navigate to the monitoring view for the latest run via "Run history" on the left pane. You should see the same Paris conversation in a read-only view on the right side of the screen:
+Navigate to the monitoring view for the latest run via "Run history" on the left pane. You should see the same Paris conversation in a read-only view on the right side of the screen. Notice the read-only chat pane has a tool call listed for GetCurrentWeather. Click on this tool call.
 
-Notice the read-only chat pane has a tool call listed for GetCurrentWeather. Click on this tool call.
+![Agent parameter monitoring view](media/04-add-parameters-to-tools/seattle-agent-parameter-monview.png)
 
 The middle pane now shows the LLM chat completion containing this tool call directive:
 - The inputs show the latest user message with the content "Paris"
 - The outputs show the assistant message from the LLM with the tool call directive. Notice the `toolArguments` field contains `"Location": "Paris"`. This confirms that the chat completion request to the LLM resulted in a tool call directive with the dynamic argument "Paris".
 
 To fulfill the tool call directive, the platform executed the configured Logic App action in this tool. Click on the "Get current weather" logic app action inside the GetCurrentWeather tool:
+
+![Agent parameter monitoring view showing action](media/04-add-parameters-to-tools/seattle-agent-parameter-monview-2.png)
 
 Because `Location` references the agent parameter, we see Location is set to `Paris` as provided by the LLM. The outputs of this action are listed as well.
 
