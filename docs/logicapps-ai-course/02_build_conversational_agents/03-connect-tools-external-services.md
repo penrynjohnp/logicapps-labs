@@ -91,9 +91,11 @@ To more easily demonstrate the conversational agent pattern from end to end, thi
 
 1. Find and open your conversational agent workflow in the designer.
 
-1. On the designer, select the agent action. For the system instructions, enter **You are an helpful agent that provides weather information.**
+   ![Screenshot shows designer with conversational agent workflow.](media/03-connect-tools-external-services/start.png)
 
-   ![Screenshot shows designer with conversational agent.](media/03-connect-tools-external-services/start.png)
+1. On the designer, select the agent action. On the agent information pane, for the system instructions, enter **You're an agent that provides weather information.**
+
+   ![Screenshot shows agent information pane and system instructions.](media/03-connect-tools-external-services/system-instructions.png)
 
 ### Step 2 - Add a tool for your agent
 
@@ -110,7 +112,7 @@ To more easily demonstrate the conversational agent pattern from end to end, thi
 
    The following screenshot shows what the tool looks like at this point:
 
-   :::image type="content" source="media/03-connect-tools-external-services/add-msn-weather.png" alt-text="Screenshot shows designer with conversational agent." lightbox="media/03-connect-tools-external-services/add-msn-weather.png":::
+   ![Screenshot shows designer with agent and tool with MSN Weather action.](media/03-connect-tools-external-services/add-msn-weather.png)
 
 ### Step 3 - Set up the connector action
 
@@ -121,7 +123,7 @@ To more easily demonstrate the conversational agent pattern from end to end, thi
    | **Location** | **Seattle, US** |
    | **Units** | **Imperial** |
 
-   :::image type="content" source="media/03-connect-tools-external-services/get-currrent-weather.png" alt-text="Screenshot shows MSN Weather action set up for Seattle, US." lightbox="media/03-connect-tools-external-services/get-currrent-weather.png":::
+   ![Screenshot shows MSN Weather action set up for Seattle, US.](media/03-connect-tools-external-services/get-currrent-weather.png)
 
 1. Save your workflow.
 
@@ -133,7 +135,7 @@ To more easily demonstrate the conversational agent pattern from end to end, thi
 
 1. Check that the response is what you expect, for example:
 
-   :::image type="content" source="media/03-connect-tools-external-services/portal-chat.png" alt-text="Screenshot shows integrated chat client." lightbox="media/03-connect-tools-external-services/portal-chat.png":::
+   ![Screenshot shows integrated chat client.](media/03-connect-tools-external-services/portal-chat.png)
 
 ### Step 5 - Check tool in monitoring view
 
@@ -143,7 +145,7 @@ To more easily demonstrate the conversational agent pattern from end to end, thi
 
 1. Confirm that the agent succesfully called the tool and ran the action.
 
-   :::image type="content" source="media/03-connect-tools-external-services/weather-monitoring-view.png" alt-text="Screenshot shows monitoring view with successful tool and action call." lightbox="media/03-connect-tools-external-services/weather-monitoring-view.png":::   
+   ![Screenshot shows monitoring view with successful tool and action call.](media/03-connect-tools-external-services/weather-monitoring-view.png)
 
 For more information, see [Module 2 - Debug your agent](02-debug-agent.md).
 
@@ -174,7 +176,7 @@ Now, you'll learn to add a tool that requires authentication. This module uses s
    - Name: **Get GitHub repositories**
    - Description: **Gets my public and private GitHub respositories.**
 
-   :::image type="content" source="media/03-connect-tools-external-services/list-repositories.png" alt-text="Screenshot shows monitoring view with successful tool and action call." lightbox="media/03-connect-tools-external-services/list-repositories.png":::   
+   ![Screenshot shows monitoring view with successful tool and action call.](media/03-connect-tools-external-services/list-repositories.png)
 
 1. Save your workflow.
 
