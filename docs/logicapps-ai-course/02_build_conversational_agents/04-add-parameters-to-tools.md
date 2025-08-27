@@ -75,11 +75,11 @@ The above flow proves that the LLM truly generated `Paris` as a dynamic agent pa
 
 So far we have covered static parameters (constant value like "Seattle") and LLM-generated dynamic parameters (like "Paris"). You can also construct parameters that mix static and dynamic content. For example, imagine a SendEmail action whose body is mostly static, but a single sentence at the end should be LLM-generated. Rather than risk hallucinations for the static portion, you can ensure the LLM content is limited to that single sentence.
 
-To explore this further, imagine the following agent who is provided a simple "EchoTool" implemented with the logic apps "Compose" action. We configure this action to just return what was passed to it:
+To explore this further, imagine the following agent which is provided a simple "EchoTool" implemented with the logic apps "Compose" action. We configure this action to just return what was passed to it:
 
 | Field | Value |
 |---------|-----|
-| System prompt | You are given one tool that echos back the parameter you provide. You help the user understand how agent parameters work by calling the tool with the given parameter when asked. |
+| System prompt | You are given tool(s) that echo back the parameter you provide. You help the user understand how agent parameters work by calling the tool with the given parameter when asked. |
 | Tool name | EchoTool |
 | Tool description | This tool echoes back the given parameter. |
 | Action inside tool | "Compose" action (generally used for simple data transformation of its inputs) with its Inputs field fully replaced by an agent parameter. In this case since no transformation is specified, the action will return the agent parameter untouched.
