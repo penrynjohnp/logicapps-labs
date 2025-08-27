@@ -101,7 +101,9 @@ To more easily demonstrate the conversational agent pattern from end to end, thi
 
 1. On the designer, inside the agent and under **Add tool**, select the plus sign (+) to open the pane where you can browse available actions.
 
-1. On the **Add an action** pane, follow these [general steps](https://learn.microsoft.com/azure/logic-apps/create-workflow-with-trigger-or-action?tabs=standard#add-action) to add the **MSN Weather** action named **Get current weather** as a tool.
+1. On the **Add an action** pane, follow these [general steps](https://learn.microsoft.com/azure/logic-apps/create-workflow-with-trigger-or-action?tabs=standard#add-action) to add the **MSN Weather** action named **Get current weather** as a tool, for example:
+
+   ![Screenshot shows Add an action pane and MSN Weather connector actions.](media/03-connect-tools-external-services/add-msn-weather.png)
 
 1. Provide a clear and brief name and desription for the tool, for example:
 
@@ -110,9 +112,9 @@ To more easily demonstrate the conversational agent pattern from end to end, thi
 
      The large language model (LLM) for your agent uses the tool description to help the agent decide when to call the tool. Keep the description short, specific, and outcome-focused.
 
-   The following screenshot shows what the tool looks like at this point:
+   The tool now looks like the following example:
 
-   ![Screenshot shows designer with agent and tool with MSN Weather action.](media/03-connect-tools-external-services/add-msn-weather.png)
+   ![Screenshot shows designer with MSN Weather action and tool.](media/03-connect-tools-external-services/get-current-weather-tool.png)
 
 ### Step 3 - Set up the connector action
 
@@ -123,7 +125,9 @@ To more easily demonstrate the conversational agent pattern from end to end, thi
    | **Location** | **Seattle, US** |
    | **Units** | **Imperial** |
 
-   ![Screenshot shows MSN Weather action set up for Seattle, US.](media/03-connect-tools-external-services/get-currrent-weather.png)
+   The action now looks like the following example:
+
+   ![Screenshot shows MSN Weather action set up for Seattle, US.](media/03-connect-tools-external-services/get-currrent-weather-action.png)
 
 1. Save your workflow.
 
