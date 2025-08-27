@@ -18,7 +18,7 @@ Let's begin with an agent without any parameters. Here is the structure for a we
 | System prompt | You help answer questions about the weather in Seattle. |
 | Tool name | GetCurrentWeather |
 | Tool description | Gets the current weather in Seattle |
-| Action inside tool | "Get current weather" msn connector with fields "Seattle" and "Imperial"
+| Action inside tool | "Get current weather" MSN weather connector with fields "Seattle" and "Imperial"
 
 ![Agent that can get the weather in Seattle](media/04-add-parameters-to-tools/seattle-agent-structure.png)
 ![Action information for seattle weather agent](media/04-add-parameters-to-tools/seattle-agent-action.png)
@@ -28,9 +28,20 @@ This agent can only determine weather in Seattle because the "Location" field in
 
 Static parameters have their place, but we want to allow requests like "What is the weather in Paris?". To accomplish this, we need the "Location" field to be fully replaced with an "agent parameter" so that its value can be provided dynamically by the LLM.
 
-When focusing on the Location field, there is a button to the right labelled "Select to generate the agent parameter". When selecting this, a "Create agent parameter" pane appears with preconfigured metadata like "Name", "Type", and "Description". Logic Apps prefills this metadata for you based on the action schema. For example, Location is a string and has a default description. You can click "Create" to accept the default values.
+When focusing on the Location field, there is a button to the right labelled "Select to generate the agent parameter". When selecting this, a "Create agent parameter" pane appears with preconfigured metadata like "Name", "Type", and "Description".
+
+![Adding agent parameter first step](media/04-add-parameters-to-tools/seattle-agent-parameter-add.png)
+
+![Adding agent parameter second step](media/04-add-parameters-to-tools/seattle-agent-parameter-add-1.png)
+
+Logic Apps prefills this metadata for you based on the action schema. For example, Location is a string and has a default description. You can click "Create" to accept the default values.
+
+![Adding agent parameter third step](media/04-add-parameters-to-tools/seattle-agent-parameter-add-2.png)
 
 When you've created the agent parameter on the action, it gets uplifted to the tool header alongside other tool metadata:
+
+![Agent parameter uplifted to tool metadata](media/04-add-parameters-to-tools/seattle-agent-parameter-uplift.png)
+
 
 ...
 
