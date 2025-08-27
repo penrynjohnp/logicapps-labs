@@ -82,18 +82,34 @@ To explore this further, imagine the following agent who is provided a simple "E
 | System prompt | You are given one tool that echos back the parameter you provide. You help the user understand how agent parameters work by calling the tool with the given parameter when asked. |
 | Tool name | EchoTool |
 | Tool description | This tool echoes back the given parameter. |
-| Action inside tool | "Compose" action with its Inputs field fully replaced by an agent parameter
+| Action inside tool | "Compose" action (generally used for simple data transformation of its inputs) with its Inputs field fully replaced by an agent parameter. In this case since no transformation is specified, the action will return the agent parameter untouched.
 
-screenshots
+![Initial agent structure of 'echo' agent](media/04-add-parameters-to-tools/echo-initial-agent-structure.png)
 
-This is no different than the GetWeather scenario before. Now, we will add a new "EchoTool2" tool. Here, we want the agent parameter to be a **portion** of the "Inputs" field, not a full replacement. Instead of clicking the earlier button on the action input, click "+ Create Parameter" at the tool level. Manually set up a generic string parameter called "Input".
+![Initial agent interaction of 'echo' agent](media/04-add-parameters-to-tools/echo-initial-agent-interaction.png)
 
-Then on the "Inputs" field, select the fx button on the left. Here you see several expressions available in Logic Apps - and in dynamic content, you will see the agent parameter we constructed. You can mix functions and dynamic content to construct an "Inputs" value that mixes static, expression-generated, and LLM-generated agent parameters. For example, we concatenate a dynamic guid() with the agent parameter. The concat() and guid() functions are part of the Logic Apps expression library and generated without LLM-involvement. Click "Add".
+This is not much different than the GetWeather scenario before. Now, we will add a new "EchoTool2" tool. Here, we want the agent parameter to be a **portion** of the "Inputs" field, not a full replacement. Instead of clicking the earlier button on the action input, click "+ Create Parameter" at the tool level. Manually set up a generic string parameter called "Input". Then on the "Inputs" field, select the fx button on the left. It should look like this:
+
+![Initial agent structure of 'echo' agent with parameter added](media/04-add-parameters-to-tools/echo-second-tool-structure.png)
+
+Here you see several expressions available in Logic Apps - and in dynamic content, you will see the agent parameter we constructed.
+
+![Dynamic content pane](media/04-add-parameters-to-tools/echo-dynamic-content.png)
+
+You can mix functions and dynamic content to construct an "Inputs" value that mixes static, expression-generated, and LLM-generated agent parameters. For example, we concatenate a dynamic guid() with the agent parameter. The concat() and guid() functions are part of the Logic Apps expression library and generated without LLM-involvement. Click "Add".
+
+![Adding expression](media/04-add-parameters-to-tools/echo-expression.png)
+![After adding expression](media/04-add-parameters-to-tools/echo-post-expression.png)
 
 We update the system prompt and start a new chat session:
 
-..
+![Second agent interaction of 'echo' agent](media/04-add-parameters-to-tools/echo-second-interaction.png)
 
 Notice the result of the tool - we asked the agent to call EchoTool2 with the parameter "Hello World". Unlike the first echo tool, this time the tool result was `8a069182-4a95-4c19-903c-cabb3dac3612Hello World`. This is because the Compose action input expression was `concat(guid(), agentParameters('Input'))`. In this manner you have fine-grained control over the parameters passed to your logic app connectors and built-in actions. The values can be static, fully replaced by LLM-generated parameters, dynamically generated via functions like guid(), or a combination of all three.
 
 You can trace the same flow in monitoring view again. See how the LLM-provided tool parameter is "Hello world", but the interpolated input for the Compose action is `8a069182-4a95-4c19-903c-cabb3dac3612Hello World` which gets echoed back.
+
+![Monitoring view of tool in second agent interaction of 'echo' agent](media/04-add-parameters-to-tools/echo-monview.png)
+
+![Monitoring view of action second agent interaction of 'echo' agent](media/04-add-parameters-to-tools/echo-monview-2.png)
+
