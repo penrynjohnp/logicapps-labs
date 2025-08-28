@@ -1,6 +1,25 @@
+---
+title: Connect tools to external services - Module 03
+description: Learn how to integrate Azure Logic Apps conversational agents with external services using the A2A protocol and the official Python SDK.
+ms.service: azure-logic-apps
+author: nikhilsira
+ms.author: nikhilsira
+ms.topic: tutorial
+ms.date: 08/27/2025
+---
+
 # Module 09 - Connect your agents using A2A protocol
 
 This module explains how to integrate Azure Logic Apps conversational agents with external services using the A2A protocol and the official Python SDK.
+
+When you finish this module, you'll achieve the goals and complete the tasks in the following list:
+
+- Understand how conversational agents in Azure Logic Apps align with the A2A protocol for interoperability.
+- Discover agents using the agent card and understand its structure and purpose.
+- Use A2A-compliant APIs to send messages, retrieve tasks, and stream responses.
+- Authenticate with agents using API keys or App Service authentication (EasyAuth).
+- Connect to a Logic Apps agent using the official Python SDK and perform basic interactions.
+
 
 ## Conversational agents using A2A protocol
 
@@ -41,7 +60,7 @@ Each Logic Apps conversational agent exposes an [**agent card**](https://a2a-pro
 
 The agent card is hosted at a well-known endpoint `<agent-url>/.well-known/agent-card.json`
 > [NOTE]
-> The agent card is accessible by API Key or EasyAuth authenticaion defined above.
+> The agent card is accessible by API Key or EasyAuth authentication defined above.
 
 Here is a sample agent-card.json for the weather agent:
 
@@ -50,7 +69,7 @@ Here is a sample agent-card.json for the weather agent:
   "protocolVersion": "0.3.0",
   "name": "Weather Agent",
   "description": "An agent that fetches the weather forecast for any given location",
-  "url": "https://test-agent-nikhil.azurewebsites.net/api/agents/WeatherAgent",
+  "url": "https://test-agent-app.azurewebsites.net/api/agents/WeatherAgent",
   "version": "08584457010294671865",
   "capabilities": {
     "streaming": true,
@@ -100,7 +119,7 @@ These [A2A specification](https://a2a-protocol.org/latest/specification/) dictat
 > Our internal chat client (described in [Module 01 — Create First Conversational Agent](./01-create-first-conversational-agent.md)) uses the message/stream API for communicating with the conversational agent.
 > Chat clients prefer streaming over polling APIs for the following reasons:
 > - Faster Feedback and Reduced Wait Time.
-> - Impreoved Perception of Transparency and Trust.
+> - Improved Perception of Transparency and Trust.
 > - Enhanced User Experience for Long or Complex Outputs.
 
 ## Connect to a Logic Apps agent from the official Python SDK:
@@ -469,4 +488,4 @@ In this module, we explored how to integrate Azure Logic Apps conversational age
 
 - **Python SDK integration**: The official SDK allows clients to connect to agents, fetch agent cards, send messages, and poll for task results.
 
-Please stay tuned for updates on this modules as we'll cover support for more official client SDKs and capabilities using the A2A .
+Please stay tuned for updates on this modules as we'll cover support for more official client SDKs and capabilities using the A2A protocol.
