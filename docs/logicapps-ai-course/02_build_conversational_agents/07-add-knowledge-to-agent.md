@@ -1,35 +1,26 @@
+---
+title: Add knowledge to your agent - Module 07
+description: Learn how to add custom knlwedge to your Azure Logic Apps workflows and agents.
+ms.service: azure-logic-apps
+author: brbenn
+ms.author: brbenn
+ms.topic: tutorial
+ms.date: 08/27/2025
+---
 # Module 07 - Add knowledge to your agent
+This module explains how to add custom knowledge to your Azure Logic Apps workflows and agents using RAG ingestion and retrieval.
+
+When finished with this module, you'll have gain the following knowledge:
+
+- **RAG Architecture Understanding**: How to implement the two-phase RAG pattern in Logic Apps, including data ingestion/indexing and conversational retrieval/response generation
+- **Enterprise Data Integration**: How to leverage Logic Apps' 1,400+ connectors to ingest and process knowledge from diverse sources including documents, databases, APIs, and enterprise systems
+- **Azure AI Search Implementation**: How to use Azure AI Search for enterprise-grade semantic search, vector search, and hybrid search capabilities to enhance agent responses
+- **Knowledge Base Creation**: How to transform unstructured documents into searchable, embedded knowledge bases that enable contextual and accurate agent responses
+- **End-to-End RAG Workflows**: How to build complete RAG solutions that automatically update agent knowledge as data sources change, ensuring agents stay current and relevant
 
 ## The Power of RAG in AI Applications
 
 Retrieval-Augmented Generation (RAG) represents a transformative approach to building intelligent conversational agents that can access and leverage external knowledge sources in real-time. By combining the generative capabilities of Large Language Models (LLMs) with dynamic information retrieval, RAG enables AI applications to provide accurate, contextual, and up-to-date responses that go far beyond the limitations of pre-trained model knowledge.
-
-### Key Benefits of RAG in AI Applications
-
-**🎯 Enhanced Accuracy and Relevance**
-- Provides access to current, domain-specific information that wasn't available during model training
-- Reduces hallucinations by grounding responses in verified, retrieved content
-- Enables precise answers to specific questions about your organization's data and processes
-
-**📚 Dynamic Knowledge Integration**
-- Seamlessly incorporates information from documents, databases, APIs, and knowledge bases
-- Updates responses automatically as underlying data sources change
-- Eliminates the need for expensive model retraining when information is updated
-
-**🔍 Contextual Understanding**
-- Retrieves the most relevant information based on user queries and conversation context
-- Combines multiple sources to provide comprehensive, well-rounded responses
-- Maintains conversation flow while accessing external knowledge on-demand
-
-**⚡ Cost-Effective Scalability**
-- Reduces computational costs compared to training larger models with embedded knowledge
-- Enables organizations to leverage existing data investments without data migration
-- Scales efficiently as knowledge bases grow and evolve
-
-**🛡️ Trust and Transparency**
-- Provides source attribution for generated responses
-- Enables fact-checking and verification of information
-- Builds user confidence through transparent knowledge sourcing
 
 ### RAG in Logic Apps: Bridging AI and Enterprise Data
 
