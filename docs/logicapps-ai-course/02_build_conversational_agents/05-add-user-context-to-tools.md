@@ -31,7 +31,7 @@ The following table describes different identities that a tool can use to run ac
 | Identity | Description |
 |----------|-------------|
 | Per-user (OBO) | A connector action runs by using a delegated token for the signed-in user. The result depends on the user's permissions and licenses. |
-| App-only (application identity) | A connector action runs by using a managed identity or an app or service principal. The result depends on app permissions and configuration. <br><br>**Important**: Use an app-only identity when the tool performs shared operations that aren't tied to a user like posting to a shared channel, running a back office job, or using a service account. |
+| App-only (application identity) | A connector action runs by using a managed identity or an app or service principal. The result depends on app permissions and configuration. <br /><br />**Important**: Use an app-only identity when the tool performs shared operations that aren't tied to a user like posting to a shared channel, running a back office job, or using a service account. |
 | Connection reference | Your workflow binds each connector action to a specific connection that determines how to perform authentication. |
 
 ## Scenarios for on-behalf-of (OBO) authorization
