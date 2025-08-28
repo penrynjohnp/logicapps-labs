@@ -78,6 +78,3 @@ Build intelligent result combination and reporting.
 - **Worker Specialization**: Focused expertise areas for each worker
 - **Coordination Logic**: Managing dependencies and sequencing
 - **Result Synthesis**: Intelligent combination of worker outputs
-
----
-*Next: Learn about [Autonomous Multi-Agent Systems](./09-autonomous-multi-agent.md) for fully independent agent coordination.*
