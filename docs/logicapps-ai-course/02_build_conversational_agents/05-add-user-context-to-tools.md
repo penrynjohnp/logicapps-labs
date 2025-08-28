@@ -125,7 +125,9 @@ To support delegated user access, create the connection so your tool can use a c
 
 1. In the designer, add or select the connector action that you want your workflow to run with OBO, for example, a Microsoft 365 action.
 
-1. On the **Create connection** pane, select **Create as per-user connection?**, which is required and available only for Microsoft service or system connectors, and then select **Sign in**.
+1. On the **Create connection** pane, select **Create as per-user connection?**, which is required and available only for Microsoft service or system connectors, and then select **Sign in**, for example:
+
+   ![Screenshot shows Outlook action with selected per-user delegated connection option.](media/05-add-user-context-to-tools/create-obo-connection.png)
 
    > [!IMPORTANT]
    >
@@ -169,10 +171,6 @@ The following example shows how to add a tool that lists the unread emails for a
 
 1. Complete the sign-in and consent flow, which authorizes the workflow to use your credentials.
 
-The following example shows how the action appears at this point:
-
-![Screenshot shows Outlook action with selected per-user delegated connection option.](media/05-add-user-context-to-tools/create-obo-connection.png)
-
 ### Part 3 - Set up the action
 
 1. On the designer, select the Outlook action to open the information pane for the action.
@@ -196,7 +194,7 @@ The following example shows how the action appears at this point:
 
    The following example shows how the tool appears at this point:
 
-   ![Screenshot shows tool action with description.](./media/05-add-user-context-to-tools/list-unread-emails-tool.png)
+   ![Screenshot shows tool action with description.](./media/05-add-user-context-to-tools/list-unread-emails.png)
 
 1. Save your workflow.
 
