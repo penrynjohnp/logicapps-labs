@@ -51,6 +51,3 @@ Add confidence thresholds and fallback handling.
 
 ### Exercise 4: Performance Monitoring
 Track routing accuracy and optimize classification.
-
----
-*Next: Learn about the [Handoff Pattern](./04-handoff-pattern.md) for seamless agent transitions.*
