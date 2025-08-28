@@ -58,6 +58,3 @@ Track handoff performance and debug issues.
 - **Context Transfer**: Mechanisms for preserving conversation state
 - **Initialization Actions**: Preparing the receiving agent
 - **Handoff Validation**: Ensuring successful transitions
-
----
-*Next: Learn about the [Parallelization Pattern](./05-parallelization-pattern.md) for concurrent agent processing.*
