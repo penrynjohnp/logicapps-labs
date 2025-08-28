@@ -69,6 +69,3 @@ Optimize parallel execution and handle edge cases.
 - **Voting**: Multiple attempts for consensus
 - **Aggregation**: Combining parallel results
 - **Timeout Handling**: Managing slow or failed agents
-
----
-*Next: Learn about the [Sequential Orchestration Pattern](./06-sequential-orchestration.md) for complex stateful workflows.*
