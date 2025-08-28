@@ -325,7 +325,7 @@ INFO:__main__:{
       "tags": []
     }
   ],
-  "url": "https://test-agent.azurewebsites.net/api/agents/WeatherAgent",
+  "url": "https://test-agent-app.azurewebsites.net/api/agents/WeatherAgent",
   "version": "08584456976585663423"
 }
 ```
@@ -404,7 +404,7 @@ Sample output:
 We can see the agent returned the task object with the final assistant message: **Right now in Seattle, the weather is clear:\n\n- **Temperature**: 68°F (feels like 67°F)\n- **Humidity**: 70%\n- **Wind**: 2 mph\n- **Visibility**: 9.9 miles\n- **Cloud Cover**: Minimal (7%)\n- **UV Index**: Low (0)\n\nNo precipitation is expected for at least 2 hours.**
 
 ```
-INFO:httpx:HTTP Request: POST https://test-agent-nikhil.azurewebsites.net/api/agents/WeatherAgent "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://test-agent-app.azurewebsites.net/api/agents/WeatherAgent "HTTP/1.1 200 OK"
 Get Task Response:
 {
   "id": "20f6ab40-bf90-45b0-a1aa-30e96d7a0af9",
