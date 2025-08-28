@@ -76,6 +76,3 @@ Track iteration effectiveness and optimize the feedback loop.
 - **Evaluation Criteria**: Clear quality standards and metrics
 - **Termination Conditions**: When to stop iterating
 - **Convergence Detection**: Identifying when no further improvement is possible
-
----
-*Next: Learn about the [Orchestrator-Workers Pattern](./08-orchestrator-workers.md) for dynamic task decomposition.*
