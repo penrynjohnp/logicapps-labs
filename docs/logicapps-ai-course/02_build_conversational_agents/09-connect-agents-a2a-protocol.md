@@ -19,7 +19,7 @@ When you finish this module, you'll achieve the goals and complete the tasks in 
 - Discover agents using the agent card and understand its structure and purpose.
 - Use A2A-compliant APIs to send messages, retrieve tasks, and stream responses.
 - Authenticate with agents using API keys or Easy Auth, previously known as App Service Authentication.
-- Connect to a Azure Logic Apps agent using the official Python SDK and perform basic interactions.
+- Connect to an Azure Logic Apps agent using the official Python SDK and perform basic interactions.
 
 
 ## Conversational agents using A2A protocol
