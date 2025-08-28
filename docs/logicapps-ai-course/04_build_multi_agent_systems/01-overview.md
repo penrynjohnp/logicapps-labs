@@ -1,6 +1,6 @@
 # Module 01 - Building Multi-Agent Systems with Logic Apps
 
-> **Prerequisites**: This module builds upon concepts from the conversational agent and autonomous agent labs. Please complete those modules before proceeding.
+> **Prerequisites**: This module builds upon concepts from the conversational agent and autonomous agent labs. You are encouraged to complete those modules before proceeding.
 
 ## Introduction
 
@@ -155,10 +155,10 @@ Logic Apps provides several unique advantages for implementing multi-agent syste
 
 This module is organized into hands-on labs that teach you to build the most practical multi-agent patterns using Logic Apps. While we've covered six different patterns above, there are many variants that can be built using the foundations from the above patterns:
 
-Each lab will demonstrate practical implementations with real-world examples, showing how these foundational patterns can be combined and customized to create more complex multi-agent systems. By mastering these core patterns, you'll have the building blocks to implement any of the eight patterns described above.
+Each lab demonstrates practical implementations with real-world examples, showing how these foundational patterns can be combined and customized to create more complex multi-agent systems. By mastering these core patterns, you'll have the building blocks to implement any of the eight patterns described above.
 
 ---
 
 ### References
 
-1. Schluntz, E., & Zhang, B. (2024). Building effective agents. *Anthropic*. Retrieved from https://www.anthropic.com/engineering/building-effective-agents
+1. [Schluntz, E., & Zhang, B. (2024). Building effective agents.](https://www.anthropic.com/engineering/building-effective-agents)
