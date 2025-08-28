@@ -19,7 +19,7 @@ When you finish this module, you'll achieve the goals and complete the tasks in 
 - Discover agents using the agent card and understand its structure and purpose.
 - Use A2A-compliant APIs to send messages, retrieve tasks, and stream responses.
 - Authenticate with agents using API keys or Easy Auth, previously known as App Service Authentication.
-- Connect to a Logic Apps agent using the official Python SDK and perform basic interactions.
+- Connect to a Azure Logic Apps agent using the official Python SDK and perform basic interactions.
 
 
 ## Conversational agents using A2A protocol
@@ -41,7 +41,7 @@ Azure Logic Apps conversational agents support the [A2A protocol](https://a2a-pr
 
 ### Fields in the conversational agent trigger
 
-- **Agent URL**: All communication with a Logic Apps conversational agent happens through this **Agent URL**, which maps directly to the A2A specification's serviceEndpoint. This URL serves as the entry point for all A2A-compliant API calls, such as message/send, tasks/get, and message/stream. 
+- **Agent URL**: All communication with an Azure Logic Apps conversational agent happens through this **Agent URL**, which maps directly to the A2A specification's serviceEndpoint. This URL serves as the entry point for all A2A-compliant API calls, such as message/send, tasks/get, and message/stream. 
 - **Agent API key**: The API key (also referred to as the developer key) must be included in the X-API-Key header for any communication with the agent.
 - **Name**: User provided name for the agent. Shows up in the `name` property of the Agent Card (explained in next section).
 - **Description**: User provided description for the agent. Shows up in the `description` property of the Agent Card (explained in next section).
@@ -50,10 +50,10 @@ Azure Logic Apps conversational agents support the [A2A protocol](https://a2a-pr
 
 ### Authentication methods
 
-Logic App conversational agents support two authentication methods:
+Azure Logic Apps conversational agents support two authentication methods:
 
 - **API key-based authentication**: This is the default method. The API key (also referred to as the developer key) must be included in the X-API-Key header for any communication with the agent.
-- **App Service authentication (EasyAuth)**: If EasyAuth is configured on the Logic App (Standard), it takes precedence over API key-based authentication. This method is typically used when OAuth flows or on-behalf-of (OBO) scenarios are required, such as interacting with connectors that require user context (explained in [Module 05 — Add user context to your tools](./05-add-user-context-to-tools.md)).
+- **App Service authentication (EasyAuth)**: If EasyAuth is configured on the logic app, it takes precedence over API key-based authentication. This method is typically used when OAuth flows or on-behalf-of (OBO) scenarios are required, such as interacting with connectors that require user context (explained in [Module 05 — Add user context to your tools](./05-add-user-context-to-tools.md)).
 
 ## Agent discovery and agent card
 
@@ -114,7 +114,7 @@ These [A2A specification](https://a2a-protocol.org/latest/specification/) dictat
 
 - [`message/send`](https://a2a-protocol.org/latest/specification/#71-messagesend): Sends a message to an agent to initiate a new interaction or to continue an existing one. This method is suitable for synchronous request/response interactions or when client-side polling (using tasks/get) is acceptable for monitoring longer-running tasks.
 - [`tasks/get`](https://a2a-protocol.org/latest/specification/#73-tasksget): Retrieves the current state (including status, artifacts, and optionally history) of a previously initiated task. This is typically used for polling the status of a task initiated with message/send, or for fetching the final state of a task after being notified via a push notification or after an SSE stream has ended.
-- [`message/stream`](https://a2a-protocol.org/latest/specification/#72-messagestream): Sends a message to an agent to initiate/continue a task AND subscribes the client to real-time updates for that task via Server-Sent Events (SSE). Logic App conversational agents support streaming.
+- [`message/stream`](https://a2a-protocol.org/latest/specification/#72-messagestream): Sends a message to an agent to initiate/continue a task AND subscribes the client to real-time updates for that task via Server-Sent Events (SSE). Azure Logic Apps conversational agents support streaming.
 
 > [!NOTE]
 > Our internal chat client (described in [Module 01 — Create First Conversational Agent](./01-create-first-conversational-agent.md)) uses the message/stream API for communicating with the conversational agent.
@@ -125,9 +125,9 @@ These [A2A specification](https://a2a-protocol.org/latest/specification/) dictat
 
 ## Connect to an Azure Logic Apps agent from the A2A Python SDK:
 
-In addition to communicating with the agent via the internal chat client, we can communicate with the Logic Apps conversational agents from external chat clients and SDKs.
+In addition to communicating with the agent via the internal chat client, we can communicate with an Azure Logic Apps conversational agents from external chat clients and SDKs.
 
-This section shows how to use the [A2A Python SDK](https://github.com/a2aproject/a2a-python) to connect to a Logic Apps agent using an API key, fetch the agent card, send a message, and poll for task results.
+This section shows how to use the [A2A Python SDK](https://github.com/a2aproject/a2a-python) to connect to an Azure Logic Apps agent using an API key, fetch the agent card, send a message, and poll for task results.
 
 <div style="max-height: 400px; overflow-y: auto; border: 1px solid #ccc; border-radius: 4px;">
 
@@ -261,13 +261,13 @@ from a2a.utils.constants import (
 
 ### Step 2: Passing in the Agent URL and Agent API key
 
-Replace the **agent_url** and **api_key** with the Logic Apps Agent URL and Agent API key seen in the Agent trigger
+Replace the **agent_url** and **api_key** with the Azure Logic Apps Agent URL and Agent API key seen in the Agent trigger
 ```python
 if __name__ == '__main__':
     import asyncio
     
     agent_url = '<enter-your-agent-url-here>' # e.g. https://your-logic-app-name.azurewebsites.net/api/Agents/WeatherAgent
-    api_key = "<enter-your-api-key-here>" # e.g. the value of the Agent API key for your Logic App Agent
+    api_key = "<enter-your-api-key-here>" # e.g. the value of the Agent API key for your Azure Logic App Agent
 
     asyncio.run(main(agent_url, api_key))
 ```
@@ -333,7 +333,7 @@ INFO:__main__:{
 
 ### Step 4: Send a message
 
-This section internally uses the **message/send** API to send a message to the Logic App conversational agent.
+This section internally uses the **message/send** API to send a message to the Azure Logic Apps conversational agent.
 
 ```python
 # <-- [start:send message]
@@ -358,7 +358,7 @@ logger.info(send_message_response.model_dump_json(indent=2, exclude_none=True))
 # --<-- [end:send message]
 ```
 
-Sample output (Note that the agent returns a task object with a **submitted** status and the contextId here maps to the Logic App workflow run Id):
+Sample output (Note that the agent returns a task object with a **submitted** status and the contextId here maps to the logic app workflow run Id):
 
 ```
 Send Message Response:
