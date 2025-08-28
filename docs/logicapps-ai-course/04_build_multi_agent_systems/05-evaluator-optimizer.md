@@ -1,4 +1,4 @@
-# Module 04 - Evaluator-Optimizer Pattern
+# Module 05 - Evaluator-Optimizer Pattern
 
 > **Pattern Complexity**: High  
 > **Prerequisites**: Complete the sequential orchestration module

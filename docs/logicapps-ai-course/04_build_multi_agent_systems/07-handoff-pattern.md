@@ -1,4 +1,4 @@
-# Module 06 - Handoff Pattern
+# Module 07 - Handoff Pattern
 
 > **Pattern Complexity**: Medium  
 > **Prerequisites**: Complete the routing module
