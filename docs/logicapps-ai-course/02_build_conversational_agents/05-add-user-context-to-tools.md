@@ -190,7 +190,7 @@ The following example shows how to add a tool that lists the unread emails for a
 1. On the **Details** tab, provide the following information:
 
    - Name: **List unread emails**
-   - Description: **Lists 10 most recent unread emails from the Inbox for the signed-in user.**
+   - Description: **Lists the 10 most recent unread emails from the Inbox for the signed-in user.**
 
    The following example shows how the tool appears at this point:
 
