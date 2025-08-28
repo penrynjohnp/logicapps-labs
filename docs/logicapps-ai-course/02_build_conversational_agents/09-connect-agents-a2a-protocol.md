@@ -1,6 +1,6 @@
 ---
-title: Connect tools to external services - Module 03
-description: Learn how to integrate Azure Logic Apps conversational agents with external services using the A2A protocol and the official Python SDK.
+title: Connect your agents using A2A protocol - Module 09
+description: Learn how to integrate Azure Logic Apps conversational agents with external services using the A2A protocol and the A2A Python SDK.
 ms.service: azure-logic-apps
 author: nikhilsira
 ms.author: nikhilsira
@@ -10,20 +10,21 @@ ms.date: 08/27/2025
 
 # Module 09 - Connect your agents using A2A protocol
 
-This module explains how to integrate Azure Logic Apps conversational agents with external services using the A2A protocol and the official Python SDK.
+
+This module explains how to integrate Azure Logic Apps conversational agents with external services using the Agent-to-Agent (A2A) protocol and the A2A Python SDK.
 
 When you finish this module, you'll achieve the goals and complete the tasks in the following list:
 
 - Understand how conversational agents in Azure Logic Apps align with the A2A protocol for interoperability.
 - Discover agents using the agent card and understand its structure and purpose.
 - Use A2A-compliant APIs to send messages, retrieve tasks, and stream responses.
-- Authenticate with agents using API keys or App Service authentication (EasyAuth).
+- Authenticate with agents using API keys or Easy Auth, previously known as App Service Authentication.
 - Connect to a Logic Apps agent using the official Python SDK and perform basic interactions.
 
 
 ## Conversational agents using A2A protocol
 
-Azure Logic Apps conversational agents support the [A2A protocol](https://a2a-protocol.org/latest/), enabling seamless integration with other AI agents and client applications. In a world where agents are built using diverse frameworks and by different vendors, A2A provides a common language, breaking down silos and fostering interoperability. These agents expose an API surface that abstracts away Logic Apps-specific constructs like workflows and runs, focusing instead on conversational units (messages) and tasks.
+Azure Logic Apps conversational agents support the [A2A protocol](https://a2a-protocol.org/latest/), enabling seamless integration with other AI agents and client applications. In a world where agents are built using diverse frameworks and by different vendors, A2A provides a common language, breaking down silos and fostering interoperability. These agents expose an API surface that abstracts away Azure Logic Apps-specific constructs like workflows and runs, focusing instead on conversational units, or messages, and tasks.
 
 ### Key features
 - **Interoperability**: Aligns with A2A protocol for compatibility with other platforms.
@@ -33,7 +34,7 @@ Azure Logic Apps conversational agents support the [A2A protocol](https://a2a-pr
 - **Authentication options**: API key and OAuth.
 
 ### Goals
-- Easily incorporate Logic Apps agents into multi-agent solutions.
+- Easily incorporate Azure Logic Apps agents into multi-agent solutions.
 - Replace code-heavy agents with minimal changes.
 
 ## Trigger parameters and authentication for conversational agents
@@ -56,7 +57,7 @@ Logic App conversational agents support two authentication methods:
 
 ## Agent discovery and agent card
 
-Each Logic Apps conversational agent exposes an [**agent card**](https://a2a-protocol.org/latest/specification/#5-agent-discovery-the-agent-card) defined by the [A2A specification](https://a2a-protocol.org/latest/specification/), a JSON document that acts as a digital business card. This card is essential for discovery and initiating interaction.
+Each Azure Logic Apps conversational agent exposes an [**agent card**](https://a2a-protocol.org/latest/specification/#5-agent-discovery-the-agent-card) defined by the [A2A specification](https://a2a-protocol.org/latest/specification/), a JSON document that acts as a digital business card. This card is essential for discovery and initiating interaction.
 
 The agent card is hosted at a well-known endpoint `<agent-url>/.well-known/agent-card.json`
 > [NOTE]
@@ -104,9 +105,9 @@ Here is a sample agent-card.json for the weather agent:
 > [!NOTE]
 > The agent card is generated automatically for every conversational agent.
 
-## Logic App Agent APIs
+## Azure Logic Apps agent APIs
 
-Logic App agents expose two groups of APIs:
+Azure Logic Apps agents expose two groups of APIs:
 
 ### A2A-compliant APIs
 These [A2A specification](https://a2a-protocol.org/latest/specification/) dictates the APIs follow the [JSON-RPC 2.0 transport protocol](https://www.a2aprotocol.org/en/docs/json-rpc-2-0) and are suitable for external A2A clients:
@@ -122,11 +123,11 @@ These [A2A specification](https://a2a-protocol.org/latest/specification/) dictat
 > - Improved Perception of Transparency and Trust.
 > - Enhanced User Experience for Long or Complex Outputs.
 
-## Connect to a Logic Apps agent from the official Python SDK:
+## Connect to an Azure Logic Apps agent from the A2A Python SDK:
 
 In addition to communicating with the agent via the internal chat client, we can communicate with the Logic Apps conversational agents from external chat clients and SDKs.
 
-This section shows how to use the [Official Python SDK](https://github.com/a2aproject/a2a-python) to connect to a Logic Apps agent using an API key, fetch the agent card, send a message, and poll for task results.
+This section shows how to use the [A2A Python SDK](https://github.com/a2aproject/a2a-python) to connect to a Logic Apps agent using an API key, fetch the agent card, send a message, and poll for task results.
 
 <div style="max-height: 400px; overflow-y: auto; border: 1px solid #ccc; border-radius: 4px;">
 
@@ -482,10 +483,10 @@ In this module, we explored how to integrate Azure Logic Apps conversational age
 
 - **Agent discovery**: Each agent exposes an agent card—a JSON document that serves as a digital business card for discovery and interaction.
 
-- **Logic App Agent APIs**: A2A-compliant APIs (`message/send`, `tasks/get`, `message/stream`) support communication with agents. Authentication methods include API key and EasyAuth.
+- **Azure Logic Apps Agent APIs**: A2A-compliant APIs (`message/send`, `tasks/get`, `message/stream`) support communication with agents. Authentication methods include API key and EasyAuth.
 
 - **Trigger parameters and authentication**: The default trigger behavior, agent URL mapping to the A2A specification, and authentication precedence were discussed.
 
-- **Python SDK integration**: The official SDK allows clients to connect to agents, fetch agent cards, send messages, and poll for task results.
+- **Python SDK integration**: The A2A Python SDK allows clients to connect to agents, fetch agent cards, send messages, and poll for task results.
 
-Please stay tuned for updates on this modules as we'll cover support for more official client SDKs and capabilities using the A2A protocol.
+Please stay tuned for updates on this modules as we'll cover support for more client SDKs and capabilities using the A2A protocol.
