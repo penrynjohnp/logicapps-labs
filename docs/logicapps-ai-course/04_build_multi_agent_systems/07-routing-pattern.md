@@ -1,4 +1,4 @@
-# Module 03 - Routing Pattern
+# Module 07 - Routing Pattern
 
 > **Pattern Complexity**: Low-Medium  
 > **Prerequisites**: Complete the prompt chaining module
