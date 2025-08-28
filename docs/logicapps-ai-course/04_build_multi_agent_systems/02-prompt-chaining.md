@@ -50,6 +50,3 @@ Add robust error handling and recovery mechanisms.
 
 ### Exercise 4: Performance Optimization
 Optimize chain performance while maintaining quality.
-
----
-*Next: Learn about the [Routing Pattern](./03-routing-pattern.md) for handling different input categories.*
