@@ -53,6 +53,45 @@
   --ms-warning-bg: #fff4ce;   /* M365 warning background */
   --ms-warning-border: #ffb900;
 
+  /* Admonitions / Docusaurus alerts styling mapped to MS variables */
+
+/* base alert/admonition look */
+.admonition, .alert {
+  border-radius: 6px;
+  padding: 0.75rem 1rem;
+  margin: 1rem 0;
+  border-left: 4px solid transparent;
+  color: inherit;
+}
+
+/* note / info */
+.admonition.admonition-note,
+.alert.alert--note,
+.alert--note,
+.admonition-note {
+  background: var(--ms-note-bg);
+  border-left-color: var(--ms-note-border);
+}
+
+/* Important / warning */
+.admonition.admonition-important,
+.admonition.admonition-warning,
+.alert.alert--warning,
+.alert--warning,
+.admonition-warning {
+  background: var(--ms-warning-bg);
+  border-left-color: var(--ms-warning-border);
+}
+
+/* Title styling (if Docusaurus renders a title element) */
+.admonition .admonition-title,
+.alert .admonition-title,
+.admonition .admonition-heading {
+  font-weight: 700;
+  margin-bottom: 0.25rem;
+  color: var(--ms-text);
+}
+
   /* Code + table */
   --ms-code-bg: #f5f5f5;
   --ms-code-border: #e5e5e5;
