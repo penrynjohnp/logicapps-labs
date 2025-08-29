@@ -48,7 +48,7 @@ Many solutions use mixed authorization methods. For example, a solution might re
 
 In conversational agent workflows, support for OBO authorization applies only to *shared* managed connectors that use delegated, per-user connections to work with Microsoft services or systems.
 
-> [!NOTE]
+> :::note
 >
 > For debugging purposes, administrators can view user chat history in monitoring view. 
 > To improve this experience in the future, share your feedback with our team.
@@ -113,7 +113,7 @@ For more information, see the following articles:
 - [Authentication and authorization in Azure App Service and Azure Functions](https://learn.microsoft.com/azure/app-service/overview-authentication-authorization)
 - [Configure your App Service or Azure Functions app to use Microsoft Entra sign-in](https://learn.microsoft.com/azure/app-service/configure-authentication-provider-aad)
 
-> [!NOTE]
+> :::note
 >
 > For testing and development scenarios, OBO still works without Easy Auth in the chat client through the Azure portal.
 
@@ -123,7 +123,7 @@ Determine the authorization to use for each tool action:
  - For "my data" or user-personalized operations, such as "Get my upcoming meetings", use OBO.
  - For shared resources or automations, such as "Post today's health status to the operations channel", use app-only authorization.
 
-> [!TIP]
+> :::tip
 > 
 > Make sure to keep tool descriptions concise and include guidance about the data that they access,
 > for example, such a description might say "Gets the signed-in user's next five calendar events."
