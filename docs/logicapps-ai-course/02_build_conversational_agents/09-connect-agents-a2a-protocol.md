@@ -23,15 +23,17 @@ When you finish this module, you'll achieve the goals and complete the tasks in 
 
 ## Communicate between agents and clients with the A2A protocol
 
-Azure Logic Apps conversational agents support the [A2A protocol](https://a2a-protocol.org/latest/), enabling seamless integration with other AI agents and client applications. In a world where agents are built using diverse frameworks and by different vendors, A2A provides a common language, breaking down silos and fostering interoperability. These agents expose an API surface that abstracts away Azure Logic Apps-specific constructs like workflows and runs, focusing instead on conversational units, or messages, and tasks.
+Conversational agent workflows in Azure Logic Apps support the [A2A protocol](https://a2a-protocol.org/latest/), which provides seamless integration with other AI agents and client applications. This protocol provides a common language that breaks down silos and fosters interoperability in an environment where various teams and vendors use diverse frameworks to build agents. 
+	
+Conversational agents expose an API surface that abstracts away specific Azure Logic Apps constructs like workflows and runs, focusing on conversational units, or messages, and tasks instead. By using the A2A protocol, a conversational agent provides the following benefits:
 
-### Key features
-
-- **Interoperability**: Aligns with A2A protocol for compatibility with other platforms.
-- **Multi-turn conversations**: Supports back-and-forth interactions.
-- **Real-time streaming**: Provides live status updates.
-- **Conversational memory**: Maintains context across sessions.
-- **Authentication options**: API key and OAuth.
+| Benefit | Description |
+|---------|-------------|
+| Interoperability | Aligns with A2A protocol for compatibility with other platforms. |
+| Authentication options | Supports API key and OAuth. |
+| Multi-turn conversations | Supports back-and-forth interactions. |
+| Conversational memory | Maintains context across sessions. |
+| Real-time streaming | Provides live status updates. |
 
 ### Goals
 
@@ -60,9 +62,11 @@ Azure Logic Apps conversational agents support two authentication methods:
 
 ## Agent discovery and agent card
 
-Each Azure Logic Apps conversational agent exposes an [**agent card**](https://a2a-protocol.org/latest/specification/#5-agent-discovery-the-agent-card) defined by the [A2A specification](https://a2a-protocol.org/latest/specification/), a JSON document that acts as a digital business card. This card is essential for discovery and initiating interaction.
+Each Azure Logic Apps conversational agent exposes an [agent card](https://a2a-protocol.org/latest/specification/#5-agent-discovery-the-agent-card) defined by the [A2A specification](https://a2a-protocol.org/latest/specification/), a JSON document that acts as a digital business card. This card is essential for discovery and initiating interaction.
 
-The agent card is hosted at a well-known endpoint `<agent-url>/.well-known/agent-card.json`
+You can find the JSON document for the agent card hosted at the [well-known URI](https://www.rfc-editor.org/rfc/rfc8615.html) endpoint:
+
+ `<agent-url>/.well-known/agent-card.json`
 
 > [!NOTE]
 > The agent card is accessible by API Key or EasyAuth authentication defined above.
