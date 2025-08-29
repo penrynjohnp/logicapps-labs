@@ -46,30 +46,42 @@ In this section we will review the trigger parameters and authentication methods
 
 ### Review trigger parameters for the conversational agent workflow
 
-- **Agent URL**: All communication with an Azure Logic Apps conversational agent happens through this **Agent URL**, which maps directly to the A2A specification's serviceEndpoint. This URL serves as the entry point for all A2A-compliant API calls, such as message/send, tasks/get, and message/stream. 
-- **Agent API key**: The API key (also referred to as the developer key) must be included in the X-API-Key header for any communication with the agent.
-- **Name**: User provided name for the agent. Shows up in the `name` property of the Agent Card (explained in next section).
-- **Description**: User provided description for the agent. Shows up in the `description` property of the Agent Card (explained in next section).
+| Parameter | Description |
+|-----------|-------------|
+| **Agent URL** | The URL through which all communication happens with a conversational agent and serves as the entry point for all A2A-compliant API calls, such as `message/send`, `tasks/get`, and `message/stream`. This URL directly maps to the A2A server endpoint in the [A2A specification](https://a2a-protocol.org/latest/specification/#2-core-concepts-summary) |
+| **Agent API key** | The API or developer key that the `X-API-Key` header requires for any communication with the agent. |
+| **Name** | The agent name that you provide. Appears in the agent card's `name` property, described in a later section. |
+| **Description** | The agent description that you provide. Appears in the agent card's `description` property, described in a later section. |
 
 ![Screenshot shows Azure portal and designer with example conversational agent workflow.](./media/10_Connect_your_agents_using_a2a_protocol/when-a-new-chat-session-started-trigger.png)
 
-### Authentication methods
+### Review supported authentication
 
 Azure Logic Apps conversational agents support two authentication methods:
 
 - **API key-based authentication**: This is the default method. The API key (also referred to as the developer key) must be included in the X-API-Key header for any communication with the agent.
 - **App Service authentication (EasyAuth)**: If EasyAuth is configured on the logic app, it takes precedence over API key-based authentication. This method is typically used when OAuth flows or on-behalf-of (OBO) scenarios are required, such as interacting with connectors that require user context (explained in [Module 05 — Add user context to your tools](./05-add-user-context-to-tools.md)).
 
-## Agent discovery and agent card
+## Learn about agent discovery and agent cards
 
-Each Azure Logic Apps conversational agent exposes an [agent card](https://a2a-protocol.org/latest/specification/#5-agent-discovery-the-agent-card) defined by the [A2A specification](https://a2a-protocol.org/latest/specification/), a JSON document that acts as a digital business card. This card is essential for discovery and initiating interaction.
+In Azure Logic Apps, each conversational agent exposes an *agent card* that acts as a digital business card and is essential to discovering the agent and initiating interactions. The agent card is a JSON document that's defined by the [A2A specification](https://a2a-protocol.org/latest/specification/#5-agent-discovery-the-agent-card).
 
 You can find the JSON document for the agent card hosted at the [well-known URI](https://www.rfc-editor.org/rfc/rfc8615.html) endpoint:
 
  `<agent-url>/.well-known/agent-card.json`
 
 > [!NOTE]
-> The agent card is accessible by API Key or EasyAuth authentication defined above.
+> You can access the agent card by using the API key or Easy Auth authentication described previously.
+
+### Agent card includes:
+- Agent name
+- Service endpoint
+- Description
+- Authentication methods
+- Skills and capabilities
+
+> [!NOTE]
+> The agent card is generated automatically for every conversational agent.
 
 Here is a sample agent-card.json for the weather agent:
 
@@ -101,18 +113,6 @@ Here is a sample agent-card.json for the weather agent:
   ]
 }
 ```
-
-### Agent card includes:
-
-- Agent name
-- Service endpoint
-- Description
-- Authentication methods
-- Skills and capabilities
-
-
-> [!NOTE]
-> The agent card is generated automatically for every conversational agent.
 
 ## Azure Logic Apps agent APIs
 
