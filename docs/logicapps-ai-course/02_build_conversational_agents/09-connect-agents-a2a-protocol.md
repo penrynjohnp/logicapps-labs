@@ -40,7 +40,9 @@ Azure Logic Apps conversational agents support the [A2A protocol](https://a2a-pr
 
 ## Trigger parameters and authentication for conversational agents
 
-### Fields in the conversational agent trigger
+In this section we will review the trigger parameters and authentication methods involing Azure Logic Apps conversational agents.
+
+### Review trigger parameters for the conversational agent workflow
 
 - **Agent URL**: All communication with an Azure Logic Apps conversational agent happens through this **Agent URL**, which maps directly to the A2A specification's serviceEndpoint. This URL serves as the entry point for all A2A-compliant API calls, such as message/send, tasks/get, and message/stream. 
 - **Agent API key**: The API key (also referred to as the developer key) must be included in the X-API-Key header for any communication with the agent.
@@ -110,11 +112,7 @@ Here is a sample agent-card.json for the weather agent:
 
 ## Azure Logic Apps agent APIs
 
-Azure Logic Apps agents expose two groups of APIs:
-
-### A2A-compliant APIs
-
-These [A2A specification](https://a2a-protocol.org/latest/specification/) dictates the APIs follow the [JSON-RPC 2.0 transport protocol](https://www.a2aprotocol.org/en/docs/json-rpc-2-0) and are suitable for external A2A clients:
+The [A2A specification](https://a2a-protocol.org/latest/specification/) dictates the APIs follow the [JSON-RPC 2.0 transport protocol](https://www.a2aprotocol.org/en/docs/json-rpc-2-0) and are suitable for external A2A clients:
 
 - [`message/send`](https://a2a-protocol.org/latest/specification/#71-messagesend): Sends a message to an agent to initiate a new interaction or to continue an existing one. This method is suitable for synchronous request/response interactions or when client-side polling (using tasks/get) is acceptable for monitoring longer-running tasks.
 - [`tasks/get`](https://a2a-protocol.org/latest/specification/#73-tasksget): Retrieves the current state (including status, artifacts, and optionally history) of a previously initiated task. This is typically used for polling the status of a task initiated with message/send, or for fetching the final state of a task after being notified via a push notification or after an SSE stream has ended.
