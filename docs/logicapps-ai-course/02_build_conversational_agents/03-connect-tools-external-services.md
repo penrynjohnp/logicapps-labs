@@ -1,5 +1,5 @@
 ---
-title: Connect tools to external services - Module 03
+title: Module 03 - Connect tools to external services
 description: Learn how to connect a conversational agent workflow in Azure Logic Apps to external services by using connectors and how to expose connector actions as tools for models, agents, and MCP clients to use.
 ms.service: azure-logic-apps
 author: edwardyhe
@@ -9,7 +9,7 @@ ms.date: 08/26/2025
 #Customer intent: As an integration solution developer, I want to know how to connect my conversational agent workflow to external services and expose connector actions as tools for agents and models to use.
 ---
 
-# Connect your tools to external services (Module 03)
+# Module 03 - Connect your tools to external services
 
 In this module, you learn how to connect a conversational agent workflow in Azure Logic Apps to external systems by using connectors and how to expose connector actions as tools that the agent can call during a chat conversation.
 
@@ -40,7 +40,7 @@ In Azure Logic Apps, *connectors* offer prebuilt operations that provide a fast,
 
 In conversational agent scenarios, connectors turn operations that work with external services and systems into tools that agents can use. When you provide a clear tool name and description, the agent can better decide when to call connector operations as tools and how to summarize results back to the user. To benefit from built-in authentication, throttling guidance, schemas, and monitoring, use connectors when available, rather than raw HTTP.
 
-> [!NOTE]
+> :::note
 >
 > Conversational agent workflows always start with the default trigger named **When a new chat session starts**,
 > and not any other trigger. Conversational agents start running when a chat session starts from the integrated
@@ -67,7 +67,7 @@ The following table helps map the relationship between connector operations and 
   - Primary example: MSN Weather connector, which doesn't need authentication.
   - Optional example with authentication: A GitHub account with either OAuth 2.0 or a personal access token (PAT) with minimal read scopes.
 
-> [!NOTE]
+> :::note
 >
 > This module focuses on connector-backed tools. Later modules cover agent parameters and on-behalf-of (OBO) authorization patterns.
 
@@ -169,7 +169,7 @@ Now, you'll learn to add a tool that requires authentication. This module uses s
 
 1. On the **Create connection** pane that opens, sign in to GitHub, and provide consent to authenticate the connection your GitHub account.
 
-> [!IMPORTANT]
+> :::caution
 >
 > For private repositories, make sure that the connection identity has access.
 

@@ -1,5 +1,5 @@
 ---
-title: Add user context to tools - Module 05
+title: Module 05 - Add user context to tools - Module 05
 description: Learn how to set up on-behalf-of (OBO) authorization for your tools. Learn how to run connector actions with a signed-in user identity by using OBO authorization in conversational agent workflows for Azure Logic Apps.
 ms.service: azure-logic-apps
 author: edwardyhe
@@ -11,7 +11,7 @@ ms.date: 08/27/2025
 # - Provide some client code if useful, but link to later A2A section so customers have context.
 ---
 
-# Add user context to tools by running connector actions with a signed-in user identity (Module 05)
+# Module 05 - Add user context to tools by running connector actions with a signed-in user identity
 
 In this module, you learn how to set up an agent that acts *on behalf of* (OBO) the signed-in user, meaning that the agent can run connector actions by using that user's identity. This module describes scenarios for where to add OBO authorization, known also as *user context*, how to configure the appropriate connections, test with different users, and learn the limitations.
 
@@ -63,7 +63,7 @@ In conversational agent workflows, support for OBO authorization applies only to
 
   - The conversational agent workflow requires a connector operation that works with a Microsoft service or system. The connection must also support delegated, per-user connections, for example, Microsoft 365, SharePoint, or Microsoft Graph. If required, the connection might also need tenant administrator consent.
 
-    > [!TIP]
+    > :::tip
     > 
     > Make sure to keep tool descriptions concise and include guidance about the data that they access,
     > for example, such a description might say "Gets the signed-in user's next five calendar events."
@@ -72,7 +72,7 @@ In conversational agent workflows, support for OBO authorization applies only to
 
   This chat client handles token delegation for per-user connections. If you want to use a custom client, the client must pass the user token to the agent.
 
-  > [!NOTE]
+  > :::note
   >
   > If you are building a custom client that can't pass a user token yet, complete the concepts with the app-only connections.
   > In a later module, you integrate a custom client that supplies the user's access token to the agent.
@@ -129,7 +129,7 @@ To support delegated user access, create the connection so your tool can use a c
 
    ![Screenshot shows Outlook action with selected per-user delegated connection option.](media/05-add-user-context-to-tools/create-obo-connection.png)
 
-   > [!IMPORTANT]
+   > :::caution
    >
    > You must create per-user connections with the **Create as per-user connection?** option. 
    > You can't convert an existing app-only connection to a per-user connection, so you must
@@ -144,7 +144,7 @@ To support delegated user access, create the connection so your tool can use a c
 
 When a tool first uses a connector action with per-user authorization in the chat client, an authentication prompt appears for the user to sign in. After the user signs in, subsequent calls made with same per-user connection don't require reauthentication.
 
-> [!NOTE]
+> :::note
 >
 > The connection uses credentials that belong to the user in the chat session, not the connection creator.
 > This behavior makes sure that the tool runs with the signed-in user's permissions.
@@ -224,7 +224,7 @@ When your logic app has Easy Auth set up, the chat client interface is no longer
 
 You can follow a similar pattern when you use other Microsoft 365 connectors, such as OneDrive with **List my recent files** or Teams with with **List my joined teams or recent messages**.
 
-> [!IMPORTANT]
+> :::caution
 > 
 > For OBO scenarios, make sure to select the per-user connection option.
 
