@@ -1,5 +1,5 @@
 ---
-title: Connect your agents using A2A protocol - Module 09
+title: Connect your agents with A2A protocol - Module 9
 description: Learn how to integrate Azure Logic Apps conversational agents with external services using the A2A protocol and the A2A Python SDK.
 ms.service: azure-logic-apps
 author: nikhilsira
@@ -8,9 +8,9 @@ ms.topic: tutorial
 ms.date: 08/27/2025
 ---
 
-# Module 09 - Connect your agents using A2A protocol
+# Connect your agents using A2A protocol (Module 9)
 
-This module explains how to integrate Azure Logic Apps conversational agents with external services using the Agent-to-Agent (A2A) protocol and the A2A Python SDK.
+In this module, you learn how to integrate Azure Logic Apps conversational agents with external services by using the Agent-to-Agent (A2A) protocol and the A2A Python SDK.
 
 When you finish this module, you'll achieve the goals and complete the tasks in the following list:
 
@@ -21,7 +21,7 @@ When you finish this module, you'll achieve the goals and complete the tasks in 
 - Connect to an Azure Logic Apps agent using the official Python SDK and perform basic interactions.
 
 
-## Conversational agents using A2A protocol
+## Communicate between agents and clients with the A2A protocol
 
 Azure Logic Apps conversational agents support the [A2A protocol](https://a2a-protocol.org/latest/), enabling seamless integration with other AI agents and client applications. In a world where agents are built using diverse frameworks and by different vendors, A2A provides a common language, breaking down silos and fostering interoperability. These agents expose an API surface that abstracts away Azure Logic Apps-specific constructs like workflows and runs, focusing instead on conversational units, or messages, and tasks.
 
@@ -47,7 +47,7 @@ Azure Logic Apps conversational agents support the [A2A protocol](https://a2a-pr
 - **Name**: User provided name for the agent. Shows up in the `name` property of the Agent Card (explained in next section).
 - **Description**: User provided description for the agent. Shows up in the `description` property of the Agent Card (explained in next section).
 
-![Conversational Agent Trigger parameters](./media/10_Connect_your_agents_using_a2a_protocol/a2a-trigger.png)
+![Screenshot shows Azure portal and designer with example conversational agent workflow.](./media/10_Connect_your_agents_using_a2a_protocol/when-a-new-chat-session-started-trigger.png)
 
 ### Authentication methods
 
