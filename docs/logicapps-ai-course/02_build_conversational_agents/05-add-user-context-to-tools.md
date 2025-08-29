@@ -78,7 +78,6 @@ In conversational agent workflows, support for OBO authorization applies only to
 
 - The chat client interface integrated with conversational agent workflows.
 
-- The chat client interface integrated with conversational agent workflows. For this module, we will use the integrated chat client provided by the logic app. You will learn how to use a custom client in [Module 09](./09-deploy-agents-clients.md).
 
   > :::note
   >
