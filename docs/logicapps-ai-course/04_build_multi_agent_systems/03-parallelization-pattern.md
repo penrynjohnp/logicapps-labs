@@ -172,9 +172,13 @@ Add a new autonomous agent workflow in the designer.
      [!NOTE] The expressions `@{outputs('Customer_Impact_Agent')?['lastAssistantMessage']}` etc. insert the outputs from each parallel agent into the aggregation agent's input.
 
 ### Step 6 - Add Response action and return the outputs of the aggregation agent as the result
-  ![Screenshot shows completed response action.](media/parallel_agents_response_action.png) 
-       
- ![Screenshot shows completed parallel agents.](media/parallel_agents.png) 
+
+  Screenshot showing the completed response action: 
+  ![Screenshot shows completed response action.](media/03-parallelization-pattern/parallel_agents_response_action.png) 
+
+  Screenshot showing the completed parallel agents:     
+  ![Screenshot shows completed parallel agents.](media/03-parallelization-pattern/parallel_agents.png) 
+  
 
 ### Step 7 - Test the parallel workflow
 
@@ -192,7 +196,11 @@ Add a new autonomous agent workflow in the designer.
    - **Supplier Agent**: Reviews capacity constraints, price pressures, tech transitions
    - **Aggregation Agent**: Synthesizes all analyses into executive summary
 
- ![Screenshot shows results from parallel agents.](media/parallel_agents_test_results.png) 
+  A video showing testing of parallel agents:
+   <video width="800" controls>
+      <source src="media/03-parallelization-pattern/testing_parallel_agents.mp4" type="video/mp4">
+      Your browser does not support the video tag. <a href="media/03-parallelization-pattern/testing_parallel_agents.mp4">Download the video</a> to view the steps for testing the prompt chaining agent.
+   </video>
 
 ## Best Practices for Parallelization
 

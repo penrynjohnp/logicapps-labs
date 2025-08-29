@@ -63,8 +63,8 @@ In the Azure portal, open your Standard logic app resource.
 Add a new autonomous agent workflow in the designer.
 
    <video width="800" controls>
-      <source src="../media/create_autonomous_agent.mp4" type="video/mp4">
-      Your browser does not support the video tag. <a href="media/create_autonomous_agent.mp4">Download the video</a> to view the steps for creating an autonomous agent workflow.
+      <source src="media/02-prompt-chaining/create_autonomous_agent.mp4" type="video/mp4">
+      Your browser does not support the video tag. <a href="media/02-prompt-chaining/create_autonomous_agent.mp4">Download the video</a> to view the steps for creating an autonomous agent workflow.
    </video>
 
 ### Step 2 - Add the first agent (Data Extractor)
@@ -102,21 +102,24 @@ Add a new autonomous agent workflow in the designer.
      ```
      Here is the data to be used for extraction: @{outputs('Data_Extraction_Agent')?['lastAssistantMessage']}
      ```
-
-    [!NOTE] The expression `@{outputs('Data_Extraction_Agent')?['lastAssistantMessage']}` inserts the last assistant message from 'Data_Extraction_Agent' into the content of the user instruction for the 'Data_Conversion_Agent'
+   >[!IMPORTANT]
+   >
+   >The expression `@{outputs('Data_Extraction_Agent')?['lastAssistantMessage']}` inserts the last assistant message from 'Data_Extraction_Agent' into the content of the user instruction for the 'Data_Conversion_Agent'
 
     you can access it from the dynakic content tab in the function editor in Logic Apps desginer by:
     - First clicking on the place in the **User instructions** inputs field
     - Then Selecting the **Function Editor**
-          ![Screenshot shows the function editor in the context of user instruction input field.](media/select_function_editor.png)
+          ![Screenshot shows the function editor in the context of user instruction input field.](media/02-prompt-chaining/select_function_editor.png)
 
     - Click the **Dynamic Content** tab in the Function Editor
-          ![Screenshot shows the Dynamic Content tab in the function editor.](media/select_dynamic_content_in_function_editor.png) 
+          ![Screenshot shows the Dynamic Content tab in the function editor.](media/02-prompt-chaining/select_dynamic_content_in_function_editor.png) 
           
     - Click the **Last Assistant Message** under **Data Extraction Agent** from the dynamic content to insert the outputs from the previous agent to be part of the **User Instructions** of **Data Conversion Agent**
-          ![Screenshot shows the Dynamic Content tab in the function editor.](media/select_outputs_from_dynamic_content_in_function_editor.png)     
+          ![Screenshot shows the Dynamic Content tab in the function editor.](media/02-prompt-chaining/select_outputs_from_dynamic_content_in_function_editor.png)     
 
-   ![Screenshot shows completed data conversion agent.](media/data_conversion_agent.png) 
+   Completed data conversion agent:
+
+   ![Screenshot shows completed data conversion agent.](media/02-prompt-chaining/data_conversion_agent.png) 
 
 ### Step 4 - Add the third agent (Data Sorting)
 
@@ -135,11 +138,14 @@ Add a new autonomous agent workflow in the designer.
     ```
      Here is the data for sorting: @{outputs('Data_Conversion_Agent')?['lastAssistantMessage']}
     ```
-    [!NOTE] The expression `@{outputs('Data_Conversion_Agent')?['lastAssistantMessage']}` inserts the last assistant message from 'Data_Extraction_Agent' into the content of the user instruction for the 'Data_Sorting_Agent'
+>[!IMPORTANT]
+>
+>   The expression `@{outputs('Data_Conversion_Agent')?['lastAssistantMessage']}` inserts the last assistant message from 'Data_Extraction_Agent' into the content of the user instruction for the 'Data_Sorting_Agent'
 
+ A video showing the steps involved in creating the prompt chaining agent:
    <video width="800" controls>
-      <source src="../media/create_autonomous_agent.mp4" type="video/mp4">
-      Your browser does not support the video tag. <a href="media/create_prompt_chain.mp4">Download the video</a> to view the steps for creating prompt chaining agent workflow.
+      <source src="media/02-prompt-chaining/create_prompt_chain.mp4" type="video/mp4">
+      Your browser does not support the video tag. <a href="media/02-prompt-chaining/create_prompt_chain.mp4">Download the video</a> to view the steps for creating prompt chaining agent workflow.
    </video>
 
 
@@ -166,17 +172,18 @@ Add a new autonomous agent workflow in the designer.
    - **Step 2**: Extracted data → Convert to the desired format
    - **Step 3**: Formatted table → Sorted data 
 
+A video showing testing of prompt chaining agent:
    <video width="800" controls>
-      <source src="../media/create_autonomous_agent.mp4" type="video/mp4">
-      Your browser does not support the video tag. <a href="media/run_prompt_chaining_agent.mp4">Download the video</a> to view the steps for testing the prompt chaining agent.
+      <source src="media/02-prompt-chaining/run_prompt_chaining_agent.mp4" type="video/mp4">
+      Your browser does not support the video tag. <a href="media/02-prompt-chaining/run_prompt_chaining_agent.mp4">Download the video</a> to view the steps for testing the prompt chaining agent.
    </video>
 
 ## Best Practices for Prompt Chaining
 
-• **Keep steps focused**: Each agent should have a single, clear responsibility
-• **Add validation gates**: Implement checks between steps to catch errors early
-• **Design for recovery**: Plan how to handle failures at each step
-• **Monitor performance**: Track execution time and success rates
-• **Optimize prompts**: Refine agent instructions based on results
-• **Test edge cases**: Validate behavior with unusual or malformed inputs
+- **Keep steps focused**: Each agent should have a single, clear responsibility
+- **Add validation gates**: Implement checks between steps to catch errors early
+- **Design for recovery**: Plan how to handle failures at each step
+- **Monitor performance**: Track execution time and success rates
+- **Optimize prompts**: Refine agent instructions based on results
+- **Test edge cases**: Validate behavior with unusual or malformed inputs
 
