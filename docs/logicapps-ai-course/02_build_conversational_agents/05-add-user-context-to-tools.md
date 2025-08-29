@@ -78,31 +78,31 @@ In conversational agent workflows, support for OBO authorization applies only to
 
 - The chat client interface integrated with conversational agent workflows.
 
-
   > :::note
   >
   > If you are building a custom client that can't pass a user token yet, complete the concepts with the app-only connections.
   > In a later module, you integrate a custom client that supplies the user's access token to the agent.
 
+- Two test users or user accounts for conversing through chat with different permissions using the specified connection for this module.
   For example, one user account might have access to a mailbox or website, while the other user account doesn't have access.
 
-## Recommended - Set up Easy Auth (App Service authentication and authorization) on your logic app
+## Recommended: Set up Easy Auth on your logic app
 
-For production scenarios, including chat clients outside of the Azure Portal, we recommend setting up Easy Auth to securely handle authentication and authorization of user credentials.
+For production scenarios, including chat clients outside the Azure portal, set up Easy Auth (App Service Authentication) as the recommended way to securely handle authentication and authorization.
 
 1. In the [Azure portal](https://portal.azure.com), open your Standard logic app resource.
 
-2. On the resource sidebar, under **Settings**, select **Authentication**.
+1. On the resource sidebar, under **Settings**, select **Authentication**.
 
-3. On the **Authentication** page, select **Add identity provider**. From the **Identity provider** list, select **Microsoft** for Microsoft Entra ID.
+1. On the **Authentication** page, select **Add identity provider**. From the **Identity provider** list, select **Microsoft** for Microsoft Entra ID.
 
-4. Create or select an app registration by using the options for conversational agents.
+1. Create or select an app registration by using the options for conversational agents.
 
-5. Set up additional checks for the sign-in process, based on your scenario.
+1. Set up additional checks for the sign-in process, based on your scenario.
 
-6. Require authentication for requests as appropriate for your environment.
+1. Require authentication for requests as appropriate for your environment.
 
-7. When you're done, select **Add** to save your selections.
+1. When you're done, select **Add** to save your selections.
 
 The following example shows a sample Easy Auth setup:
 
@@ -120,7 +120,9 @@ For more information, see the following articles:
 ## Part 1 - Choose the identity model for each tool action
 
 Determine the authorization to use for each tool action:
+
  - For "my data" or user-personalized operations, such as "Get my upcoming meetings", use OBO.
+
  - For shared resources or automations, such as "Post today's health status to the operations channel", use app-only authorization.
 
 > :::tip
@@ -149,7 +151,7 @@ To support delegated user access, create the connection as a per-user connection
 
 1. Complete the sign-in and consent flow, which authorizes the workflow to use your credentials.
 
-   At this point, any sign-in exists only for connection creation validation. At runtime, this identity is not available for other users.
+   At this point, any sign-in exists only for connection creation validation. At runtime, this identity isn't available for other users.
 
 ### Expectations for chat first use and reuse
 
@@ -212,11 +214,12 @@ The following example shows how to add a tool that lists the unread emails for a
 ### Part 5 - Test in chat
 
 1. On the designer toolbar, select **Chat** to open the chat client in the Azure portal.
-2. (Easy Auth only) Click on the Chat Client URL. This will bring you into the logic app integrated chat client.
+
+1. For Easy Auth only, select the chat client URL, which opens the chat client integrated with your logic app.
 
    ![Screenshot shows link to chat client outside the portal when Easy Auth is set up.](media/05-add-user-context-to-tools/get-integrated-iframe.png)
 
-3. In the chat client interface, ask the following question: **What unread emails do I have?**
+1. In the chat client interface, ask the following question: **What unread emails do I have?**
 
    If you're using the tool for the first time, the agent prompts you to sign in for authentication, for example:
 
@@ -282,6 +285,6 @@ The following table describes some common problems and troubleshooting suggestio
 
 ## Related content
 
-- [Module 6 - Extend tool functionality with patterns](./06-extend-tools-with-patterns.md)
-- [Module 9 - Deploy agent clients](./09-deploy-agents-clients.md)
+- [Module 06 - Extend tool functionality with patterns](./06-extend-tools-with-patterns.md)
+- [Module 09 - Deploy agent clients](./09-deploy-agents-clients.md)
 - [Module 10 - Connect your agents using A2A protocol](./10-connect-agents-a2a-protocol.md)

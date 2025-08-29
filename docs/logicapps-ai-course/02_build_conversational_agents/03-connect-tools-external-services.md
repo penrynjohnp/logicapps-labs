@@ -20,7 +20,7 @@ When you finish this module, you'll achieve the goals and complete the tasks in 
 - ptionally add an authenticated connector action as a tool that handles inputs and errors.
 - Apply best practices for safe, reliable tool use in conversational scenarios.
 
-This module keeps the primary flow simple without using [agent parameters](https://learn.microsoft.com/azure/logic-apps/agent-workflows-concepts#key-concepts) or [on-behalf-of (OBO) authorization](https://learn.microsoft.com/entra/identity-platform/v2-oauth2-on-behalf-of-flow). In Module 4, you learn how to parameterize inputs. In Module 5, you learn how to add OBO authorization.
+This module keeps the primary flow simple without using [agent parameters](https://learn.microsoft.com/azure/logic-apps/agent-workflows-concepts#key-concepts) or [on-behalf-of (OBO) authorization](https://learn.microsoft.com/entra/identity-platform/v2-oauth2-on-behalf-of-flow). In Module 04, you learn how to parameterize inputs. In Module 05, you learn how to add OBO authorization.
 
 For more information, see [Connectors overview for Azure Logic Apps connectors](https://learn.microsoft.com/azure/connectors/introduction).
 
@@ -60,7 +60,7 @@ The following table helps map the relationship between connector operations and 
 
 - A Standard logic app resource and a conversational agent workflow with the model that you set up in previous modules.
 
-  If you don't have this workflow, see [Module 1 - Create your first conversational agent](01-create-first-conversational-agent.md).
+  If you don't have this workflow, see [Module 01 - Create your first conversational agent](01-create-first-conversational-agent.md).
 
   For the examples, this workflow can use the following options:
 
@@ -151,7 +151,7 @@ To more easily demonstrate the conversational agent pattern from end to end, thi
 
    ![Screenshot shows monitoring view with successful tool and action call.](media/03-connect-tools-external-services/weather-monitoring-view.png)
 
-For more information, see [Module 2 - Debug your agent](02-debug-agent.md).
+For more information, see [Module 02 - Debug your agent](02-debug-agent.md).
 
 ## Part 2 (optional): Expose an authenticated connector as a tool (GitHub)
 
