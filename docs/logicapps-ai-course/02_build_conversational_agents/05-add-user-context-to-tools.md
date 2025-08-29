@@ -115,7 +115,8 @@ For more information, see the following articles:
 - [Configure your App Service or Azure Functions app to use Microsoft Entra sign-in](https://learn.microsoft.com/azure/app-service/configure-authentication-provider-aad)
 
 > [!NOTE]
-> For testing and development scenarios, OBO will still work in the Azure Portal chat client without Easy Auth.
+>
+> For testing and development scenarios, OBO still works without Easy Auth in the chat client through the Azure portal.
 
 ## Part 1 - Choose the identity model for each tool action
 
