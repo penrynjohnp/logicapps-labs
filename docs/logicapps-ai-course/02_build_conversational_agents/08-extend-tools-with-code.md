@@ -62,7 +62,7 @@ This architecture enables end-to-end automation of complex data analysis tasks, 
 
 ### Step 1 - Set up your agent
 
-> [!NOTE]
+> :::note
 > Prerequisite for this module is that you have access to an Azure Container App Python code Interpreter session pool. For steps on setting this resource up, follow the guide here [Use session pools in Azure Container Apps](https://learn.microsoft.com/en-us/azure/container-apps/session-pool?tabs=azure-cli).
 
 1. In the [Azure portal](https://portal.azure.com), open your Standard logic app resource.
@@ -85,7 +85,7 @@ Use minimal python libraries for completing the task. Print the result to the st
 
 ```
 
-> [!NOTE] 
+> :::note 
 > Agent prompt best practices: 
 > - Be descriptive as possible with the steps you want the agent to perform
 > - Organizing the instructions with section titles gives the agent hint on how to group the its steps
@@ -105,7 +105,7 @@ Use minimal python libraries for completing the task. Print the result to the st
   - Name: **FileRequestUrl**
   - Type: **String**
   - Description: **Request url where the document is located**
-  > [!NOTE] The file used in this module can be found here [company_sales.csv](media/08-extend-tools-with-code/company_sales.csv)
+  > :::note The file used in this module can be found here [company_sales.csv](media/08-extend-tools-with-code/company_sales.csv)
 
 1. Add the **Upload file** action from the to ACA Session connector. For inputs we will use the output body of the **Get Company data** action and then create a new Agent parameter.
    1. Set the **File Name** property by creating an Agent parameter using the following values:
@@ -128,7 +128,7 @@ Use minimal python libraries for completing the task. Print the result to the st
    ![Screenshot of final workflow for agent using Python code interpreter with LLM-generated code.](media/08-extend-tools-with-code/workflow_final.png)
 
 ### Step 3 - Test your workflow in Chat experience
-> [!NOTE] 
+> :::note 
 > The company_data.csv file used in this example can be found here [company_sales.csv](media/08-extend-tools-with-code/company_sales.csv)
 
 1. On the designer toolbar, select **Chat**.
