@@ -20,6 +20,13 @@ When you finish this module, you'll achieve the goals and complete the tasks in 
 - Authenticate with agents using API keys or Easy Auth, previously known as App Service Authentication.
 - Connect to an Azure Logic Apps agent using the official Python SDK and perform basic interactions.
 
+## Prerequisites
+
+- An Azure account and subscription. If you don't have a subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+
+- A Standard logic app resource and a conversational agent workflow with the model that you set up in previous modules.
+
+  If you don't have this workflow, see [Module 01 - Create your first conversational agent](01-create-first-conversational-agent.md).
 
 ## Communicate between agents and clients with the A2A protocol
 
@@ -475,20 +482,8 @@ Get Task Response:
 }
 ```
 
-## Conclusion
-
-In this module, we explored how to integrate Azure Logic Apps conversational agents with external services using the A2A (Application-to-Application) protocol. Here's a summary of what we covered:
-
-### Summary of key concepts
-
-- **Conversational agents and A2A protocol**: Azure Logic Apps agents support the A2A protocol, enabling seamless interoperability with other agents and clients (in-built and external).
-
-- **Agent features**: Capabilities include multi-turn conversations, real-time streaming and conversational memory.
-
-- **Agent discovery**: Each agent exposes an agent card, which is a JSON document that serves as a digital business card for discovery and interaction.
-
-- **Azure Logic Apps Agent APIs**: A2A-compliant APIs (`message/send`, `tasks/get`, `message/stream`) support communication with agents. Authentication methods include API key and Easy Auth.
-
-- **Trigger parameters and authentication**: The default trigger behavior, agent URL mapping to the A2A specification, and authentication precedence were discussed.
-
-- **Python SDK integration**: The A2A Python SDK allows clients to connect to agents, fetch agent cards, send messages, and poll for task results.
+## Related content
+- [Latest A2A protocol Specification](https://a2a-protocol.org/latest/specification/)
+- [A2A Python SDK reference](https://a2a-protocol.org/latest/sdk/python/api/)
+- [Module 01 — Create First Conversational Agent](./01-create-first-conversational-agent.md)
+- [Module 03 - Connect your tools to external services](./03-connect-tools-external-services.md)
