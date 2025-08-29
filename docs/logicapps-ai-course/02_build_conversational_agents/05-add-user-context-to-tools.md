@@ -53,7 +53,8 @@ In conversational agent workflows, support for OBO authorization applies only to
 > For debugging purposes, administrators can view user chat history in monitoring view. 
 > To improve this experience in the future, share your feedback with our team.
 > 
-> Outside of monitoring view, each user chat history is private. One user cannot read or continue another user's conversation in the chat client or through A2A protocol.
+> Outside monitoring view, each person's chat history is private. You can't read or 
+> continue another person's conversation in the chat client or by using the A2A protocol.
 
 ## Prerequisites
 
