@@ -105,6 +105,19 @@ Add a new autonomous agent workflow in the designer.
 
     [!NOTE] The expression `@{outputs('Data_Extraction_Agent')?['lastAssistantMessage']}` inserts the last assistant message from 'Data_Extraction_Agent' into the content of the user instruction for the 'Data_Conversion_Agent'
 
+    you can access it from the dynakic content tab in the function editor in Logic Apps desginer by:
+    - First clicking on the place in the **User instructions** inputs field
+    - Then Selecting the **Function Editor**
+          ![Screenshot shows the function editor in the context of user instruction input field.](media/select_function_editor.png)
+
+    - Click the **Dynamic Content** tab in the Function Editor
+          ![Screenshot shows the Dynamic Content tab in the function editor.](media/select_dynamic_content_in_function_editor.png) 
+          
+    - Click the **Last Assistant Message** under **Data Extraction Agent** from the dynamic content to insert the outputs from the previous agent to be part of the **User Instructions** of **Data Conversion Agent**
+          ![Screenshot shows the Dynamic Content tab in the function editor.](media/select_outputs_from_dynamic_content_in_function_editor.png)     
+
+   ![Screenshot shows completed data conversion agent.](media/data_conversion_agent.png) 
+
 ### Step 4 - Add the third agent (Data Sorting)
 
 1. Connect this agent to receive the formatted table from the Data Converter
