@@ -47,7 +47,7 @@ Azure Logic Apps conversational agents support the [A2A protocol](https://a2a-pr
 - **Name**: User provided name for the agent. Shows up in the `name` property of the Agent Card (explained in next section).
 - **Description**: User provided description for the agent. Shows up in the `description` property of the Agent Card (explained in next section).
 
-![Conversational Agent Trigger parameters](./media/10_Connect_your_agents_using_a2a_protocol/A2ATrigger.png)
+![Conversational Agent Trigger parameters](./media/10_Connect_your_agents_using_a2a_protocol/a2a-trigger.png)
 
 ### Authentication methods
 
