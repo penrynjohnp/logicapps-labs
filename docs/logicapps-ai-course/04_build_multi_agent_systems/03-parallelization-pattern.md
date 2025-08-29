@@ -204,9 +204,9 @@ Add a new autonomous agent workflow in the designer.
 
 ## Best Practices for Parallelization
 
-• **Independence**: Ensure parallel tasks don't depend on each other's outputs
-• **Load Balancing**: Design agents with similar processing complexity
-• **Timeout Management**: Set appropriate timeouts for parallel operations
-• **Result Aggregation**: Plan how to combine and synthesize parallel outputs
-• **Error Handling**: Implement graceful degradation when some agents fail
-• **Resource Management**: Monitor concurrent resource usage
+- **Independence**: Ensure parallel tasks don't depend on each other's outputs
+- **Load Balancing**: Design agents with similar processing complexity
+- **Timeout Management**: Set appropriate timeouts for parallel operations
+- **Result Aggregation**: Plan how to combine and synthesize parallel outputs
+- **Error Handling**: Implement graceful degradation when some agents fail
+- **Resource Management**: Monitor concurrent resource usage
