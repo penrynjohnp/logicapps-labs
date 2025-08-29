@@ -77,7 +77,7 @@ You can find the JSON document for the agent card hosted at the [well-known URI]
 
  `<agent-url>/.well-known/agent-card.json`
 
-> [!NOTE]
+> :::note
 > You can access the agent card by using the API key or Easy Auth authentication described previously.
 
 ### Agent card includes:
@@ -87,7 +87,7 @@ You can find the JSON document for the agent card hosted at the [well-known URI]
 - Authentication methods
 - Skills and capabilities
 
-> [!NOTE]
+> :::note
 > The agent card is generated automatically for every conversational agent.
 
 Here is a sample agent-card.json for the weather agent:
@@ -129,7 +129,7 @@ The [A2A specification](https://a2a-protocol.org/latest/specification/) dictates
 - [`tasks/get`](https://a2a-protocol.org/latest/specification/#73-tasksget): Retrieves the current state (including status, artifacts, and optionally history) of a previously initiated task. This is typically used for polling the status of a task initiated with message/send, or for fetching the final state of a task after being notified via a push notification or after an SSE stream has ended.
 - [`message/stream`](https://a2a-protocol.org/latest/specification/#72-messagestream): Sends a message to an agent to initiate/continue a task AND subscribes the client to real-time updates for that task via Server-Sent Events (SSE). Azure Logic Apps conversational agents support streaming.
 
-> [!NOTE]
+> :::note
 > Our internal chat client (described in [Module 01 — Create First Conversational Agent](./01-create-first-conversational-agent.md)) uses the message/stream API for communicating with the conversational agent.
 > Chat clients prefer streaming over polling APIs for the following reasons:
 > - Faster feedback and reduced Wait time.
