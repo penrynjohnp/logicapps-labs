@@ -212,7 +212,7 @@ The following example shows how to add a tool that lists the unread emails for a
 
 ### Part 5 - Test in chat
 
-1. On the designer toolbar, select **Chat**. This is the portal chat client.
+1. On the designer toolbar, select **Chat** to open the chat client in the Azure portal.
 2. (Easy Auth only) Click on the Chat Client URL. This will bring you into the logic app integrated chat client.
 
    ![Screenshot shows link to chat client outside the portal when Easy Auth is set up.](media/05-add-user-context-to-tools/get-integrated-iframe.png)
