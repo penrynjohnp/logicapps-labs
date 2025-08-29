@@ -7,7 +7,7 @@ ms.author: brbenn
 ms.topic: tutorial
 ms.date: 08/27/2025
 ---
-# Module 08 - Extend your tools with code
+# Extend your tools with code (Module 08)
 
 This module explains how to extend the functionality of Azure Logic Apps workflows and agents with built-in tools.
 
@@ -43,7 +43,7 @@ Python excels at handling structured data and performing complex computations wi
 This section explores the Python code interpreter action in Logic Apps which bridges the gap between simple workflow automation and sophisticated data processing, enabling you to build intelligent agents that can reason about complex data patterns and perform advanced computations on demand.
 
 ## Using the Python action for user-written code
-The Python code interpreter action can be add to standard workflows, enabling you to execute your own Python code. This integration is useful when you have custom code you want to run.
+The Python code interpreter action can be add to standard workflows, enabling you to execute your own Python code. This integration is useful when you have custom code you want to run. 
 
 ![Image of Python code interpreter with user-generated code.](../02_build_conversational_agents/media/08-extend-tools-with-code/python_user.png)
 
@@ -52,23 +52,81 @@ The Python code interpreter action can be integrated into agent workflows, enabl
 
 The example below demonstrates an agent workflow that leverages the Python code interpreter to analyze company sales data. The agent receives system instructions requesting a comprehensive sales data report with trend analysis and visualization. The workflow is structured around two primary tool branches:
 
-{place_holder_for_video_guidance}
-
 **Document Analysis Tool Branch:**
 1. Ingests company data from Azure storage
 2. Uploads the data to the Azure Container Apps Code Interpreter session
 3. Executes LLM-generated Python code to analyze sales trends and create visualizations
 4. Downloads the completed Python-generated report back into the workflow
 
-**Email Tool Branch:**  
-Automatically delivers the generated sales report to specified email recipients.
+This architecture enables end-to-end automation of complex data analysis tasks, from data ingestion through questions answerting.
 
-This architecture enables end-to-end automation of complex data analysis tasks, from data ingestion through report generation and distribution.
+### Step 1 - Set up your agent
+1. In the [Azure portal](https://portal.azure.com), open your Standard logic app resource.
 
-![Image of Agent workflow using Python code interpreter](../02_build_conversational_agents/media/08-extend-tools-with-code/python_workflow.png)  
-  
-The Python code interpreter uses an agent paramater to pass LLM-generated code into the action.  
-![Image of Python code interpreter with lln-generated code.](../02_build_conversational_agents/media/08-extend-tools-with-code/python_llm.png)
+1. Find and open your conversational agent workflow in the designer.
+
+   ![Screenshot shows designer with conversational agent workflow.](media/08-extend-tools-with-code/convo_python1.png)
+
+1. On the designer, select the agent action. Rename the agent: **Document analysis agent**. Next enter the System Instructions  
+
+```
+You are a helpful document analysis agent. When a question is asked, follow these steps in order: 
+
+Document Analysis: 
+
+Write Python code to analyze the input CSV file provided in chat. Use the file location to download the file by setting the 'fileRequestURL'.  Once uploaded the file will be located at '/mnt/data/company_sales.csv'. Set the fileName parameter to 'company_sales.csv'. The CSV file's first row contains the column titles: 'Month', 'Book sales', and 'Tape sales'. The first column lists the month names.  
+
+Pass this Python code as a string to the python tool using the parameter pythonCode. 
+Use minimal python libraries for completing the task. Print the result to the stout.
+
+```
+
+### Step 2 - Add the Document Analysis tool to your agent
+
+1. On the designer, inside the agent, select the plus sign (+) under **Add tool**.
+
+1. Add the **HTTP** action. Select **GET** as the Method type.
+   1. Click on the Tool, and rename it to **Document analysis tool**. Then add the follow Description **Analyzes a file using a python code interpreter.**
+
+   ![Screenshot shows adding an agent parameter to the HTTP action.](media/08-extend-tools-with-code/http_agent_param.png)
+
+1. Create the Agent parameter using the following values:
+  - Name: **FileRequestUrl**
+  - Type: **String**
+  - Description: **Request url where the document is located**
+
+1. Add the **Upload file** action from the to ACA Session connector. For inputs we will use the output body of the **Get Company data** action and then create a new Agent parameter.
+   1. Set the **File Name** property by creating an Agent parameter using the following values:
+      - Name: **fileName**
+      - Type: **String**
+      - Description: **The input file name to upload**
+   1. Set the **File Content** property to the body output of the **Get Company data**
+
+      ![Screenshot shows adding an agent parameter on the Upload file action.](media/08-extend-tools-with-code/upload_agent_param.png)
+
+      ![Screenshot shows the final result of the Upload file action.](media/08-extend-tools-with-code/upload_final.png)
+
+1. Add the **Execute Python code** action from the ACA Session connector. For inputs we will use a new Agent action and the output SessionId paramter from the **Get Company data** action. We must ensure the Python code is executed in the same session as where the file was uploaded.
+
+   ![Screenshot show adding an agent paramter to the Python code executor action.](media/08-extend-tools-with-code/python_code_agent.png)
+
+   ![Screenshot show adding an agent paramter to the Python code executor action.](media/08-extend-tools-with-code/session_id_for_executor.png)
+
+1. Save your workflow. The final design will look like the following.
+   ![Screenshot of finel workflow for agent using Python code interpreter with llm-generated code.](media/08-extend-tools-with-code/workflow_final.png)
+
+### Step 3 - Test your workflow in Chat experience
+> [!NOTE] 
+>
+> The company_data.csv file used in this example can be found here [company_sales.csv](media/08-extend-tools-with-code/company_sales.csv)
+
+1. On the designer toolbar, select **Chat**.
+
+   ![Screenshot shows the chat interface after asking an initial question.](media/08-extend-tools-with-code/agent_convo_start.png)
+
+1. In the chat client interface, ask the following question: **Using the file located at {insert url file location}, can you tell me what the total Book sales were for the year?**
+
+   ![Screenshot shows the chat interface after asking it to analyze the csv.](media/08-extend-tools-with-code/convo_final_answer.png)
 
 ## How to use other custom code actions in agent context
 The JavaScript, C#, and PowerShell actions can also be used within an agent workflow. The user can supply their own code or allow the LLM to generate it. 
