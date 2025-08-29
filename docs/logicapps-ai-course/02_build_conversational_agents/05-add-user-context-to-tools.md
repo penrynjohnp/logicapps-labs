@@ -49,7 +49,9 @@ Many solutions use mixed authorization methods. For example, a solution might re
 In conversational agent workflows, support for OBO authorization applies only to *shared* managed connectors that use delegated, per-user connections to work with Microsoft services or systems.
 
 > [!NOTE]
-> For debugging purposes, user chat history is set up to be visible by the administrator in the monitoring view. We are looking for feedback to improve this experience in the future.
+>
+> For debugging purposes, administrators can view user chat history in monitoring view. 
+> To improve this experience in the future, share your feedback with our team.
 > 
 > Outside of monitoring view, each user chat history is private. One user cannot read or continue another user's conversation in the chat client or through A2A protocol.
 
