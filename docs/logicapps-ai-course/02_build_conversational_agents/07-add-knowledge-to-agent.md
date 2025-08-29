@@ -1,6 +1,6 @@
 ---
 title: Add knowledge to your agent - Module 07
-description: Learn how to add custom knlwedge to your Azure Logic Apps workflows and agents.
+description: Learn how to add custom knowledge to your Azure Logic Apps workflows and agents.
 ms.service: azure-logic-apps
 author: brbenn
 ms.author: brbenn

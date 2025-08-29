@@ -1,6 +1,6 @@
 ---
 title: Extend your tools with code - Module 08
-description: Learn how to extend the functionality of your Azure Logic Apps workflows and agents with builtin tools.
+description: Learn how to extend the functionality of your Azure Logic Apps workflows and agents with built-in tools.
 ms.service: azure-logic-apps
 author: brbenn
 ms.author: brbenn
@@ -58,9 +58,13 @@ The example below demonstrates an agent workflow that leverages the Python code 
 3. Executes LLM-generated Python code to analyze sales trends and create visualizations
 4. Downloads the completed Python-generated report back into the workflow
 
-This architecture enables end-to-end automation of complex data analysis tasks, from data ingestion through questions answerting.
+This architecture enables end-to-end automation of complex data analysis tasks, from data ingestion through questions answering.
 
 ### Step 1 - Set up your agent
+
+> [!NOTE]
+> Prerequisite for this module is that you have access to an Azure Container App Python code Interpreter session pool. For steps on setting this resource up, follow the guide here [Use session pools in Azure Container Apps](https://learn.microsoft.com/en-us/azure/container-apps/session-pool?tabs=azure-cli).
+
 1. In the [Azure portal](https://portal.azure.com), open your Standard logic app resource.
 
 1. Find and open your conversational agent workflow in the designer.
@@ -81,6 +85,13 @@ Use minimal python libraries for completing the task. Print the result to the st
 
 ```
 
+> [!NOTE] 
+> Agent prompt best practices: 
+> - Be descriptive as possible with the steps you want the agent to perform
+> - Organizing the instructions with section titles gives the agent hint on how to group the its steps
+> -  Files uploaded to an ACA Python interpreter session will be located at the directory **/mnt/data/**, be sure to include this when referencing files in your system prompt to ensure the agent knows where to find the file
+> - When downloading a file from an ACA Python interpreter session, the file will be located at the directory **'/mnt/data/** (the same directory as uploaded files). More on working with files in an ACA session [Work with files](https://learn.microsoft.com/en-us/azure/container-apps/sessions-code-interpreter#work-with-files)
+
 ### Step 2 - Add the Document Analysis tool to your agent
 
 1. On the designer, inside the agent, select the plus sign (+) under **Add tool**.
@@ -94,6 +105,7 @@ Use minimal python libraries for completing the task. Print the result to the st
   - Name: **FileRequestUrl**
   - Type: **String**
   - Description: **Request url where the document is located**
+  > [!NOTE] The file used in this module can be found here [company_sales.csv](media/08-extend-tools-with-code/company_sales.csv)
 
 1. Add the **Upload file** action from the to ACA Session connector. For inputs we will use the output body of the **Get Company data** action and then create a new Agent parameter.
    1. Set the **File Name** property by creating an Agent parameter using the following values:
@@ -106,18 +118,17 @@ Use minimal python libraries for completing the task. Print the result to the st
 
       ![Screenshot shows the final result of the Upload file action.](media/08-extend-tools-with-code/upload_final.png)
 
-1. Add the **Execute Python code** action from the ACA Session connector. For inputs we will use a new Agent action and the output SessionId paramter from the **Get Company data** action. We must ensure the Python code is executed in the same session as where the file was uploaded.
+1. Add the **Execute Python code** action from the ACA Session connector. For inputs we will use a new Agent action and the output SessionId parameter from the **Get Company data** action. We must ensure the Python code is executed in the same session as where the file was uploaded.
 
-   ![Screenshot show adding an agent paramter to the Python code executor action.](media/08-extend-tools-with-code/python_code_agent.png)
+   ![Screenshot show adding an agent parameter to the Python code executor action.](media/08-extend-tools-with-code/python_code_agent.png)
 
-   ![Screenshot show adding an agent paramter to the Python code executor action.](media/08-extend-tools-with-code/session_id_for_executor.png)
+   ![Screenshot show adding an agent parameter to the Python code executor action.](media/08-extend-tools-with-code/session_id_for_executor.png)
 
 1. Save your workflow. The final design will look like the following.
-   ![Screenshot of finel workflow for agent using Python code interpreter with llm-generated code.](media/08-extend-tools-with-code/workflow_final.png)
+   ![Screenshot of final workflow for agent using Python code interpreter with LLM-generated code.](media/08-extend-tools-with-code/workflow_final.png)
 
 ### Step 3 - Test your workflow in Chat experience
 > [!NOTE] 
->
 > The company_data.csv file used in this example can be found here [company_sales.csv](media/08-extend-tools-with-code/company_sales.csv)
 
 1. On the designer toolbar, select **Chat**.
@@ -127,6 +138,15 @@ Use minimal python libraries for completing the task. Print the result to the st
 1. In the chat client interface, ask the following question: **Using the file located at {insert url file location}, can you tell me what the total Book sales were for the year?**
 
    ![Screenshot shows the chat interface after asking it to analyze the csv.](media/08-extend-tools-with-code/convo_final_answer.png)
+
+### Step 4 - Check execution in monitoring view
+ 1. On the workflow sidebar, under **Tools**, select **Run history**.
+ 1. Select the most recent workflow run.
+ 1. Confirm the agent successfully generated Python code for analyzing the document.
+
+    ![Screenshot shows monitoring view with successful Python code execution](media/08-extend-tools-with-code/python_code_result.png)
+
+For more information, see [Module 2 - Debug your agent](02-debug-agent.md).
 
 ## How to use other custom code actions in agent context
 The JavaScript, C#, and PowerShell actions can also be used within an agent workflow. The user can supply their own code or allow the LLM to generate it. 
