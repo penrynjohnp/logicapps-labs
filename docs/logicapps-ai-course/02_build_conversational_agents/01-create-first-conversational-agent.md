@@ -1,5 +1,5 @@
 ---
-title: Build your first conversational agent in Azure Logic Apps (Module 01)
+title: Module 01 - Build your first conversational agent in Azure Logic Apps
 description: Learn how to build a conversational agent in Azure Logic Apps (Standard), connect it to an Azure OpenAI model, and add its first tool.
 ms.service: logic-apps
 ms.topic: tutorial
@@ -8,7 +8,7 @@ author: absaafan
 ms.author: absaafan
 ---
 
-In this module you build your first conversational agent in Azure Logic Apps (Standard). You create a workflow of kind "Agent", connect it to an Azure OpenAI model, and add a tool the agent can invoke. The running example is a “Tour Guide” agent for The Met (The Metropolitan Museum of Art).
+In this module, learn how to build your first conversational agent using Azure Logic Apps (Standard), creating your first agent workflow, connecting it to an Azure OpenAI model, and adding a tool the agent can invoke. The running example is a “Tour Guide” agent for The Met (The Metropolitan Museum of Art).
 
 By the end, you will:
 
