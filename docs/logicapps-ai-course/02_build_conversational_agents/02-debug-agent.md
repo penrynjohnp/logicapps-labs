@@ -1,5 +1,5 @@
 --- 
-title: Debug your conversational agent in Azure Logic Apps (Module 02)
+title: Module 02 - Debug your conversational agent in Azure Logic Apps
 description: Learn how to monitor and debug a Logic Apps conversational agent: run history, chat transcripts, tool calls, and model inputs/outputs.
 ms.service: logic-apps
 ms.topic: tutorial
