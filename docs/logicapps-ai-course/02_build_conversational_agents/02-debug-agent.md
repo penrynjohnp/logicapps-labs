@@ -41,7 +41,7 @@ The workflow canvas is the same workflow canvas you might know from your other A
 The action panel loads the inputs and outputs of the action you are inspecting. If you are inspecting the agent action, the input will show the most recent input into the agent and the output will show the result of the agent chat completion. There is also a metadata section for agent actions that shows things like token usage for that agent execution.
 
 #### Agent log
-The agent log shows the conversation chat history for that session so far. The agent messages are shown as "Assistant - {agent name}" messages and clicking on the hyperlinked agent name will navigate to the task where that output was given by the agent.
+The agent log shows the conversation chat history for that session so far. The agent messages are shown as "Assistant - `{agent name}`" messages and clicking on the hyperlinked agent name will navigate to the task where that output was given by the agent.
 It also shows when tools were executed by the agent. The tool names are hyperlinked and clicking on them will navigate you to the task where that tool was executed so you can inspect the inputs and outputs of the action.
 
 ---
