@@ -135,7 +135,7 @@ Use minimal python libraries for completing the task. Print the result to the st
 
    ![Screenshot shows the chat interface after asking an initial question.](media/08-extend-tools-with-code/agent_convo_start.png)
 
-1. In the chat client interface, ask the following question: **Using the file located at {insert url file location}, can you tell me what the total Book sales were for the year?**
+1. In the chat client interface, ask the following question: **Using the file located at `{insert url file location}`, can you tell me what the total Book sales were for the year?**
 
    ![Screenshot shows the chat interface after asking it to analyze the csv.](media/08-extend-tools-with-code/convo_final_answer.png)
 
