@@ -255,11 +255,11 @@ If your production experience uses a custom chat client that's web-based, mobile
 
 1. Capture the user's sign-in through your app. Get an access token for the target resource, for example, Microsoft Graph, with the required scopes.
 
-1. Pass the token to your agent call, based on your integration model (Module 10).
+1. Pass the token to your agent call, based on your integration model (Module 09).
 
 1. Set up your tool to use the delegated token or a connection that recognizes the user's context.
 
-For more information and sample client code, see [Module 10 - Connect your agents using A2A protocol](10-connect-agents-a2a-protocol.md).
+For more information and sample client code, see [Module 09 - Connect your agents using A2A protocol](./09-connect-agents-a2a-protocol.md).
 
 ## Review best practices
 
@@ -286,5 +286,5 @@ The following table describes some common problems and troubleshooting suggestio
 ## Related content
 
 - [Module 06 - Extend tool functionality with patterns](./06-extend-tools-with-patterns.md)
-- [Module 09 - Deploy agent clients](./09-deploy-agents-clients.md)
-- [Module 10 - Connect your agents using A2A protocol](./10-connect-agents-a2a-protocol.md)
+- [Module 09 - Connect your agents using A2A protocol](./09-connect-agents-a2a-protocol.md)
+- [Module 10 - Deploy agent clients](./10-deploy-agents-clients.md)
