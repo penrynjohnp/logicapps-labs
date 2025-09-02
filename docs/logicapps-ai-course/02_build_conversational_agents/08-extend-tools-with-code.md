@@ -112,7 +112,7 @@ Use minimal python libraries for completing the task. Print the result to the st
       - Name: **fileName**
       - Type: **String**
       - Description: **The input file name to upload**
-   1. Set the **File Content** property to the body output of the **Get Company data**
+   1. Set the **File Content** property to the body output of the **Get Company data**.
 
       ![Screenshot shows adding an agent parameter on the Upload file action.](media/08-extend-tools-with-code/upload_agent_param.png)
 
@@ -127,11 +127,31 @@ Use minimal python libraries for completing the task. Print the result to the st
 1. Save your workflow. The final design will look like the following.
    ![Screenshot of final workflow for agent using Python code interpreter with LLM-generated code.](media/08-extend-tools-with-code/workflow_final.png)
 
-### Step 3 - Test your workflow in Chat experience
+### Step 3 - Enable Role based access to your ACA Session Pool
+
+1. Close the workflow designer and exist back to your Logic App Overview.
+1. In the Overview menu, on the left-side menu select the **Identity** menu item under the **Settings** main menu items.  
+    ![Screenshot of Identity menu item.](media/08-extend-tools-with-code//identity_select.png)  
+
+1. On the **System assigned** tab, turn **Status** on by selecting the *On* button. Then click the **Save** button.  
+    ![Screenshot of Logic Apps Identity page.](media/08-extend-tools-with-code/identity_page.png)
+1. Go to your ACA Python Code Interpreter Session pool.
+2. Select **Access control (IAM)** from the left-side menu item.  
+    ![Screenshot of ACA session pool resource left menu items.](media/08-extend-tools-with-code/access_control_select.png)
+
+1. On the **Access control (IAM)** page click the **+Add** button to add a new role assignment.
+1. On the **Add role assignment** page select the **Azure ContainerApps Session Executor** role, then click **Next**.
+1. From the **Members** tab, on the **Assign access to** option click **Managed identity**, then click **+ Select members**.
+1. From the right-side openned dialog box, select the Subscription where your Logic App was created, then under **Managed identity** drop down select **Logic App (Standard)**, lastly, in the search box type the name of your workflow, then select it.
+   ![Screenshot of RBAC assignment.](media/08-extend-tools-with-code/rbac_managed_identity_select.png)
+1. Click the **Select** button to close the diaglog box.
+1. Click the **Review + assign** button to complete the role assignment.
+
+### Step 4 - Test your workflow in Chat experience
 > :::note 
 > The company_data.csv file used in this example can be found here [company_sales.csv](media/08-extend-tools-with-code/company_sales.csv)
 
-1. On the designer toolbar, select **Chat**.
+1. Go back to your Logic Apps resource, and find your workflow. On the designer toolbar, select **Chat**.
 
    ![Screenshot shows the chat interface after asking an initial question.](media/08-extend-tools-with-code/agent_convo_start.png)
 
@@ -139,7 +159,7 @@ Use minimal python libraries for completing the task. Print the result to the st
 
    ![Screenshot shows the chat interface after asking it to analyze the csv.](media/08-extend-tools-with-code/convo_final_answer.png)
 
-### Step 4 - Check execution in monitoring view
+### Step 5 - Check execution in monitoring view
  1. On the workflow sidebar, under **Tools**, select **Run history**.
  1. Select the most recent workflow run.
  1. Confirm the agent successfully generated Python code for analyzing the document.
