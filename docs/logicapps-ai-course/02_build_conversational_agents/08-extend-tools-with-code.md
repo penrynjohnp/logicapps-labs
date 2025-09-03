@@ -45,7 +45,7 @@ This section explores the Python code interpreter action in Logic Apps which bri
 ## Using the Python action for user-written code
 The Python code interpreter action can be add to standard workflows, enabling you to execute your own Python code. This integration is useful when you have custom code you want to run. 
 
-![Image of Python code interpreter with user-generated code.](../02_build_conversational_agents/media/08-extend-tools-with-code/python_user.png)
+![Image of Python code interpreter with user-generated code.](../02_build_conversational_agents/media/08-extend-tools-with-code/python_user2.png)
 
 ## Using the Python action for LLM-generated code
 The Python code interpreter action can be integrated into agent workflows, enabling users to reference LLM-generated code directly as input for the action. This feature streamlines workflows by enabling natural language instructions to be automatically converted into executable Python scripts, allowing for rapid data analysis, cleaning, and visualization without the need for manual coding or advanced data science skills. Users do not need to be fluent in Python, and the generated code is designed to be accurate and executable. 
