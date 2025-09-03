@@ -59,11 +59,13 @@ Many agents require human intervention - for example, certain actions should wai
 
 We assume this webhook approval action will be leveraged to notify and wait for approval. Once the action is identified, there are two ways to integrate this into the agent:
 
-Option A: The webhook action and target action reside in different tools and LLM stages them sequentially. This approach has the following characteristics:
-- [benefit] Generic approval tool that can be reused for multiple target actions
-- [tradeoff] The LLM is 'in charge' - e.g. its completion results are what dictate approval invocation, approval response interpretation, and target action invocation. This depends on the system prompt, tool metadata, and user messages. It is possible the approval could be "skipped" since the LLM behavior is probabilistic.
+Approach A: The webhook action and target action reside in different tools and LLM stages them sequentially. This approach has the following characteristics:
+- A generic approval tool can be reused for different target actions
+- We describe approval requirements in directives to the LLM like system prompt and tool metadata
+- The LLM call dictates whether the approval tool runs, how to interpret the approval tool results, and when to invoke the target action post-approval. This behavior depends on the system prompt, tool metadata, and user messages. It is theoretically possible for the target action to run without the approval action running.
 
-Option B: The webhook action and target action reside in the same tool implemented as a nested workflow where the approval/webhook action runs first. Then the response from the webhook action is imperatively parsed. The target action is then invoked if and only if the webhook results indicate success.
-- [benefit] The target action will **never** run without corresponding webhook action results.
-- [benefit] While the LLM completion results control when the overall tool runs, the corresponding approval flow is fully deterministic without LLM involvement.
-- [tradeoff] This requires a separate nested workflow.
+Approach B: The webhook action and target action reside in the same tool implemented as a nested workflow where the approval/webhook action runs first. The webhook result parsing & conditional target action invocation is all handled deterministically.
+- The target action will **never** run without corresponding webhook action results.
+- While the LLM completion results control when the overall tool runs, the corresponding approval flow is fully deterministic without LLM involvement.
+
+The right design depends on your scenario and target action details - but be sure to consider whether your flow would benefit from these deterministic elements.
