@@ -58,10 +58,11 @@ Many LLM providers have support for parallel tool execution. For example, a weat
 Many agents require human intervention - for example, certain actions should wait for review and approval. One way to accomplish this is to first identify an appropriate webhook action that defers completion until some condition is met. Some services have existing actions that support this pattern. For example, Teams has the ["Post adaptive card and wait for a response" action](https://learn.microsoft.com/en-us/connectors/teams/?tabs=text1%2Cdotnet#post-adaptive-card-and-wait-for-a-response) and Outlook has the ["Send approval email" action](https://learn.microsoft.com/en-us/connectors/office365/#send-approval-email). You can [extend this pattern into any service](https://learn.microsoft.com/en-us/azure/logic-apps/logic-apps-create-api-app#perform-long-running-tasks-with-the-webhook-action-pattern) by using the webhook action.
 
 We assume this webhook action will be leveraged to notify and wait for approval. Once the action is identified, there are two ways to integrate this into the agent:
-1. We can create a distinct approval tool consisting solely of the webhook action. This approach has the following characteristics:
-  * [benefit] Generic approval tool that can be reused for multiple target actions
-  * [tradeoff] The LLM is 'in charge' - e.g. its completion results are what dictate approval invocation, approval response interpretation, and target action invocation. This depends on the system prompt, tool metadata, and user messages. It is possible the approval could be "skipped" since the LLM behavior is probabilistic.
-2. For certain target actions where approval **must occur deterministically** prior to invocation, we can implement the tool as a nested workflow where the approval/webhook action runs first. Then the response from the webhook action is imperatively parsed. The target action is then invoked if and only if the webhook results indicate success.
-  - [benefit] The target action will **never** run without corresponding webhook action results.
-  - [benefit] While the LLM completion results control when the overall tool runs, the corresponding approval flow is fully deterministic without LLM involvement.
-  - [tradeoff] This requires a separate nested workflow.
+Option A: We can create a distinct approval tool consisting solely of the webhook action. This approach has the following characteristics:
+- [benefit] Generic approval tool that can be reused for multiple target actions
+- [tradeoff] The LLM is 'in charge' - e.g. its completion results are what dictate approval invocation, approval response interpretation, and target action invocation. This depends on the system prompt, tool metadata, and user messages. It is possible the approval could be "skipped" since the LLM behavior is probabilistic.
+
+Option B: For certain target actions where approval **must occur deterministically** prior to invocation, we can implement the tool as a nested workflow where the approval/webhook action runs first. Then the response from the webhook action is imperatively parsed. The target action is then invoked if and only if the webhook results indicate success.
+- [benefit] The target action will **never** run without corresponding webhook action results.
+- [benefit] While the LLM completion results control when the overall tool runs, the corresponding approval flow is fully deterministic without LLM involvement.
+- [tradeoff] This requires a separate nested workflow.
