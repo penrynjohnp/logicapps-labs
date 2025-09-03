@@ -59,8 +59,8 @@ Many agents require human intervention - for example, certain actions should wai
 
 We assume this webhook action will be leveraged to notify and wait for approval. Once the action is identified, there are two ways to integrate this into the agent:
 1. We can create a distinct approval tool consisting solely of the webhook action. This approach has the following characteristics:
-  - [benefit] Generic approval tool that can be reused for multiple target actions
-  - [tradeoff] The LLM is 'in charge' - e.g. its completion results are what dictate approval invocation, approval response interpretation, and target action invocation. This depends on the system prompt, tool metadata, and user messages. It is possible the approval could be "skipped" since the LLM behavior is probabilistic.
+- [benefit] Generic approval tool that can be reused for multiple target actions
+- [tradeoff] The LLM is 'in charge' - e.g. its completion results are what dictate approval invocation, approval response interpretation, and target action invocation. This depends on the system prompt, tool metadata, and user messages. It is possible the approval could be "skipped" since the LLM behavior is probabilistic.
 2. For certain target actions where approval **must occur deterministically** prior to invocation, we can implement the tool as a nested workflow where the approval/webhook action runs first. Then the response from the webhook action is imperatively parsed. The target action is then invoked if and only if the webhook results indicate success.
   - [benefit] The target action will **never** run without corresponding webhook action results.
   - [benefit] While the LLM completion results control when the overall tool runs, the corresponding approval flow is fully deterministic without LLM involvement.
