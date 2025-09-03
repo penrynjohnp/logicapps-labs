@@ -1,6 +1,6 @@
 # Module 03 - Connect your tools to external services 
 
-Introduce connectors as a way to enhance tool capabilities.
+Introduce connectors as a way to enhance tool capabilities. This needs update
 
 Brief description about connectors in Azure Logic Apps with links to existing docs.
 Prerequisites (define which service to use)
