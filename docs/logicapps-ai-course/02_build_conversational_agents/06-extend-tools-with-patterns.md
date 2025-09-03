@@ -45,7 +45,7 @@ By default, a tool branch can contain linear actions. If you want more complex c
 
 ## Human-in-the-loop
 
-Many agentic workflows require human intervention - for example, a high-stakes decision should wait for approval. You can implement this in Logic Apps via webhook actions.
+Many agentic workflows require human intervention - for example, a high-stakes decision should wait for approval. There are webhook and connector actions that support this pattern. For example, including the [Teams "Post adaptive card and wait for a response" action](https://learn.microsoft.com/en-us/connectors/teams/?tabs=text1%2Cdotnet#post-adaptive-card-and-wait-for-a-response) inside a tool branch will pause agent execution until the user responds.
 
 ## Parallel tool execution
 
