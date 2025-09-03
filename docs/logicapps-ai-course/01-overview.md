@@ -16,7 +16,7 @@ This lesson introduces what’s possible when you build conversational and auton
 
 Agents combine reasoning, state, and tools to take actions in response to user inputs or events. Using Azure Logic Apps for agents lets you separate the agent’s decision logic (the model, prompts, and orchestration) from reliable, production-grade execution and integration.
 
-Azure Logic Apps provides a visual workflow engine that runs in a cloud service designed for integration and orchestration. Adding agent loop(s) into your workflow unlocks powerful AI reasoning coupled with the extensive features and proven reliability that Azure Logic Apps are known for.
+Azure Logic Apps provides an enterprise grade workflow engine with a visual designer and offers multiple hosting options ranging from on-premises to cloud. Adding agent loop(s) into your workflow unlocks powerful AI reasoning coupled with the extensive features and proven reliability that Azure Logic Apps are known for.
 
 ## Building agents with Azure Logic Apps
 
