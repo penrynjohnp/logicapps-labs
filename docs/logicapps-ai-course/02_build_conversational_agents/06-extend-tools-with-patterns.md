@@ -5,8 +5,8 @@ This module describes several common tool patterns:
 - Adding multiple actions per tool
 - Transforming tool output
 - Complex control flow in tools via nested workflows
-- Human-in-the-loop
 - Parallel tool execution
+- Human-in-the-loop
 
 ## Mocking tool output
 
@@ -49,10 +49,16 @@ This can again be accomplished with the Compose action.
 
 By default, a tool branch can contain linear actions. If you want more complex control flow in your tool, you can implement the tool as a separate deterministic Logic Apps workflow. You can then invoke the nested workflow in your tool. This allows complex control flow and also further decouples the tool implementation from the agent design. For example, if you take this approach, you can test the nested workflow independently from its agent usage.
 
-## Human-in-the-loop
-
-Many agentic workflows require human intervention - for example, certain actions should wait for review and approval. There are webhook and connector actions that support this pattern. For example, including the [Teams "Post adaptive card and wait for a response" action](https://learn.microsoft.com/en-us/connectors/teams/?tabs=text1%2Cdotnet#post-adaptive-card-and-wait-for-a-response) or the [Outlook "Send approval email" action](https://learn.microsoft.com/en-us/connectors/office365/#send-approval-email) inside a tool branch will pause agent execution until the user responds. You can [extend this pattern into any service](https://learn.microsoft.com/en-us/azure/logic-apps/logic-apps-create-api-app#perform-long-running-tasks-with-the-webhook-action-pattern) by using the webhook action.
-
 ## Parallel tool execution
 
 Many LLM providers have support for parallel tool execution. For example, a weather agent asked for data about both Seattle and Paris can invoke the tool twice in parallel with different inputs. This is supported by default in Logic Apps agents - the monitoring view will allow you to trace the execution of each tool.
+
+## Human-in-the-loop
+
+Many agentic workflows require human intervention - for example, certain actions should wait for review and approval. To accomplish this, we await webhook actions that only complete until some condition is met. Some services have existing webhook and connector actions that support this pattern. For example, Teams has the ["Post adaptive card and wait for a response" action](https://learn.microsoft.com/en-us/connectors/teams/?tabs=text1%2Cdotnet#post-adaptive-card-and-wait-for-a-response) and Outlook has the ["Send approval email" action](https://learn.microsoft.com/en-us/connectors/office365/#send-approval-email). You can [extend this pattern into any service](https://learn.microsoft.com/en-us/azure/logic-apps/logic-apps-create-api-app#perform-long-running-tasks-with-the-webhook-action-pattern) by using the webhook action.
+
+Once the webhook action is identified, there are two ways to integrate this into the agent:
+1. We can model the approval tool separately from the target action. This has the following characteristics:
+  - [benefit] Simpler agent design
+  - [benefit] Generic approval tool for multiple tools
+  - [tradeoff] The LLM completion results direct both approval invocation, approval interpretation, and target action invocation. The LLM completion 
