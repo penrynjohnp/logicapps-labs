@@ -15,9 +15,8 @@ When finished with this module, you'll have gain the following knowledge:
 
 - **RAG Architecture Understanding**: How to implement the two-phase RAG pattern in Logic Apps, including data ingestion/indexing and conversational retrieval/response generation
 - **Enterprise Data Integration**: How to leverage Logic Apps' 1,400+ connectors to ingest and process knowledge from diverse sources including documents, databases, APIs, and enterprise systems
+- **Knowledge Agent Creation**: How to transform unstructured documents into knowledge agents for answer domain specific questions
 - **Azure AI Search Implementation**: How to use Azure AI Search for enterprise-grade semantic search, vector search, and hybrid search capabilities to enhance agent responses
-- **Knowledge Base Creation**: How to transform unstructured documents into searchable, embedded knowledge bases that enable contextual and accurate agent responses
-- **End-to-End RAG Workflows**: How to build complete RAG solutions that automatically update agent knowledge as data sources change, ensuring agents stay current and relevant
 
 ## The Power of RAG in AI Applications
 
@@ -60,7 +59,7 @@ With over 1,400 enterprise connectors, Logic Apps provides unparalleled access t
 
 ## Ingest a document from Blob storage for Agent use
 
-### Step 1 -Setup your agent
+### Step 1 - Setup your agent
 > :::note
 > Prerequisites for this module are the following
 - You have access to an Azure Storage Account resource. For steps on setting this resource up, follow the guide here [Create an Azure storage account](https://learn.microsoft.com/en-us/azure/storage/common/storage-account-create?tabs=azure-portal).
