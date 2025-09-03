@@ -22,6 +22,10 @@ To accomplish this, you can mock tool output in two ways:
 2. Replace the Compose action Inputs with the value you would like the tool to return.
 3. When executing the tool, the Compose action will return your provided value as-is.
 
+### Mocking using static results
+
+Consult [this documentation](https://learn.microsoft.com/en-us/azure/logic-apps/testing-framework/test-logic-apps-mock-data-static-results?tabs=standard) to set up static results on the action whose execution you would like to mock.
+
 ## Adding multiple actions per tool branch
 
 So far, all our examples have had one Logic App action per agent tool branch. You also have the option to add multiple linear actions. To do this, simply select the "Add" button within a tool to set up multiple actions.
