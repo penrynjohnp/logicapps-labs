@@ -168,7 +168,7 @@ Add a new autonomous agent workflow in the designer.
      Investor Analysis: @{outputs('Investors_Analysis_Agent')?['lastAssistantMessage']}     
      Supplier Analysis: @{outputs('Suppliers_Analysis_Agent')?['lastAssistantMessage']}
      ```
-  >[!IMPORTANT]
+  >[!Caution]
   >
   >The expressions `@{outputs('Customer_Impact_Agent')?['lastAssistantMessage']}` etc. insert the outputs from each parallel agent into the aggregation agent's input.
 

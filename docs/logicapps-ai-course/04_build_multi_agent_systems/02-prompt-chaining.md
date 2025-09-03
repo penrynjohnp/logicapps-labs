@@ -77,9 +77,9 @@ Add a new autonomous agent workflow in the designer.
       45%: revenue growth
      ```
    - **User Instructions**: 
-    ```
+     ```
      The following is the data that is to be used for extraction: @{triggerBody()?['report']}
-    ```
+     ```
 
 ### Step 3 - Add the second agent (Data Conversion)
 
@@ -99,7 +99,7 @@ Add a new autonomous agent workflow in the designer.
      ```
      Here is the data to be used for extraction: @{outputs('Data_Extraction_Agent')?['lastAssistantMessage']}
      ```
-   >[!IMPORTANT]
+   >[!Caution]
    >
    >The expression `@{outputs('Data_Extraction_Agent')?['lastAssistantMessage']}` inserts the last assistant message from 'Data_Extraction_Agent' into the content of the user instruction for the 'Data_Conversion_Agent'
 
@@ -132,10 +132,10 @@ Add a new autonomous agent workflow in the designer.
        87%: employee satisfaction
      ```
    - **User Instructions**: 
-    ```
+     ```
      Here is the data for sorting: @{outputs('Data_Conversion_Agent')?['lastAssistantMessage']}
-    ```
->[!IMPORTANT]
+     ```
+>[!Caution]
 >
 >   The expression `@{outputs('Data_Conversion_Agent')?['lastAssistantMessage']}` inserts the last assistant message from 'Data_Extraction_Agent' into the content of the user instruction for the 'Data_Sorting_Agent'
 
