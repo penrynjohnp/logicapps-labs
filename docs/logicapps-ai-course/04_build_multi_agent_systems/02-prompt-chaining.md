@@ -140,7 +140,7 @@ Add a new autonomous agent workflow in the designer.
 >   The expression `@{outputs('Data_Conversion_Agent')?['lastAssistantMessage']}` inserts the last assistant message from 'Data_Extraction_Agent' into the content of the user instruction for the 'Data_Sorting_Agent'
 
  A video showing the steps involved in creating the prompt chaining agent:
- <iframe width="560" height="315" src="https://youtu.be/m6sbZIJGd4I" title="A video showing the steps involved in creating the prompt chaining agent" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/m6sbZIJGd4I?si=hMUdxpdL8Vg1K-Zv" title="Create prompt chaining agent" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 
 ### Step 5 - Test the prompt chain
@@ -167,7 +167,7 @@ Add a new autonomous agent workflow in the designer.
    - **Step 3**: Formatted table → Sorted data 
 
 A video showing testing of prompt chaining agent:
- <iframe width="560" height="315" src="https://youtu.be/FywgmlwQqMM" title="A video showing testing of prompt chaining agent" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/FywgmlwQqMM?si=a8OYT-wvRL6yUn7z" title="Run a prompt chaining agent" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 ## Best Practices for Prompt Chaining
 
