@@ -22,6 +22,8 @@ To accomplish this, you can mock tool output in two ways:
 2. Replace the Compose action Inputs with the value you would like the tool to return.
 3. When executing the tool, the Compose action will return your provided value as-is.
 
+See the [`EchoTool` example](./04-add-parameters-to-tools.md) in module four.
+
 ### Mocking using static results
 
 Consult [this documentation](https://learn.microsoft.com/en-us/azure/logic-apps/testing-framework/test-logic-apps-mock-data-static-results?tabs=standard) to set up static results on the action whose execution you would like to mock.
