@@ -45,7 +45,7 @@ By default, a tool branch can contain linear actions. If you want more complex c
 
 ## Human-in-the-loop
 
-Many agentic workflows require human intervention - for example, a high-stakes decision should wait for approval. You can implement this in Logic Apps via webhook actions. Here is an example below: ...
+Many agentic workflows require human intervention - for example, a high-stakes decision should wait for approval. You can implement this in Logic Apps via webhook actions.
 
 ## Parallel tool execution
 
