@@ -1,6 +1,6 @@
 # Module 06 - Extend your tool functionality with patterns
 
-In the last three modules, we have discussed agent tools. This module continues this exploration by describing several common tool patterns:
+Throughout the last three modules, we introduced agent tools. This module continues this exploration through several common tool patterns:
 - Mocking tool output
 - Adding multiple actions per tool
 - Transforming tool output
