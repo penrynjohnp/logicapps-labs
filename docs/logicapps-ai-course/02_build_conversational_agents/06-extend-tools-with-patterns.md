@@ -4,6 +4,18 @@ Throughout the last three modules, we introduced agent tools. This module contin
 - Mocking tool output
 - Adding multiple actions per tool
 - Transforming tool output
-- Implementing complex control flow in tools via nested workflows
-- Implementing Human-in-the-loop / approval patterns
-- Understanding parallel tool execution
+- Complex control flow in tools via nested workflows
+- Human-in-the-loop
+- Parallel tool execution
+
+## Mocking tool output
+
+## Adding multiple actions per tool
+
+## Transforming tool output
+
+## Complex control flow in tools via nested workflows
+
+## Human-in-the-loop
+
+## Parallel tool execution
