@@ -198,11 +198,8 @@ Add a new autonomous agent workflow in the designer.
    - **Aggregation Agent**: Synthesizes all analyses into executive summary
 
   A video showing testing of parallel agents:
-  
-   <video width="800" controls>
-      <source src="media/03-parallelization-pattern/testing_parallel_agents.mp4" type="video/mp4">
-      Your browser does not support the video tag. <a href="media/03-parallelization-pattern/testing_parallel_agents.mp4">Download the video</a> to view the steps for testing the prompt chaining agent.
-   </video>
+   <iframe width="560" height="315" src="https://youtu.be/GXIh5BgKrKM" title="A video showing testing of parallel agents" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+   
 
 ## Best Practices for Parallelization
 

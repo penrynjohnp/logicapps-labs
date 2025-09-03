@@ -62,10 +62,7 @@ In the Azure portal, open your Standard logic app resource.
 
 Add a new autonomous agent workflow in the designer.
 
-   <video width="800" controls>
-      <source src="media/02-prompt-chaining/create_autonomous_agent.mp4" type="video/mp4">
-      Your browser does not support the video tag. <a href="media/02-prompt-chaining/create_autonomous_agent.mp4">Download the video</a> to view the steps for creating an autonomous agent workflow.
-   </video>
+ <iframe width="560" height="315" src="https://www.youtube.com/embed/YNIaHONnWX8?si=ExFsWGR9yGGqUP6J" title="Adding a new autonomous agent workflow." frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 ### Step 2 - Add the first agent (Data Extractor)
 
@@ -143,10 +140,7 @@ Add a new autonomous agent workflow in the designer.
 >   The expression `@{outputs('Data_Conversion_Agent')?['lastAssistantMessage']}` inserts the last assistant message from 'Data_Extraction_Agent' into the content of the user instruction for the 'Data_Sorting_Agent'
 
  A video showing the steps involved in creating the prompt chaining agent:
-   <video width="800" controls>
-      <source src="media/02-prompt-chaining/create_prompt_chain.mp4" type="video/mp4">
-      Your browser does not support the video tag. <a href="media/02-prompt-chaining/create_prompt_chain.mp4">Download the video</a> to view the steps for creating prompt chaining agent workflow.
-   </video>
+ <iframe width="560" height="315" src="https://youtu.be/m6sbZIJGd4I" title="A video showing the steps involved in creating the prompt chaining agent" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 
 ### Step 5 - Test the prompt chain
@@ -173,10 +167,7 @@ Add a new autonomous agent workflow in the designer.
    - **Step 3**: Formatted table → Sorted data 
 
 A video showing testing of prompt chaining agent:
-   <video width="800" controls>
-      <source src="media/02-prompt-chaining/run_prompt_chaining_agent.mp4" type="video/mp4">
-      Your browser does not support the video tag. <a href="media/02-prompt-chaining/run_prompt_chaining_agent.mp4">Download the video</a> to view the steps for testing the prompt chaining agent.
-   </video>
+ <iframe width="560" height="315" src="https://youtu.be/FywgmlwQqMM" title="A video showing testing of prompt chaining agent" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 ## Best Practices for Prompt Chaining
 
