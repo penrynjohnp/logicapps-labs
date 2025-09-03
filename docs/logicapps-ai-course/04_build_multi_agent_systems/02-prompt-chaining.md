@@ -99,7 +99,7 @@ Add a new autonomous agent workflow in the designer.
      ```
      Here is the data to be used for extraction: @{outputs('Data_Extraction_Agent')?['lastAssistantMessage']}
      ```
-   >[!Caution]
+   >:::caution
    >
    >The expression `@{outputs('Data_Extraction_Agent')?['lastAssistantMessage']}` inserts the last assistant message from 'Data_Extraction_Agent' into the content of the user instruction for the 'Data_Conversion_Agent'
 
@@ -135,7 +135,7 @@ Add a new autonomous agent workflow in the designer.
      ```
      Here is the data for sorting: @{outputs('Data_Conversion_Agent')?['lastAssistantMessage']}
      ```
->[!Caution]
+>:::caution
 >
 >   The expression `@{outputs('Data_Conversion_Agent')?['lastAssistantMessage']}` inserts the last assistant message from 'Data_Extraction_Agent' into the content of the user instruction for the 'Data_Sorting_Agent'
 
