@@ -1,6 +1,6 @@
 ---
-title: Overview of building a conversational agent in Azure Logic Apps
-description: An overview of the lesson that helps you build and deploy a conversational agent in Azure Logic Apps.
+title: Overview of Agents in Azure Logic Apps (Standard)
+description: An overview of the lesson that helps you build and deploy Agents in Azure Logic Apps.
 ms.service: logic-apps
 ms.topic: tutorial
 ms.date: 08/19/2025

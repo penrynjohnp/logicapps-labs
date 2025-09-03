@@ -1,5 +1,5 @@
 ---
-title: Add knowledge to your agent - Module 07
+title: 07 - Add knowledge to your agent
 description: Learn how to add custom knowledge to your Azure Logic Apps workflows and agents.
 ms.service: azure-logic-apps
 author: brbenn
@@ -7,7 +7,7 @@ ms.author: brbenn
 ms.topic: tutorial
 ms.date: 08/27/2025
 ---
-# Module 07 - Add knowledge to your agent
+
 This module explains how to add custom knowledge to your Azure Logic Apps workflows and agents using RAG ingestion and retrieval.
 
 When finished with this module, you'll have gain the following knowledge:
