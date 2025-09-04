@@ -373,8 +373,8 @@ Let's say the agent only needs two fields: `responses.weather.current.cap` (a ca
 ![Adding compose action](./media/06-extend-tools-with-patterns/OutputTransformation-ComposeActionA.png)
 
 Note that in the above screenshot, a few things have changed:
-- Our tool branch is now a linear sequence of actions. A compose action is placed after the MSN weather connector
-- The inputs of the compose action have some static text alongside in-progress addition of dynamic content from the prior action outputs
+- Our tool branch is now a linear sequence of actions. A compose action is placed after the MSN weather connector.
+- We specify the new payload in the inputs of the compose action. It will include both static text and dynamic data from the MSN weather connector.
 - In the expression selector, we can select the relevant values to interpolate them into the inputs of the compose action. Since the compose action returns its input, and tool branches inherit the output results of their final action, the input value we form here will replace the prior full payload.
 
 ![Finalizing the action input](./media/06-extend-tools-with-patterns/OutputTransformation-ComposeActionB.png)
