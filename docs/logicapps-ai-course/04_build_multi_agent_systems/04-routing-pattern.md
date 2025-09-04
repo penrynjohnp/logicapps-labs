@@ -292,7 +292,8 @@ In this section, you'll create five separate agent workflows: four specialized s
      ```
      Handle this support ticket: @{triggerBody()?['ticket']}
      ```
-   [!NOTE] The router agent will automatically analyze the ticket and invoke the appropriate specialized workflow tool based on the ticket content, eliminating the need for manual routing logic.
+   :::note
+   The router agent will automatically analyze the ticket and invoke the appropriate specialized workflow tool based on the ticket content, eliminating the need for manual routing logic.
 
 4. Configure the router agent to use the specialized workflows as tools by adding workflow actions as tools:
 
@@ -300,16 +301,15 @@ In this section, you'll create five separate agent workflows: four specialized s
    - **Tool Name**: `Account Security Specialist`
    - **Tool Description**: `Handle account-related issues like login, password, and account security problems`
    - **Workflow Action**: `account-security-agent`
+
+     ![Selecting workflow action.](media/04-routing-pattern/select_workflow_action.png) 
    - **Input Parameters**: 
      ```json
      {
       "ticket": "@triggerBody()?['ticket']"
      }
      ```
-        <div style="display: flex; gap: 10px;">
-        <img src="media/04-routing-pattern/select_workflow_action.png" alt="Selecting workflow action" width="300">
-        <img src="media/04-routing-pattern/call_account_security_workflow_action.png" alt="Completed workflow action to invoke the account security agent" width="300">
-        </div>
+     ![Completed workflow action to invoke the account security agent.](media/04-routing-pattern/call_account_security_workflow_action.png)
 
    **Billing Support Tool**:
    - **Tool Name**: `Billing Support`
@@ -366,10 +366,8 @@ Screenshot showing the completed routing agent:
      "ticket": "Subject: Can't access my account\nMessage: Hi, I've been trying to log in for the past hour but keep getting an 'invalid password' error. I'm sure I'm using the right password. Can you help me regain access? This is urgent as I need to submit a report by end of day.\n- John"
    }
    ```
-    <div style="display: flex; gap: 10px;">
-    <img src="media/04-routing-pattern/test_call_routing_agent.png" alt="Testing routing agent" width="300">
-    <img src="media/04-routing-pattern/result_call_routing_agent.png" alt="Result from routing agent" width="300">
-    </div>
+    ![Testing routing agent.](media/04-routing-pattern/test_call_routing_agent.png)
+    ![Result from routing agent.](media/04-routing-pattern/result_call_routing_agent.png)
 
    **Billing Issue Example**:
    ```json
