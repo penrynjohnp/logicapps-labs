@@ -22,7 +22,7 @@ You continue using the same TourGuide workflow created earlier.
 ---
 
 ## Prerequisites
-- Completed Module 01 (TourGuide agent created and working).
+- Completed agent created on [01 - Create your first conversational agent in Azure Logic Apps](./01-create-first-conversational-agent.md-agent.md) module.
 
 ---
 
