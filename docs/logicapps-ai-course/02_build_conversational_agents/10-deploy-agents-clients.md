@@ -42,16 +42,31 @@ Conversational agent workflows provide you with an in-built chat client in Azure
 - Chat client uses the A2A protocol and OBO connection to mimic your production scenrios so get a first hand feel of how your agent will behave when a user chats with it.
 
 ### Step 2 - Using the chat client as an iframe or directly as a standalone application
-### Step 2a - Setup Easy Auth (previously known as App Service authentication)
-1. Go to Authentication blade for your Azure Logic App
 
-2. 
-3. Setup Easy Auth for your Azure Logic App.
-4. Make sure your workflow is running, if not, hit run from the designer or the Run history blade.
+
+### Step 2a - Setup Easy Auth (previously known as App Service authentication)
+This is required for the standalone chat client application
+1. Go to Authentication blade for your Azure Logic App.
+![Screenshot shows Authentication blade entry point.](./media/10-deploy-agents-clients/AuthBlade.png)
+1. Add Identity provider and select Microsoft as the provider.
+![Screenshot shows Identity Provider.](./media/10-deploy-agents-clients/IdentityProvider.png)
+1. For Conversational Agents, we recommend either Creating a new app registration or use an existing registration. This helps you get the settings out of box since we can help setup everything for you. 
+![Screenshot shows App registration.](./media/10-deploy-agents-clients/AppRegistration.png)
+With the recommended options, we default all the required configurations for Conversational agents.
+  - Authentication is secure by default since it is tied down to your ClientId (Under Allowed Identities).
+  - Excluded paths include "/runtime" to make sure monitoring and other APIs continue to work.
+  - Token store is enabled by default.
+  - Unauthenticated request use the Http 302 redirect.
+If in case you bring your own app registration, make sure to apply the relevant configurations manually.
+
+### Step 2b - Using the standalone chat client
+1. Make sure your workflow is running, if not, hit run from the designer or the Run history blade.
+2. Go to chat blade and follow the chat client uri to open the standalone experience.
+![Screenshot shows App registration.](./media/10-deploy-agents-clients/ChatExperience.png)
+1. The Chat client here is using Easy auth you configured in Step 2a and can be used directly for production scenarios.
 
 
 ### Review supported authentication
-
 Azure Logic Apps conversational agents support two authentication methods:
 
 - **API key-based authentication**: This is the default method. The API key (also referred to as the developer key) must be included in the X-API-Key header for any communication with the agent.
