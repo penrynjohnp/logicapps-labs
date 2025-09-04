@@ -1,6 +1,6 @@
 ---
-title: Overview of building a conversational agent in Azure Logic Apps
-description: An overview of the lesson that helps you build and deploy a conversational agent in Azure Logic Apps.
+title: Overview of Agents in Azure Logic Apps (Standard)
+description: An overview of the lesson that helps you build and deploy Agents in Azure Logic Apps.
 ms.service: logic-apps
 ms.topic: tutorial
 ms.date: 08/19/2025
@@ -16,7 +16,7 @@ This lesson introduces what’s possible when you build conversational and auton
 
 Agents combine reasoning, state, and tools to take actions in response to user inputs or events. Using Azure Logic Apps for agents lets you separate the agent’s decision logic (the model, prompts, and orchestration) from reliable, production-grade execution and integration.
 
-Azure Logic Apps provides a visual workflow engine that runs in a cloud service designed for integration and orchestration. Adding agent loop(s) into your workflow unlocks powerful AI reasoning coupled with the extensive features and proven reliability that Azure Logic Apps are known for.
+Azure Logic Apps provides an enterprise grade workflow engine with a visual designer and offers multiple hosting options ranging from on-premises to cloud. Adding agent loop(s) into your workflow unlocks powerful AI reasoning coupled with the extensive features and proven reliability that Azure Logic Apps are known for.
 
 ## Building agents with Azure Logic Apps
 
@@ -37,10 +37,18 @@ This course starts with conversational agents: systems that engage in back-and-f
 - both benefit from observability and audit trails
 - both require clear tool boundaries and safe error handling
 
-Differences to keep in mind:
+### Conversational agents
 
-- conversational agents are typically user-driven, short-lived or session-based, and focus on natural language interaction.
-- autonomous agents run longer, make independent decisions, and often require stronger governance, isolation, and automated rollback or compensation strategies.
+Conversational agents are typically user-driven, short-lived or session-based, and focus on natural language interaction.
+The only way to trigger and interact with conversational agents is through a chat session so the trigger in a conversational agent workflow will always be the "When a new chat session starts" trigger.
+
+Workflow actions can be added after the workflow triggers and before the first agent. Once the workflow execution reaches an agent, you can only run tools or [hand off to other agents](04_build_multi_agent_systems\07-handoff-pattern.md).
+
+### Autonomous agents
+
+Autonomous agents run longer, make independent decisions, and often require stronger governance, isolation, and automated rollback or compensation strategies. Autonomous agents can be triggered with any of the triggers supported in logic apps today. This flexibility allows you to add agent actions to your existing stateful workflows.
+
+Agent actions can be added in the workflow anywhere that a workflow action can be added. You can also include [multiple agent actions](04_build_multi_agent_systems\01-overview.md) in a workflow.
 
 ## Agent loops in Azure Logic Apps
 

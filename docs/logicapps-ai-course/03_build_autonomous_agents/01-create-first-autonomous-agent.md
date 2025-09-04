@@ -99,6 +99,5 @@ In this module, we will add 2 tools:- **Get weather alert data** and **Send emai
 ## Save and trigger the agent
 The last step is to save your workflow — the autonomous agent is now ready to use. To initiate a run, simply invoke the trigger URL.
 
-
 ### Summary & next steps
 In this module, we built our first autonomous agent using Azure Logic Apps. We defined a system prompt to guide the AI model’s reasoning and added a tool the agent can invoke to fetch relevant data. These elements form the foundation of agent design and can be combined with the full range of Azure Logic Apps features to create robust, scalable, and intelligent workflows.

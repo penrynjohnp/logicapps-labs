@@ -1,3 +1,12 @@
+---
+title: 07 - Implement the Handoff pattern with Azure Logic Apps
+description: Learn how to implement the handoff pattern in Azure Logic Apps — orchestrating seamless transitions between specialized agents while preserving context, enabling escalation, and ensuring reliable fallbacks and monitoring.
+ms.service: logic-apps
+ms.topic: tutorial
+ms.date: 09/03/2025
+author: 
+ms.author: 
+---
 # Module 07 - Handoff Pattern
 
 > **Pattern Complexity**: Medium  
