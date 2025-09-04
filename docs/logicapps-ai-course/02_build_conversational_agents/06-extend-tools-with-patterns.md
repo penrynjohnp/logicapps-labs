@@ -381,7 +381,25 @@ In the above screenshot, we finalize the expression by including both the captio
 
 ![Demonstrating the final output](./media/06-extend-tools-with-patterns/OutputTransformation-ToolOutput.png)
 
-In the above screenshot, we see this pattern leveraged in a conversational flow. Notice that the tool output provided to the LLM matches the schema we specified in the Compose action, not the full JSON blob from before. This can also be confirmed in the monitoring view.
+In the above screenshot, we see this pattern leveraged in a conversational flow. Notice that the tool output provided to the LLM matches the schema we specified in the Compose action, not the full JSON blob from before. This can also be confirmed in the monitoring view:
+
+```json
+[
+  {
+    "role": "Tool",
+    "authorName": "Default_Agent",
+    "functionName": "GetWeatherTool",
+    "functionCallId": "call_InNDpxO6jMYQd1ILl1z3GRmS",
+    "functionCallResult": {
+      "status": "Succeeded",
+      "statusCode": "OK",
+      "body": "The conditions are: Partly sunny and the temperature is: 75"
+    }
+  }
+]
+```
+
+The above `functionCallResult` is included in the LLM chat completion - it is much more succinct now.
 
 This pattern has a few benefits:
 - We reduce unnecessary token usage (tool outputs are included in LLM token count).
