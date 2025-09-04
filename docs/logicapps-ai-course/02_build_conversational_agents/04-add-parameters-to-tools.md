@@ -1,4 +1,12 @@
-# Module 04 - Add parameters to your tools
+--- 
+title: 04 - Add parameters to your tools
+description: Learn how to add and configure agent parameters, monitor/debug their generation and use in a Logic Apps conversational agent using run history, chat transcripts, tool calls, and model inputs/outputs.
+ms.service: logic-apps
+ms.topic: tutorial
+ms.date: 08/27/2025
+author: karansin
+ms.author: karansin
+---
 
 In previous modules, we discussed how to add tools to your agent. Sometimes a tool should vary its behavior depending on the interaction and context - we accomplish this using parameters. For example, a GetWeather tool can be configured to always look up the weather in Seattle. But if the location should be dynamic and depends on conversation context, then we need to add a location parameter to the tool.
 

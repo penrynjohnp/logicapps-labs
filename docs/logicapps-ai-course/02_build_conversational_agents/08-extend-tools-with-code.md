@@ -1,5 +1,5 @@
 ---
-title: Extend your tools with code - Module 08
+title: 08 - Extend your tools with code
 description: Learn how to extend the functionality of your Azure Logic Apps workflows and agents with built-in tools.
 ms.service: azure-logic-apps
 author: brbenn
@@ -7,7 +7,6 @@ ms.author: brbenn
 ms.topic: tutorial
 ms.date: 08/27/2025
 ---
-# Extend your tools with code (Module 08)
 
 This module explains how to extend the functionality of Azure Logic Apps workflows and agents with built-in tools.
 
@@ -45,7 +44,7 @@ This section explores the Python code interpreter action in Logic Apps which bri
 ## Using the Python action for user-written code
 The Python code interpreter action can be add to standard workflows, enabling you to execute your own Python code. This integration is useful when you have custom code you want to run. 
 
-![Image of Python code interpreter with user-generated code.](../02_build_conversational_agents/media/08-extend-tools-with-code/python_user.png)
+![Image of Python code interpreter with user-generated code.](../02_build_conversational_agents/media/08-extend-tools-with-code/python_user2.png)
 
 ## Using the Python action for LLM-generated code
 The Python code interpreter action can be integrated into agent workflows, enabling users to reference LLM-generated code directly as input for the action. This feature streamlines workflows by enabling natural language instructions to be automatically converted into executable Python scripts, allowing for rapid data analysis, cleaning, and visualization without the need for manual coding or advanced data science skills. Users do not need to be fluent in Python, and the generated code is designed to be accurate and executable. 
@@ -63,7 +62,7 @@ This architecture enables end-to-end automation of complex data analysis tasks, 
 ### Step 1 - Set up your agent
 
 > :::note
-> Prerequisite for this module is that you have access to an Azure Container App Python code Interpreter session pool. For steps on setting this resource up, follow the guide here [Use session pools in Azure Container Apps](https://learn.microsoft.com/en-us/azure/container-apps/session-pool?tabs=azure-cli).
+> Prerequisite for this module is that you have access to an Azure Container App Python Code Interpreter session pool. For steps on setting this resource up, follow the guide here [Use session pools in Azure Container Apps](https://learn.microsoft.com/en-us/azure/container-apps/session-pool?tabs=azure-cli).
 
 1. In the [Azure portal](https://portal.azure.com), open your Standard logic app resource.
 
@@ -71,7 +70,7 @@ This architecture enables end-to-end automation of complex data analysis tasks, 
 
    ![Screenshot shows designer with conversational agent workflow.](media/08-extend-tools-with-code/convo_python1.png)
 
-1. On the designer, select the agent action. Rename the agent: **Document analysis agent**. Next enter the System Instructions  
+1. On the designer, select the agent action. Rename the agent: **Document analysis agent**. Next enter the System Instructions, then click **Save** to save your workflow changes.  
 
 ```
 You are a helpful document analysis agent. When a question is asked, follow these steps in order: 
@@ -92,12 +91,33 @@ Use minimal python libraries for completing the task. Print the result to the st
 > -  Files uploaded to an ACA Python interpreter session will be located at the directory **/mnt/data/**, be sure to include this when referencing files in your system prompt to ensure the agent knows where to find the file
 > - When downloading a file from an ACA Python interpreter session, the file will be located at the directory **'/mnt/data/** (the same directory as uploaded files). More on working with files in an ACA session [Work with files](https://learn.microsoft.com/en-us/azure/container-apps/sessions-code-interpreter#work-with-files)
 
+#### Enable Role based access to your ACA Session Pool
+
+1. Close the workflow designer and exist back to your Logic App Overview.
+1. In the Overview menu, on the left-side menu select the **Identity** menu item under the **Settings** main menu items.  
+    ![Screenshot of Identity menu item.](media/08-extend-tools-with-code//identity_select.png)  
+
+1. On the **System assigned** tab, turn **Status** on by selecting the *On* button. Then click the **Save** button.  
+    ![Screenshot of Logic Apps Identity page.](media/08-extend-tools-with-code/identity_page.png)
+1. Go to your ACA Python Code Interpreter Session pool.
+2. Select **Access control (IAM)** from the left-side menu item.  
+    ![Screenshot of ACA session pool resource left menu items.](media/08-extend-tools-with-code/access_control_select.png)
+
+1. On the **Access control (IAM)** page click the **+Add** button to add a new role assignment.
+1. On the **Add role assignment** page select the **Azure ContainerApps Session Executor** role, then click **Next**.
+1. From the **Members** tab, on the **Assign access to** option click **Managed identity**, then click **+ Select members**.
+1. From the right-side openned dialog box, select the Subscription where your Logic App was created, then under **Managed identity** drop down select **Logic App (Standard)**, lastly, in the search box type the name of your workflow, then select it.
+   ![Screenshot of RBAC assignment.](media/08-extend-tools-with-code/rbac_managed_identity_select.png)
+1. Click the **Select** button to close the diaglog box.
+1. Click the **Review + assign** button to complete the role assignment.
+
+
 ### Step 2 - Add the Document Analysis tool to your agent
 
 1. On the designer, inside the agent, select the plus sign (+) under **Add tool**.
 
 1. Add the **HTTP** action. Select **GET** as the Method type.
-   1. Click on the Tool, and rename it to **Document analysis tool**. Then add the follow Description **Analyzes a file using a python code interpreter.**
+   1. Click on the Tool, and rename it to **Document analysis tool**. Then add the follow Description **Analyzes a file using a python code interpreter.**.
 
    ![Screenshot shows adding an agent parameter to the HTTP action.](media/08-extend-tools-with-code/http_agent_param.png)
 
@@ -112,7 +132,7 @@ Use minimal python libraries for completing the task. Print the result to the st
       - Name: **fileName**
       - Type: **String**
       - Description: **The input file name to upload**
-   1. Set the **File Content** property to the body output of the **Get Company data**
+   1. Set the **File Content** property to the body output of the **Get Company data**.
 
       ![Screenshot shows adding an agent parameter on the Upload file action.](media/08-extend-tools-with-code/upload_agent_param.png)
 
@@ -131,7 +151,7 @@ Use minimal python libraries for completing the task. Print the result to the st
 > :::note 
 > The company_data.csv file used in this example can be found here [company_sales.csv](media/08-extend-tools-with-code/company_sales.csv)
 
-1. On the designer toolbar, select **Chat**.
+1. Go back to your Logic Apps resource, and find your workflow. On the designer toolbar, select **Chat**.
 
    ![Screenshot shows the chat interface after asking an initial question.](media/08-extend-tools-with-code/agent_convo_start.png)
 
