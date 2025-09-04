@@ -264,7 +264,7 @@ Based on the [Microsoft AutoGen handoff pattern](https://microsoft.github.io/aut
 
 ### Step 5 - Test the Handoff System
 1. **Test with a refund scenario**:
-   - Start a conversation with your `customer-service-handoff` workflow
+   - Start a conversation with your `customer-service-agent` workflow
    - User: "Hi, I want to return a pair of shoes I bought. They're too small."
 
    ![Refund scenatio chat](media/07-handoff-pattern/test_refund_custom_chat_1.png)
