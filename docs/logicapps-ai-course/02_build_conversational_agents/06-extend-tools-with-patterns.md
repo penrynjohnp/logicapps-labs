@@ -366,7 +366,9 @@ This can again be accomplished with the Compose action. For example, the imagine
 ]
 ```
 
-The full payload is [described here](https://learn.microsoft.com/en-us/connectors/msnweather/#currentweather) in the API documentation. Let's say the agent only needs two fields: `responses.weather.current.cap` (a caption of weather conditions such as rainy, sunny, etc.) and `responses.weather.current.temp` (the current temperature). To transform tool output in this way, we append a Compose action to the end of the tool branch. Since tool branches inherit the result of their last action, the Compose action can form an expression referencing just the dynamic outputs we need.
+The full payload is [described here](https://learn.microsoft.com/en-us/connectors/msnweather/#currentweather) in the API documentation.
+
+Let's say the agent only needs two fields: `responses.weather.current.cap` (a caption of weather conditions such as rainy, sunny, etc.) and `responses.weather.current.temp` (the current temperature). To transform tool output in this way, we append a Compose action to the end of the tool branch. Since tool branches inherit the result of their last action, the Compose action can form an expression referencing just the dynamic outputs we need.
 
 ![Adding compose action](./media/06-extend-tools-with-patterns/OutputTransformation-ComposeActionA.png)
 
