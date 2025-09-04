@@ -8,8 +8,6 @@ author: karansin
 ms.author: karansin
 ---
 
-# Module 06 - Extend your tool functionality with patterns
-
 This module describes several common tool patterns:
 - Mocking tool output
 - Adding multiple actions per tool
