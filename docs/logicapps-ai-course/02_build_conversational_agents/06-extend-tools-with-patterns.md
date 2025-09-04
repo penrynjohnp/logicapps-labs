@@ -406,6 +406,7 @@ The above `functionCallResult` is included in the LLM chat completion - it is mu
 This pattern has a few benefits:
 - We reduce unnecessary token usage (tool outputs are included in LLM token count).
 - We only send the information we need to the LLM. This improves agent quality and robustness.
+- We fully control the payload shape and can rename or exclude fields as needed.
 
 ## Complex control flow in tools via nested workflows
 
