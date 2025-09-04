@@ -72,7 +72,7 @@ We assume this webhook approval action will be leveraged to notify and wait for 
 Approach A: The webhook action and target action reside in different tools and LLM stages them sequentially. This approach has the following characteristics:
 - A generic approval tool can be reused for different target actions.
 - We describe approval requirements in directives to the LLM like system prompt and tool metadata. For example: `You are an agent. When executing tool A, always get approval beforehand via tool B.`
-- The LLM results control when the webhook action executes, how to interpret the webhook results, and when the target action executes post-approval. This behavior depends on the system prompt, tool metadata, and user messages. Since behavior is dynamic and probabilistic, the webhook and target action are not 
+- The LLM results control when the webhook action executes, how to interpret the webhook results, and when the target action executes post-approval. This behavior depends on the system prompt, tool metadata, and user messages. Since behavior is dynamic and probabilistic, the webhook and target action are not guaranteed to run together.
 
 Approach B: The webhook action and target action reside in the same tool implemented as a nested workflow where the approval/webhook action runs first. The webhook result parsing & conditional target action invocation is all handled deterministically.
 - The target action will **never** run without corresponding webhook action results.
