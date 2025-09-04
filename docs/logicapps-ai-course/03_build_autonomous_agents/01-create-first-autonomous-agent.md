@@ -1,5 +1,5 @@
 ---
-title: Module 01 - Build your first autonomous agent in Azure Logic Apps
+title: 01 - Build your first autonomous agent in Azure Logic Apps
 description: Learn how to build an autonomous agent in Azure Logic Apps (Standard), connect it to an Azure OpenAI model or Azure Foundry, and add its first tool.
 ms.service: logic-apps
 ms.topic: tutorial
