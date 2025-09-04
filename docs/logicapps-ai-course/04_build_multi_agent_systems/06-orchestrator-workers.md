@@ -1,6 +1,6 @@
 ---
-title: Module 06 - Orchestrator-Workers Pattern
-description: Learn how to implement the orchestrator-workers pattern in Azure Logic Apps.
+title: 06 - Implement the Orchestrator-Workers pattern with Azure Logic Apps
+description: Learn how to implement the orchestrator-workers pattern in Azure Logic Apps — dynamically decomposing complex tasks, delegating subtasks to specialized worker agents, and aggregating results for scalable, parallel, and reliable processing.
 ms.service: logic-apps
 ms.topic: tutorial
 ms.date: 09/03/2025

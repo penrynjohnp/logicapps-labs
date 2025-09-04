@@ -1,10 +1,19 @@
-# Module 01 - Building Multi-Agent Systems with Logic Apps
-
-> **Prerequisites**: This module builds upon concepts from the conversational agent and autonomous agent labs. You are encouraged to complete those modules before proceeding.
+--- 
+title: 01 - Build Multi-Agent Systems with Logic Apps
+description: Learn how to design, orchestrate, and deploy multi-agent systems with Logic Apps — covering agent orchestration patterns, state and error management, authentication, and integration with existing deployment workflows.
+ms.service: logic-apps
+ms.topic: tutorial
+ms.date: 09/02/2025
+author: rohithah
+ms.author: rohithah
+---
 
 ## Introduction
 
 As AI agents become more sophisticated, the complexity of tasks they're asked to handle often exceeds what a single agent can efficiently manage. While a monolithic agent might theoretically handle complex scenarios, **multi-agent systems offer significant advantages in terms of reliability, maintainability, specialization, and scalability**.
+
+> :::note
+> This module builds upon concepts from the conversational agent and autonomous agent labs. You are encouraged to complete those modules before proceeding.
 
 ### Why Multi-Agent Systems Matter
 

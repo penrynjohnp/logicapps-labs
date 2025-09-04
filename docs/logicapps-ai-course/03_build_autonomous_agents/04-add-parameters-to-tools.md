@@ -1,4 +1,12 @@
-# Module 04 - Add parameters to your tools
+--- 
+title: 04 - Add parameters to your tools
+description: Learn how to add and configure agent parameters, monitor/debug their generation and use in a Logic Apps autonomous agent using run history, tool calls, and model inputs/outputs.
+ms.service: logic-apps
+ms.topic: tutorial
+ms.date: 08/27/2025
+author: karansin
+ms.author: karansin
+---
 
 Parameterizing tools (both LLM-generated & static)
 

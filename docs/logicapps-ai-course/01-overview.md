@@ -1,6 +1,6 @@
 ---
-title: Overview of building a conversational agent in Azure Logic Apps
-description: An overview of the lesson that helps you build and deploy a conversational agent in Azure Logic Apps.
+title: Overview of Agents in Azure Logic Apps (Standard)
+description: An overview of the lesson that helps you build and deploy Agents in Azure Logic Apps.
 ms.service: logic-apps
 ms.topic: tutorial
 ms.date: 08/19/2025
@@ -37,10 +37,18 @@ This course starts with conversational agents: systems that engage in back-and-f
 - both benefit from observability and audit trails
 - both require clear tool boundaries and safe error handling
 
-Differences to keep in mind:
+### Conversational agents
 
-- conversational agents are typically user-driven, short-lived or session-based, and focus on natural language interaction.
-- autonomous agents run longer, make independent decisions, and often require stronger governance, isolation, and automated rollback or compensation strategies.
+Conversational agents are typically user-driven, short-lived or session-based, and focus on natural language interaction.
+The only way to trigger and interact with conversational agents is through a chat session so the trigger in a conversational agent workflow will always be the "When a new chat session starts" trigger.
+
+Workflow actions can be added after the workflow triggers and before the first agent. Once the workflow execution reaches an agent, you can only run tools or [hand off to other agents](04_build_multi_agent_systems\07-handoff-pattern.md).
+
+### Autonomous agents
+
+Autonomous agents run longer, make independent decisions, and often require stronger governance, isolation, and automated rollback or compensation strategies. Autonomous agents can be triggered with any of the triggers supported in logic apps today. This flexibility allows you to add agent actions to your existing stateful workflows.
+
+Agent actions can be added in the workflow anywhere that a workflow action can be added. You can also include [multiple agent actions](04_build_multi_agent_systems\01-overview.md) in a workflow.
 
 ## Agent loops in Azure Logic Apps
 

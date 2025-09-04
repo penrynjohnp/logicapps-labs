@@ -1,6 +1,6 @@
 --- 
-title: 02 - Debug your conversational agent in Azure Logic Apps
-description: Learn how to monitor and debug a Logic Apps conversational agent using run history, chat transcripts, tool calls, and model inputs/outputs.
+title: 02 - Debug your autonomous agent in Azure Logic Apps
+description: Learn how to monitor and debug a Logic Apps autonous agent using run history, tool calls, and model inputs/outputs.
 ms.service: logic-apps
 ms.topic: tutorial
 ms.date: 08/19/2025
@@ -8,11 +8,10 @@ author: absaafan
 ms.author: absaafan
 ---
 
-In this module you learn how to observe, inspect, and debug the TourGuide conversational agent you built in Module 01. You distinguish model (reasoning) issues from workflow or integration issues, view the chat transcript, inspect tool executions, and capture deeper telemetry for ongoing monitoring.
+In this module you will learn how to observe, inspect, and debug the agent built in Module 01. You will distinguish model (reasoning) issues from workflow or integration issues, view the chat transcript, inspect tool executions, and capture deeper telemetry for ongoing monitoring.
 
 By the end, you will:
 - View run history for agent chat sessions.
-- Read chat transcripts and intermediate messages.
 - Inspect agent reasoning steps and tool invocation details.
 - Locate and review model inputs and outputs safely.
 - Differentiate model misalignment vs connector/action failure.
@@ -22,12 +21,12 @@ You continue using the same TourGuide workflow created earlier.
 ---
 
 ## Prerequisites
-- Completed agent created on [01 - Create your first conversational agent in Azure Logic Apps](./01-create-first-conversational-agent.md-agent.md) module.
+- Completed agent created on [01 - Create your first autonomous agent in Azure Logic Apps](./01-create-first-autonomous-agent.md) module.
 
 ---
 
 ## Debugging overview
-An agent run (chat session) consists of: chat transcript (user ↔ agent messages); agent loop reasoning (decide, tool, respond); tool executions (workflow actions); model interactions (system + context + user prompt and model replies); workflow runtime (triggers, actions, retries, latency, failures). You drill from run status down to specific reasoning or action artifacts to isolate the cause.
+An autonomous agent run consists of: agent loop reasoning (decide, tool, respond); tool executions (workflow actions); model interactions (system + context + user prompt and model replies); workflow runtime (triggers, actions, retries, latency, failures). You drill from run status down to specific reasoning or action artifacts to isolate the cause.
 
 The run history or monitoring view for a conversational agent run consists of the following parts.
 
@@ -56,11 +55,7 @@ It also shows when tools were executed by the agent. The tool names are hyperlin
     ![Screenshot shows the run history for the workflow](media/02-debug-agent/logicapp-run-history.png)
 
 ### Step 2 - Review the agent log
-1. Once the run history loads, you will see the agent log on the right side for review.
-
-    ![Screenshot shows the agent log in the run history](media/02-debug-agent/run-history-agent-log.png)
-
-1. Use the task timeline to go through each step in the different tasks. The amount of steps and tasks will depend on your workflow and chat session.
+1. Once the run history loads, you will see the agent log on the right side for review. Use the task timeline to go through each step in the different tasks. The amount of steps and tasks will depend on your workflow and chat session.
 
     ![Screenshot shows the task timeline in the run history](media/02-debug-agent/run-history-task-timeline.png)
 
