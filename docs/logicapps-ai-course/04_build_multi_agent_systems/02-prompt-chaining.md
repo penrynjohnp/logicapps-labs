@@ -1,4 +1,12 @@
-# Prompt Chaining Pattern (Module 02)
+--- 
+title: 02 - Implement the Prompt Chaining pattern with Azure Logic Apps
+description: Learn how to implement the prompt chaining pattern in Azure Logic Apps — building sequential agent workflows with validation gates, error handling, and performance monitoring to reliably decompose and process complex tasks.
+ms.service: logic-apps
+ms.topic: tutorial
+ms.date: 09/02/2025
+author: rohithah
+ms.author: rohithah
+---
 
 In this module, you learn how to implement the prompt chaining pattern in Azure Logic Apps. This pattern decomposes complex tasks into a sequence of steps, where each agent call processes the output of the previous one, trading latency for higher accuracy.
 

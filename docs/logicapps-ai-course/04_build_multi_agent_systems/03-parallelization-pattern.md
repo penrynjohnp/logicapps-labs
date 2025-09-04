@@ -1,4 +1,12 @@
-# Parallelization Pattern (Module 03)
+--- 
+title: 03 - Implement the Parallelization pattern with Azure Logic Apps
+description:  Learn how to implement the parallelization pattern with Azure Logic Apps — designing, orchestrating, and deploying concurrent multi-agent workflows with aggregation, fault tolerance, and performance optimization.
+ms.service: logic-apps
+ms.topic: tutorial
+ms.date: 09/02/2025
+author: rohithah
+ms.author: rohithah
+---
 
 In this module, you learn how to implement the parallelization pattern in Azure Logic Apps. This pattern distributes independent subtasks across multiple agents for concurrent processing, trading sequential accuracy for speed and diverse perspectives.
 
@@ -168,7 +176,7 @@ Add a new autonomous agent workflow in the designer.
      Investor Analysis: @{outputs('Investors_Analysis_Agent')?['lastAssistantMessage']}     
      Supplier Analysis: @{outputs('Suppliers_Analysis_Agent')?['lastAssistantMessage']}
      ```
-  >:::caution
+  >:::tip
   >
   >The expressions `@{outputs('Customer_Impact_Agent')?['lastAssistantMessage']}` etc. insert the outputs from each parallel agent into the aggregation agent's input.
 
