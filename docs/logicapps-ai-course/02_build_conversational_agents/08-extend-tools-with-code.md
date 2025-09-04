@@ -49,7 +49,7 @@ The Python code interpreter action can be add to standard workflows, enabling yo
 ## Using the Python action for LLM-generated code
 The Python code interpreter action can be integrated into agent workflows, enabling users to reference LLM-generated code directly as input for the action. This feature streamlines workflows by enabling natural language instructions to be automatically converted into executable Python scripts, allowing for rapid data analysis, cleaning, and visualization without the need for manual coding or advanced data science skills. Users do not need to be fluent in Python, and the generated code is designed to be accurate and executable. 
 
-The Python interpreter action is accompanied by additional actions to enable you to managage files on your ACA code interpreter session. Those actions include the ability to upload, download, and a delete files as seen below.
+The Python interpreter action is accompanied by additional actions to enable you to managage files on your ACA code interpreter session. Those actions include the ability to upload, download, and delete files as seen below.
 
 ![Screenshot shows ACA connector.](media/08-extend-tools-with-code/aca_all.png)
 
