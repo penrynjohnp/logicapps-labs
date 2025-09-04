@@ -310,8 +310,7 @@ async def initialize_a2a_client(httpx_client: httpx.AsyncClient, agent_url: str,
 Sample output:
 
 ```json
-INFO:__main__:Successfully fetched public agent card:
-INFO:__main__:{
+{
   "capabilities": {
     "stateTransitionHistory": false,
     "streaming": true
@@ -369,8 +368,7 @@ logger.info(send_message_response.model_dump_json(indent=2, exclude_none=True))
 Sample output (Note that the agent returns a task object with a **submitted** status and the contextId here maps to the logic app workflow run Id):
 
 ```json
-Send Message Response:
-INFO:__main__:{
+{
   "id": "a6c77e4f-18b2-4e9a-b242-cb0ee90e5cc0",
   "jsonrpc": "2.0",
   "result": {
@@ -413,8 +411,6 @@ Sample output:
 We can see the agent returned the task object with the final assistant message: **Right now in Seattle, the weather is clear:\n\n- **Temperature**: 68°F (feels like 67°F)\n- **Humidity**: 70%\n- **Wind**: 2 mph\n- **Visibility**: 9.9 miles\n- **Cloud Cover**: Minimal (7%)\n- **UV Index**: Low (0)\n\nNo precipitation is expected for at least 2 hours.**
 
 ```json
-INFO:httpx:HTTP Request: POST https://test-agent-app.azurewebsites.net/api/agents/WeatherAgent "HTTP/1.1 200 OK"
-Get Task Response:
 {
   "id": "20f6ab40-bf90-45b0-a1aa-30e96d7a0af9",
   "jsonrpc": "2.0",
@@ -480,7 +476,7 @@ Get Task Response:
 
 ## Communicating with an Azure Logic Apps workflow that uses a OBO connections
 
-This section shows how to use the [A2A Python SDK](https://github.com/a2aproject/a2a-python) to connect to an Azure Logic Apps agent using dynamic connections (OBO) as described in [Module 03 - Connect your tools to external services](./03-connect-tools-external-services.md).
+This section shows how to use the [A2A Python SDK](https://github.com/a2aproject/a2a-python) to connect to an Azure Logic Apps agent using dynamic connections (OBO) as described in [Module 05 - Add user context to tools](./05-add-user-context-to-tools.md).
 
 Use this POST call to get the developer key:
 
@@ -489,7 +485,7 @@ POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/
 ```
 
 > :::note
-> This developer key is recommended for development use only. [Configure Easy Auth and use the chat client for production purposes](./05-add-user-context-to-tools.md).
+> This developer key is recommended for development use only. Configure Easy Auth and use the chat client for production purposes as described in [Module 05 - Add user context to tools](./05-add-user-context-to-tools.md).
 
 In addition to the API key shown in the previous section, we need to pass in the developer key in the **x-ms-obo-userToken** header to communicate with dynamic connections.
 
