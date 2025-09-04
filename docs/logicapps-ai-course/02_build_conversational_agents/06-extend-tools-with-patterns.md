@@ -368,6 +368,25 @@ This can again be accomplished with the Compose action. For example, the imagine
 
 The full payload is [described here](https://learn.microsoft.com/en-us/connectors/msnweather/#currentweather) in the API documentation. Let's say the agent only needs two fields: `responses.weather.current.cap` (a caption of weather conditions such as rainy, sunny, etc.) and `responses.weather.current.temp` (the current temperature). To transform tool output in this way, we append a Compose action to the end of the tool branch. Since tool branches inherit the result of their last action, the Compose action can form an expression referencing just the dynamic outputs we need.
 
+![Adding compose action](./media/06-extend-tools-with-patterns/OutputTransformation-ComposeActionA.png)
+
+Note that in the above screenshot, a few things have changed:
+- Our tool branch is now a linear sequence of actions. A compose action is placed after the MSN weather connector
+- The inputs of the compose action have some static text alongside in-progress addition of dynamic content from the prior action outputs
+- In the expression selector, we can select the relevant values to interpolate them into the inputs of the compose action. Since the compose action returns its input, and tool branches inherit the output results of their final action, the input value we form here will replace the prior full payload.
+
+![Finalizing the action input](./media/06-extend-tools-with-patterns/OutputTransformation-ComposeActionB.png)
+
+In the above screenshot, we finalize the expression by including both the caption and the temperature.
+
+![Demonstrating the final output](./media/06-extend-tools-with-patterns/OutputTransformation-ToolOutput.png)
+
+In the above screenshot, we see this pattern leveraged in a conversational flow. Notice that the tool output provided to the LLM matches the schema we specified in the Compose action, not the full JSON blob from before. This can also be confirmed in the monitoring view.
+
+This pattern has a few benefits:
+- We reduce unnecessary token usage (tool outputs are included in LLM token count).
+- We only send the information we need to the LLM. This improves agent quality and robustness.
+
 ## Complex control flow in tools via nested workflows
 
 By default, a tool branch can contain linear actions. If you want more complex control flow in your tool, you can implement the tool as a separate deterministic Logic Apps workflow. You can then invoke the nested workflow in your tool. This allows complex control flow and also further decouples the tool implementation from the agent design. For example, if you take this approach, you can test the nested workflow independently from its agent usage.
