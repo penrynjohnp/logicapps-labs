@@ -234,7 +234,6 @@ async def main(agent_url: str, api_key: str) -> None:
 
 if __name__ == '__main__':
     import asyncio
-    
     agent_url = '<enter-your-agent-url-here>' # e.g. https://your-logic-app-name.azurewebsites.net/api/Agents/WeatherAgent
     api_key = "<enter-your-api-key-here>" # e.g. the value of the Agent API key for your Logic App Agent
 
@@ -310,7 +309,7 @@ async def initialize_a2a_client(httpx_client: httpx.AsyncClient, agent_url: str,
 
 Sample output:
 
-```
+```json
 INFO:__main__:Successfully fetched public agent card:
 INFO:__main__:{
   "capabilities": {
@@ -369,7 +368,7 @@ logger.info(send_message_response.model_dump_json(indent=2, exclude_none=True))
 
 Sample output (Note that the agent returns a task object with a **submitted** status and the contextId here maps to the logic app workflow run Id):
 
-```
+```json
 Send Message Response:
 INFO:__main__:{
   "id": "a6c77e4f-18b2-4e9a-b242-cb0ee90e5cc0",
@@ -413,7 +412,7 @@ Sample output:
 
 We can see the agent returned the task object with the final assistant message: **Right now in Seattle, the weather is clear:\n\n- **Temperature**: 68°F (feels like 67°F)\n- **Humidity**: 70%\n- **Wind**: 2 mph\n- **Visibility**: 9.9 miles\n- **Cloud Cover**: Minimal (7%)\n- **UV Index**: Low (0)\n\nNo precipitation is expected for at least 2 hours.**
 
-```
+```json
 INFO:httpx:HTTP Request: POST https://test-agent-app.azurewebsites.net/api/agents/WeatherAgent "HTTP/1.1 200 OK"
 Get Task Response:
 {
@@ -474,6 +473,192 @@ Get Task Response:
       },
       "state": "completed",
       "timestamp": "8/25/2025 8:07:37 AM"
+    }
+  }
+}
+```
+
+## Communicating with an Azure Logic Apps workflow that uses a OBO connections
+
+This section shows how to use the [A2A Python SDK](https://github.com/a2aproject/a2a-python) to connect to an Azure Logic Apps agent using dynamic connections (OBO) as described in [Module 03 - Connect your tools to external services](./03-connect-tools-external-services.md).
+
+Use this POST call to get the developer key:
+
+``` http
+POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/connections/{connectionName}/listDynamicConnectionKeys?api-version=2015-08-01-preview
+```
+
+> :::note
+> This developer key is recommended for development use only. [Configure Easy Auth and use the chat client for production purposes](./05-add-user-context-to-tools.md).
+
+In addition to the API key shown in the previous section, we need to pass in the developer key in the **x-ms-obo-userToken** header to communicate with dynamic connections.
+
+Replace the **developer_api_key** with the developer API key we got in response to the above POST call.
+
+```python
+import logging
+from typing import Any
+from uuid import uuid4
+import httpx
+from a2a.client import A2ACardResolver, A2AClient
+from a2a.types import (
+    AgentCard,
+    Task,
+    MessageSendParams,
+    SendMessageRequest,
+    SendMessageSuccessResponse,
+    GetTaskRequest,
+    TaskQueryParams,
+    GetTaskSuccessResponse,
+)
+from a2a.utils.constants import (
+    AGENT_CARD_WELL_KNOWN_PATH,
+)
+
+async def initialize_a2a_client(httpx_client: httpx.AsyncClient, agent_url: str, api_key: str, developer_api_key: str, logger: logging.Logger) -> A2AClient:
+    resolver = A2ACardResolver(
+        httpx_client=httpx_client,
+        base_url=agent_url,
+    )
+    logger.info(
+        f'Attempting to fetch public agent card from: {agent_url}{AGENT_CARD_WELL_KNOWN_PATH}'
+    )
+    headers = {
+        'X-Api-Key': api_key,
+        'x-ms-obo-userToken': "Key " + developer_api_key
+    }
+    _public_card = (await resolver.get_agent_card(http_kwargs={"headers": headers}))
+
+    logger.info('Successfully fetched public agent card:')
+    
+    logger.info(_public_card.model_dump_json(indent=2, exclude_none=True))
+    logger.info('\nUsing PUBLIC agent card for client initialization.')
+    client = A2AClient(httpx_client=httpx_client, agent_card=_public_card)
+    logger.info('A2AClient initialized.')
+    return client, headers
+
+async def main(agent_url: str, api_key: str, developer_api_key: str) -> None:
+    # Configure logging to show INFO level messages
+    logging.basicConfig(level=logging.INFO)
+    logger = logging.getLogger(__name__)  # Get a logger instance
+
+    async with httpx.AsyncClient() as httpx_client:
+
+        # Initialize the A2A client
+        client, headers = await initialize_a2a_client(httpx_client, agent_url, api_key, developer_api_key, logger)
+
+        # <-- [start:send message]
+
+        send_message_payload: dict[str, Any] = {
+            'message': {
+                'role': 'user',
+                'parts': [
+                    {'kind': 'text', 'text': 'What is the weather like in Seattle? Send it over email as well.'}
+                ],
+                'messageId': uuid4().hex,
+            },
+        }
+        request = SendMessageRequest(
+            id=str(uuid4()), params=MessageSendParams(**send_message_payload)
+        )
+
+        send_message_response = await client.send_message(request, http_kwargs={"headers": headers})
+        print("Send Message Response:")
+        logger.info(send_message_response.model_dump_json(indent=2, exclude_none=True))
+
+        # --<-- [end:send message]
+
+        await asyncio.sleep(5)
+
+        # <-- [start:get task]
+
+        if isinstance(send_message_response.root, SendMessageSuccessResponse):
+            if isinstance(send_message_response.root.result, Task):
+                task = send_message_response.root.result
+                get_task_request = GetTaskRequest(
+                    id=str(uuid4()),
+                    params=TaskQueryParams(id=task.id)  # Use the taskId from the response,
+                )
+
+        get_task_response = await client.get_task(get_task_request, http_kwargs={"headers": headers})
+
+        print("Get Task Response:")
+        print(get_task_response.model_dump_json(indent=2, exclude_none=True))
+
+        # --<-- [end:get task]
+
+
+if __name__ == '__main__':
+    import asyncio
+    developer_api_key = '<enter-your-developer-key-here>' # e.g the value of the developer key returned by the POST call mentioned in this section. 
+    agent_url = '<enter-your-agent-url-here>' # e.g. https://your-logic-app-name.azurewebsites.net/api/Agents/WeatherAgent
+    api_key = "<enter-your-api-key-here>" # e.g. the value of the Agent API key for your Logic App Agent
+    asyncio.run(main(agent_url, api_key, developer_api_key))
+```
+
+When interacting with the tool for the first time you would get an **auth-required** response from the agent in the **tasks/get** API. You can click on the link to authenticate and continue to send messages to the agent.
+
+Sample response:
+
+```json
+{
+  "id": "980f7753-208f-4042-a9a6-69c6820638b1",
+  "jsonrpc": "2.0",
+  "result": {
+    "contextId": "08584446506408000428674715049CU00",
+    "history": [
+      {
+        "contextId": "08584446506408000428674715049CU00",
+        "kind": "message",
+        "messageId": "a922d27a6a1f4e91854028364a31b944",
+        "metadata": {
+          "timestamp": "9/4/2025 3:24:11 AM"
+        },
+        "parts": [
+          {
+            "kind": "text",
+            "text": "Please authenticate using links: [\r\n  {\r\n    \"ApiDetails\": {\r\n      \"ApiDisplayName\": \"Office 365 Outlook\",\r\n      \"ApiIconUri\": \"https://conn-afd-prod-endpoint-bmc9bqahasf3grgk.b01.azurefd.net/v1.0.1763/1.0.1763.4311/office365/icon.png\",\r\n      \"ApiBrandColor\": \"#0078D4\"\r\n    },\r\n    \"Link\": \"https://logic-apis-northeurope.consent.azure-apim.net/login?data=eyJMb2dpbklkIjoibG9naWMtYXBpcy1ub3J0aGV1cm9wZV9vZmZpY2UzNjVfdG9rZW4iLCJTZXNzaW9uSWQiOiIiLCJMb2dSdW50aW1lUG9saWN5SWQiOm51bGwsIkxvZ0Nvbm5lY3Rpb25JZCI6IjU4MmM1MTY5ZDA5NzQyOWE5MzIzY2FjNTlmYTE5MTIxIiwiTG9nQ29ubmVjdG9ySWQiOiJvZmZpY2UzNjUiLCJMb2dFbnZpcm9ubWVudElkIjoiOWQ1MWQxZmZjOWY3NzU3MiIsIkxvZ0FjY291bnROYW1lIjoibG9naWMtYXBpcy1ub3J0aGV1cm9wZSIsIkV4cGlyYXRpb25UaW1lIjoiMjAyNS0wOS0wNFQwNDoyNDoxMS4yNDEzODQ3WiIsIkRhdGEiOiIrVWMwMFAvV1g5TDRZOCtjTmV6akQ5dGFPamgreUtBanE1cEtnaXBCN01jUUFJR3AvcjNaTEJTcGNFajRITFRpdWtEdTdQUkZoWThQOEx2KzlTdTd5a05RaTE1V1RYY0JpSGpBbkcvN1pibTEvSjNOeFhmK1phaVlaOW1SeWZJdG5DSGxRWndrY0VoNWlYOXBMVDdhTFF3SlRId1RFY1RJRDVOUnA0bHZRS2xUdlgrTlRlREk4MlVUR3FEZEFNcWNkYUd6UWhKaGZQcUg2cjB2MCtWcC9tUW91MXNCeENzVFJZdkQ2NFVkVGxoeFR3VnbmloakxHWmVwOVdRR3VGMmY0ZTN2b2dLZEVOVW5aV2JuN3p5cDZPMXpwNnNKSGoxN3pRR2pXZWhxSUo3d01XT3pyS2RidVFGRy9WVDFWNmVZUjhGTU45dkdMWkZnN0lHNHBhendRZmFvVlJSdkc4SEUxYUdPQjlvT09PcVFZZkx0NlBwaHdDQ3p4ZWhtNmROSEkvUGY2MThIc0MwVEIrMThLckJSZnowcDVyYkxhOC9uUjA1ay83eG1vYU9zVUVTSkdVT3hxbUJHWXVOdnBDbXZkZ0JsZE02cHVUeDFiQnhCOVV5R1JFUmtXUGRsMnBETnJTbXZ1MER6SExPTjVUaEtIUmsvSEI3VFdZRzloanI5NWRITmN2dFZRWDAza21CSit6TW1TZ1Y0cXl6c3djeVVsTzBaODBaRU5rTmFGSFFIbHdrSktVZnd4UjA5c29hbmJvZVFEQ3VzSmY0S3BpeEE1S1JNL1RnNmVhSVBKaU16cjhSMnF0cUZPMjlvQmJURk5vQjhpVVZrb1RZNmZuVTFzaHJPNmhjMklFSUdwaS9CbCszWlhkU3FJWStFcVhLQnVKVWZJT0VaZ1JKcUI5Ulh3eWZCVFdqVE40WVNzSHFUWExGZUdjV3UwNnB0dnBHaEczbCsvL29iSzJuREhVMWtTVkpXMm1JeWd4emVFL3UwZDB4VFZDVW1Wb1pyNW9FVGt0Wk9PVkQ3NWpKWXBlYk9YcVhUUy81YXU1dkwrNDdSQzMrT2thK01WOUxPd3d5UDAxU3p2TjV1UVlvYkRkZTQ4eVV3bmtnN2FjVWFYRUFFNzZVcjhmdjBzVDZEcHI5V3orL3o4Z2x0REg1bzY1U1NWQnp2RFgvaUVhTzNNeWVyaGFVMG51UXVuVEFJR0NGK2RyTkNuU0NodkZxNmZzR05sNFdtNEFSRFNXcFN0VlJ5amhTSEF6S0pYeTRqVjhjUk1rbXptSE43UEFCNDBIL0RENis0S1JxNHUwNmtlZnJCQVhTQ0lYMjZPVzJ1RFZPeHkxNHVwZkEwVzhlZ3BDMzBSK0Y5N3F0UXFuWkxDU0dwWnRSbWRMUWRXMDBjYUJwcTE0SXZLWTRJdlZCTUVHIn0\",\r\n    \"FirstPartyLoginUri\": null,\r\n    \"DisplayName\": null,\r\n    \"Status\": \"Unauthenticated\"\r\n  }\r\n]."
+          }
+        ],
+        "role": "agent",
+        "taskId": "08584446506409532476968735089_08584446506408000428674715049CU00"
+      },
+      {
+        "contextId": "08584446506408000428674715049CU00",
+        "kind": "message",
+        "messageId": "16dce52f30a349e0b36f6eac3b435fbd",
+        "metadata": {
+          "timestamp": "9/4/2025 3:24:11 AM"
+        },
+        "parts": [
+          {
+            "kind": "text",
+            "text": "What is the weather like in Seattle? Send it over email as well."
+          }
+        ],
+        "role": "user",
+        "taskId": "08584446506409532476968735089_08584446506408000428674715049CU00"
+      }
+    ],
+    "id": "08584446506409532476968735089_08584446506408000428674715049CU00",
+    "kind": "task",
+    "status": {
+      "message": {
+        "kind": "message",
+        "messageId": "a922d27a6a1f4e91854028364a31b944",
+        "metadata": {
+          "timestamp": "9/4/2025 3:24:11 AM"
+        },
+        "parts": [
+          {
+            "kind": "text",
+            "text": "Please authenticate using links: [\r\n  {\r\n    \"ApiDetails\": {\r\n      \"ApiDisplayName\": \"Office 365 Outlook\",\r\n      \"ApiIconUri\": \"https://conn-afd-prod-endpoint-bmc9bqahasf3grgk.b01.azurefd.net/v1.0.1763/1.0.1763.4311/office365/icon.png\",\r\n      \"ApiBrandColor\": \"#0078D4\"\r\n    },\r\n    \"Link\": \"https://logic-apis-northeurope.consent.azure-apim.net/login?data=eyJMb2dpbklkIjoibG9naWMtYXBpcy1ub3J0aGV1cm9wZV9vZmZpY2UzNjVfdG9rZW4iLCJTZXNzaW9uSWQiOiIiLCJMb2dSdW50aW1lUG9saWN5SWQiOm51bGwsIkxvZ0Nvbm5lY3Rpb25JZCI6IjU4MmM1MTY5ZDA5NzQyOWE5MzIzY2FjNTlmYTE5MTIxIiwiTG9nQ29ubmVjdG9ySWQiOiJvZmZpY2UzNjUiLCJMb2dFbnZpcm9ubWVudElkIjoiOWQ1MWQxZmZjOWY3NzU3MiIsIkxvZ0FjY291bnROYW1lIjoibG9naWMtYXBpcy1ub3J0aGV1cm9wZSIsIkV4cGlyYXRpb25UaW1lIjoiMjAyNS0wOS0wNFQwNDoyNDoxMS4yNDEzODQ3WiIsIkRhdGEiOiIrVWMwMFAvV1g5TDRZOCtjTmV6akQ5dGFPamgreUtBanE1cEtnaXBCN01jUUFJR3AvcjNaTEJTcGNFajRITFRpdWtEdTdQUkZoWThQOEx2KzlTdTd5a05RaTE1V1RYY0JpSGpBbkcvN1pibTEvSjNOeFhmK1phaVlaOW1SeWZJdG5DSGxRWndrY0VoNWlYOXBMVDdhTFF3SlRId1RFY1RJRDVOUnA0bHZRS2xUdlgrTlRlREk4MlVUR3FEZEFNcWNkYUd6UWhKaGZQcUg2cjB2MCtWcC9tUW91MXNCeENzVFJZdkQ2NFVkVGxoeFR3VnbmloakxHWmVwOVdRR3VGMmY0ZTN2b2dLZEVOVW5aV2JuN3p5cDZPMXpwNnNKSGoxN3pRR2pXZWhxSUo3d01XT3pyS2RidVFGRy9WVDFWNmVZUjhGTU45dkdMWkZnN0lHNHBhendRZmFvVlJSdkc4SEUxYUdPQjlvT09PcVFZZkx0NlBwaHdDQ3p4ZWhtNmROSEkvUGY2MThIc0MwVEIrMThLckJSZnowcDVyYkxhOC9uUjA1ay83eG1vYU9zVUVTSkdVT3hxbUJHWXVOdnBDbXZkZ0JsZE02cHVUeDFiQnhCOVV5R1JFUmtXUGRsMnBETnJTbXZ1MER6SExPTjVUaEtIUmsvSEI3VFdZRzloanI5NWRITmN2dFZRWDAza21CSit6TW1TZ1Y0cXl6c3djeVVsTzBaODBaRU5rTmFGSFFIbHdrSktVZnd4UjA5c29hbmJvZVFEQ3VzSmY0S3BpeEE1S1JNL1RnNmVhSVBKaU16cjhSMnF0cUZPMjlvQmJURk5vQjhpVVZrb1RZNmZuVTFzaHJPNmhjMklFSUdwaS9CbCszWlhkU3FJWStFcVhLQnVKVWZJT0VaZ1JKcUI5Ulh3eWZCVFdqVE40WVNzSHFUWExGZUdjV3UwNnB0dnBHaEczbCsvL29iSzJuREhVMWtTVkpXMm1JeWd4emVFL3UwZDB4VFZDVW1Wb1pyNW9FVGt0Wk9PVkQ3NWpKWXBlYk9YcVhUUy81YXU1dkwrNDdSQzMrT2thK01WOUxPd3d5UDAxU3p2TjV1UVlvYkRkZTQ4eVV3bmtnN2FjVWFYRUFFNzZVcjhmdjBzVDZEcHI5V3orL3o4Z2x0REg1bzY1U1NWQnp2RFgvaUVhTzNNeWVyaGFVMG51UXVuVEFJR0NGK2RyTkNuU0NodkZxNmZzR05sNFdtNEFSRFNXcFN0VlJ5amhTSEF6S0pYeTRqVjhjUk1rbXptSE43UEFCNDBIL0RENis0S1JxNHUwNmtlZnJCQVhTQ0lYMjZPVzJ1RFZPeHkxNHVwZkEwVzhlZ3BDMzBSK0Y5N3F0UXFuWkxDU0dwWnRSbWRMUWRXMDBjYUJwcTE0SXZLWTRJdlZCTUVHIn0\",\r\n    \"FirstPartyLoginUri\": null,\r\n    \"DisplayName\": null,\r\n    \"Status\": \"Unauthenticated\"\r\n  }\r\n]."
+          }
+        ],
+        "role": "agent"
+      },
+      "state": "auth-required",
+      "timestamp": "9/4/2025 3:24:11 AM"
     }
   }
 }
