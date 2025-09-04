@@ -1,3 +1,13 @@
+--- 
+title: 06 - Extend your tool functionality with patterns
+description: Learn how to extend tool functionality in Logic Apps conversational agents using patterns such as mocking with compose actions, multi-action tool branches, guardrails, and output transformation to improve testing, safety, and formatting.
+ms.service: logic-apps
+ms.topic: tutorial
+ms.date: 08/27/2025
+author: karansin
+ms.author: karansin
+---
+
 # Module 06 - Extend your tool functionality with patterns
 
 This module describes several common tool patterns:

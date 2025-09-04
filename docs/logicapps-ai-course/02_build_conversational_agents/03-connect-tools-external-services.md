@@ -1,5 +1,5 @@
 ---
-title: Module 03 - Connect tools to external services
+title: 03 - Connect tools to external services
 description: Learn how to connect a conversational agent workflow in Azure Logic Apps to external services by using connectors and how to expose connector actions as tools for models, agents, and MCP clients to use.
 ms.service: azure-logic-apps
 author: edwardyhe
@@ -8,8 +8,6 @@ ms.topic: tutorial
 ms.date: 08/26/2025
 #Customer intent: As an integration solution developer, I want to know how to connect my conversational agent workflow to external services and expose connector actions as tools for agents and models to use.
 ---
-
-# Module 03 - Connect your tools to external services
 
 In this module, you learn how to connect a conversational agent workflow in Azure Logic Apps to external systems by using connectors and how to expose connector actions as tools that the agent can call during a chat conversation.
 

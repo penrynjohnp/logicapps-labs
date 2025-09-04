@@ -1,5 +1,5 @@
 ---
-title: Connect your agents with A2A protocol - Module 9
+title: 09 - Connect your agents with A2A protocol
 description: Learn how to integrate Azure Logic Apps conversational agents with external services using the A2A protocol and the A2A Python SDK.
 ms.service: azure-logic-apps
 author: nikhilsira
@@ -7,8 +7,6 @@ ms.author: nikhilsira
 ms.topic: tutorial
 ms.date: 08/27/2025
 ---
-
-# Connect your agents using A2A protocol (Module 9)
 
 In this module, you learn how to integrate Azure Logic Apps conversational agents with external services by using the Agent-to-Agent (A2A) protocol and the A2A Python SDK.
 
@@ -60,7 +58,7 @@ In this section we will review the trigger parameters and authentication methods
 | **Name** | The agent name that you provide. Appears in the agent card's `name` property, described in a later section. |
 | **Description** | The agent description that you provide. Appears in the agent card's `description` property, described in a later section. |
 
-![Screenshot shows Azure portal and designer with example conversational agent workflow.](./media/10_Connect_your_agents_using_a2a_protocol/when-a-new-chat-session-started-trigger.png)
+![Screenshot shows Azure portal and designer with example conversational agent workflow.](./media/09-connect-agents-a2a-protocol/when-a-new-chat-session-started-trigger.png)
 
 ### Review supported authentication
 
@@ -243,8 +241,7 @@ if __name__ == '__main__':
     asyncio.run(main(agent_url, api_key))
 ```
 
-
-### Breaking down the above python code:
+Now, let's break down the this sample code and understand how it was implemented.
 
 ### Step 1: Import the necessary modules from the A2A Python SDK
 

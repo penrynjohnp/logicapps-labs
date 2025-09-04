@@ -198,7 +198,7 @@ Add a new autonomous agent workflow in the designer.
    - **Aggregation Agent**: Synthesizes all analyses into executive summary
 
   A video showing testing of parallel agents:
-   <iframe width="560" height="315" src="https://youtu.be/GXIh5BgKrKM" title="A video showing testing of parallel agents" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+   <iframe width="560" height="315" src="https://www.youtube.com/embed/GXIh5BgKrKM?si=2-hKsyXQ5PnZaP04" title="Testing parallel agents" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
    
 
 ## Best Practices for Parallelization
