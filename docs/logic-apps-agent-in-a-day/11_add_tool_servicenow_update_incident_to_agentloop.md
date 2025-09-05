@@ -46,13 +46,13 @@ In this module we will take the ServiceNow Update Incident workflow and add it a
 
           ![Configure Tool](./images/11_07_configure_tool.png "configure tool")
 
-1. Configure the inputs paremeters for the call to the logic app.
+1. Configure the inputs parameters for the call to the logic app.
     - **TicketNumber:** `@{agentParameters('Ticket Number')}`
     - **Notes:** `@{agentParameters('Notes')}`
 
     ![Configure Call Workflow Parameters](./images/11_10_configure_call_workflow_parameters.png "configure call workflow parameters")
 
-1. Save you workflow
+1. Save your workflow
 
     ![Save Workflow](./images/09_11_save_workflow.png "save workflow")
 
@@ -62,10 +62,10 @@ In this module we will take the ServiceNow Update Incident workflow and add it a
 
     ![Run Workflow](./images/09_12_run_workflow.png "run workflow")
 
-    You will receive a notification when the workflow as successfully started  
+    You will receive a notification when the workflow has successfully started  
     ![Workflow Started](./images/09_13_workflow_started.png "workflow started")
 
-1. Navigate to you **Run History** and located you **Running** instance. Click on the identifier to view the executed steps and agent chat session.
+1. Navigate to your **Run History** and locate your **Running** instance. Click on the identifier to view the executed steps and agent chat session.
 
     ![Workflow Run History](./images/09_14_workflow_run_history.png "workflow run history")
 
@@ -74,7 +74,7 @@ In this module we will take the ServiceNow Update Incident workflow and add it a
     In this session we will:
     - Ask the agent to help coordinate the resolution for their issue
     - The agent will 
-        - retireve the Operation Run and find the corresponding entry
+        - retrieve the Operation Run and find the corresponding entry
         - will log the incident in ServiceNow
     - We provide updates on our progress of the Incident
     - The agent will
@@ -87,16 +87,16 @@ In this module we will take the ServiceNow Update Incident workflow and add it a
       
         ![Prompt 1 Response - Incident Created](./images/11_12_prompt_response_incident_created.png "prompt 1 response incident created")
 
-        (**note** the agent may prompt you for the assignment group or the date the incident occured.)
+        (**note** the agent may prompt you for the assignment group or the date the incident occurred.)
    
     1. Enter the following prompt to have the agent update the ticket with the work notes.
         ```
         Database team has provided an update that the database has been rebooted and functionality should be restored in 15 mins
         ```
-        (**note** the  agent has leveraged the Update ServiceNow Incident Tool to update our Incident with the work notes) 
-        ![Prompt 2 Resonse - Incident Updated](./images/11_13_prompt_response_incident_updated.png "prompt 2 incident updated")
+        (**note** the agent has leveraged the Update ServiceNow Incident Tool to update our Incident with the work notes) 
+        ![Prompt 2 Response - Incident Updated](./images/11_13_prompt_response_incident_updated.png "prompt 2 incident updated")
 
-1. Vaidate your Incident in ServiceNow.
+1. Validate your Incident in ServiceNow.
   - Navigate to your ServiceNow developer portal
   - Use the Incident Ticket Number from the Agent's response to search for the incident in ServiceNow
    - Note the update has been captured in the work notes for the incident.
