@@ -99,7 +99,7 @@ For production scenarios, including chat clients outside the Azure portal, set u
 
 The following example shows a sample Easy Auth setup:
 
-![Screenshot shows Azure portal, Standard logic app resource and Easy Auth Auth setup.](./media/05-add-user-context-to-tools/easy-auth-setup.png)
+![Screenshot shows Azure portal, Standard logic app resource and Easy Auth Auth setup.](./media/10-deploy-agents-clients/AppRegistration.png)
 
 For more information, see the following articles:
 
