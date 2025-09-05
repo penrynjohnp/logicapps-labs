@@ -157,7 +157,7 @@ Now, you'll learn to add a tool that requires authentication. This module uses s
 |------------------|---------------|
 | Connection shows "Not authorized". | Reauthenticate with the required scopes and confirm target resource permissions. |
 | Agent doesn't call the tool. | Improve the tool description and reduce overlap with other tools. Verify input mappings. |
-| Wrong or missing parameters | Provide stronger hints and examples. Make key inputs required as shown in [Module 04 - Add parameters to tools](04-add-parameters-to-tools.md). |
+| Wrong or missing parameters | Provide stronger hints and examples. Make key inputs required as shown in [Add parameters to tools](../04_agent_functionality/01-add-parameters-to-tools.md). |
 | 429 "Too many requests" error or throttling | Limit the frequency or cache. Ask the user to narrow the query. |
 | 404 "Not found" error | Confirm the GitHub owner, repo, number, or location format. Suggest alternatives. |
 
@@ -195,8 +195,7 @@ Here's a recap for the pattern to use:
 - When you're done with this module, make sure to delete any resources you no longer need or want to keep. That way, you don't continue to get charged for their usage.
 - If you created any new connections, make sure to remove connections or rotate your credentials, based on your organization's policy.
 
-## Next steps
+## Related Content
 
-- [Module 04 - Add parameters to your tools (accept dynamic inputs from the agent)](./04-add-parameters-to-tools.md)
-- [Module 05 - Add user context to your tools (on-behalf-of patterns)](./05-add-user-context-to-tools.md)
+- [Add parameters to your tools (accept dynamic inputs from the agent)](../04_agent_functionality/01-add-parameters-to-tools.md)
 

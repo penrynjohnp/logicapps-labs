@@ -1,5 +1,5 @@
 ---
-title: 05 - Add user context to tools
+title: 04 - Add user context to tools
 description: Learn how to set up on-behalf-of (OBO) authorization for your tools. Learn how to run connector actions with a signed-in user identity by using OBO authorization in conversational agent workflows for Azure Logic Apps.
 ms.service: azure-logic-apps
 author: edwardyhe
@@ -99,7 +99,7 @@ For production scenarios, including chat clients outside the Azure portal, set u
 
 The following example shows a sample Easy Auth setup:
 
-![Screenshot shows Azure portal, Standard logic app resource and Easy Auth Auth setup.](./media/10-deploy-agents-clients/AppRegistration.png)
+![Screenshot shows Azure portal, Standard logic app resource and Easy Auth Auth setup.](./media/04-add-user-context-to-tools/AppRegistration.png)
 
 For more information, see the following articles:
 
@@ -133,7 +133,7 @@ To support delegated user access, create the connection as a per-user connection
 
 1. On the **Create connection** pane, select **Create as per-user connection?**, which is required and available only for Microsoft service or system connectors, and then select **Sign in**, for example:
 
-   ![Screenshot shows Outlook action with selected per-user delegated connection option.](media/05-add-user-context-to-tools/create-obo-connection.png)
+   ![Screenshot shows Outlook action with selected per-user delegated connection option.](media/04-add-user-context-to-tools/create-obo-connection.png)
 
    > :::caution
    >
@@ -204,7 +204,7 @@ The following example shows how to add a tool that lists the unread emails for a
 
    The following example shows how the tool appears at this point:
 
-   ![Screenshot shows tool action with description.](./media/05-add-user-context-to-tools/list-unread-emails.png)
+   ![Screenshot shows tool action with description.](./media/04-add-user-context-to-tools/list-unread-emails.png)
 
 1. Save your workflow.
 
@@ -214,17 +214,17 @@ The following example shows how to add a tool that lists the unread emails for a
 
 1. For Easy Auth only, select the chat client URL, which opens the chat client integrated with your logic app.
 
-   ![Screenshot shows link to chat client outside the portal when Easy Auth is set up.](media/05-add-user-context-to-tools/get-integrated-iframe.png)
+   ![Screenshot shows link to chat client outside the portal when Easy Auth is set up.](media/04-add-user-context-to-tools/get-integrated-iframe.png)
 
 1. In the chat client interface, ask the following question: **What unread emails do I have?**
 
    If you're using the tool for the first time, the agent prompts you to sign in for authentication, for example:
 
-   ![Screenshot shows chat client interface and prompt to authenicate.](media//05-add-user-context-to-tools/auth-required.png)
+   ![Screenshot shows chat client interface and prompt to authenicate.](media/04-add-user-context-to-tools/auth-required.png)
 
    After you authenticate, the chat client interface that authentication successfully completed, for example:
 
-   ![Screenshot shows chat client interface with successful authentication.](media//05-add-user-context-to-tools/auth-completed.png)
+   ![Screenshot shows chat client interface with successful authentication.](media/04-add-user-context-to-tools/auth-completed.png)
 
    The chat client interface now returns a summary with unread emails, specifically the subject, sender, and received time.
 
@@ -256,7 +256,7 @@ If your production experience uses a custom chat client that's web-based, mobile
 
 1. Set up your tool to use the delegated token or a connection that recognizes the user's context.
 
-For more information and sample client code, see [Module 09 - Connect your agents using A2A protocol](./09-connect-agents-a2a-protocol.md).
+For more information and sample client code, see the module [Module 05 - Connect your agents using A2A protocol](./05-connect-agents-a2a-protocol.md).
 
 ## Review best practices
 
@@ -280,8 +280,8 @@ The following table describes some common problems and troubleshooting suggestio
 | Rate limits (429 errors) | Apply backoff or ask the user to narrow the request. |
 | Mixed identity confusion | Check the connection that a tool uses. Make sure to clearly label app-only and user-delegated connections. |
 
-## Related content
+## Additional content
 
-- [Module 06 - Extend tool functionality with patterns](./06-extend-tools-with-patterns.md)
-- [Module 09 - Connect your agents using A2A protocol](./09-connect-agents-a2a-protocol.md)
-- [Module 10 - Deploy agent clients](./10-deploy-agents-clients.md)
+- [Extend tool functionality with patterns](../04_agent_functionality/02-extend-tools-with-patterns.md)
+- [Connect your agents using A2A protocol](./05-connect-agents-a2a-protocol.md)
+- [Deploy agent clients](./06-deploy-agents-clients.md)

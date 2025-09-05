@@ -1,5 +1,5 @@
 --- 
-title: 10 - Deploy your agents and clients
+title: 06 - Deploy your agents and clients
 description: Learn how to deploy Logic Apps conversational agents and built-in chat client, configure authentication and developer identity, and link to existing Logic Apps deployment workflows.
 ms.service: logic-apps
 ms.topic: tutorial
@@ -47,11 +47,11 @@ Conversational agent workflows provide you with an in-built chat client in Azure
 ### Step 2a - Setup Easy Auth (previously known as App Service authentication)
 This is required for the standalone chat client application
 1. Go to Authentication blade for your Azure Logic App.
-![Screenshot shows Authentication blade entry point.](./media/10-deploy-agents-clients/AuthBlade.png)
+![Screenshot shows Authentication blade entry point.](./media/06-deploy-agents-clients/AuthBlade.png)
 1. Add Identity provider and select Microsoft as the provider.
-![Screenshot shows Identity Provider.](./media/10-deploy-agents-clients/IdentityProvider.png)
+![Screenshot shows Identity Provider.](./media/06-deploy-agents-clients/IdentityProvider.png)
 1. For Conversational Agents, we recommend either Creating a new app registration or use an existing registration. This helps you get the settings out of box since we can help setup everything for you. 
-![Screenshot shows App registration.](./media/10-deploy-agents-clients/AppRegistration.png)
+![Screenshot shows App registration.](./media/06-deploy-agents-clients/AppRegistration.png)
 With the recommended options, we default all the required configurations for Conversational agents.
   - Authentication is secure by default since it is tied down to your ClientId (Under Allowed Identities).
   - Excluded paths include "/runtime" to make sure monitoring and other APIs continue to work.
@@ -62,7 +62,7 @@ If in case you bring your own app registration, make sure to apply the relevant 
 ### Step 2b - Using the standalone chat client
 1. Make sure your workflow is running, if not, hit run from the designer or the Run history blade.
 2. Go to chat blade and follow the chat client uri to open the standalone experience.
-![Screenshot shows App registration.](./media/10-deploy-agents-clients/ChatExperience.png)
+![Screenshot shows App registration.](./media/06-deploy-agents-clients/ChatExperience.png)
 1. The Chat client here is using Easy auth you configured in Step 2a and can be used directly for production scenarios.
 
 
@@ -72,12 +72,13 @@ Azure Logic Apps conversational agents support two authentication methods:
 - **API key-based authentication**: This is the default method. The API key (also referred to as the developer key) must be included in the X-API-Key header for any communication with the agent.
 This authentication method is used in the in-built chat client hosted in the Azure portal.
 
-- **App Service authentication (EasyAuth)**: If EasyAuth is configured on the logic app, it takes precedence over API key-based authentication. This method is typically used when OAuth flows or on-behalf-of (OBO) scenarios are required, such as interacting with connectors that require user context (explained in [Module 05 — Add user context to your tools](./05-add-user-context-to-tools.md)).
+- **App Service authentication (EasyAuth)**: If EasyAuth is configured on the logic app, it takes precedence over API key-based authentication. This method is typically used when OAuth flows or on-behalf-of (OBO) scenarios are required, such as interacting with connectors that require user context (explained in the extension modules - [Add user context to your tools](./04-add-user-context-to-tools.md)).
 This is a secure by-default authentication method which is used in the chat client(explained in Step 2) provided as an iframe that can be used directly or embedded in your client application.
 
 
 ## Related content
-- [Module 01 — Create First Conversational Agent](./01-create-first-conversational-agent.md)
-- [Module 03 - Connect your tools to external services](./03-connect-tools-external-services.md)
-- [Module 09 - Connect your agents with A2A protocol](./09-connect-agents-a2a-protocol.md)
+
+- [Create First Conversational Agent](./01-create-first-conversational-agent.md)
+- [Connect your tools to external services](./03-connect-tools-external-services.md)
+- [Connect your agents with A2A protocol](./05-connect-agents-a2a-protocol.md)
 
