@@ -127,14 +127,13 @@ In this module we will create a stateful workflow to create a ServiceNow Inciden
     ![Service Now - Create Record Action](./images/08_15_add_an_action_servicenow_create_item.png "servicenow create record action")
 
 1. Configure the Create Record action as follows:
-    - Rename action to: `Create_Record-Incident`
+    - Rename action to: `Create Record-Incident`
     - **Record Type:** `Incident`
     - **Advanced Parameters:**
         - you can show selected advanced parameters by clicking on the dropdown and select each parameter individually
         - **Short Description:**
             ```
-            The following error occurred and needs to be investigated:
-              Error Message: @{triggerBody()?['ErrorMessage']} 
+            The following error occurred and needs to be investigated: @{triggerBody()?['Description']} 
             ```
         - **Assignment Group:** 
             ```
@@ -144,7 +143,7 @@ In this module we will create a stateful workflow to create a ServiceNow Inciden
             ```
             The following workflow failed and needs to be investigated:
 
-            Error Message: @{triggerBody()?['ErrorMessage']}
+            Error Message: @{triggerBody()?['Description']}
 
             Additional Information: @{triggerBody()?['FailureDateTime']}
             Resolution Steps (from Operation Manual):
@@ -186,7 +185,7 @@ In this module we will create a stateful workflow to create a ServiceNow Inciden
 
     ![Save Workflow](./images/08_19_save_worklow_tool_service_now_create_incident.png "save workflow")
 
-    you should see a notification once the workflow is saved
+    You should see a notification once the workflow is saved.
 
     ![Save Workflow Confirmation](./images/08_20_save_worklow_confirmation.png "save workflow confirmation")
 
