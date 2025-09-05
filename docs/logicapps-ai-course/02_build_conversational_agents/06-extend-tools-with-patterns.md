@@ -45,6 +45,10 @@ So far, all our examples have had one Logic App action per agent tool branch. Yo
 
 When a tool completes execution, the results must be sent back to the LLM for interpretation. In Logic Apps, the result of the **final** action in your tool branch becomes the tool output.
 
+## Parallel tool execution
+
+Many LLM providers have support for parallel tool execution. For example, a weather agent asked for data about both Seattle and Paris can invoke the tool twice in parallel with different inputs. This is supported by default in Logic Apps agents - the monitoring view will allow you to trace the execution of each tool.
+
 ## Transforming tool output
 
 The final action in your tool branch may return an intermediate payload that you want to transform further before sending back to LLM for interpretation.
@@ -411,13 +415,11 @@ This pattern has a few benefits:
 - We only send the information we need to the LLM. This improves agent quality and robustness.
 - We fully control the payload shape and can rename or exclude fields as needed.
 
-## Complex control flow in tools via nested workflows
+## Complex control flow in tools
 
 By default, a tool branch can contain linear actions. If you want more complex control flow in your tool, you can implement the tool as a separate deterministic Logic Apps workflow. You can then invoke the nested workflow in your tool. This allows complex control flow and also further decouples the tool implementation from the agent design. For example, if you take this approach, you can test the nested workflow independently from its agent usage.
 
-## Parallel tool execution
-
-Many LLM providers have support for parallel tool execution. For example, a weather agent asked for data about both Seattle and Paris can invoke the tool twice in parallel with different inputs. This is supported by default in Logic Apps agents - the monitoring view will allow you to trace the execution of each tool.
+You can use this pattern to implement in-tool guardrails. For example, let's say you want to verify the LLM-provided agent parameter matches some imperative rule. You can create a nested workflow that uses conditions to validate this and skip the target action, instead providing an error message back to the LLM so it can self-correct.
 
 ## Human-in-the-loop
 
