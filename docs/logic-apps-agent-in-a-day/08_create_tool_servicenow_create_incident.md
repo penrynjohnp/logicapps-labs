@@ -14,16 +14,16 @@ In this module we will create a stateful workflow to create a ServiceNow Inciden
 2. Create a new stateful workflow with:
     
     - **Workflow name:** `tool-ServiceNow-CreateIncident`
-    - Select the radio button for the `Stateful` worflow type
+    - Select the radio button for the `Stateful` workflow type
     - Click `Create`
 
     ![Create Stateful Workflow](./images/08_02_create_new_stateful_workflow.png "create new stateful workflow")
 
-3. Open the worflow visual editor by clicking on the `tool-ServiceNow-CreateIncident` link
+3. Open the workflow visual editor by clicking on the `tool-ServiceNow-CreateIncident` link
 
     ![Open Workflow](./images/08_03_open_workflow_tool_create_service_now_incident.png "Open Workflow" )
 
-## Configure Workfow
+## Configure Workflow
 1. Configure the workflow trigger to accept an HTTP Request
     - Click on `Add Trigger`
     - Select the `Request` action located in the **Built-in tools** group
@@ -32,9 +32,9 @@ In this module we will create a stateful workflow to create a ServiceNow Inciden
         
     - Select the `When a HTTP request is received`
 
-        ![Select Action When a HTTP Request is Recieved](./images/08_05_add_trigger_request_action.png "select when a HTTP request is received")
+        ![Select Action When a HTTP Request is Received](./images/08_05_add_trigger_request_action.png "select when a HTTP request is received")
 
-1. Configure the `When a HTTP request is recieved` action:
+1. Configure the `When a HTTP request is received` action:
     - **Request Body JSON Schema**
         ```JSON
         {
@@ -65,19 +65,19 @@ In this module we will create a stateful workflow to create a ServiceNow Inciden
 
         ![Add an action](./images/08_07_add_a_action.png "add a action")
 
-    - Select the `ServeNow - List Records` action
+    - Select the `ServiceNow - List Records` action
 
         ![Select Action ServiceNow List Records](./images/08_08_action_servicenow_list_records.png "servicenow list records")
 
-1. Configure the `ServeNow - List Records` activity. 
+1. Configure the `ServiceNow - List Records` activity. 
 
     - Configure the Connection:
         - **Connection Name:** `connServiceNowDev`
         - **Authentication Type:** `Use Oauth2`
         - **Instance Name:**  [obtained from Module 2]
             - example: `devXXXXXX` 
-            - can also be found in the url of you developer instance https://[instance name].service-now.com
-        - **ClientId:**  [obtained from Module 2 - ]
+            - can also be found in the URL of your developer instance https://[instance name].service-now.com
+    - **ClientId:**  [obtained from Module 2 - ]
             - example: 924168e8304a2210cc58c3f34c9b62f3
         - Click `Sign in` 
 
@@ -88,15 +88,15 @@ In this module we will create a stateful workflow to create a ServiceNow Inciden
         ![ServiceNow Connection Error - Invalid Redirect URI](./images/08_10_servicenow_connection_error_invalid_redirect_uri.png "servicenow connection error invalid redirect uri")
 
         If you receive this error you will need to:
-        - Copy  the URL into a text editor
-        - note the `redirect_uri` parameter in the querystring  
+        - Copy the URL into a text editor
+        - note the `redirect_uri` parameter in the query string  
             - redirect_uri=https%3a%2f%2flogic-apis-canadacentral.consent.azure-apim.net%2fredirect
         - convert the URL Encoded ASCII characters back as follows
             - Replace %3a with :
             - Replace %2f with /
         - in the above example we would have resolved to https://logic-apis-canadacentral.consent.azure-apim.net/redirect 
 
-            - Update the Application Registration entry created in the [Module 4 - Prequistes - ServiceNow setup](04_servicenow_dev_sandbox.md).
+            - Update the Application Registration entry created in the [Module 4 - Prerequisites - ServiceNow setup](04_servicenow_dev_sandbox.md).
         Add the Redirect URL
 
         ![ServiceNow Connection Error - Invalid Redirect URI](./images/08_10_servicenow_connection_error_invalid_redirect_uri.png "servicenow connection error invalid redirect uri")
@@ -105,11 +105,11 @@ In this module we will create a stateful workflow to create a ServiceNow Inciden
 
     - Click the `Sign In` button  again 
         
-        **note** please check for errors in the upper right hand corner of your browser. Some browers may block popups.
+        **Note** please check for errors in the upper right hand corner of your browser. Some browsers may block popups.
     
         ![ServiceNow Connection - Sign In](./images/08_11_servicenow_connection_sign_in_after_error.png "service now connection sign in")
     
-1. Click `Allow` granting Logic Apps permision to connect to your ServiceNow instance 
+1. Click `Allow` granting Logic Apps permission to connect to your ServiceNow instance 
 
     ![Service Now Grant Permissions](./images/08_12_servicenow_connection_all_permissions.png "service now grant permissions")
 
@@ -152,15 +152,15 @@ In this module we will create a stateful workflow to create a ServiceNow Inciden
             ```
         - **Severity:** 
             ```
-            @{triggerBody()?['Severity']}`
+            @{triggerBody()?['Severity']}
             ```
         ![Configure ServiceNow Create Record](./images/08_16_configure_servicenow_create_record.png "configure servicenow create record")
 
-1. Add the `Request (Bulit-in) -> Response` action
+1. Add the `Request (Built-in) -> Response` action
 
     ![Add Action Response](./images/08_17_add_action_response.png "Add action response")
 
-1. Confgure the Response action as follows:
+1. Configure the Response action as follows:
     - **Status Code:** 200
     - **Body:**
         ```JSON
@@ -184,9 +184,9 @@ In this module we will create a stateful workflow to create a ServiceNow Inciden
 
 1. Click `Save` to save the changes made to the workflow
 
-    ![Save Workflow](./images/08_19_save_worklow_tool_service_now_create_incident.png "save worflow")
+    ![Save Workflow](./images/08_19_save_worklow_tool_service_now_create_incident.png "save workflow")
 
-    you should a notification once the workflow is saved
+    you should see a notification once the workflow is saved
 
     ![Save Workflow Confirmation](./images/08_20_save_worklow_confirmation.png "save workflow confirmation")
 
