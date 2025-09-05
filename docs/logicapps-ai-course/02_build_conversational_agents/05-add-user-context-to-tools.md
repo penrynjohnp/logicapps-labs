@@ -44,7 +44,7 @@ Many solutions use mixed authorization methods. For example, a solution might re
 
 ## Limitations
 
-In conversational agent workflows, support for OBO authorization applies only to *shared* managed connectors that use delegated, per-user connections to work with Microsoft services or systems.
+In conversational agent workflows, support for OBO authorization currently applies only to managed connectors that connect to Microsoft-owned services. Support for 3rd party connectors and custom connectors is coming soon. Please reach out with your scenario if there are particular connectors you would like us to prioritize.
 
 > :::note
 >
@@ -59,13 +59,6 @@ In conversational agent workflows, support for OBO authorization applies only to
 - An Azure account and subscription. If you don't have a subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 - A Standard logic app resource and conversational agent workflow from previous modules.
-
-  - To use OBO authorization, the logic app resource requires that you set up Easy Auth, previously known as App Service Authentication, on your Standard logic app resource.
-
-    For more information, see the following articles:
-
-    - [Authentication and authorization in Azure App Service and Azure Functions](https://learn.microsoft.com/azure/app-service/overview-authentication-authorization)
-    - [Configure your App Service or Azure Functions app to use Microsoft Entra sign-in](https://learn.microsoft.com/azure/app-service/configure-authentication-provider-aad)
 
   - The conversational agent workflow requires a connector operation that works with a Microsoft service or system. The connection must also support delegated, per-user connections, for example, Microsoft 365, SharePoint, or Microsoft Graph. If required, the connection might also need tenant administrator consent.
 
@@ -84,7 +77,9 @@ In conversational agent workflows, support for OBO authorization applies only to
 - Two test users or user accounts for conversing through chat with different permissions using the specified connection for this module.
   For example, one user account might have access to a mailbox or website, while the other user account doesn't have access.
 
-## Recommended: Set up Easy Auth on your logic app
+## Authentication and authorization
+
+### Recommended: Set up Easy Auth on your logic app
 
 For production scenarios, including chat clients outside the Azure portal, set up Easy Auth (App Service Authentication) as the recommended way to securely handle authentication and authorization.
 
@@ -94,7 +89,7 @@ For production scenarios, including chat clients outside the Azure portal, set u
 
 1. On the **Authentication** page, select **Add identity provider**. From the **Identity provider** list, select **Microsoft** for Microsoft Entra ID.
 
-1. Create or select an app registration by using the options for conversational agents.
+1. Create a new app registration (highly recommended) or select an existing app registration (additional set-up required) by using the options for conversational agents. If you choose to select an existing app registration, please follow [Authentication and authorization in Azure Logic Apps for Conversational Agents](https://learn.microsoft.com/azure/logic-apps/overview-agent-authentication-authorization) to configure the existing app registration to work with conversational agents.
 
 1. Set up additional checks for the sign-in process, based on your scenario.
 
@@ -104,16 +99,16 @@ For production scenarios, including chat clients outside the Azure portal, set u
 
 The following example shows a sample Easy Auth setup:
 
-![Screenshot shows Azure portal, Standard logic app resource and Easy Auth Auth setup.](./media/05-add-user-context-to-tools/easy-auth-setup.png)
+![Screenshot shows Azure portal, Standard logic app resource and Easy Auth Auth setup.](./media/10-deploy-agents-clients/AppRegistration.png)
 
 For more information, see the following articles:
 
 - [Authentication and authorization in Azure App Service and Azure Functions](https://learn.microsoft.com/azure/app-service/overview-authentication-authorization)
 - [Configure your App Service or Azure Functions app to use Microsoft Entra sign-in](https://learn.microsoft.com/azure/app-service/configure-authentication-provider-aad)
 
-> :::note
->
-> For testing and development scenarios, OBO still works without Easy Auth in the chat client through the Azure portal.
+### Alternative: Default authentication and authorization through developer key
+
+For testing and other non-production scenarios, the portal provides a developer key that can be used instead of Easy Auth. The developer key is linked to a particular user and tenant based solely on the ARM bearer token. The usage of the developer key is automatically handled in the portal to execute actions on the user's behalf.
 
 ## Part 1 - Choose the identity model for each tool action
 
@@ -150,6 +145,10 @@ To support delegated user access, create the connection as a per-user connection
 1. Complete the sign-in and consent flow, which authorizes the workflow to use your credentials.
 
    At this point, any sign-in exists only for connection creation validation. At runtime, this identity isn't available for other users.
+
+  > :::note
+  >
+  > Currently, there are no indicators in the workflow designer on which connections are per-user connections. This will be addressed in an upcoming release. For now, please check the cross-check the connection with the connections tab in the logic app which has the per-user (dynamic) connection indicators.
 
 ### Expectations for chat first use and reuse
 
