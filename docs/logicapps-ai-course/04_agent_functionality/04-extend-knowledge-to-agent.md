@@ -1,6 +1,6 @@
 ---
-title: 07 - Add knowledge to your agent
-description: Learn how to add custom knowledge to your Azure Logic Apps workflows and agents.
+title: 04 - Extend knowledge to your agents with the RAG patterns
+description: to be updated.
 ms.service: azure-logic-apps
 author: brbenn
 ms.author: brbenn
@@ -22,7 +22,7 @@ Adding domain-specific knowledge to an AI agent significantly enhances its abili
 
 Azure Logic Apps provides a comprehensive suite of document processing and transformation actions that enable seamless data ingestion from diverse sources and document formats.
 
-![Image showing AI Operations and Data Operations action groups.](../02_build_conversational_agents/media/07-add-knowledge-to-agent/action_list.png)
+![Image showing AI Operations and Data Operations action groups.](media/03-add-knowledge-to-agent/action_list.png)
 
 ## Ingest a document from Blob storage for Agent use
 
@@ -30,14 +30,14 @@ Azure Logic Apps provides a comprehensive suite of document processing and trans
 > :::note
 > Prerequisites for this module are the following
 - You have access to an Azure Storage Account resource. For steps on setting this resource up, follow the guide here [Create an Azure storage account](https://learn.microsoft.com/en-us/azure/storage/common/storage-account-create?tabs=azure-portal).
-- You have a upload a pdf document to your storage resource. The link to this resource will be used in the next steps. The pdf used in this module can be download here [Benefit_Options.pdf](media/07-add-knowledge-to-agent/Benefit_Options.pdf)  
+- You have a upload a pdf document to your storage resource. The link to this resource will be used in the next steps. The pdf used in this module can be download here [Benefit_Options.pdf](media/03-add-knowledge-to-agent/Benefit_Options.pdf)  
 
 
 1. In the [Azure portal](https://portal.azure.com), open your Standard logic app resource.
 
 1. Find and open your conversational agent workflow in the designer.
 
-   ![Screenshot shows designer with conversational agent workflow.](media/07-add-knowledge-to-agent/doc_ingest.png)
+   ![Screenshot shows designer with conversational agent workflow.](media/03-add-knowledge-to-agent/doc_ingest.png)
 
 On the designer, select the agent action. Rename the agent: **Document knowledge agent**. Next enter the System Instructions  
 
@@ -52,18 +52,18 @@ Using the "Document Analysis tool" to download the document, the output from thi
 1. On the designer, inside the agent, select the plus sign (+) under **Add tool**.
 1. Click on the Tool, and rename it to **Document analysis tool**. Then add the follow Description **Answers questions about a specific document.** 
 
-   ![Screenshot shows adding an agent tool action.](media/07-add-knowledge-to-agent/ingest_tool.png)
+   ![Screenshot shows adding an agent tool action.](media/03-add-knowledge-to-agent/ingest_tool.png)
 
 1. Add the **HTTP** action and rename if to **Get company data** Select **GET** as the Method type. Set the **URI** property to the http address of your PDF document in Blob storage.
 1. Add the **Parse document** action, setting the **Document Content** property to the **Body** output of the **HTTP** action using the value "@body('Get_Company_data')".  
-   ![Screenshot shows the final result workflow.](media/07-add-knowledge-to-agent/ingest_final.png)
+   ![Screenshot shows the final result workflow.](media/03-add-knowledge-to-agent/ingest_final.png)
 
 ### Step 3 - Test your workflow in Chat experience
 
 1. On the designer toolbar, select **Chat**.
 1. In the chat client interface, ask the following questions: **How many health plan options are available?**, then ask **Can you summarize both plans?**
    
-   ![Screenshot of chat answered questions.](media/07-add-knowledge-to-agent/ingest_summary_final.png)
+   ![Screenshot of chat answered questions.](media/03-add-knowledge-to-agent/ingest_summary_final.png)
 
 
 ## Advanced RAG using Azure AI Search

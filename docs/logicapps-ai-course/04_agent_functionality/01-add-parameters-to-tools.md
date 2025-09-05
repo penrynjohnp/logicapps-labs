@@ -1,5 +1,5 @@
 --- 
-title: 04 - Add parameters to your tools
+title: 01 - Add parameters to your tools
 description: Learn how to add and configure agent parameters, monitor/debug their generation and use in a Logic Apps conversational agent using run history, chat transcripts, tool calls, and model inputs/outputs.
 ms.service: logic-apps
 ms.topic: tutorial
@@ -28,9 +28,9 @@ Let's begin with an agent without any parameters. Here is the structure for a we
 | Tool description | Gets the current weather in Seattle |
 | Action inside tool | "Get current weather" MSN weather connector with fields "Seattle" and "Imperial"
 
-![Agent that can get the weather in Seattle](media/04-add-parameters-to-tools/seattle-agent-structure.png)
-![Action information for seattle weather agent](media/04-add-parameters-to-tools/seattle-agent-action.png)
-![Chat interaction with this sample agent](media/04-add-parameters-to-tools/seattle-agent-interaction.png)
+![Agent that can get the weather in Seattle](media/01-add-parameters-to-tools/seattle-agent-structure.png)
+![Action information for seattle weather agent](media/01-add-parameters-to-tools/seattle-agent-action.png)
+![Chat interaction with this sample agent](media/01-add-parameters-to-tools/seattle-agent-interaction.png)
 
 This agent can only determine weather in Seattle because the "Location" field in "Get current weather" action is static. Even if the user requests data about a different city, the platform will not allow this tool to be called differently.
 
@@ -38,15 +38,15 @@ Static parameters have their place, but we want to allow requests like "What is 
 
 When focusing on the Location field, there is a button to the right labelled "Select to generate the agent parameter". When selecting this, a "Create agent parameter" pane appears with preconfigured metadata like "Name", "Type", and "Description".
 
-![Adding agent parameter first step](media/04-add-parameters-to-tools/seattle-agent-parameter-add.png)
+![Adding agent parameter first step](media/01-add-parameters-to-tools/seattle-agent-parameter-add.png)
 
 Logic Apps prefills this metadata for you based on the action schema. For example, Location is a string and has a default description. You can click "Create" to accept the default values.
 
-![Adding agent parameter third step](media/04-add-parameters-to-tools/seattle-agent-parameter-add-2.png)
+![Adding agent parameter third step](media/01-add-parameters-to-tools/seattle-agent-parameter-add-2.png)
 
 When you've created the agent parameter on the action, it gets uplifted to the tool header alongside other tool metadata:
 
-![Agent parameter uplifted to tool metadata](media/04-add-parameters-to-tools/seattle-agent-parameter-uplift.png)
+![Agent parameter uplifted to tool metadata](media/01-add-parameters-to-tools/seattle-agent-parameter-uplift.png)
 
 Recall that the tool header pane describes all the metadata actually being passed to the LLM. In this case:
 - Tool name: `GetCurrentWeather`
@@ -57,7 +57,7 @@ These values, in addition to the system prompt, comprise the full information pr
 
 Remove "Seattle" from the system prompt and begin a new chat with the agent. We can provide a string like "Paris" and the weather is fetched:
 
-![Agent parameter interaction](media/04-add-parameters-to-tools/seattle-agent-parameter-interaction.png)
+![Agent parameter interaction](media/01-add-parameters-to-tools/seattle-agent-parameter-interaction.png)
 
 ## Monitoring agent parameters
 
@@ -65,7 +65,7 @@ The prior screenshot shows a conversation where weather was fetched for Paris. B
 
 Navigate to the monitoring view for the latest run via "Run history" on the left pane. You should see the same Paris conversation in a read-only view on the right side of the screen. Notice the read-only chat pane has a tool call listed for GetCurrentWeather. Click on this tool call.
 
-![Agent parameter monitoring view](media/04-add-parameters-to-tools/seattle-agent-parameter-paris-monview.png)
+![Agent parameter monitoring view](media/01-add-parameters-to-tools/seattle-agent-parameter-paris-monview.png)
 
 In the screenshot above, the middle pane now shows the LLM chat completion containing this tool call directive:
 - The inputs show the latest user message with the content "Paris"
@@ -73,7 +73,7 @@ In the screenshot above, the middle pane now shows the LLM chat completion conta
 
 To fulfill the tool call directive, the platform executed the configured Logic App action in this tool. Click on the "Get current weather" logic app action inside the GetCurrentWeather tool:
 
-![Agent parameter monitoring view showing action](media/04-add-parameters-to-tools/seattle-agent-parameter-paris-monview-2.png)
+![Agent parameter monitoring view showing action](media/01-add-parameters-to-tools/seattle-agent-parameter-paris-monview-2.png)
 
 Because `Location` references the agent parameter, we see Location is set to `Paris` as provided by the LLM. The outputs of this action are listed as well.
 
@@ -92,34 +92,34 @@ To explore this further, imagine the following agent which is provided a simple 
 | Tool description | This tool echoes back the given parameter. |
 | Action inside tool | "Compose" action (generally used for simple data transformation of its inputs) with its Inputs field fully replaced by an agent parameter. In this case since no transformation is specified, the action will return the agent parameter untouched.
 
-![Initial agent structure of 'echo' agent](media/04-add-parameters-to-tools/echo-initial-agent-structure.png)
+![Initial agent structure of 'echo' agent](media/01-add-parameters-to-tools/echo-initial-agent-structure.png)
 
-![Initial agent interaction of 'echo' agent](media/04-add-parameters-to-tools/echo-initial-agent-interaction.png)
+![Initial agent interaction of 'echo' agent](media/01-add-parameters-to-tools/echo-initial-agent-interaction.png)
 
 This is not much different than the GetWeather scenario before. Now, we will add a new "EchoTool2" tool. Here, we want the agent parameter to be a **portion** of the "Inputs" field, not a full replacement. Instead of clicking the earlier button on the action input, click "+ Create Parameter" at the tool level. Manually set up a generic string parameter called "Input". Then on the "Inputs" field, select the fx button on the left. It should look like this:
 
-![Initial agent structure of 'echo' agent with parameter added](media/04-add-parameters-to-tools/echo-second-tool-structure-2.png)
+![Initial agent structure of 'echo' agent with parameter added](media/01-add-parameters-to-tools/echo-second-tool-structure-2.png)
 
 Here you see several expressions available in Logic Apps - and in dynamic content, you will see the agent parameter we constructed.
 
-![Dynamic content pane](media/04-add-parameters-to-tools/echo-dynamic-content.png)
+![Dynamic content pane](media/01-add-parameters-to-tools/echo-dynamic-content.png)
 
 You can mix functions and dynamic content to construct an "Inputs" value that mixes static, expression-generated, and LLM-generated agent parameters. For example, we concatenate a dynamic guid() with the agent parameter. The concat() and guid() functions are part of the Logic Apps expression library and generated without LLM-involvement. Click "Add".
 
-![Adding expression](media/04-add-parameters-to-tools/echo-expression.png)
-![After adding expression](media/04-add-parameters-to-tools/echo-post-expression.png)
+![Adding expression](media/01-add-parameters-to-tools/echo-expression.png)
+![After adding expression](media/01-add-parameters-to-tools/echo-post-expression.png)
 
 We update the system prompt and start a new chat session:
 
-![Second agent interaction of 'echo' agent](media/04-add-parameters-to-tools/echo-second-interaction.png)
+![Second agent interaction of 'echo' agent](media/01-add-parameters-to-tools/echo-second-interaction.png)
 
 Notice the result of the tool - we asked the agent to call EchoTool2 with the parameter "Hello World". Unlike the first echo tool, this time the tool result was `8a069182-4a95-4c19-903c-cabb3dac3612Hello World`. This is because the Compose action input expression was `concat(guid(), agentParameters('Input'))`. In this manner you have fine-grained control over the parameters passed to your logic app connectors and built-in actions. The values can be static, fully replaced by LLM-generated parameters, dynamically generated via functions like guid(), or a combination of all three.
 
 You can trace the same flow in monitoring view again. See how the LLM-provided tool parameter is "Hello world", but the interpolated input for the Compose action is `8a069182-4a95-4c19-903c-cabb3dac3612Hello World` which gets echoed back.
 
-![Monitoring view of tool in second agent interaction of 'echo' agent](media/04-add-parameters-to-tools/echo-monview.png)
+![Monitoring view of tool in second agent interaction of 'echo' agent](media/01-add-parameters-to-tools/echo-monview.png)
 
-![Monitoring view of action second agent interaction of 'echo' agent](media/04-add-parameters-to-tools/echo-monview-2.png)
+![Monitoring view of action second agent interaction of 'echo' agent](media/01-add-parameters-to-tools/echo-monview-2.png)
 
 ## Conclusion
 

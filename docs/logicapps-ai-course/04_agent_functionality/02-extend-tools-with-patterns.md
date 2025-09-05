@@ -1,5 +1,5 @@
 --- 
-title: 06 - Extend your tool functionality with patterns
+title: 02 - Extend your tool functionality with patterns
 description: Learn how to extend tool functionality in Logic Apps conversational agents using patterns such as mocking with compose actions, multi-action tool branches, guardrails, and output transformation to improve testing, safety, and formatting.
 ms.service: logic-apps
 ms.topic: tutorial
@@ -377,18 +377,18 @@ The full payload is [described here](https://learn.microsoft.com/en-us/connector
 
 Let's say the agent only needs two fields: `responses.weather.current.cap` (a caption of weather conditions such as rainy, sunny, etc.) and `responses.weather.current.temp` (the current temperature). To transform tool output in this way, we append a Compose action to the end of the tool branch. Since tool branches inherit the result of their last action, the Compose action can form an expression referencing just the dynamic outputs we need.
 
-![Adding compose action](./media/06-extend-tools-with-patterns/OutputTransformation-ComposeActionA.png)
+![Adding compose action](./media/02-extend-tools-with-patterns/OutputTransformation-ComposeActionA.png)
 
 Note that in the above screenshot, a few things have changed:
 - Our tool branch is now a linear sequence of actions. A compose action is placed after the MSN weather connector.
 - We specify the new payload in the inputs of the compose action. It will include both static text and dynamic data from the MSN weather connector.
 - In the expression selector, we can select the relevant values to interpolate them into the inputs of the compose action. Since the compose action returns its input, and tool branches inherit the output results of their final action, the input value we form here will replace the prior full payload.
 
-![Finalizing the action input](./media/06-extend-tools-with-patterns/OutputTransformation-ComposeActionB.png)
+![Finalizing the action input](./media/02-extend-tools-with-patterns/OutputTransformation-ComposeActionB.png)
 
 In the above screenshot, we finalize the expression by including both the caption and the temperature.
 
-![Demonstrating the final output](./media/06-extend-tools-with-patterns/OutputTransformation-ToolOutput.png)
+![Demonstrating the final output](./media/02-extend-tools-with-patterns/OutputTransformation-ToolOutput.png)
 
 In the above screenshot, we see this pattern leveraged in a conversational flow. Notice that the tool output provided to the LLM matches the schema we specified in the Compose action, not the full JSON blob from before. This can also be confirmed in the monitoring view:
 
