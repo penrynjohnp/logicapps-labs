@@ -31,7 +31,7 @@ In this module we will create and configure a conversational Agent Loop workflow
 
 ## Configure Agent Workflow
 1. Configure the Trigger Activity. Since we are building a conversational agent, we need to use a Request trigger that allows the agent to be called from a chat surface/application.
-    - Click the `Add a tigger` activity 
+    - Click the `Add a trigger` activity 
     
         ![Add a Trigger](./images/07_06_add_a_trigger.png ("add a trigger"))
 
@@ -41,7 +41,7 @@ In this module we will create and configure a conversational Agent Loop workflow
 
     -  Select the `When a HTTP request is received`
 
-        ![Trigger Activty When a HTTP request is received](./images/07_08_trigger_activity_when_a_http_request_is_received.png "trigger actvitiy when a http request is received")
+        ![Trigger Activity When a HTTP request is received](./images/07_08_trigger_activity_when_a_http_request_is_received.png "trigger activity when a http request is received")
 
     - Configure the activity:
         - **Request Body JSON Schema**
@@ -56,8 +56,8 @@ In this module we will create and configure a conversational Agent Loop workflow
             }
             ```
         
-            ![Configure WHne a HTTP request is received](./images/07_09_when_a_http_request_is_received_configuration.png ("configure when a http trigger is received"))
-1. Add a Compose actvity to parse out the prmpt from the input request
+            ![Configure When a HTTP request is received](./images/07_09_when_a_http_request_is_received_configuration.png ("configure when a http trigger is received"))
+1. Add a Compose activity to parse out the prompt from the input request
     - Add a new action
     
     ![Add an action](./images/07_10_add_an_action.png ("add an action"))
@@ -77,7 +77,7 @@ In this module we will create and configure a conversational Agent Loop workflow
             
             ![Compose Select Input](./images/07_13_configure_compose_select_file.png "compose select input")
 
-            after are completed your configuration, the **Compose-Prompt** activity should look like this
+            after you have completed your configuration, the **Compose-Prompt** activity should look like this
 
             ![Compose-Prompt Activity](./images/07_14_compose_after_configuraiton.png "compose prompt activity")
 
@@ -140,9 +140,9 @@ This will enable to Agent to use the operational runbook when responding to our 
 
     ![Default Agent Add Tool](./images/07_20_default_agent_add_tool.png "default agent add tool")
 
-1. Search for **blob storage** and select the `Get blog content (V2)` action
+1. Search for **blob storage** and select the `Get blob content (V2)` action
 
-    ![Add Action Get Blob Content](./images/07_21_add_get_blob_content_action.png "add action get blog content")
+    ![Add Action Get Blob Content](./images/07_21_add_get_blob_content_action.png "add action get blob content")
 
 
 1. Configure the connection to the Azure Blob Storage Account
@@ -198,7 +198,7 @@ Now that we've connect workflow to OpenAI and created our first tool, lets test 
 
     ![Run Workflow](./images/07_30_run_workflow.png "run workflow")
 
-    you will recieve a notification once your workflow has started
+    you will receive a notification once your workflow has started
 
     ![Workflow Triggered](./images/07_31_run_workflow_triggered.png "workflow triggered")
 
@@ -219,15 +219,15 @@ Now that we've connect workflow to OpenAI and created our first tool, lets test 
     ```
     my database appears to be offline   
     ```
-    Note the response from the agent is requestion additional information that was specified in the system instructions. Also note the the Agent is sharing the next steps that will perform once the required information is provided.
+    Note the response from the agent is requesting additional information that was specified in the system instructions. Also note the the Agent is sharing the next steps that will perform once the required information is provided.
 
     ![Agent Chat - Prompt 1 Issue Description](./images/07_35_workflow_chat_prompt1_error_description.png "agent chat prompt 1 Issue Description")
 
-1. Enter the next promt detailing who the assigned team will be:
+1. Enter the next prompt detailing who the assigned team will be:
     ```
     database
     ```
-    Note that now the agent has also successfully executed the **Get Ooperaitonal Run book** tool and was able to use the information from the operational run book to locate the corresponding issue and retrieve the resolution steps, serverity and the estimated time to resolution. 
+    Note that now the agent has also successfully executed the **Get Operational Run book** tool and was able to use the information from the operational run book to locate the corresponding issue and retrieve the resolution steps, severity and the estimated time to resolution. 
     The agent also continues to communicate the next steps and prompts the user if they wish to create the Service Now incident
 
     ![Agent Chat - Prompt 2 Assignment Group](./images/07_36_workflow_chat_prompt2_assignment_group.png "agent chat prompt 2 assignment group")
