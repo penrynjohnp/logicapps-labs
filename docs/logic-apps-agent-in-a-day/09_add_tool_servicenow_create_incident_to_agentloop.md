@@ -53,11 +53,11 @@ In this module we will take the ServiceNow Create Incident workflow and add it a
 
           **Type:** `Integer`
 
-          **Description:** `The Severity of the inicdent`      
+          **Description:** `The Severity of the incident`      
 
           ![Configure Tool](./images/09_07_configure_tool.png "configure tool")
 
-1. Configure the inputs paremeters for the call to the logic app.
+1. Configure the inputs parameters for the call to the logic app.
 
     **NOTE** when you select a parameter to configure you will now see a third source for mapping your inputs. The agent indicates a parameter that the agent can provide.
 
@@ -65,7 +65,7 @@ In this module we will take the ServiceNow Create Incident workflow and add it a
 
     - **Assignment Group:** (agent parameter) `Agent Parameters`-> `AssignmentGroup`
 
-        ![Assignment Group Agent Parameter](./images/09_08_configure_assignment_group_selected.png "assignment gorup agent parameter")
+  ![Assignment Group Agent Parameter](./images/09_08_configure_assignment_group_selected.png "assignment group agent parameter")
     
     - **Description:** (agent parameter) `Agent Parameters`-> `AssignmentGroup`
     - **FailureDateTime:** `utcNow()`
@@ -74,7 +74,7 @@ In this module we will take the ServiceNow Create Incident workflow and add it a
 
     ![Configure Call Workflow Parameters](./images/09_10_configure_call_workflow_parameters.png "configure call workflow parameters")
 
-1. Save you workflow
+1. Save your workflow
 
     ![Save Workflow](./images/09_11_save_workflow.png "save workflow")
 
@@ -84,16 +84,16 @@ In this module we will take the ServiceNow Create Incident workflow and add it a
 
     ![Run Workflow](./images/09_12_run_workflow.png "run workflow")
 
-    You will receive a notification when the workflow as successfully started  
+    You will receive a notification when the workflow has successfully started  
     ![Workflow Started](./images/09_13_workflow_started.png "workflow started")
 
-1. Navigate to you **Run History** and located you **Running** instance. Click on the identifier to view the executed steps and agent chat session.
+1. Navigate to your **Run History** and locate your **Running** instance. Click on the identifier to view the executed steps and agent chat session.
 
     ![Workflow Run History](./images/09_14_workflow_run_history.png "workflow run history")
 
-1. Enter the your issue for the agent to action:
+1. Enter your issue for the agent to take action on:
 
-    Similar to the last execution, the agent has first presented it's system intrustions and the initial user intruction has been provided resulting in the agent providing more detail instructions on what it requires and what steps it will take. In the following steps we will provide a similar prompt to the one we tested in [Module 7 - Create Agent Loop Workflow](07_create_agent_loop_workflow.md) but now the agent will have a tool enabling it to log the ServiceNow Incident on behalf of the user.
+  Similar to the last execution, the agent has first presented its system instructions and the initial user instruction has been provided resulting in the agent providing more detailed instructions on what it requires and what steps it will take. In the following steps we will provide a similar prompt to the one we tested in [Module 7 - Create Agent Loop Workflow](07_create_agent_loop_workflow.md) but now the agent will have a tool enabling it to log the ServiceNow Incident on behalf of the user.
 
     - Enter the following prompt:
       ```
@@ -117,7 +117,7 @@ In this module we will take the ServiceNow Create Incident workflow and add it a
 
       ![Agent Response - Part 3 - ServiceNow Incident](./images/09_15_workflow_run_user_prompt_2_servicenow_incident_creation.png "agent response part 3 servicenow incident")
 
-1. Vaidate your Incident in ServiceNow.
+1. Validate your Incident in ServiceNow.
   - Navigate to your ServiceNow developer portal
   - Use the Incident Ticket Number from the Agent's response to search for the incident in ServiceNow
 
