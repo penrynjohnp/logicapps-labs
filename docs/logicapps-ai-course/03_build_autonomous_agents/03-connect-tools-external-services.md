@@ -12,12 +12,11 @@ In this module, you learn how to connect a agent workflow in Azure Logic Apps to
 
 When you finish this module, you'll achieve the goals and complete the tasks in the following list:
 
-- Understand key connector concepts such as actions, connections, authentication, and limits.
+- Understand key connector concepts such as actions, connections, and limits.
 - Add one read-only connector action as a tool that your agent can autonomously and directly call without needing authentication.
-- ptionally add an authenticated connector action as a tool that handles inputs and errors.
 - Apply best practices for safe, reliable tool use in autonomous scenarios.
 
-This module keeps the primary flow simple without using [agent parameters](https://learn.microsoft.com/azure/logic-apps/agent-workflows-concepts#key-concepts) or [on-behalf-of (OBO) authorization](https://learn.microsoft.com/entra/identity-platform/v2-oauth2-on-behalf-of-flow). In Module 04, you learn how to parameterize inputs. In Module 05, you learn how to add OBO authorization.
+This module keeps the primary flow simple without using [agent parameters](https://learn.microsoft.com/azure/logic-apps/agent-workflows-concepts#key-concepts). In Module 04, you learn how to parameterize inputs.
 
 For more information, see [Connectors overview for Azure Logic Apps connectors](https://learn.microsoft.com/azure/connectors/introduction).
 
@@ -75,19 +74,7 @@ The following table helps map the relationship between connector operations and 
 
 To more easily demonstrate the autonomous agent pattern from end to end, this example doesn't use authentication or agent parameters.
 
-### Step 1 - Set up your agent
-
-1. In the [Azure portal](https://portal.azure.com), open your Standard logic app resource.
-
-1. Find and open your autonomous agent workflow in the designer.
-
-   ![Screenshot shows designer with autonomous agent workflow.](media/03-connect-tools-external-services/start.png)
-
-1. On the designer, select the agent action. On the agent information pane, for the system instructions, enter **You're an agent that provides weather information.**
-
-   ![Screenshot shows agent information pane and system instructions.](media/03-connect-tools-external-services/system-instructions.png)
-
-### Step 2 - Add a tool for your agent
+### Step 1 - Add a tool for your agent
 
 1. On the designer, inside the agent and under **Add tool**, select the plus sign (+) to open the pane where you can browse available actions.
 
@@ -106,7 +93,7 @@ To more easily demonstrate the autonomous agent pattern from end to end, this ex
 
    ![Screenshot shows MSN Weather action and tool.](media/03-connect-tools-external-services/get-current-weather-tool.png)
 
-### Step 3 - Set up the connector action
+### Step 2 - Set up the connector action
 
 1. In the **Get current weather** action, provide the following information:
 
@@ -121,17 +108,7 @@ To more easily demonstrate the autonomous agent pattern from end to end, this ex
 
 1. Save your workflow.
 
-### Step 4 - Test your weather tool in chat
-
-1. On the designer toolbar, select **Chat**.
-
-1. In the chat client interface, ask the following question: **What is the current weather in Seattle?**
-
-1. Check that the response is what you expect, for example:
-
-   ![Screenshot shows chat client interface.](media/03-connect-tools-external-services/portal-chat.png)
-
-### Step 5 - Check tool in monitoring view
+### Step 3 - Check tool in monitoring view
 
 1. On the workflow sidebar, under **Tools**, select **Run history**.
 
@@ -174,23 +151,13 @@ Now, you'll learn to add a tool that requires authentication. This module uses s
 
 1. Save your workflow.
 
-### Step 4 - Test your GitHub tool in chat
-
-1. On the designer toolbar, select **Chat**.
-
-1. In the chat user interface, ask the following question: **Show me the details of the demo GitHub issue.**
-
-1. Check that the response is what you expect.
-
-1. Go to monitoring view. Confirm that the agent succesfully called the tool and ran the action.
-
 ## Troubleshoot problems
 
 | Error or problem | Action to try |
 |------------------|---------------|
 | Connection shows "Not authorized". | Reauthenticate with the required scopes and confirm target resource permissions. |
 | Agent doesn't call the tool. | Improve the tool description and reduce overlap with other tools. Verify input mappings. |
-| Wrong or missing parameters | Provide stronger hints and examples. Make key inputs required as shown in [Module 04 - Add parameters to tools](04-add-parameters-to-tools.md). |
+| Wrong or missing parameters | Provide stronger hints and examples. Make key inputs required as shown in [Add parameters to tools](../04_agent_functionality/01-add-parameters-to-tools.md). |
 | 429 "Too many requests" error or throttling | Limit the frequency or cache. Ask the user to narrow the query. |
 | 404 "Not found" error | Confirm the GitHub owner, repo, number, or location format. Suggest alternatives. |
 
@@ -221,15 +188,14 @@ Here's a recap for the pattern to use:
 
 1. Set up the action with the necessary parameter inputs.
 
-1. Test your tool in chat. Check monitoring view to confirm successful tool calls.
+1. Test your tool. Check monitoring view to confirm successful tool calls.
 
 ## Clean up resources
 
 - When you're done with this module, make sure to delete any resources you no longer need or want to keep. That way, you don't continue to get charged for their usage.
 - If you created any new connections, make sure to remove connections or rotate your credentials, based on your organization's policy.
 
-## Next steps
+## Related Content
 
-- [Module 04 - Add parameters to your tools (accept dynamic inputs from the agent)](./04-add-parameters-to-tools.md)
-- [Module 05 - Add user context to your tools (on-behalf-of patterns)](./05-add-user-context-to-tools.md)
+- [Add parameters to your tools (accept dynamic inputs from the agent)](../04_agent_functionality/01-add-parameters-to-tools.md)
 

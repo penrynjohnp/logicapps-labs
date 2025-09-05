@@ -75,7 +75,7 @@ Always prioritize clarity and brevity in summaries.
 ## Add tools in the agent loop action
 Tools empower agent loop to interact with external systems using 1400+ logic app connectors, enabling them to retrieve data, perform actions, and make decisions beyond static responses. They are essential for grounding agent reasoning in real-world context and executing tasks dynamically within workflows.
 
-**NOTE**: Providing a clear **tool name** and a well-written **tool description** helps the agent understand when and how to use the tool effectively. Good descriptions lead to smarter tool selection and more accurate task execution. Learn more about using [connector actions](../02_build_conversational_agents/03-connect-tools-external-services.md) and [agent parameters](../02_build_conversational_agents/04-add-parameters-to-tools.md) in tools.
+**NOTE**: Providing a clear **tool name** and a well-written **tool description** helps the agent understand when and how to use the tool effectively. Good descriptions lead to smarter tool selection and more accurate task execution. Learn more about using [connector actions](../02_build_conversational_agents/03-connect-tools-external-services.md) and [agent parameters](../04_agent_functionality/01-add-parameters-to-tools.md) in tools.
 
 In this module, we will add 2 tools:- **Get weather alert data** and **Send email to subscriber**.
 
