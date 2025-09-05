@@ -8,13 +8,16 @@ author: karansin
 ms.author: karansin
 ---
 
-This module describes several common tool patterns:
-- Mocking tool output
-- Adding multiple actions per tool
-- Transforming tool output
-- Complex control flow in tools via nested workflows
-- Parallel tool execution
-- Human-in-the-loop
+This module describes several common tool patterns. These can simplify development and help you implement guardrails to finely control the degree of determinism and LLM-driven behavior in your application. For example, you can interrupt tool execution based on imperative or human evaluation of LLM-provided parameters.
+
+| Pattern | Description |
+|---|---|
+| **Mocking tool output** | Simplify development by decoupling agent design from tool execution; avoid side-effects |
+| **Adding multiple actions per tool** | Chain multiple actions together, for example a GET for dynamic data to include in a subsequent POST |
+| **Parallel tool execution** | Built-in behavior when directed by LLM |
+| **Transforming tool output** | Improve agent robustness & reduce token usage by transforming raw action output to appropriate payload |
+| **Complex control flow in tools** | Tools can be implemented as nested workflows, enabling complex control flow. For example, you can skip action execution based on imperative evaluation of LLM-provided parameters. |
+| **Human-in-the-loop** | Webhook actions and durable execution enable approval workflows and human intervention. For example, you can ensure the agent waits indefinitely for an email response before continuing with a task. |
 
 ## Mocking tool output
 
