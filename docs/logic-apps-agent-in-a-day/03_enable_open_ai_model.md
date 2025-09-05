@@ -32,7 +32,7 @@ In this module we will provision the OpenAI service and deploy the GPT4.1 Model 
 
     ![Launch Azure AI Foundry Portal](./images/04_04_launch_azure_ai_foundry_portal.png "Launch Azure AI Foundry Portal")
 
-1. Deploy a new model into your Azure OpenAI instance by clicking the  `Create new deployment -> From base models`
+1. In the Azure AI Foundry portal, go to the **Chat playground**. Click `Create new deployment -> From base models` to deploy a new model.
 
     ![Create New Deployment - From base model](./images/04_05_create_new_deployment_from_base_model.png "Create new deployment - from base model")
 
