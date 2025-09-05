@@ -3,7 +3,7 @@ In the module we will provision a Logic Apps Standard instance enabling us to cr
 
 1. Search for and navigate to the `Logic Apps` service
 
-    ![Search Logic Apps](./images/05_01_search_logic_apps.png "seach logic apps")
+    ![Search Logic Apps](./images/05_01_search_logic_apps.png "search logic apps")
 
 1. Click `+ Add`
 
@@ -13,7 +13,7 @@ In the module we will provision a Logic Apps Standard instance enabling us to cr
 
     ![Select Workflow service plan](./images/05_03_select_workflow_service_plan.png "select workflow service plan")
 
-1. Configure the Logic Apps istance as follows:
+1. Configure the Logic Apps instance as follows:
 
     - **Resource Group:** `logic-apps-ai-agents-rg`
     - **Logic App Name:** `logic-apps-ai-agents-<some-unique-extension>` **(in the example initials and date were used)**
@@ -25,5 +25,5 @@ In the module we will provision a Logic Apps Standard instance enabling us to cr
 
 1. Review the configuration and click `Create`
 
-    ![Review Configuration and Create](./images/05_05_review_create_logic_apps_instance.png "reivew configuration and create")    
+    ![Review Configuration and Create](./images/05_05_review_create_logic_apps_instance.png "review configuration and create")    
 
