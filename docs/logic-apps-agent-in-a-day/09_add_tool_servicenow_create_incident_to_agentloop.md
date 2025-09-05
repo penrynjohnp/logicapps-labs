@@ -65,7 +65,7 @@ In this module we will take the ServiceNow Create Incident workflow and add it a
 
     - **Assignment Group:** (agent parameter) `Agent Parameters`-> `AssignmentGroup`
 
-  ![Assignment Group Agent Parameter](./images/09_08_configure_assignment_group_selected.png "assignment group agent parameter")
+      ![Assignment Group Agent Parameter](./images/09_08_configure_assignment_group_selected.png "assignment group agent parameter")
     
     - **Description:** (agent parameter) `Agent Parameters`-> `AssignmentGroup`
     - **FailureDateTime:** `utcNow()`
@@ -93,7 +93,7 @@ In this module we will take the ServiceNow Create Incident workflow and add it a
 
 1. Enter your issue for the agent to take action on:
 
-  Similar to the last execution, the agent has first presented its system instructions and the initial user instruction has been provided resulting in the agent providing more detailed instructions on what it requires and what steps it will take. In the following steps we will provide a similar prompt to the one we tested in [Module 7 - Create Agent Loop Workflow](07_create_agent_loop_workflow.md) but now the agent will have a tool enabling it to log the ServiceNow Incident on behalf of the user.
+    Similar to the last execution, the agent has first presented its system instructions and the initial user instruction has been provided resulting in the agent providing more detailed instructions on what it requires and what steps it will take. In the following steps we will provide a similar prompt to the one we tested in [Module 7 - Create Agent Loop Workflow](07_create_agent_loop_workflow.md) but now the agent will have a tool enabling it to log the ServiceNow Incident on behalf of the user.
 
     - Enter the following prompt:
       ```
@@ -123,5 +123,6 @@ In this module we will take the ServiceNow Create Incident workflow and add it a
 
     ![ServiceNow Incident Details](./images/09_17_servnicenow_incident_detailspng.png "servicenow incident details")
 
+> **Note:** When you are done testing, go to your workflow run in Logic Apps and click **Cancel run** to stop the workflow instance.
 
-   
+> **Tip:** If you do not see the **Description** field in your ServiceNow incident, you may need to configure the Incident Properties in your ServiceNow instance to display it. 
