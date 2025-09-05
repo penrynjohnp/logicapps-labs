@@ -1,5 +1,5 @@
 ---
-title: Module 05 - Add user context to tools - Module 05
+title: 05 - Add user context to tools
 description: Learn how to set up on-behalf-of (OBO) authorization for your tools. Learn how to run connector actions with a signed-in user identity by using OBO authorization in conversational agent workflows for Azure Logic Apps.
 ms.service: azure-logic-apps
 author: edwardyhe
@@ -10,8 +10,6 @@ ms.date: 08/27/2025
 # - Describe when to use and how to set up OBO. // Only if OBO works from portal chat client. Otherwise defer until after deployment section.
 # - Provide some client code if useful, but link to later A2A section so customers have context.
 ---
-
-# Module 05 - Add user context to tools by running connector actions with a signed-in user identity
 
 In this module, you learn how to set up an agent that acts *on behalf of* (OBO) the signed-in user, meaning that the agent can run connector actions by using that user's identity. This module describes scenarios for where to add OBO authorization, known also as *user context*, how to configure the appropriate connections, test with different users, and learn the limitations.
 
@@ -254,11 +252,11 @@ If your production experience uses a custom chat client that's web-based, mobile
 
 1. Capture the user's sign-in through your app. Get an access token for the target resource, for example, Microsoft Graph, with the required scopes.
 
-1. Pass the token to your agent call, based on your integration model (Module 10).
+1. Pass the token to your agent call, based on your integration model (Module 09).
 
 1. Set up your tool to use the delegated token or a connection that recognizes the user's context.
 
-For more information and sample client code, see [Module 10 - Connect your agents using A2A protocol](10-connect-agents-a2a-protocol.md).
+For more information and sample client code, see [Module 09 - Connect your agents using A2A protocol](./09-connect-agents-a2a-protocol.md).
 
 ## Review best practices
 
@@ -285,5 +283,5 @@ The following table describes some common problems and troubleshooting suggestio
 ## Related content
 
 - [Module 06 - Extend tool functionality with patterns](./06-extend-tools-with-patterns.md)
-- [Module 09 - Deploy agent clients](./09-deploy-agents-clients.md)
-- [Module 10 - Connect your agents using A2A protocol](./10-connect-agents-a2a-protocol.md)
+- [Module 09 - Connect your agents using A2A protocol](./09-connect-agents-a2a-protocol.md)
+- [Module 10 - Deploy agent clients](./10-deploy-agents-clients.md)
