@@ -64,17 +64,24 @@ With over 1,400 enterprise connectors, Logic Apps provides unparalleled access t
 > - You have access to an Open AI Service and this service has a deployed model for generating text embeddings. For more on creating this service visit [Explore Azure OpenAI in Azure AI Foundry](https://learn.microsoft.com/en-us/azure/ai-foundry/openai/tutorials/embeddings?source=recommendations&tabs=command-line%2Cpython-new&pivots=programming-language-python).
 > - You have access to an Azure AI Search service. For more on creating this resource visit here [Create an Azure AI Search service](https://learn.microsoft.com/en-us/azure/search/tutorial-optimize-indexing-push-api#create-an-azure-ai-search-service). Additionally, this module assumes your search index is created using this index schema: [index_schema](media/04-extend-knowledge-to-agent/index_schema.json)
 
-### Step 1 - Ingest your data
+### Step 1 - Create our data ingestion worflow
 
 1. In the [Azure portal](https://portal.azure.com), open your Standard logic app resource.
 1. Create a new standard workflow
-1. Add an Request trigger
+1. Add a **Request** trigger.
 1. Add the **HTTP** action and rename it to *Get company data* Set the **URI** property to the the link of the *Benefit_Options.pdf* that was upload to your Azure storage. Set the **Method** property to *GET*.
-1. Add the **Parse a document** action. Set the **Document Content** property to the value "*@body('Get_Company_data')*".
-1. Add the **Chunk text** action. Set the **Text** value to "*@body('Parse_a_document')*" and set the **TokenSize** property to *500*. All other property can remain their default values.
-1. Add the **OpenAI-Get Embeddings** action. Connect this action to your OpenAI Service. Set the **Deployment Identifier** property to the name of your text embeddings deployment. Set the **Array Input** property to the value "*@body('Chunk_text')?['value']*".
-1. Add the **Select** action and rename it to **Select index objects**. Set the **From** property to "*@range(0, length(body('Select_chunks')))*". Set the **Map** property to the value:
+   ![Screenshot of HTTP action](media/04-extend-knowledge-to-agent/http_action.png)
 
+1. Add the **Parse a document** action. Set the **Document Content** property to the value "*@body('Get_Company_data')*".
+1. Add the **Chunk text** action. Set the **Text** value to "*@body('Parse_a_document')*" and set the **TokenSize** 
+property to *500*. All other property can remain their default values.
+   ![Screenshot of chunk text action.](media/04-extend-knowledge-to-agent/chunk_text.png)  
+   At this point your workflow should resemble the follow:
+   ![Screenshot of trigger, http, parse, and chunk actions.](media/04-extend-knowledge-to-agent/trigger_parse_chunk.png)
+1. Add the **OpenAI-Get Embeddings** action. Connect this action to your OpenAI Service. Set the **Deployment Identifier** property to the name of your text embeddings deployment. Set the **Array Input** property to the value "*@body('Chunk_text')?['value']*".
+   ![Screenshot of get embeddings action.](media/04-extend-knowledge-to-agent/embeddings.png)
+1. Add the **Select** action and rename it to **Select index objects**. Set the **From** property to "*@range(0, length(body('Select_chunks')))*". Set the **Map** property to the value:
+  
 ```
 {
  "content" : @body('Select_chunks')[item()],
@@ -83,8 +90,16 @@ With over 1,400 enterprise connectors, Logic Apps provides unparalleled access t
  "id" : @guid()
 }
 ```
+  ![Screenshot of select action.](media/04-extend-knowledge-to-agent/select_action.png)
 1. Add the **Azure AI Search-Index documents** action, and rename it to **Index documents**. Connect this action to your Azure AI Search Service. Set the **Index Name** drop down to your index. If you used the provided [index_schema.json](media/04-extend-knowledge-to-agent/index_schema.json), the name to select is **enterprise-data**. Set the **Documents To Index** property to the value "*@body('Select_index_objects')*".
 
+   ![Screenshot of index action.](media/04-extend-knowledge-to-agent/index_action.png)
+   ![Screenshot of full workflow](media/04-extend-knowledge-to-agent/workflow_full.png)
+
+### Step 2 - Run your ingestion workflow
+1. At the top of the Designer, click the **Run** button.
+1. Once the run has been successfully trigger, click the **Run history** button on the left-side menu to view the run.
+1. Ensure the run has completed successfully. At this stage you document has been index successfully into your Azure AI Search index.
 
 ## Part 2 - Conversational Retrieval and Response Generation
 
@@ -94,20 +109,17 @@ With over 1,400 enterprise connectors, Logic Apps provides unparalleled access t
 
 1. Find and open your conversational agent workflow in the designer.
 
-[medie_placholder]
 
 On the designer, select the agent action. Rename the agent: **Document knowledge agent**. Next enter the System Instructions  
 
 ```
-You are a helpful document analysis agent. When a question is asked, follow these steps in order: 
-
-Use this tool to download the document, the output from this tool is the document text. Use only this text to answer the user's question. No other data or information should be used to answer the question.
+You are a helpful assistant, answering questions about specific documents. When a question is asked, follow these steps in order: 
 
 ```
 
-### Step 2 - Add the Document Analysis tool to your agent
+### Step 2 - Add the Index search tool to your agent
 1. On the designer, inside the agent, select the plus sign (+) under **Add tool**.
-1. Click on the Tool, and rename it to **Document analysis tool**. Then add the follow Description **Answers questions about a specific document.** 
+1. Click on the Tool, and rename it to **{place holder}**. Then add the follow Description **Searches an index.** 
 
 
 ### Step 3 - Test your workflow in Chat experience
