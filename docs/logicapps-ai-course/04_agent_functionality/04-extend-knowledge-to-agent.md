@@ -48,7 +48,7 @@ This two-phase approach ensures that your conversational agents can access and r
 
 Azure Logic Apps provides a comprehensive suite of document processing and transformation actions that enable seamless data ingestion from diverse sources and document formats.
 
-![Image showing AI Operations and Data Operations action groups.](../02_build_conversational_agents/media/07-add-knowledge-to-agent/action_list.png)
+![Image showing AI Operations and Data Operations action groups.](./media/04-extend-knowledge-to-agent/action_list.png)
 
 ## Document Ingestion for Gen AI Applications
 
@@ -119,7 +119,7 @@ You are a helpful assistant, answering questions about specific documents. When 
 
 ### Step 2 - Add the Index search tool to your agent
 1. On the designer, inside the agent, select the plus sign (+) under **Add tool**.
-1. Click on the Tool, and rename it to **{place holder}**. Then add the follow Description **Searches an index.** 
+1. Click on the Tool, and rename it to **`{place holder}`**. Then add the follow Description **Searches an index.** 
 
 
 ### Step 3 - Test your workflow in Chat experience
