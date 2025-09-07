@@ -61,3 +61,27 @@ For a short video overview, see the following introduction:
 ## Course Outline
 
 This course will help you create your first conversational agent. Starting from a basic conversational agent in the first lesson and then building on that agent with tools and patterns. The later lessons in this course will go through the deployment of the agent and a conversational chat client.
+
+### Build conversational agents
+
+This module teaches you how to create interactive agents that engage in back-and-forth conversations with users. You'll learn to build your first conversational agent using Azure Logic Apps, connect it to Azure OpenAI models, add tools for external service integration, incorporate user context, and deploy complete chat solutions. The module focuses on session-based interactions, debugging techniques, and the agent-to-agent (A2A) protocol for seamless communication.
+
+[Start with: Build your first conversational agent](02_build_conversational_agents/01-create-first-conversational-agent.md)
+
+### Build Autonomous Agents
+
+This module focuses on creating independent agents that can take actions without continuous user interaction. You'll learn to build autonomous agents that monitor events, make decisions, and execute tasks automatically. The module covers integrating with various triggers, connecting to Azure OpenAI or Azure Foundry models, and implementing tools that enable agents to interact with external systems while maintaining proper governance and error handling for long-running operations.
+
+[Start with: Build your first autonomous agent](03_build_autonomous_agents/01-create-first-autonomous-agent.md)
+
+### Extend Agents functionality
+
+This module expands your agents' capabilities by teaching advanced tool configuration and knowledge integration techniques. You'll learn to add dynamic parameters to tools, implement sophisticated patterns for tool behavior, integrate knowledge bases and retrieval systems, and extend tools with custom code. The focus is on making agents more intelligent and adaptable while maintaining clear observability into parameter generation and tool execution.
+
+[Start with: Add parameters to your tools](04_agent_functionality/01-add-parameters-to-tools.md)
+
+### Build multi-agent systems
+
+This module teaches you to orchestrate multiple specialized agents working together to handle complex scenarios. You'll learn various coordination patterns including prompt chaining, parallelization, routing, evaluator-optimizer loops, orchestrator-worker architectures, and handoff patterns. The module emphasizes reliability, maintainability, and scalability advantages of distributed agent systems over monolithic approaches, with practical implementations using Azure Logic Apps.
+
+[Start with: Build Multi-Agent Systems with Logic Apps](05_build_multi_agent_systems/01-build-multi-agent-sysystem.md)

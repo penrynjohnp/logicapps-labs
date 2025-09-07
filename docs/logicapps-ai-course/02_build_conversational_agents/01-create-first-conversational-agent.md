@@ -21,15 +21,11 @@ The agent and tool stay intentionally simple to focus on core concepts. Later mo
 
 The workflow you create is itself an A2A compliant agent (agent-to-agent): a Logic Apps workflow that can both reason with an AI model and call (or be called by) other agents via a structured protocol. Module 10 covers advanced configuration.
 
----
-
 ## Prerequisites 
 
 - An Azure account and subscription. If you don't have a subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - Existing Logic Apps Standard workflow app (or create one): [Create a single-tenant workflow app](https://learn.microsoft.com/azure/logic-apps/create-single-tenant-workflows-azure-portal).
 - Deployed Azure OpenAI model (for example a GPT family chat/completions model): [Azure OpenAI models](https://learn.microsoft.com/azure/ai-services/openai/concepts/models).
-
----
 
 ## Create the conversational agent
 
