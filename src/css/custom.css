@@ -206,7 +206,7 @@ a:hover { color: var(--ms-link-hover); }
 .theme-doc-markdown blockquote, .markdown blockquote {
   margin: 1rem 0;
   padding: 0.75rem 1rem;
-  border-left: 4px solid var(--ms-border);
+  border-left: none;
   background: var(--ms-surface);
   color: var(--ms-text-muted);
 }
