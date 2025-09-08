@@ -8,7 +8,7 @@ author: absaafan
 ms.author: absaafan
 ---
 
-In this module you learn how to observe, inspect, and debug the TourGuide conversational agent you built in Module 01. You distinguish model (reasoning) issues from workflow or integration issues, view the chat transcript, inspect tool executions, and capture deeper telemetry for ongoing monitoring.
+In this module you will learn how to observe, inspect, and debug the TourGuide conversational agent you built in chapter 01. You can distinguish model (reasoning) issues from workflow or integration issues, view the chat transcript, inspect tool executions, and capture deeper telemetry for ongoing monitoring.
 
 By the end, you will:
 - View run history for agent chat sessions.
