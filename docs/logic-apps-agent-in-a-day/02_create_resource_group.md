@@ -1,5 +1,14 @@
-# Module 2 - Creating the Resource Group
-In this module we will create the resource group that will contains all the resources provisioned in this workshop
+---
+title: 02 - Create your resource group
+description: Create the Azure resource group that will contain all services provisioned during the Logic Apps Agent in a Day workshop.
+ms.service: logic-apps
+ms.topic: tutorial
+ms.date: 08/19/2025
+author: absaafan
+ms.author: absaafan
+---
+
+In this module we will create the Azure resource group that will contain all the resources provisioned in this workshop.
 
 1. In the search bar, enter `Resource Groups` and select `Resource Groups` from list of services returned.
 

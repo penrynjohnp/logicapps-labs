@@ -1,5 +1,14 @@
-# Module 12 - Create Tool - ServiceNow Close Incident
-In this module we will create a stateful workflow to close an existing ServiceNow Incident. Next, we will incorporate the workflow into our Agent Loop at as tool to enable the agent to close and provide some resolution comments for our ServiceNow Incident .
+---
+title: 12 - Create the 'ServiceNow Close Incident' tool
+description: Build a stateful workflow tool to close ServiceNow incidents with resolution notes.
+ms.service: logic-apps
+ms.topic: tutorial
+ms.date: 08/19/2025
+author: absaafan
+ms.author: absaafan
+---
+
+In this module we will create a stateful workflow to close an existing ServiceNow incident and add resolution comments.
 
 ## Create the Stateful Workflow
 1. Search for and navigate to the Logic Apps service

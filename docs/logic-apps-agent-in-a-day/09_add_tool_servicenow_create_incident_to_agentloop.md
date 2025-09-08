@@ -1,4 +1,13 @@
-# Module 9 - Add ServiceNow Create Incident Tool to Agent Loop
+---
+title: 09 - Add the 'ServiceNow Create Incident' tool to your agent
+description: Add the ServiceNow Create Incident workflow as a callable tool in the Agent Loop.
+ms.service: logic-apps
+ms.topic: tutorial
+ms.date: 08/19/2025
+author: absaafan
+ms.author: absaafan
+---
+
 In this module we will take the ServiceNow Create Incident workflow and add it as a tool in our Agent Loop workflow.
 
 

@@ -1,5 +1,14 @@
-# Module 6 - Setup the Knowledgebase
-In the module we will provision an Azure Storage Account that will hold our operations manual / knowledgebase that will be used by the Logic Apps Agent Loop to determine the actions our agent performs.
+---
+title: 06 - Setup your knowledge base
+description: Create an Azure Storage account and upload an operational runbook for agent knowledge retrieval.
+ms.service: logic-apps
+ms.topic: tutorial
+ms.date: 08/19/2025
+author: absaafan
+ms.author: absaafan
+---
+
+In this module we will provision an Azure Storage account that will hold our operations manual / knowledge base used by the Logic Apps Agent Loop.
 
 
 1. Search for and Navigate to `Storage Accounts`
