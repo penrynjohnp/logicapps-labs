@@ -1,5 +1,5 @@
 ---
-title: 05 - Implement the Evaluator-Optimizer pattern with Azure Logic Apps
+title: 05 - Implement the evaluator-optimizer pattern with Azure Logic Apps
 description: Learn how to implement the evaluator-optimizer pattern in Azure Logic Apps — building iterative optimizer/evaluator agent workflows with feedback loops, evaluation criteria, and convergence controls to continuously improve output quality.
 ms.service: logic-apps
 ms.topic: tutorial

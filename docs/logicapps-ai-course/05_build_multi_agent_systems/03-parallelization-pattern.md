@@ -1,5 +1,5 @@
 --- 
-title: 03 - Implement the Parallelization pattern with Azure Logic Apps
+title: 03 - Implement the parallelization pattern with Azure Logic Apps
 description:  Learn how to implement the parallelization pattern with Azure Logic Apps — designing, orchestrating, and deploying concurrent multi-agent workflows with aggregation, fault tolerance, and performance optimization.
 ms.service: logic-apps
 ms.topic: tutorial

@@ -1,5 +1,5 @@
 --- 
-title: 01 - Build Multi-Agent Systems with Logic Apps
+title: 01 - Build multi-agent aystems with Azure Logic Apps
 description: Learn how to design, orchestrate, and deploy multi-agent systems with Logic Apps — covering agent orchestration patterns, state and error management, authentication, and integration with existing deployment workflows.
 ms.service: logic-apps
 ms.topic: tutorial
