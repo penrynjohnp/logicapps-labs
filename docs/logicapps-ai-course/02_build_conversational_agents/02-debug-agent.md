@@ -8,7 +8,7 @@ author: absaafan
 ms.author: absaafan
 ---
 
-In this module you learn how to observe, inspect, and debug the TourGuide conversational agent you built in Module 01. You distinguish model (reasoning) issues from workflow or integration issues, view the chat transcript, inspect tool executions, and capture deeper telemetry for ongoing monitoring.
+In this module you will learn how to observe, inspect, and debug the TourGuide conversational agent you built in chapter 01. You can distinguish model (reasoning) issues from workflow or integration issues, view the chat transcript, inspect tool executions, and capture deeper telemetry for ongoing monitoring.
 
 By the end, you will:
 - View run history for agent chat sessions.
@@ -19,14 +19,12 @@ By the end, you will:
 
 You continue using the same TourGuide workflow created earlier.
 
----
-
 ## Prerequisites
+
 - Completed agent created on [01 - Create your first conversational agent in Azure Logic Apps](./01-create-first-conversational-agent.md) module.
 
----
-
 ## Debugging overview
+
 An agent run (chat session) consists of: chat transcript (user ↔ agent messages); agent loop reasoning (decide, tool, respond); tool executions (workflow actions); model interactions (system + context + user prompt and model replies); workflow runtime (triggers, actions, retries, latency, failures). You drill from run status down to specific reasoning or action artifacts to isolate the cause.
 
 The run history or monitoring view for a conversational agent run consists of the following parts.
@@ -45,8 +43,6 @@ The agent log shows the conversation chat history for that session so far. The a
 It also shows when tools were executed by the agent. The tool names are hyperlinked and clicking on them will navigate you to the task where that tool was executed so you can inspect the inputs and outputs of the action.
 
 ![Screenshot shows the different parts of the run history](media/02-debug-agent/run-history-overview.png)
-
----
 
 ### Step 1 - Open run history
 1. In the Logic Apps resource, select Workflows.
@@ -81,8 +77,6 @@ It also shows when tools were executed by the agent. The tool names are hyperlin
     ![Screenshot shows inspecting the inputs and outputs of an action inside an agent tool](media/02-debug-agent/inspect-tool-actions.png)
 
 The monitoring view in Azure Logic Apps lets you debug your agent workflow and inspect every part of its execution. This helps you adjust your workflow as needed, whether it be updating system prompts or clarifying tool names and descriptions.
-
----
 
 ## Summary & next steps
 You inspected run history, transcripts, reasoning steps, tool calls, and model interactions. Next, introduce additional tools, user context, and other patterns.

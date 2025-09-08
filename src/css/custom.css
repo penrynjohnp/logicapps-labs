@@ -206,7 +206,7 @@ a:hover { color: var(--ms-link-hover); }
 .theme-doc-markdown blockquote, .markdown blockquote {
   margin: 1rem 0;
   padding: 0.75rem 1rem;
-  border-left: 4px solid var(--ms-border);
+  border-left: none;
   background: var(--ms-surface);
   color: var(--ms-text-muted);
 }
@@ -333,16 +333,60 @@ a:hover { color: var(--ms-link-hover); }
 }
 .pagination-nav__link:hover { border-color: var(--ms-link); }
 
-/* Sidebar typography alignment */
-/* Sidebar-only base font size and typography */
-.theme-doc-sidebar-menu { font-size: 13px; }
-.theme-doc-sidebar-menu .menu__link {
-  font-size: 1rem; /* equals 13px within the sidebar */
-  line-height: 1.45;
-  padding-top: 0.35rem;
-  padding-bottom: 0.35rem;
+/* Sidebar typography alignment - Microsoft Learn style */
+.theme-doc-sidebar-menu { 
+  font-size: 14px; /* Base font size for sidebar container */
 }
-.theme-doc-sidebar-menu .menu__link--sublist { font-weight: 700; }
-.theme-doc-sidebar-menu .menu__link--active { font-weight: 600; }
-/* Slightly smaller nested submenu items */
-.theme-doc-sidebar-menu .menu__list .menu__list .menu__link { font-size: 0.95rem; }
+.theme-doc-sidebar-menu .menu__link {
+  font-size: 0.875rem; /* 14px equivalent - smaller than main content */
+  font-weight: 400; /* Normal weight like MS Learn */
+  line-height: 1.4;
+  padding-top: 0.25rem;
+  padding-bottom: 0.25rem;
+  color: var(--ms-text-muted);
+}
+.theme-doc-sidebar-menu .menu__link:hover {
+  color: var(--ms-text);
+}
+.theme-doc-sidebar-menu .menu__link--sublist { 
+  font-weight: 500; /* Medium weight for category headers */
+  font-size: 0.875rem;
+}
+.theme-doc-sidebar-menu .menu__link--active { 
+  font-weight: 500; /* Medium weight for active items */
+  color: var(--ms-link);
+}
+/* Nested submenu items - even smaller */
+.theme-doc-sidebar-menu .menu__list .menu__list .menu__link { 
+  font-size: 0.8125rem; /* 13px equivalent for nested items */
+  font-weight: 400;
+}
+
+/* Adjust chevron/caret icons to match smaller sidebar font sizes */
+.theme-doc-sidebar-menu .menu__caret,
+.theme-doc-sidebar-menu .menu__link::before,
+.theme-doc-sidebar-menu .menu__list-item-collapsible > .menu__link::before {
+  transform: scale(0.8); /* Scale down chevrons by 20% */
+}
+
+/* Ensure chevron positioning remains correct after scaling */
+.theme-doc-sidebar-menu .menu__link--sublist .menu__caret {
+  transform: scale(0.75); /* Slightly smaller for category headers */
+}
+
+/* Adjust sidebar close button to match smaller sidebar sizing */
+.theme-doc-sidebar-container .sidebar__close,
+.theme-doc-sidebar-container .clean-btn,
+button[aria-label="Close navigation bar"] {
+  font-size: 0.875rem; /* Match sidebar font size */
+  padding: 0.25rem 0.5rem; /* Reduce padding */
+  min-height: auto; /* Allow smaller height */
+}
+
+/* Scale down the close button icon */
+.theme-doc-sidebar-container .sidebar__close svg,
+.theme-doc-sidebar-container .clean-btn svg,
+button[aria-label="Close navigation bar"] svg {
+  width: 16px; /* Smaller icon size */
+  height: 16px;
+}

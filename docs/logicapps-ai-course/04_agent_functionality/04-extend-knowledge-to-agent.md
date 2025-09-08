@@ -48,7 +48,7 @@ This two-phase approach ensures that your conversational agents can access and r
 
 Azure Logic Apps provides a comprehensive suite of document processing and transformation actions that enable seamless data ingestion from diverse sources and document formats.
 
-![Image showing AI Operations and Data Operations action groups.](../02_build_conversational_agents/media/07-add-knowledge-to-agent/action_list.png)
+![Image showing AI Operations and Data Operations action groups.](media/04-extend-knowledge-to-agent/action_list.png)
 
 ## Document Ingestion for Gen AI Applications
 
@@ -139,13 +139,20 @@ Use this tool to do a vector search of the user's question, the output of the ve
    1. Set the **Index Name** property to the index used in the ingestion workflow.
    1. Set the **Vector Fields** property to the embeddings field of your index. If you are using the index schema in this module the filed name would be: *Embedding*.
    . Set the **Number Of Nearest Neighbors To Return** property to 2.
+   ![Screenshot of AI Search - vector search action.](media/04-extend-knowledge-to-agent/retrieval_search_vec.png)
 1. Save the workflow.
 
 ### Step 3 - Test your workflow in Chat experience
 
 1. On the designer toolbar, select **Chat**.
 1. In the chat client interface, ask the following questions: **How many health plan options are available?**
+   ![Screenshot of chat experience.](media/04-extend-knowledge-to-agent/chat_conversation.png)
 
+### Step 4 (Optional) - View Run history
+1. Click **Run history** on the left-side menu and open the latest run.
+   ![Screenshot of run history agent output.](media/04-extend-knowledge-to-agent/run_history_agent.png)
+   ![Screenshot of run history embeddings output.](media/04-extend-knowledge-to-agent/run_history_embed.png)
+   ![Screenshot of run history vector search output.](media/04-extend-knowledge-to-agent/run_history_vector.png)
 ## Advanced RAG using Azure AI Search
 
 Azure AI Search provides enterprise-grade search capabilities that enable sophisticated RAG implementations by indexing and retrieving relevant content from large document collections. It supports semantic search, vector search, and hybrid search approaches, allowing your conversational agents to find the most contextually relevant information from unstructured documents, PDFs, web pages, and structured data sources. With built-in AI enrichment capabilities, Azure AI Search can extract entities, key phrases, and semantic meaning from documents during indexing, creating a rich knowledge base that enhances the quality and precision of your agent's responses.
