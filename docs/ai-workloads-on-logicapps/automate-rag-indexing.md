@@ -1,8 +1,8 @@
 ---
 sidebar_position: 1
 title: Automate RAG Indexing
-sidebar_label: "Automate RAG Indexing"
-description: "Automate RAG Indexing: Azure Logic Apps & AI Search for Source Document Processing"
+sidebar_label: "Automate RAG indexing"
+description: "Automate RAG Indexing using Azure Logic Apps and AI Search for Source Document Processing"
 image: aka.ms/logicapps/labs/ai-workloads-on-logicapps/assets/automate-rag.gif
 keywords: [rag, ai search, logic apps, azure, indexing, azure search]
 authors:

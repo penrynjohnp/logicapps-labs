@@ -1,8 +1,8 @@
 ---
 sidebar_position: 2
-title: 🤖 AI Procurement assistant
-sidebar_label: "AI Procurement assistant"
-description: "AI Procurement assistant using prompt templates in Standard Logic Apps"
+title: AI Procurement assistant
+sidebar_label: "Implement an AI procurement assistant"
+description: "AI Procurement assistant using prompt templates in Azure Logic Apps (Standard)"
 image: aka.ms/logicapps/labs/ai-workloads-on-logicapps/assets/procurementeAssistantanimated.gif
 keywords: [AI agent,AI assistant, procurement, logic apps, azure]
 authors:
