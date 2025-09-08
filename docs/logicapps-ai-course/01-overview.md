@@ -1,5 +1,5 @@
 ---
-title: Overview of Agents in Azure Logic Apps (Standard)
+title: Overview
 description: An overview of the lesson that helps you build and deploy Agents in Azure Logic Apps.
 ms.service: logic-apps
 ms.topic: tutorial
@@ -8,26 +8,24 @@ author: absaafan
 ms.author: absaafan
 ---
 
-# Overview
-
 This course introduces what’s possible when you build conversational and autonomous agents using Azure Logic Apps. It explains the unique capabilities that Azure Logic Apps brings to agent architectures and gives a short outline of each module.
 
-## Introduction
+## Building agentic workflows with Azure Logic Apps
 
-Agents combine reasoning, state, and tools to take actions in response to user inputs or events. Using Azure Logic Apps for agents lets you separate the agent’s decision logic (the model, prompts, and orchestration) from reliable, production-grade execution and integration.
+Agents combine reasoning, state, and tools to take actions in response to user inputs or events. Agentic workflows are orchestrations that embed an AI agent’s iterative model reasoning, tool executions, and durable state to autonomously advance tasks or conversations across connected systems.
+
+Using Azure Logic Apps for agentic workflows lets you combine the agent’s decision logic (the model, prompts, and orchestration) with reliable, production-grade execution and integration.
 
 Azure Logic Apps provides an enterprise grade workflow engine with a visual designer and offers multiple hosting options ranging from on-premises to cloud. Adding agent loop(s) into your workflow unlocks powerful AI reasoning coupled with the extensive features and proven reliability that Azure Logic Apps are known for.
 
-## Building agents with Azure Logic Apps
+Here are the main reasons to choose Azure Logic Apps when you build agentic workflows:
 
-Here are the main reasons to choose Azure Logic Apps when you build agents:
-
+- Rich connectivity: hundreds of built-in connectors, custom connectors, and HTTP actions let agents call SaaS APIs, databases, and on-premises systems without custom plumbing.
+- Developer experience and automation: visual designer, ARM/Bicep/ Terraform support, and CI/CD integration help you ship and maintain agent workflows as code.
 - Durable execution: logic app workflows can persist state and resume after service restarts, enabling long-running sessions, retries, and compensation patterns without losing context.
 - Enterprise scale: the platform supports high concurrency, regional deployments, and resilient infrastructure to run many agent instances reliably.
 - Monitoring and diagnostics: native integration with Azure Monitor, Log Analytics, and diagnostic settings gives you structured telemetry, traces, and the ability to create alerts and dashboards for agent behavior.
 - Security and compliance: use Azure RBAC, managed identities, private endpoints, network controls, and platform encryption to protect secrets, connectors, and data flows.
-- Rich connectivity: hundreds of built-in connectors, custom connectors, and HTTP actions let agents call SaaS APIs, databases, and on-premises systems without custom plumbing.
-- Developer experience and automation: visual designer, ARM/Bicep/ Terraform support, and CI/CD integration help you ship and maintain agent workflows as code.
 
 ## Agent loops in Azure Logic Apps
 
@@ -76,8 +74,8 @@ This module expands your agents' capabilities by teaching advanced tool configur
 
 [Start with: Add parameters to your tools](04_agent_functionality/01-add-parameters-to-tools.md)
 
-### Build multi-agent systems
+### Multi-agent workflow patterns
 
 This module teaches you to orchestrate multiple specialized agents working together to handle complex scenarios. You'll learn various coordination patterns including prompt chaining, parallelization, routing, evaluator-optimizer loops, orchestrator-worker architectures, and handoff patterns. The module emphasizes reliability, maintainability, and scalability advantages of distributed agent systems over monolithic approaches, with practical implementations using Azure Logic Apps.
 
-[Start with: Build Multi-Agent Systems with Logic Apps](05_build_multi_agent_systems/01-build-multi-agent-sysystem.md)
+[Start with: Multi-agent workflow patterns overview](05_build_multi_agent_systems/01-build-multi-agent-sysystem.md)

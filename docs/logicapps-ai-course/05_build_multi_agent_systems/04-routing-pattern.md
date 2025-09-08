@@ -1,5 +1,5 @@
 --- 
-title: 04 - Implement the routing pattern with Azure Logic Apps
+title: 04 - Implement the routing pattern
 description: Learn how to implement the routing pattern with Azure Logic Apps — classifying inputs and directing them to specialized workflows with confidence thresholds, fallbacks, and monitoring to ensure reliable, scalable processing.
 ms.service: logic-apps
 ms.topic: tutorial

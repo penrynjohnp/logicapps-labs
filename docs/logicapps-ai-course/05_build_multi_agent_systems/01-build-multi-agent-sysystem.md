@@ -1,5 +1,5 @@
 --- 
-title: 01 - Build multi-agent aystems with Azure Logic Apps
+title: 01 - Overview
 description: Learn how to design, orchestrate, and deploy multi-agent systems with Logic Apps — covering agent orchestration patterns, state and error management, authentication, and integration with existing deployment workflows.
 ms.service: logic-apps
 ms.topic: tutorial
@@ -8,14 +8,12 @@ author: rohithah
 ms.author: rohithah
 ---
 
-## Introduction
-
 As AI agents become more sophisticated, the complexity of tasks they're asked to handle often exceeds what a single agent can efficiently manage. While a monolithic agent might theoretically handle complex scenarios, **multi-agent systems offer significant advantages in terms of reliability, maintainability, specialization, and scalability**.
 
 > :::note
 > This module builds upon concepts from the conversational agent and autonomous agent labs. You are encouraged to complete those modules before proceeding.
 
-### Why Multi-Agent Systems Matter
+## Why Multi-Agent Systems Matter
 
 Single agents face several inherent limitations:
 
@@ -26,7 +24,7 @@ Single agents face several inherent limitations:
 
 Multi-agent architectures address these challenges by **decomposing complex problems into specialized, manageable components**. As noted by Anthropic in their research on building effective agents, "the most successful implementations use simple, composable patterns rather than complex frameworks" <sup>1</sup>. This principle of simplicity and composability is at the heart of effective multi-agent design.
 
-### Key Benefits of Multi-Agent Systems
+## Key Benefits of Multi-Agent Systems
 
 1. **Separation of Concerns**: Each agent can focus on its specific expertise area
 2. **Fault Isolation**: Errors in one agent don't necessarily cascade to others

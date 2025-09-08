@@ -1,8 +1,8 @@
 {
-  "label": "Build multi-agent systems",
+  "label": "Multi-agent workflow patterns",
   "position": 5,
   "link": {
     "type": "generated-index",
-    "description": "Build multi-agent systems"
+    "description": "Explore multi-agent workflow patterns for Azure Logic Apps"
   }
 }
