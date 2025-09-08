@@ -1,8 +1,8 @@
 {
-  "label": "Learn about Azure Logic Apps agents",
-  "position": 4,
+  "label": "Azure Logic Apps agents tutorials",
+  "position": 2,
   "link": {
     "type": "generated-index",
-    "description": "Learn about Azure Logic Apps agents"
+    "description": "Azure Logic Apps agents tutorials"
   }
 }
