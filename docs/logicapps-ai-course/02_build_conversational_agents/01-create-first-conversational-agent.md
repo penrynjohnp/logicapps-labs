@@ -8,28 +8,24 @@ author: absaafan
 ms.author: absaafan
 ---
 
-In this module, learn how to build your first conversational agent using Azure Logic Apps (Standard), creating your first agent workflow, connecting it to an Azure OpenAI model, and adding a tool the agent can invoke. The running example is a “Tour Guide” agent for The Met (The Metropolitan Museum of Art).
+In this module, you will learn how to build your first conversational agent using Azure Logic Apps (Standard), creating your first agent workflow, connecting it to an Azure OpenAI model, and adding a tool the agent can invoke. The running example is a “Tour Guide” agent for The Met (The Metropolitan Museum of Art).
 
 By the end, you will:
 
 - Have a conversational agent you can chat with in the Azure portal.
 - Understand key concepts for conversational agents in Azure Logic Apps.
 - See basic tool execution and agent reasoning.
-- Understand the basics of the agent-to-agent (A2A) protocol (high-level).
+- Understand the basics of the agent-to-agent (A2A) protocol at a high-level.
 
 The agent and tool stay intentionally simple to focus on core concepts. Later modules extend this with additional tools, control logic, and multi‑agent patterns.
 
-The workflow you create is itself an A2A compliant agent (agent-to-agent): a Logic Apps workflow that can both reason with an AI model and call (or be called by) other agents via a structured protocol. Module 10 covers advanced configuration.
-
----
+The workflow you create is itself an A2A compliant agent - a Logic Apps workflow that can both reason with an AI model and call (or be called by) other agents via a structured protocol.
 
 ## Prerequisites 
 
 - An Azure account and subscription. If you don't have a subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - Existing Logic Apps Standard workflow app (or create one): [Create a single-tenant workflow app](https://learn.microsoft.com/azure/logic-apps/create-single-tenant-workflows-azure-portal).
 - Deployed Azure OpenAI model (for example a GPT family chat/completions model): [Azure OpenAI models](https://learn.microsoft.com/azure/ai-services/openai/concepts/models).
-
----
 
 ## Create the conversational agent
 
