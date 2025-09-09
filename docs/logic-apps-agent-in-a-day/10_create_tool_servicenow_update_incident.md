@@ -1,5 +1,14 @@
-# Module 10 - Create Tool - ServiceNow Update Incident
-In this module we will create a stateful workflow to update an existing ServiceNow Incident. Next, we will incorporate the workflow into our Agent Loop as a tool to enable the agent to record work notes for our ServiceNow Incident.
+---
+title: 10 - Create the 'ServiceNow Update Incident' tool
+description: Build a stateful workflow tool to update ServiceNow incidents and enable agent work note recording.
+ms.service: logic-apps
+ms.topic: tutorial
+ms.date: 08/19/2025
+author: absaafan
+ms.author: absaafan
+---
+
+In this module we will create a stateful workflow to update an existing ServiceNow incident and prepare it for agent use.
 
 ## Create the Stateful Workflow
 1. Search for and navigate to the Logic Apps service

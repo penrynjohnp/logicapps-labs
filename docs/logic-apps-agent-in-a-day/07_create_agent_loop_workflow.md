@@ -1,5 +1,14 @@
-# Module 7 - Create Agent Loop Workflow
-In this module we will create and configure a conversational Agent Loop workflow that will allow the user an interactive chat experience when trying to resolve operational issues at Contoso.
+---
+title: 07 - Create your agent loop workflow
+description: Build a conversational Agent Loop workflow and configure model, system instructions, channels, and first tool.
+ms.service: logic-apps
+ms.topic: tutorial
+ms.date: 08/19/2025
+author: absaafan
+ms.author: absaafan
+---
+
+In this module we will create and configure a conversational Agent Loop workflow that will allow the user an interactive chat experience when resolving operational issues.
 
 ## Create Agent Workflow
 1. Search for and navigate to the Logic Apps service

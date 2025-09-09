@@ -1,4 +1,12 @@
-# Module 1 - Introduction to Logic Apps Agent in a Day Workshop
+---
+title: 01 - Introduction
+description: Learn how to build a conversational agent in Azure Logic Apps (Standard), connect it to an Azure OpenAI model, and add its first tool.
+ms.service: logic-apps
+ms.topic: tutorial
+ms.date: 08/19/2025
+author: absaafan
+ms.author: absaafan
+---
 
 ## Harnessing the Power of Agent Loop Capabilities in Modern Automation
 

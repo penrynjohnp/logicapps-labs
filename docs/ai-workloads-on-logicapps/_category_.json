@@ -1,8 +1,8 @@
 {
-    "label": "AI",
-    "position": 2,
-    "link": {
-      "type": "generated-index",
-      "description": "AI Workloads on Logic Apps Workshop"
-    }
+  "label": "AI workload with Azure Logic Apps",
+  "position": 4,
+  "link": {
+    "type": "generated-index",
+    "description": "Azure Logic Apps AI workload tutorials"
+  }
 }

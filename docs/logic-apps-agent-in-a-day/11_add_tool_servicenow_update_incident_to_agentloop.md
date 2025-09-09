@@ -1,4 +1,13 @@
-# Module 11 - Add ServiceNow Update Incident Tool to Agent Loop
+---
+title: 11 - Add the 'ServiceNow Update Incident' tool to your agent
+description: Add the ServiceNow Update Incident workflow as a tool for logging work notes via the Agent Loop.
+ms.service: logic-apps
+ms.topic: tutorial
+ms.date: 08/19/2025
+author: absaafan
+ms.author: absaafan
+---
+
 In this module we will take the ServiceNow Update Incident workflow and add it as a tool in our Agent Loop workflow.
 
 

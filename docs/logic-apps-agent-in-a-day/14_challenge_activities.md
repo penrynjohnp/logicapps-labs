@@ -1,4 +1,12 @@
-# Module 14 - Challenge Activities
+---
+title: 14 - Challenge activities
+description: Extend the agent solution with email notifications, autonomous execution, and knowledge base updates.
+ms.service: logic-apps
+ms.topic: tutorial
+ms.date: 08/19/2025
+author: absaafan
+ms.author: absaafan
+---
 
 ## Challenge 1 - Add a new tool for email notification
 Create a new tool that will send an email to the requester, providing them updates when the incident is created and when the incident is resolved.
