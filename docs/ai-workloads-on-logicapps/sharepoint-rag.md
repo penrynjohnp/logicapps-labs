@@ -1,7 +1,7 @@
 ---
 sidebar_position: 3
-title: Sharepoint RAG with LogicApps
-sidebar_label: "Sharepoint RAG with LogicApps"
+title: Implement a SharePoint RAG with Azure Logic Apps
+sidebar_label: "Implement a SharePoint RAG"
 description: "Enabling SharePoint RAG with LogicApps Workflows"
 image: https://techcommunity.microsoft.com/t5/s/gxcuf89792/images/bS00Mzg2MjM1LXFicEdhSA?revision=5&image-dimensions=2000x2000&constrain-image=true
 keywords: [rag, ai search, logic apps, azure, indexing, azure search]
