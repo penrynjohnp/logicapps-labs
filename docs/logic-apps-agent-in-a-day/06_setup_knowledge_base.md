@@ -10,10 +10,9 @@ ms.author: absaafan
 
 In this module we will provision an Azure Storage account that will hold our operations manual / knowledge base used by the Logic Apps Agent Loop.
 
-
 1. Search for and Navigate to `Storage Accounts`
 
-    ![Search Storage Accounts](./images/06_01_search_storage_accounts.png "Serch Storage Accounts")
+    ![Search Storage Accounts](./images/06_01_search_storage_accounts.png "Search Storage Accounts")
 
 1. Create a new storage account by clicking `+ Create` 
 
@@ -41,7 +40,9 @@ In this module we will provision an Azure Storage account that will hold our ope
     ![Create new container](./images/06_05_new_storage_account_container.png "create new container")
 
 
-1. Upload the playbook to the container by cliking `Upload`
+1. Upload the playbook to the container by clicking `Upload`
+
+    ![Upload playbook](./images/06_06_upload_playbook.png "Upload playbook")
 
     ![Upload playbook](./images/06_06_upload_playbook.png "upload playbook")
 
@@ -51,7 +52,7 @@ In this module we will provision an Azure Storage account that will hold our ope
 
     ![Upload Contoso Energy - Operational Runbook](./images/06_07_upload_operational_runbook.png "upload operational runbook")
 
-    Once successfully upload you will receive the following message:
+    Once successfully uploaded, you will receive the following message:
     
     ![Blob Upload Successful](./images/06_08_upload_success.png "blob upload successful")
 
