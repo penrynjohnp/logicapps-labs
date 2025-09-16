@@ -153,6 +153,60 @@ Use this tool to do a vector search of the user's question, the output of the ve
    ![Screenshot of run history agent output.](media/04-extend-knowledge-to-agent/run_history_agent.png)
    ![Screenshot of run history embeddings output.](media/04-extend-knowledge-to-agent/run_history_embed.png)
    ![Screenshot of run history vector search output.](media/04-extend-knowledge-to-agent/run_history_vector.png)
+
+
+### Alternate AI Search Integration
+To simplify the retrieval workflow, update your Azure AI Search index to use a vectorizer that generates embeddings automatically. With a vectorizer configured to an OpenAI text-embedding deployment, the search service will create embeddings for incoming user queries, so your Logic App no longer needs a separate "Get embeddings" step.
+
+#### Benefits
+- Fewer actions in your Logic App (simpler workflows)
+- Reduced API calls and maintenance
+- Consistent vectorization when the same model is used for indexing and querying
+
+#### Step 1 - Update your Search Index
+1. In the portal go to your Azure AI Search service and find your index. Enable the vectorizer on the **Vector profiles** tab.
+1. Click the **Create** button
+![Screenshot of vector profile creation.](media/04-extend-knowledge-to-agent/create_vector.png)
+1. Choose an **Algorithm** from the drop down menu.
+1. Click **Create** under **Vectorizers**
+   - Set **Kind** to **Azure OpenAI**
+   - Set **Subscription** and **Azure OpenAI service** to your Azure OpenAI service
+   - Set **Model deployment** to your text embedding deployment
+   - Click **Save**
+     ![Screenshot of vectorizer creation.](media/04-extend-knowledge-to-agent/connect_openai.png)
+   - Click **Save** on the **Vector profile** creation.
+1. Click **Save** on the top menu of the index definition.
+![Screenshot of saved vector profile definition.](media/04-extend-knowledge-to-agent/saved_vector_profile.png)
+
+#### Step 2 - Update your retrieval workflow
+1. In the portal go to your Logic Apps resource and find your retrieval workflow. Click on the **Designer** 
+1. Remove the **Get an embedding** action and remove the **Search vectors** action.
+1. Click the plus **(+)** sign to add a new action.
+1. Search for **Azure AI Search (built-in)**.
+1. Select the *Search vectors with natural language** action.
+![Screenshot of Azure AI Search available actions.](media/04-extend-knowledge-to-agent/integrated_search.png)
+   - Set **Index Name** to the name of your index.
+   - Set **Search Text** to the agent parameter previous created named **userQuery**
+   - Click **Save** on the Designer's top menu
+   ![Screenshot of naturla language search.](media/04-extend-knowledge-to-agent/integrated_action.png)
+
+1. Test your workflow just as you did in the above steps.
+   - Click on **Chat** from the left side menu
+   - Submit the question **What health plans are available?**
+   ![Screenshot of chat using integrated search.](media/04-extend-knowledge-to-agent/search_chat.png)
+1. Verify workflow execution
+   - Click on **Run history** from the left side menu
+   - Click on the latest run and verify the agents execution
+   ![Screenshot of workflow run using integrated search action.](media/04-extend-knowledge-to-agent/integrated_search_run.png)
+
+
+#### Notes and considerations
+- Use the same embedding model/deployment for both indexing and query vectorization to ensure compatible vectors.
+- Verify quota, permissions, and cost implications for the configured embedding deployment.
+- Keep monitoring and adjust the number of nearest neighbors and scoring parameters to tune relevance.
+
+
+
 ## Advanced RAG using Azure AI Search
 
 Azure AI Search provides enterprise-grade search capabilities that enable sophisticated RAG implementations by indexing and retrieving relevant content from large document collections. It supports semantic search, vector search, and hybrid search approaches, allowing your conversational agents to find the most contextually relevant information from unstructured documents, PDFs, web pages, and structured data sources. With built-in AI enrichment capabilities, Azure AI Search can extract entities, key phrases, and semantic meaning from documents during indexing, creating a rich knowledge base that enhances the quality and precision of your agent's responses.
