@@ -41,9 +41,7 @@ In this module we will provision an Azure Storage account that will hold our ope
 
 
 1. Upload the playbook to the container by clicking `Upload`
-
-    ![Upload playbook](./images/06_06_upload_playbook.png "Upload playbook")
-
+ 
     ![Upload playbook](./images/06_06_upload_playbook.png "upload playbook")
 
 1. Download the knowledge base - [Agent in a Day - Operational Runbook.docx](./resources/Agent%20in%20a%20Day%20-%20Operational%20Runbook.docx "download playbook")
@@ -93,3 +91,6 @@ We will need to grant the Logic Apps instance access to read the blobs in our st
     - Click `Select`
     - Click `Close`
 
+1. Click `Review + Assign`
+
+    ![IAM Review and Assign](./images/06_13_iam_review_assign.png "iam review and assign")
