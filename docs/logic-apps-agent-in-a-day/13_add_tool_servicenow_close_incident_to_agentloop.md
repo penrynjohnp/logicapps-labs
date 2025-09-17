@@ -30,6 +30,7 @@ In this module we will take the ServiceNow Close Incident workflow and add it as
 1. Configure the **Call workflow in this logic app** action
     - Rename activity to `tool-close-servicenow-incident`
     - **Workflow Name** - `tool-ServiceNow-CloseIncident`
+    - Click **Show all**
 
     ![Configure Call Workflow](./images/11_06_configure_call_workflow.png "configure call workflow")
 
@@ -67,16 +68,14 @@ In this module we will take the ServiceNow Close Incident workflow and add it as
 
 ## Test your agent
 
-1. Click `Run` to start your workflow and initiate the agent session.
+1. Click `Chat` to laucnh the Agent Chat component.
 
-    ![Run Workflow](./images/13_12_run_workflow.png "run workflow")
+    ![Chat Workflow](./images/13_12_run_workflow.png "chat workflow")
 
-    You will receive a notification when the workflow has successfully started  
-    ![Workflow Started](./images/13_13_workflow_started.png "workflow started")
+1. The Agent Chat component will appear. This will display a hsitory of your previous chat sessions with the last chat session being displayed.
+Start a  new chat session by clicking `+ New Chat`
 
-1. Navigate to your **Run History** and locate your **Running** instance. Click on the identifier to view the executed steps and agent chat session.
-
-    ![Workflow Run History](./images/13_14_workflow_run_history.png "workflow run history")
+    ![Chat History](./images/13_14_workflow_chat_history.png "chat history")
 
 1. Enter the your issue for the agent to action:
 

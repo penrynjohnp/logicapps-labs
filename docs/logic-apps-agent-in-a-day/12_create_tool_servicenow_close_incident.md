@@ -77,7 +77,6 @@ In this module we will create a stateful workflow to close an existing ServiceNo
         ![Select Action ServiceNow List Records](./images/12_09_action_servicenow_list_records.png "servicenow list records")
 
 1. Configure the List Records Activity as follows
-    - Rename activity to `List Records - Get Ticket Details`
     - **Record Type:** `Incident`
     - **Advanced Parameters** (click `Show all`)
     - **Query:** `number=@{triggerBody()?['TicketNumber']}`
@@ -95,7 +94,7 @@ In this module we will create a stateful workflow to close an existing ServiceNo
 1. Configure the **Update Record** action
     - Rename activity to `Update Incident Work Notes`
     - **Record Type:** `Incident`
-    - **System ID:** *(using the expression (fx) editor)* `first(body('List_Records_-_Get_Ticket_Details')?['result'])['sys_id']`
+    - **System ID:** *(using the expression (fx) editor)* `first(body('List_Records')?['result'])['sys_id']`
     - **State:** *(Advanced Parameter)* `7`
     - **Resolution Code:** *(Advanced Parameter)* `Solution Provided`
     - **Resolution Notes:** *(Advanced Parameter)* `@{triggerBody()?['Notes']}`
