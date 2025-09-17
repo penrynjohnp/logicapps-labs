@@ -34,7 +34,7 @@ In this module we will create a stateful workflow to update an existing ServiceN
 
     ![Create Stateful Workflow](./images/10_04_create_new_stateful_workflow.png "create new stateful workflow")
 
-1. Open the workflow visual editor by clicking on the `tool-ServiceNow-UpdateIncident` link
+1. Open the workflow visual editor by clicking on the `tool-ServiceNow-UpdateIncident` link (if the workflow isn't automatically opened after the create completes)
 
     ![Open Workflow](./images/10_05_open_workflow.png "Open Workflow" )
 
@@ -92,7 +92,6 @@ In this module we will create a stateful workflow to update an existing ServiceN
         ![ServiceNow Update Activity](./images/10_11_search_action_sevicenow_update_activity.png "servicenow update activity")
 
 1. Configure the **Update Record** action
-    - Rename activity to `Update Incident Work Notes`
     - **Record Type:** `Incident`
     - **System ID:** *(using the expression (fx) editor)* `first(body('List_Records_-_Get_Ticket_Details')?['result'])['sys_id']`
     - **State:** *(Advanced Parameter)* `2`
