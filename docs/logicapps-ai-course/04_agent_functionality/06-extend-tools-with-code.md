@@ -1,5 +1,5 @@
 ---
-title: 05 - Extend your tools with code
+title: 06 - Extend your tools with code
 description: Learn how to extend the functionality of your Azure Logic Apps workflows and agents with built-in tools.
 ms.service: azure-logic-apps
 author: brbenn
