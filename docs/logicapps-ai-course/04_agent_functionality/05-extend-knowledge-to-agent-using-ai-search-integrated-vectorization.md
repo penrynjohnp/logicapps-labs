@@ -21,7 +21,7 @@ When finished with this module, you'll have gained the following knowledge:
 >- You have a upload a pdf document to your storage resource. The link to this resource will be used in the next steps. The pdf used in this module can be download here [Benefit_Options.pdf](media/03-add-knowledge-to-agent/Benefit_Options.pdf) 
 > - You have access to an Open AI Service and this service has a deployed model for generating text embeddings. For more on creating this service visit [Explore Azure OpenAI in Azure AI Foundry](https://learn.microsoft.com/en-us/azure/ai-foundry/openai/tutorials/embeddings?source=recommendations&tabs=command-line%2Cpython-new&pivots=programming-language-python).
 > - You have access to an Azure AI Search service. For more on creating this resource visit here [Create an Azure AI Search service](https://learn.microsoft.com/en-us/azure/search/tutorial-optimize-indexing-push-api#create-an-azure-ai-search-service). Additionally, this module assumes your search index is created using this index schema: [index_schema](media/05-extend-knowledge-to-agent-using-ai-search-integrated-vectorization/integrated_vectorizer_schema.json)
->  - Be sure to supply your own OpenAI resource values for the following: {OpenAI resource URI}, {deployment ID}, {API key}, and { model name }.
+>  - Be sure to supply your own OpenAI resource values for the following: \{OpenAI resource URI\}, \{deployment ID\}, \{API key\}, and \{model name\}.
 
 ### Part 1 - Create our data ingestion workflow
 Refer to [Module 4](https://azure.github.io/logicapps-labs/docs/logicapps-ai-course/agent_functionality/extend-knowledge-to-agent#step-1---create-our-data-ingestion-worflow) - Step 1 for creating your ingestion workflow.
