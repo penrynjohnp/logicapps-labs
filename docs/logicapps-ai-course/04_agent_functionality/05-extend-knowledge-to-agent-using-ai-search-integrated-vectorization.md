@@ -49,7 +49,7 @@ Using the supplied index JSON file we will create your index in Azure AI Search.
    1. If you do not have an embedding model deploy, follow the steps [here](https://learn.microsoft.com/en-us/azure/ai-foundry/openai/how-to/create-resource?pivots=web-portal#deploy-a-model) to deploy a model.
 
 
-![Screenshot of applied index JSON.](media/05-extend-knowledge-to-agent-using-ai-search-integrated-vectorization/index_JSON_add.png)
+![Screenshot of applied index JSON.](media/05-extend-knowledge-to-agent-using-ai-search-integrated-vectorization/index_json_add.png)
 1.With the values replaced for your OpenAI resource, click Save.
 1. After successfully saving the index, click on the **Indexes** left side menu item.
 1. Verify the index you created is listed.
@@ -73,6 +73,8 @@ Using the supplied index JSON file we will create your index in Azure AI Search.
 1. Copy the cotents of the skillset JSON [here](media/05-extend-knowledge-to-agent-using-ai-search-integrated-vectorization/skillset.JSON). This file defines two "skills" that will execute when your document is ingested.
     1. The **split-documents** skill will chunk your document into section that are small enough to be sent to OpenAI for generating embeddings,
     1. The **create-embeddings** skill will send your text chunks to your OpenAI text embeddings deployment and return their embeddings.
+    1. Replace the value **resourceUri** with your OpenAI resource endpoint.
+    1. Replace the value **apiKey** with your OpenAI resource's api key.
 1. Click **Save**.
 
 ##### Part C - Create your indexer
