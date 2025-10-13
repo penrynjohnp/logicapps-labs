@@ -3,12 +3,13 @@ title: 10 - Create the 'ServiceNow Update Incident' tool
 description: Build a stateful workflow tool to update ServiceNow incidents and enable agent work note recording.
 ms.service: logic-apps
 ms.topic: tutorial
-ms.date: 08/19/2025
-author: absaafan
-ms.author: absaafan
+ms.date: 10/12/2025
+author: leonglaz
+ms.author: leonglaz
 ---
 
 In this module we will create a stateful workflow to update an existing ServiceNow incident and prepare it for agent use.
+
 
 ## Create the Stateful Workflow
 1. Search for and navigate to the Logic Apps service
@@ -38,7 +39,125 @@ In this module we will create a stateful workflow to update an existing ServiceN
 
     ![Open Workflow](./images/10_05_open_workflow.png "Open Workflow" )
 
-## Configure Workflow
+# Configure Workflow 
+There are two options to configure the workflow.
+
+ - [(Option 1) Configure Worflow using existing workflow.json](#option-1-configure-worflow-using-existing-workflowjson) -  provides a preconfigured workflow definition. This option saves you time creating the tools allowing more time to play to interact with the agent.
+ - [(Option 2) Configure Workflow using designer](#option-2-configure-workflow-using-designer) - provides step by step instructions for configuring the workflow using the designer. Use this option if you want more practice using the Logic Apps Designer.
+## (Option 1) Configure Worflow using existing workflow.json
+1. Select the `Code` Option in the **Tools**
+
+    ![Tools - Code](./images/10_01_01_tools_code_menu.png "tools code menu")
+
+1. Paste the contents of the `workflow.json` file into the editor
+
+    <details>
+    <summary>Expand to see the full details of the workflow.json</summary>
+
+    ```JSON
+    {
+        "definition": {
+            "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+            "contentVersion": "1.0.0.0",
+            "actions": {
+                "List_Records": {
+                    "type": "ApiConnection",
+                    "inputs": {
+                        "host": {
+                            "connection": {
+                                "referenceName": "service-now"
+                            }
+                        },
+                        "method": "get",
+                        "path": "/api/now/v2/table/@{encodeURIComponent('incident')}",
+                        "queries": {
+                            "sysparm_display_value": false,
+                            "sysparm_exclude_reference_link": true,
+                            "sysparm_query": "number=@{triggerBody()?['TicketNumber']}"
+                        }
+                    },
+                    "runAfter": {}
+                },
+                "Update_Record": {
+                    "type": "ApiConnection",
+                    "inputs": {
+                        "host": {
+                            "connection": {
+                                "referenceName": "service-now"
+                            }
+                        },
+                        "method": "put",
+                        "body": {
+                            "state": "2",
+                            "work_notes": "@triggerBody()?['Notes']"
+                        },
+                        "path": "/api/now/v2/table/@{encodeURIComponent('incident')}/@{encodeURIComponent(first(body('List_Records')?['result'])['sys_id'])}",
+                        "queries": {
+                            "sysparm_display_value": false,
+                            "sysparm_exclude_reference_link": true
+                        }
+                    },
+                    "runAfter": {
+                        "List_Records": [
+                            "SUCCEEDED"
+                        ]
+                    }
+                },
+                "Response": {
+                    "type": "Response",
+                    "kind": "Http",
+                    "inputs": {
+                        "statusCode": 200,
+                        "body": {
+                            "status": "Ticket {@{triggerBody()?['TicketNumber']}} has been updated successfully"
+                        }
+                    },
+                    "runAfter": {
+                        "Update_Record": [
+                            "SUCCEEDED"
+                        ]
+                    }
+                }
+            },
+            "outputs": {},
+            "triggers": {
+                "When_an_HTTP_request_is_received": {
+                    "type": "Request",
+                    "kind": "Http",
+                    "inputs": {
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "TicketNumber": {
+                                    "type": "string"
+                                },
+                                "Notes": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "kind": "Stateful"
+    }
+    ```
+    </details>
+
+1. Click the `Save` button to save the changes to the workflow
+
+    ![Save Changes](./images/10_01_02_save_code.png "save changes")
+
+    The follwoing message will appear once the changes have been successfully saved:
+    
+    ![Save Success](./images/10_01_03_save_success_status.png "save success")
+
+1. Click on the `Designer` option in the **Tools** menu to review the workflow using the designer.
+
+    ![Review Workflow using Designer](./images/10_01_04_workflow_designer_review.png "review workflow using designer")
+
+## (Option 2) Configure Workflow using designer
 1. Configure the workflow trigger to accept an HTTP Request
     - Click on `Add Trigger`
     - Select the `Request` action located in the **Built-in tools** group
@@ -47,7 +166,7 @@ In this module we will create a stateful workflow to update an existing ServiceN
         
     - Select the `When a HTTP request is received`
 
-    ![Select Action When a HTTP Request is Received](./images/10_07_add_action_when_a_http_request_is_received.png "select when a HTTP request is received")
+        ![Select Action When a HTTP Request is Received](./images/10_07_add_action_when_a_http_request_is_received.png "select when a HTTP request is received")
 
 1. Configure the `When a HTTP request is received` action:
     - **Request Body JSON Schema**
@@ -103,7 +222,7 @@ In this module we will create a stateful workflow to update an existing ServiceN
     - Click on the `+` -> `Add an Action`
     - Search for and select the `Response` activity
 
-    ![Search Activity Response](./images/10_11_search_activity_response.png "search activity response")
+      ![Search Activity Response](./images/10_11_search_activity_response.png "search activity response")
 
 1. Configure the **Response** activity
     - **Body:** 
@@ -112,9 +231,8 @@ In this module we will create a stateful workflow to update an existing ServiceN
             "status": "Ticket {@{triggerBody()?['TicketNumber']}} has been updated successfully"
         }
         ```
-    ![Response Activity Config](./images/10_13_response_activity_config.png "response activity config")
+      ![Response Activity Config](./images/10_13_response_activity_config.png "response activity config")
 
 1. Save your workflow
 
     ![Save Workflow](./images/10_14_save_workflow.png "save workflow")
-
