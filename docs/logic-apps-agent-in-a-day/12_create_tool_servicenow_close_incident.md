@@ -232,7 +232,7 @@ In this module we will create a stateful workflow to close an existing ServiceNo
     - Click on the `+` -> `Add an Action`
     - Search for and select the `Response` activity
 
-    ![Search Activity Response](./images/12_13_search_activity_response.png "search activity response")
+        ![Search Activity Response](./images/12_13_search_activity_response.png "search activity response")
 
 1. Configure the **Response** activity
     - **Body:** 
@@ -241,7 +241,7 @@ In this module we will create a stateful workflow to close an existing ServiceNo
             "status": "Ticket {@{triggerBody()?['TicketNumber']}} has been updated successfully"
         }
         ```
-    ![Response Activity Config](./images/12_14_response_activity_config.png "response activity config")
+        ![Response Activity Config](./images/12_14_response_activity_config.png "response activity config")
 
 1. Save your workflow
 
