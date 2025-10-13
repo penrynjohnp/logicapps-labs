@@ -39,21 +39,23 @@ In this module we will create a stateful workflow to update an existing ServiceN
 
     ![Open Workflow](./images/10_05_open_workflow.png "Open Workflow" )
 
-# Configure Workflow 
-There are two options to configure the workflow.
+## Configure Workflow 
 
- - [(Option 1) Configure Worflow using existing workflow.json](#option-1-configure-worflow-using-existing-workflowjson) -  provides a preconfigured workflow definition. This option saves you time creating the tools allowing more time to play to interact with the agent.
- - [(Option 2) Configure Workflow using designer](#option-2-configure-workflow-using-designer) - provides step by step instructions for configuring the workflow using the designer. Use this option if you want more practice using the Logic Apps Designer.
-## (Option 1) Configure Worflow using existing workflow.json
+<details>
+<summary>🚀 <b>Create Workflow using existing workflow.json</b> (expand for details)
+
+  -  provides a preconfigured workflow definition
+  - This option saves you time creating the tools allowing more time to play to interact with the agent.
+</summary>
+
+## Configure Worflow using existing workflow.json
 1. Select the `Code` Option in the **Tools**
 
     ![Tools - Code](./images/10_01_01_tools_code_menu.png "tools code menu")
 
 1. Paste the contents of the `workflow.json` file into the editor
 
-    <details>
-    <summary>Expand to see the full details of the workflow.json</summary>
-
+ 
     ```JSON
     {
         "definition": {
@@ -143,7 +145,7 @@ There are two options to configure the workflow.
         "kind": "Stateful"
     }
     ```
-    </details>
+
 
 1. Click the `Save` button to save the changes to the workflow
 
@@ -156,8 +158,16 @@ There are two options to configure the workflow.
 1. Click on the `Designer` option in the **Tools** menu to review the workflow using the designer.
 
     ![Review Workflow using Designer](./images/10_01_04_workflow_designer_review.png "review workflow using designer")
+</details>
 
-## (Option 2) Configure Workflow using designer
+<details>
+<summary>📋 <b>Create Workflow using the Logic Apps Workflow Designer</b>  (expand for details)
+    
+- provides step by step instructions for configuring the workflow using the designer. 
+- Use this option if you want more practice using the Logic Apps Designer 
+</summary>
+
+## Configure Workflow using designer
 1. Configure the workflow trigger to accept an HTTP Request
     - Click on `Add Trigger`
     - Select the `Request` action located in the **Built-in tools** group
@@ -236,3 +246,4 @@ There are two options to configure the workflow.
 1. Save your workflow
 
     ![Save Workflow](./images/10_14_save_workflow.png "save workflow")
+</details>
