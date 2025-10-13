@@ -45,7 +45,7 @@ In this module we will create a stateful workflow to update an existing ServiceN
 <summary>🚀 <b>Create Workflow using existing workflow.json</b> (expand for details)
 
   - 📄 -  provides a preconfigured workflow definition
-  - 🕐 - This option saves you time creating the tools allowing more time to play to interact with the agent.
+  - 🕐 - This option saves you time creating the tools allowing more time to explore and interact with the agent.
 </summary>
 
 ## Configure Worflow using existing workflow.json
