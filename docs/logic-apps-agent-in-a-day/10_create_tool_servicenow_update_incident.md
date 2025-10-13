@@ -33,7 +33,7 @@ In this module we will create a stateful workflow to update an existing ServiceN
     - Select the radio button for the `Stateful` workflow type
     - Click `Create`
 
-    ![Create Stateful Workflow](./images/10_04_create_new_stateful_workflow.png "create new stateful workflow")
+    
 
 1. Open the workflow visual editor by clicking on the `tool-ServiceNow-UpdateIncident` link (if the workflow isn't automatically opened after the create completes)
 
@@ -44,8 +44,8 @@ In this module we will create a stateful workflow to update an existing ServiceN
 <details>
 <summary>🚀 <b>Create Workflow using existing workflow.json</b> (expand for details)
 
-  -  provides a preconfigured workflow definition
-  - This option saves you time creating the tools allowing more time to play to interact with the agent.
+  - 📄 -  provides a preconfigured workflow definition
+  - 🕐 - This option saves you time creating the tools allowing more time to play to interact with the agent.
 </summary>
 
 ## Configure Worflow using existing workflow.json
@@ -163,8 +163,8 @@ In this module we will create a stateful workflow to update an existing ServiceN
 <details>
 <summary>📋 <b>Create Workflow using the Logic Apps Workflow Designer</b>  (expand for details)
     
-- provides step by step instructions for configuring the workflow using the designer. 
-- Use this option if you want more practice using the Logic Apps Designer 
+- ✅ - provides step by step instructions for configuring the workflow using the designer. 
+- ✏️ - Use this option if you want more practice using the Logic Apps Designer 
 </summary>
 
 ## Configure Workflow using designer
