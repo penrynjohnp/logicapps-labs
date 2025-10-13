@@ -3,9 +3,9 @@ title: 07 - Create your agent loop workflow
 description: Build a conversational Agent Loop workflow and configure model, system instructions, channels, and first tool.
 ms.service: logic-apps
 ms.topic: tutorial
-ms.date: 08/19/2025
-author: absaafan
-ms.author: absaafan
+ms.date: 10/12/2025
+author: leonglaz
+ms.author: leonglaz
 ---
 
 In this module we will create and configure a conversational Agent Loop workflow that will allow the user an interactive chat experience when resolving operational issues.

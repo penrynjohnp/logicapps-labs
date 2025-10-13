@@ -3,9 +3,9 @@ title: 08 - Create the 'ServiceNow Create Incident' tool
 description: Build a stateful workflow tool that creates ServiceNow incidents for agent-driven automation.
 ms.service: logic-apps
 ms.topic: tutorial
-ms.date: 08/19/2025
-author: absaafan
-ms.author: absaafan
+ms.date: 10/12/2025
+author: leonglaz
+ms.author: leonglaz
 ---
 
 In this module we will create a stateful workflow to create a ServiceNow incident. Our Agent Loop will leverage this workflow as a tool when processing user requests.

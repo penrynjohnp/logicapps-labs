@@ -3,9 +3,9 @@ title: 04 - Setup your ServiceNow developer Sandbox
 description: Set up a ServiceNow developer instance and configure OAuth for Logic Apps integration.
 ms.service: logic-apps
 ms.topic: tutorial
-ms.date: 08/19/2025
-author: absaafan
-ms.author: absaafan
+ms.date: 10/12/2025
+author: leonglaz
+ms.author: leonglaz
 ---
 
 A ServiceNow environment will be required to enable our integration to create and interact with incident tickets.

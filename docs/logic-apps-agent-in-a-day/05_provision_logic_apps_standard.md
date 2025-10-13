@@ -3,9 +3,9 @@ title: 05 - Provision your Logic Apps (Standard)
 description: Provision a Logic Apps (Standard) instance to host and run agent workflows.
 ms.service: logic-apps
 ms.topic: tutorial
-ms.date: 08/19/2025
-author: absaafan
-ms.author: absaafan
+ms.date: 10/12/2025
+author: leonglaz
+ms.author: leonglaz
 ---
 
 In this module we will provision a Logic Apps Standard instance enabling us to create and test our workflows.

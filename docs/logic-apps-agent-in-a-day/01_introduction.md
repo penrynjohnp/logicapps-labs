@@ -3,9 +3,9 @@ title: 01 - Introduction
 description: Learn how to build a conversational agent in Azure Logic Apps (Standard), connect it to an Azure OpenAI model, and add its first tool.
 ms.service: logic-apps
 ms.topic: tutorial
-ms.date: 08/19/2025
-author: absaafan
-ms.author: absaafan
+ms.date: 10/12/2025
+author: leonglaz
+ms.author: leonglaz
 ---
 
 ## Harnessing the Power of Agent Loop Capabilities in Modern Automation

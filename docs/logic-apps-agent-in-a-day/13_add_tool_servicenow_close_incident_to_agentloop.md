@@ -3,9 +3,9 @@ title: 13 - Add the 'ServiceNow Close Incident' tool to your agent
 description: Add the ServiceNow Close Incident workflow as a tool for automated closure with resolution notes.
 ms.service: logic-apps
 ms.topic: tutorial
-ms.date: 08/19/2025
-author: absaafan
-ms.author: absaafan
+ms.date: 10/12/2025
+author: leonglaz
+ms.author: leonglaz
 ---
 
 In this module we will take the ServiceNow Close Incident workflow and add it as a tool in our Agent Loop workflow.
