@@ -3,9 +3,9 @@ title: 12 - Create the 'ServiceNow Close Incident' tool
 description: Build a stateful workflow tool to close ServiceNow incidents with resolution notes.
 ms.service: logic-apps
 ms.topic: tutorial
-ms.date: 08/19/2025
-author: absaafan
-ms.author: absaafan
+ms.date: 10/12/2025
+author: leonglaz
+ms.author: leonglaz
 ---
 
 In this module we will create a stateful workflow to close an existing ServiceNow incident and add resolution comments.
@@ -38,7 +38,134 @@ In this module we will create a stateful workflow to close an existing ServiceNo
 
     ![Open Workflow](./images/12_05_open_workflow.png "Open Workflow" )
 
-## Configure Workflow
+<details>
+<summary>🚀 <b>Create Workflow using existing workflow.json</b> (expand for details)
+
+  - 📄 -  provides a preconfigured workflow definition
+  - 🕐 - This option saves you time creating the tools allowing more time to explore and interact with the agent.
+</summary>
+
+## Configure Worflow using existing workflow.json
+1. Select the `Code` Option in the **Tools**
+
+    ![Tools - Code](./images/12_01_01_tools_code_menu.png "tools code menu")
+
+1. Paste the contents of the `workflow.json` file into the editor
+
+    ```JSON
+    {
+        "definition": {
+            "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+            "contentVersion": "1.0.0.0",
+            "actions": {
+                "List_Records": {
+                    "type": "ApiConnection",
+                    "inputs": {
+                        "host": {
+                            "connection": {
+                                "referenceName": "service-now"
+                            }
+                        },
+                        "method": "get",
+                        "path": "/api/now/v2/table/@{encodeURIComponent('incident')}",
+                        "queries": {
+                            "sysparm_display_value": false,
+                            "sysparm_exclude_reference_link": true,
+                            "sysparm_query": "number=@{triggerBody()?['TicketNumber']}"
+                        }
+                    },
+                    "runAfter": {}
+                },
+                "Update_Record": {
+                    "type": "ApiConnection",
+                    "inputs": {
+                        "host": {
+                            "connection": {
+                                "referenceName": "service-now"
+                            }
+                        },
+                        "method": "put",
+                        "body": {
+                            "state": "7",
+                            "close_code": "Solution Provided",
+                            "close_notes": "@triggerBody()?['Notes']"
+                        },
+                        "path": "/api/now/v2/table/@{encodeURIComponent('incident')}/@{encodeURIComponent(first(body('List_Records')?['result'])['sys_id'])}",
+                        "queries": {
+                            "sysparm_display_value": false,
+                            "sysparm_exclude_reference_link": true
+                        }
+                    },
+                    "runAfter": {
+                        "List_Records": [
+                            "SUCCEEDED"
+                        ]
+                    }
+                },
+                "Response": {
+                    "type": "Response",
+                    "kind": "Http",
+                    "inputs": {
+                        "statusCode": 200,
+                        "body": {
+                            "status": "Ticket {@{triggerBody()?['TicketNumber']}} has been updated successfully"
+                        }
+                    },
+                    "runAfter": {
+                        "Update_Record": [
+                            "SUCCEEDED"
+                        ]
+                    }
+                }
+            },
+            "outputs": {},
+            "triggers": {
+                "When_an_HTTP_request_is_received": {
+                    "type": "Request",
+                    "kind": "Http",
+                    "inputs": {
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "TicketNumber": {
+                                    "type": "string"
+                                },
+                                "Notes": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "kind": "Stateful"
+    }    
+    ```
+
+
+1. Click the `Save` button to save the changes to the workflow
+
+    ![Save Changes](./images/12_01_02_save_code.png "save changes")
+
+    The follwoing message will appear once the changes have been successfully saved:
+    
+    ![Save Success](./images/12_01_03_save_success_status.png "save success")
+
+1. Click on the `Designer` option in the **Tools** menu to review the workflow using the designer.
+
+    ![Review Workflow using Designer](./images/12_01_04_workflow_designer_review.png "review workflow using designer")
+</details>
+
+<details>
+<summary>📋 <b>Create Workflow using the Logic Apps Workflow Designer</b>  (expand for details)
+    
+- ✅ - provides step by step instructions for configuring the workflow using the designer. 
+- ✏️ - Use this option if you want more practice using the Logic Apps Designer 
+</summary>
+
+## Configure Workflow using designer
+
 1. Configure the workflow trigger to accept an HTTP Request
     - Click on `Add Trigger`
     - Select the `Request` action located in the **Built-in tools** group
@@ -120,3 +247,4 @@ In this module we will create a stateful workflow to close an existing ServiceNo
 
     ![Save Workflow](./images/12_15_save_workflow.png "save workflow")
 
+</details>
