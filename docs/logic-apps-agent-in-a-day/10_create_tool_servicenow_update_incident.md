@@ -42,7 +42,8 @@ In this module we will create a stateful workflow to update an existing ServiceN
 ## Configure Workflow 
 
 <details>
-<summary>🚀 <b>Create Workflow using existing workflow.json</b> (expand for details)
+<summary>
+    🚀 <b>Create Workflow using existing workflow.json</b> (expand for details)
 
   - 📄 -  provides a preconfigured workflow definition
   - 🕐 - This option saves you time creating the tools allowing more time to explore and interact with the agent.
@@ -161,7 +162,8 @@ In this module we will create a stateful workflow to update an existing ServiceN
 </details>
 
 <details>
-<summary>📋 <b>Create Workflow using the Logic Apps Workflow Designer</b>  (expand for details)
+<summary>
+    📋 <b>Create Workflow using the Logic Apps Workflow Designer</b>  (expand for details)
     
 - ✅ - provides step by step instructions for configuring the workflow using the designer. 
 - ✏️ - Use this option if you want more practice using the Logic Apps Designer 
