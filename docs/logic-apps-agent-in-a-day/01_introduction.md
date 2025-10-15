@@ -69,7 +69,7 @@ Agent Loop empowers Logic Apps to execute repetitive or recursive operations int
 
 - Foundational understanding of Logic Apps and cloud automation.
 - Architecture and core concepts of Agent Loop.
-- Hands-on workflows using Agent Loop (e.g., bots, escalation loops, dynamic approvals).
+- Hands-on workflows using Agent Loop (e.g., agent, human in the loop inteactions, dynamic approvals).
 - Integration with AI, ServiceNow, and Azure storage.
 - Best practices for error handling, state management, and governance.
 - Collaboration and reusable pattern development.
