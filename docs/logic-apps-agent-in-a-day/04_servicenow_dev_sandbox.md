@@ -60,6 +60,8 @@ We will need to configure an OAuth API endpoint to enable our logic apps to auth
 1. Configure the OAuth API endpoint as follows:
     - **Name:** `logic-apps-client`
     - **Redirect URL:** https://logic-apis-northcentralus.consent.azure-apim.net/redirect
+     
+       (**note:** your redirect URL will depend on the region you are deployment your Azure Logic Apps Instance. If you deployed to a different region, you will need to update your **Redirect URL:  https://logic-apis-{azure-region}.consent.azure-apim.net/redirect**)
      - Click `Submit`
 
     ![Configure OAuth API Endpoint](./images/02_08_oauth_authorization_code_grant_config.png "configure oauth api endpoint")
