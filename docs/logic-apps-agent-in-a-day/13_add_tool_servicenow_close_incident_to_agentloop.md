@@ -68,7 +68,7 @@ In this module we will take the ServiceNow Close Incident workflow and add it as
 
 ## Test your agent
 
-1. Click `Chat` to laucnh the Agent Chat component.
+1. Click `Chat` to launch the Agent Chat component.
 
     ![Chat Workflow](./images/13_12_run_workflow.png "chat workflow")
 
