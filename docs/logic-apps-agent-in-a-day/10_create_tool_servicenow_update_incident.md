@@ -207,7 +207,6 @@ In this module we will create a stateful workflow to update an existing ServiceN
         ![Select Action ServiceNow List Records](./images/10_09_action_servicenow_list_records.png "servicenow list records")
 
 1. Configure the List Records Activity as follows
-    - Rename activity to `List Records - Get Ticket Details`
     - **Record Type:** `Incident`
     - **Advanced Parameters** (click `Show all`)
     - **Query:** `number=@{triggerBody()?['TicketNumber']}`
@@ -224,7 +223,7 @@ In this module we will create a stateful workflow to update an existing ServiceN
 
 1. Configure the **Update Record** action
     - **Record Type:** `Incident`
-    - **System ID:** *(using the expression (fx) editor)* `first(body('List_Records_-_Get_Ticket_Details')?['result'])['sys_id']`
+    - **System ID:** *(using the expression (fx) editor)* `first(body('List_Records')?['result'])['sys_id']`
     - **State:** *(Advanced Parameter)* `2`
     - **Work Notes:** *(Advanced Parameter)* `@{triggerBody()?['Notes']}`
 
