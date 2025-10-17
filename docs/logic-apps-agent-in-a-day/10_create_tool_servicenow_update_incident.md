@@ -206,20 +206,20 @@ In this module we will create a stateful workflow to update an existing ServiceN
 
         ![Select Action ServiceNow List Records](./images/10_09_action_servicenow_list_records.png "servicenow list records")
 
-1. Configure the List Records Activity as follows
+1. Configure the List Records Action as follows
     - **Record Type:** `Incident`
     - **Advanced Parameters** (click `Show all`)
     - **Query:** `number=@{triggerBody()?['TicketNumber']}`
 
-        (**note:** notice that the ServiceNow connection was automatically selected for the activity)
+        (**note:** notice that the ServiceNow connection was automatically selected for the action)
 
-        ![ServiceNow List Activity Configuration](./images/10_10_servicenow_list_records_configuration.png "servicenow list records configuration")
+        ![ServiceNow List Action Configuration](./images/10_10_servicenow_list_records_configuration.png "servicenow list records configuration")
 
 1. Add the **Update Record** action to update the work notes on the incident in ServiceNow
     - Click on the `+` -> `Add an Action`
-    - Search for `ServiceNow` Connector and select the `Update Record` Activity
+    - Search for `ServiceNow` Connector and select the `Update Record` Action
 
-        ![ServiceNow Update Activity](./images/10_11_search_action_sevicenow_update_activity.png "servicenow update activity")
+        ![ServiceNow Update Action](./images/10_11_search_action_sevicenow_update_activity.png "servicenow update action")
 
 1. Configure the **Update Record** action
     - **Record Type:** `Incident`
@@ -227,22 +227,22 @@ In this module we will create a stateful workflow to update an existing ServiceN
     - **State:** *(Advanced Parameter)* `2`
     - **Work Notes:** *(Advanced Parameter)* `@{triggerBody()?['Notes']}`
 
-        ![ServiceNow Update Activity Config](./images/10_12_update_activity_config.png "servicenow update activity config")
+        ![ServiceNow Update Action Config](./images/10_12_update_activity_config.png "servicenow update action config")
 
-1. Add the **Response** activity to return a status message to the calling process
+1. Add the **Response** action to return a status message to the calling process
     - Click on the `+` -> `Add an Action`
-    - Search for and select the `Response` activity
+    - Search for and select the `Response` action
 
-      ![Search Activity Response](./images/10_11_search_activity_response.png "search activity response")
+      ![Search Action Response](./images/10_11_search_activity_response.png "search action response")
 
-1. Configure the **Response** activity
+1. Configure the **Response** action
     - **Body:** 
         ```
         {
             "status": "Ticket {@{triggerBody()?['TicketNumber']}} has been updated successfully"
         }
         ```
-      ![Response Activity Config](./images/10_13_response_activity_config.png "response activity config")
+      ![Response Action Config](./images/10_13_response_activity_config.png "response action config")
 
 1. Save your workflow
 

@@ -33,7 +33,7 @@ In this module we will take the ServiceNow Create Incident workflow and add it a
 
     ![Configure Call Workflow](./images/09_06_configure_call_workflow.png "configure call workflow")
 
-1. Configure the Tool activity.
+1. Configure the Tool action.
     - **NOTE** The way you name your tool and provide a description has a significant impact on your Agent Loop (and LLM) will discover and call your particular tool. Provide unique and descriptive terms to improve accuracy during runtime. 
     - Rename the tool to `Create Service Now Incident`
     - **Description:** `This tool will log a ServiceNow Incident`

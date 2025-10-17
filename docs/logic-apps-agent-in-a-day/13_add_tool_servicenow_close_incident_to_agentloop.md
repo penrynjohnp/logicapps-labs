@@ -28,13 +28,13 @@ In this module we will take the ServiceNow Close Incident workflow and add it as
     ![Add Call workflow](./images/13_05_add_action_call_workflow_in_this_logic_app.png "add call workflow")
 
 1. Configure the **Call workflow in this logic app** action
-    - Rename activity to `tool-close-servicenow-incident`
+    - Rename action to `tool-close-servicenow-incident`
     - **Workflow Name** - `tool-ServiceNow-CloseIncident`
     - Click **Show all**
 
     ![Configure Call Workflow](./images/11_06_configure_call_workflow.png "configure call workflow")
 
-1. Configure the Tool activity
+1. Configure the Tool action
     - Rename the tool to `Close Service Now Incident`
     - **Description:** `This tool will close a ServiceNow Incident`
     - **Agent Parameters**
@@ -56,7 +56,7 @@ In this module we will take the ServiceNow Close Incident workflow and add it as
           ![Configure Tool](./images/13_07_configure_tool.png "configure tool")
 
 1. Configure the inputs parameters for the call to the logic app.
-    - Rename the activity to `tool-ServiceNow-CloseIncident`
+    - Rename the action to `tool-ServiceNow-CloseIncident`
     - **TicketNumber:** `@{agentParameters('Ticket Number')}`
     - **Notes:** `@{agentParameters('Resolution Notes')}`
 

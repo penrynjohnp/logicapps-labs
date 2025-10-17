@@ -78,7 +78,7 @@ In this module we will create a stateful workflow to create a ServiceNow inciden
 
         ![Select Action ServiceNow List Records](./images/08_08_action_servicenow_list_records.png "servicenow list records")
 
-1. Configure the `ServiceNow - List Records` activity. 
+1. Configure the `ServiceNow - List Records` action. 
 
     - Configure the Connection:
         - **Connection Name:** `connServiceNowDev`
@@ -122,12 +122,12 @@ In this module we will create a stateful workflow to create a ServiceNow inciden
 
     ![Service Now Grant Permissions](./images/08_12_servicenow_connection_all_permissions.png "service now grant permissions")
 
-1. Configure the List Records Activity as follows
+1. Configure the List Records Action as follows
     - **Record Type:** `Group`
     - **Advanced Parameters** (click `Show all`)
     - **Query:** `name=@{triggerBody()?['AssignmentGroup']}`
 
-    ![ServiceNow List Activity Configuration](./images/08_14_servicenow_list_records_configuraiton.png "servicenow list records configuration")
+    ![ServiceNow List Action Configuration](./images/08_14_servicenow_list_records_configuraiton.png "servicenow list records configuration")
 
 1. Add a new action
 

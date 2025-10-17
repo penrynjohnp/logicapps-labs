@@ -124,7 +124,7 @@ This will enable to Agent to use the operational runbook when responding to our 
 1. Click on the Tool action to configure the settings as follows:
     The Name and Description of the tool will assist the agent in matching the action to be performed with the available tools.
 
-    - Rename the activity to `Get Operational Run book`
+    - Rename the action to `Get Operational Run book`
     - **Description:** 
         ```
         This tool will retrieve the Integration Team's operational runbook that includes troubleshooting documentation and steps to resolve those issues.

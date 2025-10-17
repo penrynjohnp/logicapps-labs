@@ -29,13 +29,13 @@ In this module we will take the ServiceNow Update Incident workflow and add it a
     ![Add Call workflow](./images/11_05_add_action_call_workflow_in_this_logic_app.png "add call workflow")
 
 1. Configure the **Call workflow in this logic app** action
-    - Rename activity to `tool-update-servicenow-incident`
+    - Rename action to `tool-update-servicenow-incident`
     - **Workflow Name** - `tool-ServiceNow-UpdateIncident`
     - click **Show all**
 
     ![Configure Call Workflow](./images/11_06_configure_call_workflow.png "configure call workflow")
 
-1. Configure the Tool activity
+1. Configure the Tool action
     - Rename the tool to `Update Service Now Incident`
     - **Description:** `This tool will update a ServiceNow Incident`
     - **Agent Parameters**
