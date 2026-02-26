@@ -96,7 +96,7 @@ In this module we will take the ServiceNow Update Incident workflow and add it a
       
         ![Prompt 1 Response - Incident Created](./images/11_12_prompt_response_incident_created.png "prompt 1 response incident created")
 
-        (**note** the agent may prompt you for the assignment group or the date the incident occurred.)
+        (**note** the agent may prompt you for the assignment group or the date the incident occurred. You can specify database.)
    
         ![Prompt 1 Response - Incident Created](./images/11_12_prompt_response_incident_created_2.png "prompt 1 response incident created")
 

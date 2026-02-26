@@ -1,6 +1,6 @@
 ---
 title: 01 - Introduction
-description: Learn how to build a conversational agent in Azure Logic Apps (Standard), connect it to an Azure OpenAI model, and add its first tool.
+description: Learn how to build an agentic business process in Azure Logic Apps (Standard), connect it to an Azure OpenAI model, and add its first tool.
 ms.service: logic-apps
 ms.topic: tutorial
 ms.date: 10/12/2025
@@ -8,17 +8,17 @@ author: leonglaz
 ms.author: leonglaz
 ---
 
-## Harnessing the Power of Agent Loop Capabilities in Modern Automation
+## Harnessing the Power of AI in Modern Automation
 
-Welcome to the **"Logic Apps Agent in a Day"** workshop—a comprehensive, hands-on journey into the future of cloud-based automation and integration, designed for the innovators, architects, and aspiring automation specialists eager to unlock new efficiencies in their organizations.
+Welcome to the **"Agentic Business Process in a Day"** workshop—a comprehensive, hands-on journey into the future of cloud-based automation and integration, designed for the innovators, architects, and aspiring automation specialists eager to unlock new efficiencies in their organizations.
 
-In today’s rapid digital landscape, businesses face the ever-increasing challenge of bridging disparate systems, harmonizing workflows, and delivering intelligent, responsive automation. Microsoft Azure Logic Apps have long stood at the forefront of this transformation, empowering professionals to orchestrate powerful workflows across cloud and on-premises environments. Now, with the introduction of the revolutionary **Agent Loop** capabilities, Logic Apps has leapt into a new era of intelligent, adaptive automation.
+In today’s rapid digital landscape, businesses face the ever-increasing challenge of bridging disparate systems, harmonizing workflows, and delivering intelligent, responsive automation. Microsoft Azure Logic Apps have long stood at the forefront of this transformation, empowering professionals to orchestrate powerful workflows across cloud and on-premises environments. Now, with the introduction of the revolutionary **agentic** capabilities, Logic Apps has leapt into a new era of intelligent, adaptive automation.
 
 ---
 
 ## Why Logic Apps? An Evolving Landscape
 
-Before we dive into the specifics of Agent Loop, let’s reflect on the transformative journey of Logic Apps. As organizations migrate to the cloud, the demand for reliable, scalable, and low-code integration is at an all-time high. Logic Apps gives users the power to:
+Before we dive into the specifics of agentic business process automation, let’s reflect on the transformative journey of Logic Apps. As organizations migrate to the cloud, the demand for reliable, scalable, and low-code integration is at an all-time high. Logic Apps gives users the power to:
 
 - Automate routine tasks across hundreds of services—both Microsoft and third-party.
 - Orchestrate business processes with robust connectors, triggers, and actions.
@@ -28,13 +28,13 @@ Before we dive into the specifics of Agent Loop, let’s reflect on the transfor
 
 ---
 
-## Introducing Agent Loop: The Next Evolution
+## Introducing Agentic capabilities: The Next Evolution
 
-The arrival of the **Agent Loop** capability marks a paradigm shift in how Logic Apps can be harnessed for iterative, stateful, and agent-driven processes.
+The arrival of the agent capabilities marks a paradigm shift in how Logic Apps can be harnessed for iterative, stateful, and agent-driven processes.
 
-### What is Agent Loop?
+### What Agentic Capabilities exist?
 
-Agent Loop empowers Logic Apps to execute repetitive or recursive operations intelligently, maintaining context and responding dynamically to changing data or states. This means that workflows can now:
+Logic Apps empowers developers to execute repetitive or recursive operations intelligently, maintaining context and responding dynamically to changing data or states. This means that workflows can now:
 
 - **Iterate with intelligence**: Context-aware iterations that adapt based on previous results or external input.
 - **Maintain state across loops**: Support for complex scenarios like conversational AI, multi-step approvals, and event-driven automation.
@@ -43,7 +43,7 @@ Agent Loop empowers Logic Apps to execute repetitive or recursive operations int
 
 ---
 
-## The Benefits of Agent Loop Capabilities
+## The Benefits of Agentic Capabilities
 
 1. **Enhanced Flexibility and Adaptivity**  
    Dynamic, intelligent orchestrating and routing for complex workflows.
@@ -68,8 +68,8 @@ Agent Loop empowers Logic Apps to execute repetitive or recursive operations int
 ## Workshop Overview: What You’ll Learn
 
 - Foundational understanding of Logic Apps and cloud automation.
-- Architecture and core concepts of Agent Loop.
-- Hands-on workflows using Agent Loop (e.g., agent, human in the loop inteactions, dynamic approvals).
+- Architecture and core concepts of agentic business processes.
+- Hands-on workflows using agentic capabilites (e.g., agent, human in the loop inteactions, dynamic approvals).
 - Integration with AI, ServiceNow, and Azure storage.
 - Best practices for error handling, state management, and governance.
 - Collaboration and reusable pattern development.
@@ -87,9 +87,9 @@ Agent Loop empowers Logic Apps to execute repetitive or recursive operations int
 
 ## Setting the Stage for Innovation
 
-Agent Loop is more than just a new feature—it’s a leap forward in how businesses, governments, and innovators can harness the power of AI agents in automating complex, adaptive processes.
+Agentic Business Processes are more than just a new feature—it’s a leap forward in how businesses, governments, and innovators can harness the power of AI agents in automating complex, adaptive processes.
 
-By the end of this workshop, you’ll be equipped to turn the promise of Agent Loop into reality, driving meaningful transformation for your teams and organizations.
+By the end of this workshop, you’ll be equipped to turn the promise of agentic business processes into reality, driving meaningful transformation for your teams and organizations.
 
 Here is your provided text converted into Markdown format:
 
@@ -97,9 +97,9 @@ Here is your provided text converted into Markdown format:
 
 ## Lab Scenario
 
-In today’s lab, we are going to build an **Operations Agent** who will help organizations manage their IT incidents. Our agent will leverage a free developer instance of **ServiceNow** as part of this process so we can manage these incidents.
+In today’s lab, we are going to build an **Operations agentic business process** who will help organizations manage their IT incidents. Our agent will leverage a free developer instance of **ServiceNow** as part of this process so we can manage these incidents.
 
-**Agent Loop** supports both autonomous and conversational agents. For the purposes of this lab, we are going to focus on building a **conversational agent**. This will allow us to chat with our agent and issue prompts (requests), letting the agent try to fulfill those requests through the use of **Generative AI**. As a bonus exercise, we will encourage you to enable **autonomous execution** of this agent as well.
+Agentic business processes support both autonomous and conversational execution. For the purposes of this lab, we are going to focus on building a **conversational experience**. This will allow us to chat with our agent and issue prompts (requests), letting the agent try to fulfill those requests through the use of **Generative AI**. As a bonus exercise, we will encourage you to enable **autonomous execution** of this agent as well.
 
 Within our agent, we will support a variety of user prompts that the agent will leverage in order to try and fulfill that request. For example, we will provide the ability to:
 
