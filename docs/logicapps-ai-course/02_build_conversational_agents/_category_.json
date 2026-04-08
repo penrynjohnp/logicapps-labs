@@ -1,8 +1,8 @@
 {
-  "label": "Build conversational agents",
+  "label": "Build conversational agentic workflows",
   "position": 2,
   "link": {
     "type": "generated-index",
-    "description": "Build conversational agents"
+    "description": "Build conversational agentic workflows"
   }
 }

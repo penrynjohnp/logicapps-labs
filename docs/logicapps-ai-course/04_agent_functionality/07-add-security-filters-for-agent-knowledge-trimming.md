@@ -1,5 +1,5 @@
 ---
-title: 07 - Add security filters for agent knowledge trimming
+title: 07 - Add security filters for agentic workflow knowledge trimming
 description: Learn how to trim search results using security filters in Azure Logic Apps workflows.
 ms.service: azure-logic-apps
 author: harimehta
