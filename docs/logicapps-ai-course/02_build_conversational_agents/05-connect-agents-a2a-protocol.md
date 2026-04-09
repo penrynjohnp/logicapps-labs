@@ -1,6 +1,6 @@
 ---
-title: 05 - Connect your agents with A2A protocol
-description: Learn how to integrate Azure Logic Apps conversational agents with external services using the A2A protocol and the A2A Python SDK.
+title: 05 - Connect your agentic workflows with A2A protocol
+description: Learn how to integrate Azure Logic Apps conversational agentic workflows with external services using the A2A protocol and the A2A Python SDK.
 ms.service: azure-logic-apps
 author: nikhilsira
 ms.author: nikhilsira

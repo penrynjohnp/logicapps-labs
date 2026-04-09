@@ -1,6 +1,6 @@
 ---
-title: 03 - Add knowledge to your agent
-description: Learn how to add custom knowledge to your Azure Logic Apps workflows and agents.
+title: 03 - Add knowledge to your agentic workflow
+description: Learn how to add custom knowledge to your Azure Logic Apps agentic workflows.
 ms.service: azure-logic-apps
 author: brbenn
 ms.author: brbenn

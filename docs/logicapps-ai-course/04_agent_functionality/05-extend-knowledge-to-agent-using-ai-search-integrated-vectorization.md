@@ -1,6 +1,6 @@
 ---
-title: 05 - Add knowledge to your agent using AI Search integrated vectorization
-description: Learn how to add custom knowledge to your Azure Logic Apps workflows and agents using AI search integrated vectorization.
+title: 05 - Add knowledge to your agentic workflow using AI Search integrated vectorization
+description: Learn how to add custom knowledge to your Azure Logic Apps agentic workflows using AI search integrated vectorization.
 ms.service: azure-logic-apps
 author: brbenn
 ms.author: brbenn

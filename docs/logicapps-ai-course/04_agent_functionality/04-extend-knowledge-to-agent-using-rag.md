@@ -1,6 +1,6 @@
 ---
-title: 04 - Add knowledge to your agent using RAG techniques
-description: Learn how to add custom knowledge to your Azure Logic Apps workflows and agents using retrieval-augmented generation.
+title: 04 - Add knowledge to your agentic workflow using RAG techniques
+description: Learn how to add custom knowledge to your Azure Logic Apps agentic workflows using retrieval-augmented generation.
 ms.service: azure-logic-apps
 author: brbenn
 ms.author: brbenn

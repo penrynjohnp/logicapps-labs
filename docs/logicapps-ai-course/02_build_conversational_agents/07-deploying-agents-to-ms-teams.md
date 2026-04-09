@@ -1,6 +1,6 @@
 --- 
-title: 07 - Deploy your agents to Microsoft Teams
-description: Learn how to deploy Logic Apps conversational agents to Microsoft Teams to enable interacting with agents through the Teams chat.
+title: 07 - Deploy your agentic workflows to Microsoft Teams
+description: Learn how to deploy Logic Apps conversational agentic workflows to Microsoft Teams to enable interacting with agentic workflows through the Teams chat.
 ms.service: logic-apps
 ms.topic: tutorial
 ms.date: 11/12/2025
